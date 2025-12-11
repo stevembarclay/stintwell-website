@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SBOS - Standard Business Operating System | Stintwell</title>
+  <meta name="description" content="Document your business processes in minutes with AI-assisted SOP creation. Try the free demo.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 0.6s ease-out; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+  
+  <!-- Hero Section -->
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <div class="text-center mb-16 fade-in">
+      <div class="mb-4">
+        <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Stintwell SBOS</span>
+      </div>
+      <h1 class="text-5xl font-bold text-gray-900 mb-4">
+        Document Your Business in Minutes
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        Stop losing knowledge when employees leave. Turn tribal knowledge into structured SOPs with AI assistance.
+      </p>
+      <button 
+        onclick="openModal()" 
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg shadow-lg transition-all transform hover:scale-105"
+      >
+        See How It Works →
+      </button>
+      <p class="text-sm text-gray-500 mt-4">No credit card required • Instant access</p>
+    </div>
+
+    <!-- Features -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="bg-white rounded-lg p-6 shadow-md fade-in" style="animation-delay: 0.1s">
+        <div class="text-4xl mb-4">🎯</div>
+        <h3 class="text-xl font-bold mb-2">AI-Assisted Creation</h3>
+        <p class="text-gray-600">Describe your process in plain English, get a structured SOP draft in seconds. No templates needed.</p>
+      </div>
+      <div class="bg-white rounded-lg p-6 shadow-md fade-in" style="animation-delay: 0.2s">
+        <div class="text-4xl mb-4">📊</div>
+        <h3 class="text-xl font-bold mb-2">Lifecycle Management</h3>
+        <p class="text-gray-600">Track SOPs from draft to published. Know what needs review. Never let critical processes go stale.</p>
+      </div>
+      <div class="bg-white rounded-lg p-6 shadow-md fade-in" style="animation-delay: 0.3s">
+        <div class="text-4xl mb-4">👥</div>
+        <h3 class="text-xl font-bold mb-2">Team Collaboration</h3>
+        <p class="text-gray-600">Assign owners, set approvers, manage departments and roles. Everyone knows who does what.</p>
+      </div>
+    </div>
+
+    <!-- Value Props -->
+    <div class="bg-white rounded-lg p-8 shadow-md mb-8">
+      <h2 class="text-2xl font-bold text-center mb-8">Built for Small & Medium Businesses</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex items-start">
+          <div class="text-2xl mr-3">✓</div>
+          <div>
+            <h4 class="font-semibold mb-1">Service Companies</h4>
+            <p class="text-gray-600 text-sm">HVAC, plumbing, electrical, property management</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <div class="text-2xl mr-3">✓</div>
+          <div>
+            <h4 class="font-semibold mb-1">IT & MSPs</h4>
+            <p class="text-gray-600 text-sm">Onboarding, incident response, change management</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <div class="text-2xl mr-3">✓</div>
+          <div>
+            <h4 class="font-semibold mb-1">Franchises</h4>
+            <p class="text-gray-600 text-sm">Consistent processes across locations</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <div class="text-2xl mr-3">✓</div>
+          <div>
+            <h4 class="font-semibold mb-1">Growing Teams</h4>
+            <p class="text-gray-600 text-sm">Scale without chaos, onboard faster</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg p-8 text-center text-white shadow-xl">
+      <h2 class="text-3xl font-bold mb-4">Ready to See It in Action?</h2>
+      <p class="text-lg mb-6 opacity-90">Try the full demo with sample data. No signup, no hassle.</p>
+      <button 
+        onclick="openModal()" 
+        class="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4 rounded-lg text-lg transition-all transform hover:scale-105"
+      >
+        Launch Free Demo
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="text-center py-8 text-gray-600 text-sm">
+    <p>© 2025 Stintwell. All rights reserved.</p>
+    <p class="mt-2">
+      <a href="https://stintwell.com" class="hover:text-blue-600">← Back to Stintwell</a>
+    </p>
+  </div>
+
+  <!-- Email Capture Modal -->
+  <div id="emailModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full shadow-2xl">
+      <h2 class="text-2xl font-bold mb-2">Get Instant Access</h2>
+      <p class="text-gray-600 mb-6">Enter your details to try the full demo with sample data</p>
+      
+      <form id="leadForm" onsubmit="handleSubmit(event)">
+        <input 
+          type="text" 
+          id="name" 
+          placeholder="Your Name" 
+          required
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        >
+        <input 
+          type="email" 
+          id="email" 
+          placeholder="Work Email" 
+          required
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg mb-4 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        >
+        <input 
+          type="text" 
+          id="company" 
+          placeholder="Company Name" 
+          required
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg mb-6 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        >
+        
+        <button 
+          type="submit"
+          id="submitBtn"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all mb-4"
+        >
+          Launch Demo →
+        </button>
+        
+        <button 
+          type="button"
+          onclick="closeModal()"
+          class="w-full text-gray-600 hover:text-gray-800"
+        >
+          Cancel
+        </button>
+      </form>
+      
+      <p class="text-xs text-gray-500 mt-4 text-center">
+        Demo mode uses sample data. Nothing is saved permanently.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('emailModal').classList.remove('hidden');
+      document.getElementById('name').focus();
+    }
+    
+    function closeModal() {
+      document.getElementById('emailModal').classList.add('hidden');
+    }
+    
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Launching...';
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const company = document.getElementById('company').value;
+      
+      // Store lead data
+      try {
+        await storeLead({ 
+          name, 
+          email, 
+          company, 
+          timestamp: new Date().toISOString(),
+          source: 'sbos_landing'
+        });
+      } catch (e) {
+        console.error('Lead storage failed:', e);
+        // Continue anyway - don't block user
+      }
+      
+      // Generate demo token
+      const token = btoa(JSON.stringify({ 
+        email, 
+        company, 
+        name, 
+        ts: Date.now() 
+      }));
+      
+      // Redirect to SBOS app with token
+      window.location.href = `https://sbos.stintwell.com?demo=${token}`;
+    }
+    
+    async function storeLead(data) {
+      // TEMPORARY: Log to console (replace with real storage)
+      console.log('Lead captured:', data);
+      
+      // OPTION 1: Google Sheets via Apps Script
+      // Uncomment and add your URL:
+      /*
+      await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      */
+      
+      // OPTION 2: Zapier Webhook
+      // Uncomment and add your webhook:
+      /*
+      await fetch('https://hooks.zapier.com/hooks/catch/YOUR_WEBHOOK/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      */
+      
+      // OPTION 3: Airtable
+      // Uncomment and add your credentials:
+      /*
+      await fetch('https://api.airtable.com/v0/YOUR_BASE/Leads', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer YOUR_API_KEY',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ fields: data })
+      });
+      */
+    }
+  </script>
+
+</body>
+</html>
