@@ -302,6 +302,38 @@
       const email = document.getElementById('email').value;
       const company = document.getElementById('company').value;
       
+      // 1. Send Lead to You (via FormSubmit AJAX)
+      try {
+        await fetch("https://formsubmit.co/ajax/steve@stintwell.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                _subject: "New SBOS Demo Lead",
+                name: name,
+                email: email,
+                company: company,
+                source: "sbos_landing_v2"
+            })
+        });
+      } catch (error) {
+        console.log("Email sending failed, but launching demo anyway.");
+      }
+      
+      // 2. Generate demo token
+      const token = btoa(JSON.stringify({ 
+        email, 
+        company, 
+        name, 
+        ts: Date.now() 
+      }));
+      
+      // 3. Redirect to SBOS app with token
+      window.location.href = `https://sbos.stintwell.com?demo=${token}`;
+    }
+      
       // Store lead data logic (preserved)
       try {
         await storeLead({ 
