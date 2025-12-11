@@ -6,8 +6,19 @@
     <title>Stintwell Advisory | Operational Clarity</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script type="text/javascript">
+      window._mfq = window._mfq || [];
+      (function() {
+        var mf = document.createElement("script");
+        mf.type = "text/javascript"; mf.defer = true;
+        mf.src = "//cdn.mouseflow.com/projects/3fbe6aa8-a218-4724-a901-43b7433883f0.js";
+        document.getElementsByTagName("head")[0].appendChild(mf);
+      })();
+    </script>
+
     <style>
-        /* Custom Font Import - Inter: Light (300) to Extra Bold (800) */
+        /* Custom Font Import - Inter */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         body {
@@ -18,11 +29,8 @@
         
         .bg-charcoal { background-color: #1C1F26; }
         .text-charcoal { color: #1C1F26; }
-        
-        /* Updated Tactical Green */
         .bg-tactical { background-color: #2A453B; } 
         .text-tactical { color: #2A453B; }
-        
         .text-bronze { color: #A68A64; }
         .bg-bronze { background-color: #A68A64; }
         .border-bronze { border-color: #A68A64; }
@@ -33,16 +41,15 @@
             opacity: 0.1;
         }
 
-        /* Utility for the vertical measure line */
         .measure-line {
             position: relative;
         }
         .measure-line::before {
             content: '';
             position: absolute;
-            left: -1px; /* Align with border */
+            left: -1px;
             top: 0;
-            width: 6px; /* Horizontal tick mark width */
+            width: 6px;
             height: 1px;
             background-color: #A68A64;
         }
@@ -50,48 +57,46 @@
 </head>
 <body class="antialiased">
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-charcoal/95 backdrop-blur-sm border-b border-gray-800">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <!-- Logo Lockup -->
             <div class="flex items-center gap-3">
-                <!-- SVG Logo: Final Refined Geometry -->
-                <!-- Width adjusted: w-28 on mobile, w-32 on desktop -->
-                <svg class="w-28 md:w-32 h-auto" viewBox="0 0 100 25" fill="none">
-                    <!-- Mark (Scaled down to fit lockup) -->
-                    <g transform="scale(0.22) translate(0, 5)">
-                        <rect x="20" y="20" width="40" height="15" fill="white"/>
-                        <rect x="20" y="20" width="15" height="40" fill="white"/>
-                        <rect x="40" y="65" width="40" height="15" fill="#A68A64"/>
-                        <rect x="65" y="40" width="15" height="40" fill="#A68A64"/>
-                    </g>
-                    <!-- Text (Manually positioned for tight lockup) -->
-                    <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
-                </svg>
+                <a href="/">
+                    <svg class="w-28 md:w-32 h-auto" viewBox="0 0 100 25" fill="none">
+                        <g transform="scale(0.22) translate(0, 5)">
+                            <rect x="20" y="20" width="40" height="15" fill="white"/>
+                            <rect x="20" y="20" width="15" height="40" fill="white"/>
+                            <rect x="40" y="65" width="40" height="15" fill="#A68A64"/>
+                            <rect x="65" y="40" width="15" height="40" fill="#A68A64"/>
+                        </g>
+                        <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
+                    </svg>
+                </a>
             </div>
             
-            <!-- Nav Links: Font-medium for 'calm confidence' -->
-            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400 items-center">
                 <a href="#about" class="hover:text-white transition-colors">FIRM</a>
                 <a href="#services" class="hover:text-white transition-colors">EXPERTISE</a>
                 <a href="#approach" class="hover:text-white transition-colors">APPROACH</a>
             </div>
 
-            <!-- CTA: Font-medium -->
-            <a href="#contact" class="hidden md:block px-6 py-2 border border-bronze text-bronze text-sm font-medium hover:bg-bronze hover:text-white transition-all">
-                INQUIRE
-            </a>
+            <div class="hidden md:flex items-center gap-4">
+                <a href="sbos.html" class="px-5 py-2 text-white text-sm font-semibold hover:text-bronze transition-all flex items-center gap-2">
+                    <i data-lucide="layout-grid" class="w-4 h-4 text-bronze"></i>
+                    SBOS Platform
+                </a>
+                
+                <a href="#contact" class="px-6 py-2 border border-bronze text-bronze text-sm font-medium hover:bg-bronze hover:text-white transition-all">
+                    INQUIRE
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center pt-20 bg-charcoal overflow-hidden">
         <div class="absolute inset-0 hero-pattern"></div>
         
-        <!-- Abstract Structural Element -->
         <div class="absolute right-0 top-0 w-1/3 h-full border-l border-gray-800/50 hidden lg:block"></div>
         
-        <!-- Large Ghost Logo in Background (Opacity 0.03) -->
         <div class="absolute -right-20 top-1/2 transform -translate-y-1/2 hidden lg:block pointer-events-none" style="opacity: 0.03;">
             <svg width="600" height="600" viewBox="0 0 100 100" fill="none">
                 <rect x="20" y="20" width="40" height="15" fill="white"/>
@@ -105,18 +110,15 @@
             <div class="max-w-3xl">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-bronze"></div>
-                    <!-- Tagline: Increased spacing, Uppercase -->
                     <span class="text-bronze text-sm font-medium tracking-[0.06em] uppercase">Operational Strategy & Execution</span>
                 </div>
                 
-                <!-- H1: Leading-none for architectural density -->
                 <h1 class="text-5xl md:text-7xl font-bold text-white leading-none mb-8">
                     Precision.<br>
                     Discipline.<br>
                     <span class="text-gray-500">Results that endure.</span>
                 </h1>
                 
-                <!-- Body: Light (300) -->
                 <p class="text-xl font-light text-gray-300 max-w-xl leading-relaxed mb-10">
                     Operational clarity for leaders who need things done right. 
                     Strategy, systems, and execution—led by operator and founder Steve Barclay.
@@ -134,7 +136,6 @@
         </div>
     </section>
 
-    <!-- The Problem / Solution -->
     <section class="py-24 bg-white" id="approach">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 items-start">
@@ -151,13 +152,10 @@
                     </p>
                 </div>
                 
-                <!-- Vertical Measure Line Implementation -->
                 <div class="grid grid-cols-1 gap-8 relative pl-6">
-                    <!-- The structural measure line -->
                     <div class="absolute left-0 top-2 bottom-2 w-px bg-bronze measure-line opacity-50"></div>
                     
                     <div class="pl-6 relative">
-                        <!-- Horizontal tick for measure -->
                         <div class="absolute left-0 top-3 w-3 h-px bg-bronze -ml-6"></div>
                         <h3 class="text-lg font-bold text-charcoal mb-2">Systems Design</h3>
                         <p class="text-sm font-light text-gray-500">Architecture that supports scale, not bureaucracy.</p>
@@ -177,38 +175,28 @@
         </div>
     </section>
 
-    <!-- Founder Section (No Gradient Overlay) -->
     <section class="py-24 bg-tactical text-white" id="about">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-12 items-center">
                 
-                <!-- Founder Photo Container -->
                 <div class="md:col-span-5 order-2 md:order-1 relative group">
-                    <!-- Image Container: Pure, no overlay -->
                     <div class="aspect-[3/4] w-full relative overflow-hidden border border-gray-600 bg-gray-800">
+                         <img 
+                            src="steve.jpg" 
+                            alt="Steve Barclay" 
+                            class="absolute inset-0 w-full h-full object-cover grayscale"
+                        >
                         
-                        <!-- REAL IMAGE: Linked to 'steve.jpg' -->
-                        <div class="absolute inset-0 bg-charcoal">
-                             <img 
-                                src="steve.jpg" 
-                                alt="Steve Barclay" 
-                                class="absolute inset-0 w-full h-full object-cover grayscale"
-                            >
-                        </div>
-                        
-                        <!-- Name Tag (Kept structural) -->
                         <div class="absolute bottom-6 left-6 right-6 z-10">
                             <div class="text-sm font-semibold text-bronze uppercase tracking-wider mb-1">Founder</div>
                             <div class="text-2xl font-bold text-white">Steve Barclay</div>
                         </div>
                     </div>
                     
-                    <!-- Decorative 'Corner' accents -->
                     <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-bronze -mt-1 -ml-1 z-20"></div>
                     <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-bronze -mb-1 -mr-1 z-20"></div>
                 </div>
 
-                <!-- Founder Content -->
                 <div class="md:col-span-7 order-1 md:order-2">
                     <h2 class="text-sm font-semibold text-bronze uppercase tracking-widest mb-4">The Operator</h2>
                     <h3 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">Quietly, precisely, and without theatrics.</h3>
@@ -240,7 +228,6 @@
         </div>
     </section>
 
-    <!-- Services Grid -->
     <section class="py-32 bg-gray-50" id="services">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-20">
@@ -249,7 +236,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-10">
-                <!-- Card 1 -->
                 <div class="bg-white p-10 border border-gray-100 hover:border-bronze transition-colors group flex flex-col">
                     <div class="w-14 h-14 bg-gray-100 flex items-center justify-center mb-8 group-hover:bg-charcoal transition-colors">
                         <i data-lucide="search" class="w-6 h-6 text-charcoal group-hover:text-white transition-colors"></i>
@@ -260,7 +246,6 @@
                     </p>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="bg-white p-10 border border-gray-100 hover:border-bronze transition-colors group flex flex-col">
                     <div class="w-14 h-14 bg-gray-100 flex items-center justify-center mb-8 group-hover:bg-charcoal transition-colors">
                         <i data-lucide="layers" class="w-6 h-6 text-charcoal group-hover:text-white transition-colors"></i>
@@ -271,7 +256,6 @@
                     </p>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="bg-white p-10 border border-gray-100 hover:border-bronze transition-colors group flex flex-col">
                     <div class="w-14 h-14 bg-gray-100 flex items-center justify-center mb-8 group-hover:bg-charcoal transition-colors">
                         <i data-lucide="anchor" class="w-6 h-6 text-charcoal group-hover:text-white transition-colors"></i>
@@ -285,7 +269,6 @@
         </div>
     </section>
 
-    <!-- Contact -->
     <section class="py-24 bg-charcoal relative" id="contact">
         <div class="absolute inset-0 bg-tactical/20"></div>
         <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
@@ -318,7 +301,6 @@
             
             <div class="mt-12 flex flex-col items-center gap-4">
                  <div class="flex items-center gap-2 opacity-50">
-                     <!-- Small Footer Logo -->
                      <svg class="w-24 h-auto" viewBox="0 0 100 25" fill="none">
                         <g transform="scale(0.22) translate(0, 5)">
                             <rect x="20" y="20" width="40" height="15" fill="white"/>
