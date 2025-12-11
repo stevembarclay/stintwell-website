@@ -1,218 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SBOS - Standard Business Operating System | Stintwell</title>
-  <meta name="description" content="Document your business processes in minutes with AI-assisted SOP creation. Try the free demo.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBOS — Standard Business Operating System | Stintwell</title>
+  <meta name="description" content="Document your business processes in minutes with AI-powered SOP creation. Try the instant demo.">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Lucide Icons -->
+  <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Mouseflow -->
-  <script type="text/javascript">
-      window._mfq = window._mfq || [];
-      (function() {
-          var mf = document.createElement("script");
-          mf.type = "text/javascript";
-          mf.defer = true;
-          mf.src = "//cdn.mouseflow.com/projects/3fbe6aa8-a218-4724-a901-43b7433883f0.js";
-          document.getElementsByTagName("head")[0].appendChild(mf);
-      })();
-  </script>
-
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            charcoal: '#1C1F26',
-            bronze: '#A68A64',
-            tactical: '#2A453B',
-            steel: '#94A3B8'
-          },
-          fontFamily: { sans: ['Inter', 'sans-serif'] }
-        }
-      }
-    };
+    window._mfq = window._mfq || [];
+    (function(){
+      const mf = document.createElement("script");
+      mf.defer = true;
+      mf.src = "//cdn.mouseflow.com/projects/3fbe6aa8-a218-4724-a901-43b7433883f0.js";
+      document.head.appendChild(mf);
+    })();
   </script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: Inter, sans-serif; }
     .hero-pattern {
       background-image: radial-gradient(#A68A64 1px, transparent 1px);
       background-size: 40px 40px;
-      opacity: 0.05;
+      opacity: .06;
     }
   </style>
 </head>
 
-<body class="bg-gray-50 min-h-screen text-charcoal">
+<body class="bg-gray-50 text-charcoal antialiased">
 
-  <!-- Nav -->
-  <nav class="absolute w-full z-50 p-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <a href="/" class="flex items-center gap-2 group">
-        <svg class="w-24 h-auto" viewBox="0 0 100 25" fill="none">
-          <g transform="scale(0.22) translate(0, 5)">
+  <!-- ============================
+       NAVIGATION 
+  =============================-->
+  <header class="absolute top-0 left-0 w-full z-40 p-6">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="/" class="flex items-center gap-2">
+        <svg class="w-24" viewBox="0 0 100 25" fill="none">
+          <g transform="scale(.22) translate(0,5)">
             <rect x="20" y="20" width="40" height="15" fill="white"/>
             <rect x="20" y="20" width="15" height="40" fill="white"/>
             <rect x="40" y="65" width="40" height="15" fill="#A68A64"/>
             <rect x="65" y="40" width="15" height="40" fill="#A68A64"/>
           </g>
-          <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
+          <text x="26" y="17.5" fill="white" font-size="11" font-weight="800" letter-spacing="-0.5">stintwell</text>
         </svg>
-        <span class="text-steel font-mono text-xs border border-steel/30 px-2 py-0.5 rounded">SBOS v2.0</span>
+        <span class="text-steel font-mono text-xs border border-steel/40 px-2 py-0.5 rounded">
+          SBOS v2.0
+        </span>
       </a>
-      <a href="/" class="text-sm text-gray-400 hover:text-white transition-colors">← Back to Stintwell</a>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <div class="relative bg-charcoal text-white pt-32 pb-24 overflow-hidden">
+      <a href="/" class="text-sm text-gray-400 hover:text-white transition">
+        ← Back to Stintwell
+      </a>
+    </nav>
+  </header>
+
+  <!-- ============================
+       HERO 
+  =============================-->
+  <section class="relative bg-charcoal text-white pt-36 pb-28 overflow-hidden">
     <div class="absolute inset-0 hero-pattern"></div>
 
     <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
-      <div class="mb-16">
-        <span class="text-bronze font-bold text-xs uppercase tracking-[0.2em] border-b border-bronze pb-1">
-          Operational Infrastructure
-        </span>
-        <h1 class="text-6xl font-bold mb-6 tracking-tight">
-          Document Your Business<br><span class="text-gray-500">In Minutes.</span>
-        </h1>
-        <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light">
-          Stop losing knowledge when employees leave. Turn tribal knowledge into structured, AI-assisted Standard Operating Procedures.
-        </p>
+      <p class="text-bronze uppercase text-xs tracking-[0.2em] mb-4 border-b border-bronze inline-block pb-1">
+        Operational Infrastructure
+      </p>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <button onclick="openModal()" class="bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-8 py-4 text-sm uppercase tracking-widest shadow-lg">
-            Launch Live Demo
-          </button>
-          <a href="#features" class="px-8 py-4 border border-gray-700 hover:border-white text-white font-semibold text-sm uppercase tracking-widest">
-            System Capabilities
-          </a>
-        </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+        Document Your Business<br />
+        <span class="text-gray-400">In Minutes.</span>
+      </h1>
 
-        <p class="text-xs text-gray-500 mt-6 uppercase tracking-wider">
-          No credit card required • Instant access
-        </p>
+      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+        Turn tribal knowledge into structured, AI-assisted Standard Operating Procedures. 
+        Build scalable systems fast — without chaos.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button 
+          onclick="openModal()" 
+          class="bg-bronze text-white hover:bg-white hover:text-charcoal transition font-semibold px-10 py-4 uppercase tracking-widest shadow-md"
+        >
+          Launch Live Demo
+        </button>
+        <a href="#features" class="border border-gray-700 hover:border-white px-10 py-4 uppercase tracking-widest">
+          System Capabilities
+        </a>
       </div>
-    </div>
-  </div>
 
-  <!-- Features -->
-  <div class="bg-gray-50 py-24" id="features">
+      <p class="text-xs text-gray-500 mt-6 uppercase">
+        No credit card required • Instant access
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================
+       FEATURES 
+  =============================-->
+  <section id="features" class="py-24 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6">
 
-      <div class="grid md:grid-cols-3 gap-8 mb-16">
-        <div class="bg-white p-8 shadow-sm border border-gray-100 hover:border-bronze transition group">
-          <div class="w-12 h-12 bg-charcoal flex items-center justify-center mb-6 text-bronze group-hover:text-white">
+      <div class="grid md:grid-cols-3 gap-10">
+        <!-- Feature -->
+        <article class="bg-white p-8 border shadow-sm hover:border-bronze transition group">
+          <div class="w-12 h-12 bg-charcoal text-bronze flex items-center justify-center mb-6 group-hover:text-white">
             <i data-lucide="bot" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-lg font-bold">AI-Assisted Creation</h3>
-          <p class="text-gray-500 text-sm">Describe your process in plain English and get a structured SOP draft in seconds.</p>
-        </div>
+          <h3 class="text-lg font-bold mb-2">AI-Assisted Creation</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Describe your workflow in plain English and get a structured SOP draft instantly.
+          </p>
+        </article>
 
-        <div class="bg-white p-8 shadow-sm border border-gray-100 hover:border-bronze transition group">
-          <div class="w-12 h-12 bg-charcoal flex items-center justify-center mb-6 text-bronze group-hover:text-white">
+        <article class="bg-white p-8 border shadow-sm hover:border-bronze transition group">
+          <div class="w-12 h-12 bg-charcoal text-bronze flex items-center justify-center mb-6 group-hover:text-white">
             <i data-lucide="activity" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-lg font-bold">Lifecycle Management</h3>
-          <p class="text-gray-500 text-sm">Track SOPs from draft to published. Know what needs review.</p>
-        </div>
+          <h3 class="text-lg font-bold mb-2">Lifecycle Management</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Draft → Review → Publish. Never lose track of what needs updating.
+          </p>
+        </article>
 
-        <div class="bg-white p-8 shadow-sm border border-gray-100 hover:border-bronze transition group">
-          <div class="w-12 h-12 bg-charcoal flex items-center justify-center mb-6 text-bronze group-hover:text-white">
+        <article class="bg-white p-8 border shadow-sm hover:border-bronze transition group">
+          <div class="w-12 h-12 bg-charcoal text-bronze flex items-center justify-center mb-6 group-hover:text-white">
             <i data-lucide="users" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-lg font-bold">Team Collaboration</h3>
-          <p class="text-gray-500 text-sm">Assign owners, approvers, and roles so everyone knows responsibilities.</p>
-        </div>
+          <h3 class="text-lg font-bold mb-2">Team Collaboration</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Assign owners, approvers, and departments. Improve accountability and clarity.
+          </p>
+        </article>
       </div>
-    </div>
-  </div>
 
-  <!-- CTA -->
-  <div class="bg-tactical text-white py-20 border-t border-bronze text-center">
+    </div>
+  </section>
+
+  <!-- ============================
+       CTA 
+  =============================-->
+  <section class="bg-tactical text-white py-20 text-center border-t border-bronze">
     <h2 class="text-3xl font-bold mb-4">See the System in Action</h2>
-    <p class="text-lg mb-8 opacity-80">Try the full demo with sample data. No signup, no sales call.</p>
-    <button onclick="openModal()" class="bg-white text-tactical hover:bg-bronze hover:text-white font-bold px-10 py-4 text-lg shadow-xl">
+    <p class="text-lg opacity-80 mb-8">Try the full demo with sample data — no sales call, no signup.</p>
+
+    <button 
+      onclick="openModal()" 
+      class="bg-white text-tactical hover:bg-bronze hover:text-white transition px-10 py-4 text-lg shadow-lg font-bold"
+    >
       Launch Free Demo
     </button>
-  </div>
+  </section>
 
-  <!-- Footer -->
-  <div class="bg-charcoal text-center py-8 text-gray-600 text-sm border-t border-gray-800">
-    <p>© 2025 Stintwell. All rights reserved.</p>
-  </div>
+  <!-- ============================
+       FOOTER
+  =============================-->
+  <footer class="bg-charcoal text-center py-8 text-gray-600 text-sm border-t border-gray-800">
+    © 2025 Stintwell. All rights reserved.
+  </footer>
 
-  <!-- Modal -->
-  <div id="emailModal" class="hidden fixed inset-0 bg-charcoal/90 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-    <div class="bg-white p-8 max-w-md w-full shadow-2xl border-t-4 border-bronze">
-      <div class="flex justify-between items-start mb-6">
-        <h2 class="text-2xl font-bold text-charcoal">Access Demo</h2>
-        <button onclick="closeModal()" class="text-gray-400 hover:text-charcoal">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-      </div>
+  <!-- ============================
+       MODAL 
+  =============================-->
+  <div id="demoModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4 backdrop-blur">
+    <div class="bg-white w-full max-w-md p-8 rounded-lg shadow-xl border-t-4 border-bronze relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-charcoal">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
 
-      <form id="leadForm">
-        <div class="space-y-4 mb-6">
-          <div>
-            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Name</label>
-            <input id="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Work Email</label>
-            <input id="email" type="email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Company</label>
-            <input id="company" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300" />
-          </div>
+      <h2 class="text-2xl font-bold mb-2">Access Demo</h2>
+      <p class="text-gray-600 text-sm mb-6">
+        Enter your details to generate a demo workspace with sample SOPs.
+      </p>
+
+      <form id="demoForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Name</label>
+          <input id="name" required class="w-full px-4 py-3 border bg-gray-50" />
         </div>
 
-        <button id="submitBtn" type="submit" class="w-full bg-tactical text-white font-bold py-4 mb-4">
-          Launch Demo →
-        </button>
+        <div>
+          <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Work Email</label>
+          <input id="email" type="email" required class="w-full px-4 py-3 border bg-gray-50" />
+        </div>
 
-        <button type="button" onclick="closeModal()" class="w-full text-gray-500 hover:text-charcoal text-sm">
-          Cancel
+        <div>
+          <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Company</label>
+          <input id="company" required class="w-full px-4 py-3 border bg-gray-50" />
+        </div>
+
+        <button id="submitBtn" type="submit" class="w-full bg-tactical text-white font-bold py-4 mt-2">
+          Launch Demo →
         </button>
       </form>
 
-      <p class="text-xs text-gray-400 mt-4 text-center border-t border-gray-100 pt-4">
+      <p class="text-xs text-gray-400 mt-6 text-center border-t pt-4">
         Demo mode creates a temporary session. No data is permanently saved.
       </p>
     </div>
   </div>
 
-  <!-- Working JS -->
+  <!-- ============================
+       JS (FAULT-TOLERANT, CLEAN)
+  =============================-->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       if (window.lucide?.createIcons) window.lucide.createIcons();
     });
 
     function openModal() {
-      const m = document.getElementById("emailModal");
-      m.classList.remove("hidden");
+      const modal = document.getElementById("demoModal");
+      modal.classList.remove("hidden");
       document.getElementById("name").focus();
     }
 
     function closeModal() {
-      document.getElementById("emailModal").classList.add("hidden");
+      document.getElementById("demoModal").classList.add("hidden");
     }
 
     document.addEventListener("keydown", e => {
       if (e.key === "Escape") closeModal();
     });
 
-    document.getElementById("leadForm").addEventListener("submit", async (event) => {
-      event.preventDefault();
+    document.getElementById("demoForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
 
       const btn = document.getElementById("submitBtn");
       btn.disabled = true;
@@ -222,32 +239,23 @@
       const email = document.getElementById("email").value;
       const company = document.getElementById("company").value;
 
-      // Best-effort send
-      try {
-        await fetch("https://formsubmit.co/ajax/steve@stintwell.com", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify({ _subject: "New SBOS Demo Lead", name, email, company })
-        });
-      } catch (_) {}
+      // Non-blocking notification email
+      fetch("https://formsubmit.co/ajax/steve@stintwell.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ _subject: "New SBOS Demo Lead", name, email, company, source: "sbos_v2" })
+      }).catch(() => {});
 
-      // Send to backend
-      try {
-        await fetch("/api/send-lead", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name,
-            email,
-            company,
-            timestamp: new Date().toISOString(),
-            source: "sbos_landing"
-          })
-        });
-      } catch (_) {}
+      // Backend lead capture
+      fetch("/api/send-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, company, ts: Date.now() })
+      }).catch(() => {});
 
-      // Token + redirect
+      // Demo token
       const token = btoa(JSON.stringify({ name, email, company, ts: Date.now() }));
+
       window.location.href = `https://sbos.stintwell.com?demo=${token}`;
     });
   </script>
