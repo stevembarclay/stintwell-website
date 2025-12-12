@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SBOS — Standard Business Operating System | Stintwell</title>
+  <title>SBOS — Stintwell Business Operating System | Stintwell</title>
   <meta name="description" content="Document your business processes in minutes with AI-powered SOP creation. Try the instant demo.">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -93,13 +93,13 @@
       </p>
 
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <button 
-          onclick="openModal()" 
-          class="bg-bronze text-white hover:bg-white hover:text-charcoal transition font-semibold px-10 py-4 uppercase tracking-widest shadow-md"
+        <a 
+          href="https://sbos.stintwell.com" 
+          class="bg-bronze text-white hover:bg-white hover:text-charcoal transition font-semibold px-10 py-4 uppercase tracking-widest shadow-md inline-block text-center"
         >
           Launch Live Demo
-        </button>
-        <a href="#features" class="border border-gray-700 hover:border-white px-10 py-4 uppercase tracking-widest">
+        </a>
+        <a href="#features" class="border border-gray-700 hover:border-white px-10 py-4 uppercase tracking-widest inline-block text-center">
           System Capabilities
         </a>
       </div>
@@ -152,111 +152,21 @@
     <h2 class="text-3xl font-bold mb-4">See the System in Action</h2>
     <p class="text-lg opacity-80 mb-8">Try the full demo with sample data — no sales call, no signup.</p>
 
-    <button 
-      onclick="openModal()" 
-      class="bg-white text-tactical hover:bg-bronze hover:text-white transition px-10 py-4 text-lg shadow-lg font-bold"
+    <a 
+      href="https://sbos.stintwell.com" 
+      class="bg-white text-tactical hover:bg-bronze hover:text-white transition px-10 py-4 text-lg shadow-lg font-bold inline-block"
     >
       Launch Free Demo
-    </button>
+    </a>
   </section>
 
   <footer class="bg-charcoal text-center py-8 text-gray-600 text-sm border-t border-gray-800">
     © 2025 Stintwell. All rights reserved.
   </footer>
 
-  <div id="demoModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4 backdrop-blur">
-    <div class="bg-white w-full max-w-md p-8 rounded-lg shadow-xl border-t-4 border-bronze relative">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-charcoal">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-
-      <h2 class="text-2xl font-bold mb-2">Access Demo</h2>
-      <p class="text-gray-600 text-sm mb-6">
-        Enter your details to generate a demo workspace with sample SOPs.
-      </p>
-
-      <form id="demoForm" class="space-y-4">
-        <div>
-          <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Name</label>
-          <input id="name" required class="w-full px-4 py-3 border bg-gray-50" />
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Work Email</label>
-          <input id="email" type="email" required class="w-full px-4 py-3 border bg-gray-50" />
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Company</label>
-          <input id="company" required class="w-full px-4 py-3 border bg-gray-50" />
-        </div>
-
-        <button id="submitBtn" type="submit" class="w-full bg-tactical text-white font-bold py-4 mt-2">
-          Launch Demo →
-        </button>
-      </form>
-
-      <p class="text-xs text-gray-400 mt-6 text-center border-t pt-4">
-        Demo mode creates a temporary session. No data is permanently saved.
-      </p>
-    </div>
-  </div>
-
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       if (window.lucide?.createIcons) window.lucide.createIcons();
-    });
-
-    function openModal() {
-      const modal = document.getElementById("demoModal");
-      modal.classList.remove("hidden");
-      document.getElementById("name").focus();
-    }
-
-    function closeModal() {
-      document.getElementById("demoModal").classList.add("hidden");
-    }
-
-    document.addEventListener("keydown", e => {
-      if (e.key === "Escape") closeModal();
-    });
-
-    document.getElementById("demoForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const btn = document.getElementById("submitBtn");
-      btn.disabled = true;
-      btn.textContent = "Launching…";
-
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const company = document.getElementById("company").value;
-
-      // 1. Send Lead via FormSubmit AJAX (Silent)
-      try {
-        await fetch("https://formsubmit.co/ajax/steve@stintwell.com", {
-            method: "POST",
-            headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                _subject: "New SBOS Demo Lead",
-                name: name,
-                email: email,
-                company: company,
-                source: "sbos_landing_v2"
-            })
-        });
-      } catch (error) {
-        console.log("Email sending failed, but launching demo anyway.");
-      }
-
-      // 2. Generate Demo Token
-      const token = btoa(JSON.stringify({ name, email, company, ts: Date.now() }));
-
-      // 3. Redirect to App
-      window.location.href = `https://sbos.stintwell.com?demo=${token}`;
     });
   </script>
 
