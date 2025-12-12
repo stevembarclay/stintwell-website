@@ -5,13 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stintwell Advisory | Operational Clarity</title>
 
-  <!-- Tailwind (render-critical, left non-deferred) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Lucide Icons (safe to defer) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#1C1F26',
+            bronze: '#A68A64',
+            tactical: '#2A453B',
+            steel: '#94A3B8'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
   <script src="https://unpkg.com/lucide@latest" defer></script>
 
-  <!-- Mouseflow (analytics, fully non-blocking) -->
   <script type="text/javascript">
     window._mfq = window._mfq || [];
     (function () {
@@ -31,15 +46,7 @@
       background-color: #F7F7F7;
       color: #1C1F26;
     }
-
-    .bg-charcoal { background-color: #1C1F26; }
-    .text-charcoal { color: #1C1F26; }
-    .bg-tactical { background-color: #2A453B; }
-    .text-tactical { color: #2A453B; }
-    .text-bronze { color: #A68A64; }
-    .bg-bronze { background-color: #A68A64; }
-    .border-bronze { border-color: #A68A64; }
-
+    
     .hero-pattern {
       background-image: radial-gradient(#A68A64 1px, transparent 1px);
       background-size: 40px 40px;
@@ -63,12 +70,8 @@
 
 <body class="antialiased text-charcoal">
 
-  <!-- ============================
-       HEADER / NAV
-  ============================= -->
   <header class="fixed inset-x-0 top-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-gray-800">
     <nav class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between" aria-label="Main navigation">
-      <!-- Logo -->
       <a href="/" class="flex items-center gap-3">
         <svg class="w-28 md:w-32 h-auto" viewBox="0 0 100 25" fill="none" aria-hidden="true">
           <g transform="scale(0.22) translate(0, 5)">
@@ -83,14 +86,12 @@
         </svg>
       </a>
 
-      <!-- Desktop Nav Links -->
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
         <a href="#about" class="hover:text-white transition-colors">FIRM</a>
         <a href="#services" class="hover:text-white transition-colors">EXPERTISE</a>
         <a href="#approach" class="hover:text-white transition-colors">APPROACH</a>
       </div>
 
-      <!-- Right Actions -->
       <div class="hidden md:flex items-center gap-4">
         <a href="sbos.html" class="px-5 py-2 text-white text-sm font-semibold hover:text-bronze transition-all flex items-center gap-2">
           <i data-lucide="layout-grid" class="w-4 h-4 text-bronze" aria-hidden="true"></i>
@@ -103,14 +104,10 @@
     </nav>
   </header>
 
-  <!-- Spacer under fixed header -->
   <div class="h-20"></div>
 
   <main>
 
-    <!-- ============================
-         HERO
-    ============================= -->
     <section id="hero" class="relative min-h-[80vh] flex items-center bg-charcoal overflow-hidden">
       <div class="absolute inset-0 hero-pattern pointer-events-none"></div>
 
@@ -137,7 +134,7 @@
           <h1 class="text-5xl md:text-7xl font-bold text-white leading-none mb-8">
             Precision.<br />
             Discipline.<br />
-            <span class="text-gray-500">Results that endure.</span>
+            <span class="text-gray-400">Results that endure.</span>
           </h1>
 
           <p class="text-xl font-light text-gray-300 max-w-xl leading-relaxed mb-10">
@@ -146,11 +143,9 @@
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <!-- Primary CTA -->
             <a href="#contact" class="px-8 py-4 bg-white text-charcoal font-semibold text-center hover:bg-gray-200 transition-colors">
               Start a Conversation
             </a>
-            <!-- Secondary CTA -->
             <a href="#about" class="px-8 py-4 border border-gray-700 text-white font-semibold text-center hover:border-white transition-colors">
               Read the Founder's Story
             </a>
@@ -159,9 +154,6 @@
       </div>
     </section>
 
-    <!-- ============================
-         APPROACH
-    ============================= -->
     <section id="approach" class="py-24 bg-white">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid md:grid-cols-2 gap-16 items-start">
@@ -211,13 +203,9 @@
       </div>
     </section>
 
-    <!-- ============================
-         ABOUT
-    ============================= -->
     <section id="about" class="py-24 bg-tactical text-white">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid md:grid-cols-12 gap-12 items-center">
-          <!-- Photo / Visual -->
           <div class="md:col-span-5 order-2 md:order-1 relative">
             <div class="aspect-[3/4] w-full relative overflow-hidden border border-gray-600 bg-gray-800">
               <img
@@ -235,7 +223,6 @@
             <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-bronze -mb-1 -mr-1"></div>
           </div>
 
-          <!-- Copy -->
           <article class="md:col-span-7 order-1 md:order-2">
             <p class="text-sm font-semibold text-bronze uppercase tracking-widest mb-3">
               The Operator
@@ -274,9 +261,6 @@
       </div>
     </section>
 
-    <!-- ============================
-         SERVICES / ENGAGEMENT MODEL
-    ============================= -->
     <section id="services" class="py-32 bg-gray-50">
       <div class="max-w-6xl mx-auto px-6">
         <header class="text-center max-w-2xl mx-auto mb-20">
@@ -320,9 +304,6 @@
       </div>
     </section>
 
-    <!-- ============================
-         CONTACT / INQUIRY
-    ============================= -->
     <section id="contact" class="py-24 bg-charcoal relative">
       <div class="absolute inset-0 bg-tactical/20"></div>
       <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
@@ -397,9 +378,6 @@
     </section>
   </main>
 
-  <!-- ============================
-       FOOTER
-  ============================= -->
   <footer class="bg-charcoal py-10 border-t border-gray-800">
     <div class="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4 text-center">
       <div class="opacity-50">
@@ -422,16 +400,11 @@
     </div>
   </footer>
 
-  <!-- ============================
-       JS: ICONS & SAFETY
-  ============================= -->
   <script>
-    // Icons & any future behavior
     document.addEventListener("DOMContentLoaded", () => {
       if (window.lucide && typeof window.lucide.createIcons === "function") {
         window.lucide.createIcons();
       }
-      // Future: analytics hooks or interactions go here.
     });
   </script>
 </body>
