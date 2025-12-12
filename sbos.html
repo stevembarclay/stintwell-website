@@ -6,13 +6,28 @@
   <title>SBOS — Standard Business Operating System | Stintwell</title>
   <meta name="description" content="Document your business processes in minutes with AI-powered SOP creation. Try the instant demo.">
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#1C1F26',
+            bronze: '#A68A64',
+            tactical: '#2A453B',
+            steel: '#94A3B8'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Mouseflow -->
   <script>
     window._mfq = window._mfq || [];
     (function(){
@@ -36,13 +51,10 @@
 
 <body class="bg-gray-50 text-charcoal antialiased">
 
-  <!-- ============================
-       NAVIGATION 
-  =============================-->
   <header class="absolute top-0 left-0 w-full z-40 p-6">
     <nav class="max-w-6xl mx-auto flex justify-between items-center">
-      <a href="/" class="flex items-center gap-2">
-        <svg class="w-24" viewBox="0 0 100 25" fill="none">
+      <a href="/" class="flex items-center gap-2 group">
+        <svg class="w-24 h-auto" viewBox="0 0 100 25" fill="none">
           <g transform="scale(.22) translate(0,5)">
             <rect x="20" y="20" width="40" height="15" fill="white"/>
             <rect x="20" y="20" width="15" height="40" fill="white"/>
@@ -62,9 +74,6 @@
     </nav>
   </header>
 
-  <!-- ============================
-       HERO 
-  =============================-->
   <section class="relative bg-charcoal text-white pt-36 pb-28 overflow-hidden">
     <div class="absolute inset-0 hero-pattern"></div>
 
@@ -101,14 +110,10 @@
     </div>
   </section>
 
-  <!-- ============================
-       FEATURES 
-  =============================-->
   <section id="features" class="py-24 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="grid md:grid-cols-3 gap-10">
-        <!-- Feature -->
         <article class="bg-white p-8 border shadow-sm hover:border-bronze transition group">
           <div class="w-12 h-12 bg-charcoal text-bronze flex items-center justify-center mb-6 group-hover:text-white">
             <i data-lucide="bot" class="w-6 h-6"></i>
@@ -143,9 +148,6 @@
     </div>
   </section>
 
-  <!-- ============================
-       CTA 
-  =============================-->
   <section class="bg-tactical text-white py-20 text-center border-t border-bronze">
     <h2 class="text-3xl font-bold mb-4">See the System in Action</h2>
     <p class="text-lg opacity-80 mb-8">Try the full demo with sample data — no sales call, no signup.</p>
@@ -158,16 +160,10 @@
     </button>
   </section>
 
-  <!-- ============================
-       FOOTER
-  =============================-->
   <footer class="bg-charcoal text-center py-8 text-gray-600 text-sm border-t border-gray-800">
     © 2025 Stintwell. All rights reserved.
   </footer>
 
-  <!-- ============================
-       MODAL 
-  =============================-->
   <div id="demoModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4 backdrop-blur">
     <div class="bg-white w-full max-w-md p-8 rounded-lg shadow-xl border-t-4 border-bronze relative">
       <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-charcoal">
@@ -206,9 +202,6 @@
     </div>
   </div>
 
-  <!-- ============================
-       JS (FAULT-TOLERANT, CLEAN)
-  =============================-->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       if (window.lucide?.createIcons) window.lucide.createIcons();
@@ -239,23 +232,30 @@
       const email = document.getElementById("email").value;
       const company = document.getElementById("company").value;
 
-      // Non-blocking notification email
-      fetch("https://formsubmit.co/ajax/steve@stintwell.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({ _subject: "New SBOS Demo Lead", name, email, company, source: "sbos_v2" })
-      }).catch(() => {});
+      // 1. Send Lead via FormSubmit AJAX (Silent)
+      try {
+        await fetch("https://formsubmit.co/ajax/steve@stintwell.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                _subject: "New SBOS Demo Lead",
+                name: name,
+                email: email,
+                company: company,
+                source: "sbos_landing_v2"
+            })
+        });
+      } catch (error) {
+        console.log("Email sending failed, but launching demo anyway.");
+      }
 
-      // Backend lead capture
-      fetch("/api/send-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, company, ts: Date.now() })
-      }).catch(() => {});
-
-      // Demo token
+      // 2. Generate Demo Token
       const token = btoa(JSON.stringify({ name, email, company, ts: Date.now() }));
 
+      // 3. Redirect to App
       window.location.href = `https://sbos.stintwell.com?demo=${token}`;
     });
   </script>
