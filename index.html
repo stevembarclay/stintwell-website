@@ -41,6 +41,17 @@
             height: 1px;
             background-color: #A68A64;
         }
+
+        /* FIX: Straightens the crooked original photo */
+        .straighten-photo {
+            transform: rotate(-1.5deg) scale(1.1);
+            transform-origin: center;
+        }
+
+        /* Mobile Menu logic */
+        #mobile-menu.active {
+            display: flex !important;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -65,18 +76,28 @@
                 <a href="#about" class="hover:text-white transition-colors">FIRM</a>
                 <a href="#services" class="hover:text-white transition-colors">EXPERTISE</a>
                 <a href="#approach" class="hover:text-white transition-colors">APPROACH</a>
-            </div>
-
-            <div class="hidden md:flex items-center gap-4">
                 <a href="sbos.html" class="px-5 py-2 text-white text-sm font-semibold hover:text-bronze transition-all flex items-center gap-2">
                     <i data-lucide="layout-grid" class="w-4 h-4 text-bronze"></i>
                     SBOS Platform
                 </a>
-                
                 <a href="#contact" class="px-6 py-2 border border-bronze text-bronze text-sm font-medium hover:bg-bronze hover:text-white transition-all">
                     INQUIRE
                 </a>
             </div>
+
+            <button class="md:hidden text-white p-2" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-charcoal z-[90] flex-col p-8 pt-24 gap-6 text-xl font-bold text-white border-t border-gray-800">
+            <a href="#about" onclick="toggleMenu()" class="hover:text-bronze">FIRM</a>
+            <a href="#services" onclick="toggleMenu()" class="hover:text-bronze">EXPERTISE</a>
+            <a href="#approach" onclick="toggleMenu()" class="hover:text-bronze">APPROACH</a>
+            <a href="sbos.html" onclick="toggleMenu()" class="text-bronze flex items-center gap-2">
+                <i data-lucide="layout-grid" class="w-5 h-5"></i> SBOS Platform
+            </a>
+            <a href="#contact" onclick="toggleMenu()" class="mt-4 bg-bronze text-white text-center py-4 uppercase tracking-widest text-sm">INQUIRE</a>
         </div>
     </nav>
 
@@ -151,7 +172,7 @@
                 
                 <div class="md:col-span-5 order-2 md:order-1 relative">
                     <div class="aspect-[3/4] w-full relative overflow-hidden border border-gray-600 bg-gray-800">
-                         <img src="steve.jpg" alt="Steve Barclay" class="absolute inset-0 w-full h-full object-cover grayscale brightness-75">
+                        <img src="steve.jpg" alt="Steve Barclay" class="straighten-photo absolute inset-0 w-full h-full object-cover grayscale brightness-75">
                         <div class="absolute bottom-6 left-6 right-6 z-10">
                             <div class="text-sm font-semibold text-bronze uppercase tracking-wider mb-1">Lead Operator</div>
                             <div class="text-2xl font-bold text-white">Steve Barclay</div>
@@ -269,7 +290,20 @@
     </section>
 
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+
+        // FIX: Menu toggle function
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('active');
+            
+            const isOpened = menu.classList.contains('active');
+            icon.setAttribute('data-lucide', isOpened ? 'x' : 'menu');
+            lucide.createIcons();
+        }
+    </script>
 
     <script type="text/javascript">
       window._mfq = window._mfq || [];
