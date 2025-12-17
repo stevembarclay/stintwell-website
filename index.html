@@ -1,117 +1,122 @@
-<section id="hero" class="py-32 bg-tactical text-white border-b border-gray-800">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="max-w-4xl">
-      <p class="text-bronze font-bold text-xs tracking-[0.3em] uppercase mb-6">Established 2025 // SBOS v1.3</p>
-      <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">
-        OPERATIONAL TRUTH. <br/>
-        <span class="text-gray-500">ENFORCED BY CANON.</span>
-      </h1>
-      <p class="text-xl md:text-2xl font-light text-gray-400 leading-relaxed mb-10 max-w-2xl">
-        SBOS is a constitutional operating system for service-heavy SMBs. We do not offer advice. We install the architecture and enforcement structures required for disciplined scale.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-6">
-        <a href="#services" class="bg-bronze text-tactical px-8 py-4 font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors text-center">
-          Request Installation
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stintwell | SBOS v1.3 Canon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tactical: '#0f1115',
+                        bronze: '#a8815e',
+                        charcoal: '#1a1d23',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-tactical text-white antialiased">
 
-<section id="about" class="py-24 bg-tactical text-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-12 gap-16 items-center">
-      <div class="md:col-span-5 relative">
-        <div class="aspect-[3/4] w-full relative overflow-hidden border border-gray-800 bg-gray-900">
-          <img src="steve-portrait-new.jpg" alt="Steve Barclay" class="absolute inset-0 w-full h-full object-cover grayscale opacity-80" />
-          <div class="absolute bottom-8 left-8">
-            <p class="text-xs font-bold text-bronze uppercase tracking-[0.2em] mb-1">Steward of the Canon</p>
-            <p class="text-2xl font-bold text-white">Steve Barclay</p>
-          </div>
+    <section id="hero" class="relative pt-32 pb-24 border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-4xl">
+                <p class="text-bronze font-bold text-xs tracking-[0.3em] uppercase mb-6">Established 2025 // SBOS v1.3</p>
+                <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tighter uppercase italic">
+                    Operational Truth. <br/>
+                    <span class="text-gray-500 italic">Enforced by Canon.</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-light text-gray-400 leading-relaxed mb-10 max-w-2xl">
+                    SBOS is a constitutional operating system for service-heavy SMBs. We do not offer advice. We install the architecture and enforcement structures required for disciplined scale.
+                </p>
+                <a href="#services" class="inline-block bg-bronze text-tactical px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-white transition-all">
+                    Request Installation
+                </a>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <article class="md:col-span-7">
-        <h2 class="text-3xl font-bold mb-8 uppercase tracking-tight">The Stintwell Doctrine</h2>
-        <div class="space-y-6 text-gray-400 leading-relaxed text-lg">
-          <p>
-            Stintwell is a steward and executor of the SBOS Canon. We reject the "consulting" model of indefinite billing. Our mission is binary: **Install, Enforce, and Exit**.
-          </p>
-          <p>
-            Founded by Steve Barclay, SBOS reflects a professional identity shaped by high-stakes Marine leadership and the scaling of $30M+ service organizations. 
-          </p>
-          <p>
-            We define the "controlling logic" for your business. If SBOS cannot be enforced, it does not stand.
-          </p>
+    <section id="about" class="py-24 bg-tactical text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5 relative">
+                    <div class="aspect-[3/4] w-full relative overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl">
+                        <img src="steve-portrait-new.jpg" alt="Steve Barclay" class="absolute inset-0 w-full h-full object-cover grayscale opacity-70 contrast-125" />
+                        <div class="absolute bottom-8 left-8">
+                            <p class="text-xs font-bold text-bronze uppercase tracking-[0.2em] mb-1">Steward of the Canon</p>
+                            <p class="text-2xl font-bold text-white tracking-tight">Steve Barclay</p>
+                        </div>
+                    </div>
+                </div>
+                <article class="md:col-span-7">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-px w-8 bg-bronze"></div>
+                        <p class="text-bronze text-sm font-semibold tracking-widest uppercase">Operating Philosophy</p>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight tracking-tighter uppercase italic">Stability via <span class="text-gray-500">Enforcement.</span></h2>
+                    <div class="space-y-6 text-gray-300 leading-relaxed font-light text-lg">
+                        <p>SBOS is a constitutional operating system. It defines the architecture and enforcement structures that produce stability, predictability, and disciplined scale in chaotic environments.</p>
+                        <p>Stintwell Advisory acts as the steward and executor of the Canon. We do not offer open-ended coaching or indefinite billing. We install, enforce, and exit. If the Canon cannot be enforced, it does not stand.</p>
+                    </div>
+                </article>
+            </div>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="py-24 bg-white text-tactical">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-xs font-bold text-bronze uppercase tracking-[0.3em] mb-12">The Five Constitutional Pillars</h2>
-    <div class="grid md:grid-cols-5 gap-8">
-      <div class="border-t-2 border-tactical pt-6">
-        <span class="text-2xl font-black italic opacity-20">01</span>
-        <h3 class="font-bold uppercase text-sm mt-2 mb-4">Financial Hygiene</h3>
-        <p class="text-xs text-gray-500 uppercase tracking-wider">Truth before emotion.</p>
-      </div>
-      <div class="border-t-2 border-tactical pt-6">
-        <span class="text-2xl font-black italic opacity-20">02</span>
-        <h3 class="font-bold uppercase text-sm mt-2 mb-4">Operational Systems</h3>
-        <p class="text-xs text-gray-500 uppercase tracking-wider">Predictability before heroics.</p>
-      </div>
-      <div class="border-t-2 border-tactical pt-6">
-        <span class="text-2xl font-black italic opacity-20">03</span>
-        <h3 class="font-bold uppercase text-sm mt-2 mb-4">Leadership</h3>
-        <p class="text-xs text-gray-500 uppercase tracking-wider">Accountability before personality.</p>
-      </div>
-      <div class="border-t-2 border-tactical pt-6">
-        <span class="text-2Week font-black italic opacity-20">04</span>
-        <h3 class="font-bold uppercase text-sm mt-2 mb-4">Commercial Engine</h3>
-        <p class="text-xs text-gray-500 uppercase tracking-wider">Retention before acquisition.</p>
-      </div>
-      <div class="border-t-2 border-tactical pt-6">
-        <span class="text-2xl font-black italic opacity-20">05</span>
-        <h3 class="font-bold uppercase text-sm mt-2 mb-4">Governance</h3>
-        <p class="text-xs text-gray-500 uppercase tracking-wider">Control before risk.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="py-20 bg-white border-y border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div class="text-center md:text-left"><h4 class="text-bronze font-bold text-[10px] tracking-widest uppercase mb-2">Pillar 01</h4><p class="text-tactical font-black text-sm uppercase">Financial Hygiene</p></div>
+                <div class="text-center md:text-left"><h4 class="text-bronze font-bold text-[10px] tracking-widest uppercase mb-2">Pillar 02</h4><p class="text-tactical font-black text-sm uppercase">Operational Systems</p></div>
+                <div class="text-center md:text-left"><h4 class="text-bronze font-bold text-[10px] tracking-widest uppercase mb-2">Pillar 03</h4><p class="text-tactical font-black text-sm uppercase">Leadership Structure</p></div>
+                <div class="text-center md:text-left"><h4 class="text-bronze font-bold text-[10px] tracking-widest uppercase mb-2">Pillar 04</h4><p class="text-tactical font-black text-sm uppercase">Commercial Engine</p></div>
+                <div class="text-center md:text-left"><h4 class="text-bronze font-bold text-[10px] tracking-widest uppercase mb-2">Pillar 05</h4><p class="text-tactical font-black text-sm uppercase">Governance & Risk</p></div>
+            </div>
+        </div>
+    </section>
 
-<section id="services" class="py-32 bg-gray-50 border-t border-gray-200">
-  <div class="max-w-6xl mx-auto px-6">
-    <header class="mb-20">
-      <h2 class="text-4xl font-black text-tactical mb-4 uppercase italic">Structural Installation</h2>
-      <p class="text-xl text-gray-600 font-light">SBOS installations are milestone-based, not timeboxed. Progression is gated by structural readiness.</p>
-    </header>
+    <section id="services" class="py-32 bg-white text-tactical">
+        <div class="max-w-6xl mx-auto px-6">
+            <header class="max-w-3xl mb-20">
+                <h2 class="text-4xl font-black text-tactical mb-6 tracking-tighter uppercase italic">The Installation</h2>
+                <p class="font-light text-gray-600 text-xl leading-relaxed">SBOS installations are milestone-based, not timeboxed. Progression is gated by structural readiness.</p>
+            </header>
+            <div class="grid md:grid-cols-3 gap-0 border border-gray-200">
+                <article class="p-12 border-b md:border-b-0 md:border-r border-gray-200 bg-white hover:bg-gray-50 transition-all group">
+                    <div class="h-1 w-12 bg-bronze mb-8 transition-all group-hover:w-full"></div>
+                    <h3 class="text-2xl font-black mb-4 uppercase">01 // Stabilize</h3>
+                    <p class="text-sm font-light text-gray-500 leading-relaxed mb-8">Establish financial truth and leadership cadence. The business becomes predictable.</p>
+                    <p class="text-[10px] font-bold text-bronze uppercase tracking-widest">Exit Gate: Financial Close</p>
+                </article>
+                <article class="p-12 border-b md:border-b-0 md:border-r border-gray-200 bg-white hover:bg-gray-50 transition-all group">
+                    <div class="h-1 w-12 bg-gray-300 mb-8 transition-all group-hover:w-full group-hover:bg-bronze"></div>
+                    <h3 class="text-2xl font-black mb-4 uppercase">02 // Optimize</h3>
+                    <p class="text-sm font-light text-gray-500 leading-relaxed mb-8">Increase throughput and margin. Codify repeatable processes across all subsystems.</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Exit Gate: Reliable Process</p>
+                </article>
+                <article class="p-12 bg-white hover:bg-gray-50 transition-all group">
+                    <div class="h-1 w-12 bg-gray-300 mb-8 transition-all group-hover:w-full group-hover:bg-bronze"></div>
+                    <h3 class="text-2xl font-black mb-4 uppercase">03 // Scale</h3>
+                    <p class="text-sm font-light text-gray-500 leading-relaxed mb-8">Strategic expansion. Revenue acceleration is permitted once Critical Red Flags are resolved.</p>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Exit Gate: Zero Critical Flags</p>
+                </article>
+            </div>
+            <div class="mt-20 p-10 bg-tactical text-white border-l-4 border-bronze shadow-2xl">
+                <h4 class="text-bronze font-bold text-xs tracking-widest uppercase mb-4">Mandatory Prerequisite</h4>
+                <p class="text-xl font-light leading-relaxed italic">"SBOS requires a designated, non-CEO owner of execution. Without an Execution Owner, SBOS does not install and does not endure".</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="grid md:grid-cols-3 gap-12">
-      <div class="bg-white p-10 shadow-xl border-b-4 border-bronze">
-        <h3 class="text-2xl font-bold mb-4 italic">01 // STABILIZE</h3>
-        <p class="text-gray-500 text-sm leading-relaxed mb-6">Create predictability. Remove chaos. We install a consistent financial close and leadership cadence.</p>
-        <span class="text-[10px] font-bold text-bronze uppercase tracking-widest">Gated: Financial Truth</span>
-      </div>
-      <div class="bg-white p-10 shadow-xl border-b-4 border-gray-400">
-        <h3 class="text-2xl font-bold mb-4 italic">02 // OPTIMIZE</h3>
-        <p class="text-gray-500 text-sm leading-relaxed mb-6">Improve throughput and margin. We ensure operational processes exhibit repeatable reliability.</p>
-        <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Gated: Repeatability</span>
-      </div>
-      <div class="bg-white p-10 shadow-xl border-b-4 border-tactical">
-        <h3 class="text-2xl font-bold mb-4 italic">03 // SCALE</h3>
-        <p class="text-gray-500 text-sm leading-relaxed mb-6">Expand strategically. Revenue growth is only permitted once Critical Flags are resolved.</p>
-        <span class="text-[10px] font-bold text-tactical uppercase tracking-widest">Gated: Structural Readiness</span>
-      </div>
-    </div>
-
-    <div class="mt-16 p-8 bg-tactical text-white">
-      <p class="text-sm font-bold uppercase tracking-widest mb-2 text-bronze">Mandatory Prerequisite</p>
-      <p class="text-lg font-light italic">
-        "SBOS requires a designated, non-CEO owner of execution. Without an Execution Owner, SBOS does not install and does not endure".
-      </p>
-    </div>
-  </div>
-</section>
+</body>
+</html>
