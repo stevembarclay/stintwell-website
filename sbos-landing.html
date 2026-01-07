@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBOS - The Operating System for High-Performance Businesses | Stintwell Advisory</title>
+    <meta name="description" content="Diagnose structural weakness. Surface hidden risk. Install the systems to fix it. SBOS provides M&A due diligence, multi-business portfolio management, and operational prescriptions.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Mouseflow Tracking -->
+    <script type="text/javascript">
+        window._mfq = window._mfq || [];
+        (function() {
+            var mf = document.createElement("script");
+            mf.type = "text/javascript"; mf.defer = true;
+            mf.src = "//cdn.mouseflow.com/projects/3fbe6aa8-a218-4724-a901-43b7433883f0.js";
+            document.getElementsByTagName("head")[0].appendChild(mf);
+        })();
+    </script>
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #1C1F26;
+            color: #94A3B8;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1C1F26;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #A68A64;
+            border-radius: 4px;
+        }
+        
+        /* Vertical Measure - Brand Element */
+        .vertical-measure {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #A68A64;
+            opacity: 0.3;
+        }
+        
+        /* Tab Animation */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .tab-content.active {
+            display: grid;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 31, 38, 0.95);
+            animation: fadeIn 0.2s ease-in;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: #2A453B;
+            border: 1px solid #A68A64;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: #A68A64;
+            color: #1C1F26;
+            font-weight: 600;
+            padding: 14px 32px;
+            border: none;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+        }
+        
+        .btn-primary:hover {
+            background: #b89a73;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #A68A64;
+            border: 1px solid #A68A64;
+            font-weight: 600;
+            padding: 14px 32px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+        }
+        
+        .btn-secondary:hover {
+            background: #A68A64;
+            color: #1C1F26;
+        }
+        
+        /* Form Styles */
+        input, textarea, select {
+            background: #1C1F26;
+            border: 1px solid #A68A64;
+            color: #94A3B8;
+            padding: 12px 16px;
+            width: 100%;
+            font-weight: 300;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #b89a73;
+        }
+        
+        label {
+            font-weight: 600;
+            color: #A68A64;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Tab Styles */
+        .tab-btn {
+            padding: 12px 24px;
+            background: transparent;
+            border-bottom: 2px solid transparent;
+            color: #94A3B8;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        
+        .tab-btn:hover {
+            color: #A68A64;
+        }
+        
+        .tab-btn.active {
+            color: #A68A64;
+            border-bottom-color: #A68A64;
+        }
+        
+        /* Mock Dashboard Styles */
+        .pillar-bar {
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-red { background: #dc2626; color: white; }
+        .badge-yellow { background: #fbbf24; color: #1C1F26; }
+        .badge-green { background: #10b981; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 bg-[#1C1F26] border-b border-[#A68A64] border-opacity-20">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="20" width="40" height="15" fill="white"/>
+                    <rect x="20" y="20" width="15" height="40" fill="white"/>
+                    <rect x="40" y="65" width="40" height="15" fill="#A68A64"/>
+                    <rect x="65" y="40" width="15" height="40" fill="#A68A64"/>
+                </svg>
+                <span class="text-white font-extrabold text-xl tracking-tight">stintwell</span>
+            </div>
+            <button onclick="openModal('quickScanModal')" class="btn-primary">
+                Take the Quick Scan
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="vertical-measure" style="left: 10%;"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="text-[#A68A64] font-semibold text-sm tracking-wider mb-4">SBOS</div>
+                    <h1 class="text-white font-extrabold text-5xl lg:text-6xl leading-tight mb-6">
+                        The Operating System for High-Performance Businesses
+                    </h1>
+                    <p class="text-[#94A3B8] text-xl font-light mb-8 leading-relaxed">
+                        Diagnose structural weakness. Surface hidden risk. Install the systems to fix it.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="openModal('quickScanModal')" class="btn-primary">
+                            Take the Quick Scan
+                        </button>
+                        <button onclick="openModal('auditModal')" class="btn-secondary">
+                            Request Structural Audit
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mock Dashboard -->
+                <div class="bg-[#2A453B] border border-[#A68A64] border-opacity-30 p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <div class="text-[#94A3B8] text-sm font-semibold mb-1">SBOS INDEX</div>
+                            <div class="text-white font-extrabold text-6xl">2.3</div>
+                            <div class="text-[#A68A64] text-sm font-light mt-1">Reactive → Functional</div>
+                        </div>
+                        <div class="status-badge badge-yellow">Stabilize</div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-[#94A3B8] mb-1">
+                                <span>Leadership</span>
+                                <span>2.8</span>
+                            </div>
+                            <div class="bg-[#1C1F26] h-2 rounded">
+                                <div class="pillar-bar bg-[#fbbf24] rounded" style="width: 56%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-[#94A3B8] mb-1">
+                                <span>Operations</span>
+                                <span>1.9</span>
+                            </div>
+                            <div class="bg-[#1C1F26] h-2 rounded">
+                                <div class="pillar-bar bg-[#dc2626] rounded" style="width: 38%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-[#94A3B8] mb-1">
+                                <span>Finance</span>
+                                <span>2.5</span>
+                            </div>
+                            <div class="bg-[#1C1F26] h-2 rounded">
+                                <div class="pillar-bar bg-[#fbbf24] rounded" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-[#A68A64] border-opacity-20 pt-4">
+                        <div class="text-[#94A3B8] text-xs font-semibold mb-2">RED FLAGS DETECTED</div>
+                        <div class="flex gap-4 text-sm">
+                            <div><span class="text-[#dc2626] font-bold">3</span> Critical</div>
+                            <div><span class="text-[#fbbf24] font-bold">7</span> Warning</div>
+                            <div><span class="text-[#10b981] font-bold">2</span> Advisory</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 px-6 bg-[#2A453B] bg-opacity-30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-white font-extrabold text-4xl mb-4">Built for Three Use Cases</h2>
+                <p class="text-[#94A3B8] text-lg font-light max-w-2xl mx-auto">
+                    From M&A due diligence to portfolio management to owner-operator guidance.
+                </p>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="flex justify-center border-b border-[#A68A64] border-opacity-20 mb-8">
+                <button class="tab-btn active" onclick="switchTab('ma')">M&A Due Diligence</button>
+                <button class="tab-btn" onclick="switchTab('multi')">Multi-Business Operators</button>
+                <button class="tab-btn" onclick="switchTab('owner')">Business Owners</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div id="ma-content" class="tab-content active grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-white font-bold text-3xl mb-4">Know What You're Buying—Before You Buy It</h3>
+                    <div class="space-y-4 text-[#94A3B8] font-light">
+                        <div class="flex gap-3">
+                            <i data-lucide="alert-circle" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Hidden Risk Exposure</div>
+                                <div>Surface critical blockers before they become deal-killers.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i data-lucide="clock" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Stabilization Estimate</div>
+                                <div>Quantified timeline and cost to operationalize the acquisition.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i data-lucide="check-circle" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Deal Recommendation</div>
+                                <div>Clear verdict: Proceed / Renegotiate / Walk Away.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mock M&A Output -->
+                <div class="bg-[#1C1F26] border border-[#A68A64] border-opacity-30 p-6">
+                    <div class="text-[#A68A64] text-xs font-semibold tracking-wider mb-4">TARGET: ACME INDUSTRIAL SERVICES</div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between py-2 border-b border-[#A68A64] border-opacity-20">
+                            <span class="text-[#94A3B8]">Maturity Score</span>
+                            <span class="text-white font-semibold">2.1 / 5.0</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-[#A68A64] border-opacity-20">
+                            <span class="text-[#94A3B8]">Owner Involvement</span>
+                            <span class="text-[#dc2626] font-semibold">87%</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-[#A68A64] border-opacity-20">
+                            <span class="text-[#94A3B8]">Revenue Concentration</span>
+                            <span class="text-[#dc2626] font-semibold">Top 3: 64%</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-[#A68A64] border-opacity-20">
+                            <span class="text-[#94A3B8]">Critical Flags</span>
+                            <span class="text-[#dc2626] font-semibold">5 Identified</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-[#A68A64] border-opacity-20">
+                            <span class="text-[#94A3B8]">Stabilization Est.</span>
+                            <span class="text-[#fbbf24] font-semibold">180 days / $240K</span>
+                        </div>
+                        <div class="pt-3">
+                            <div class="status-badge badge-yellow">RENEGOTIATE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="multi-content" class="tab-content grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-white font-bold text-3xl mb-4">Your Entire Client Portfolio—One Dashboard</h3>
+                    <div class="space-y-4 text-[#94A3B8] font-light">
+                        <div class="flex gap-3">
+                            <i data-lucide="layout-dashboard" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Portfolio Visibility</div>
+                                <div>See maturity scores, red flags, and phase status across all businesses.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i data-lucide="bell" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Proactive Alerts</div>
+                                <div>Get notified when a business crosses a critical threshold.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i data-lucide="trending-up" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Progress Tracking</div>
+                                <div>Monitor prescription completion and phase advancement.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mock Portfolio Dashboard -->
+                <div class="bg-[#1C1F26] border border-[#A68A64] border-opacity-30 p-6">
+                    <div class="text-[#A68A64] text-xs font-semibold tracking-wider mb-4">PORTFOLIO OVERVIEW</div>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-[#10b981] pl-4 py-2">
+                            <div class="text-white font-semibold">Apex Manufacturing</div>
+                            <div class="text-xs text-[#94A3B8] mb-2">SBOS Index: 3.8 • Optimize Phase</div>
+                            <div class="bg-[#2A453B] h-2 rounded">
+                                <div class="bg-[#10b981] h-full rounded" style="width: 76%;"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-[#fbbf24] pl-4 py-2">
+                            <div class="text-white font-semibold">Summit Logistics</div>
+                            <div class="text-xs text-[#94A3B8] mb-2">SBOS Index: 2.4 • Stabilize Phase • 4 Red Flags</div>
+                            <div class="bg-[#2A453B] h-2 rounded">
+                                <div class="bg-[#fbbf24] h-full rounded" style="width: 48%;"></div>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-[#dc2626] pl-4 py-2">
+                            <div class="text-white font-semibold">Precision Tooling Co.</div>
+                            <div class="text-xs text-[#94A3B8] mb-2">SBOS Index: 1.7 • Stabilize Phase • 7 Red Flags</div>
+                            <div class="bg-[#2A453B] h-2 rounded">
+                                <div class="bg-[#dc2626] h-full rounded" style="width: 34%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="owner-content" class="tab-content grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-white font-bold text-3xl mb-4">From Diagnosis to Systems—In Minutes</h3>
+                    <div class="space-y-4 text-[#94A3B8] font-light">
+                        <div class="flex gap-3">
+                            <i data-lucide="eye" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Blind Spot Detection</div>
+                                <div>Surface the structural weaknesses you don't know you have.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i data-lucide="list-ordered" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Sequenced Roadmap</div>
+                                <div>Prioritized by severity and phase logic. No guesswork.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i data-lucide="download" class="text-[#A68A64] flex-shrink-0" style="width: 20px; height: 20px;"></i>
+                            <div>
+                                <div class="font-semibold text-white">Prescription Activation</div>
+                                <div>Download ready-to-deploy SOPs, scorecards, and checklists.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mock Prescription List -->
+                <div class="bg-[#1C1F26] border border-[#A68A64] border-opacity-30 p-6">
+                    <div class="text-[#A68A64] text-xs font-semibold tracking-wider mb-4">YOUR PRESCRIPTIONS (12)</div>
+                    <div class="space-y-3">
+                        <div class="bg-[#2A453B] p-3 border-l-2 border-[#dc2626]">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="text-white font-semibold text-sm">Cash Flow Monitoring SOP</span>
+                                <span class="status-badge badge-red text-xs">Critical</span>
+                            </div>
+                            <div class="text-xs text-[#94A3B8]">Finance • Weekly Ritual • Est. 30 min setup</div>
+                        </div>
+                        <div class="bg-[#2A453B] p-3 border-l-2 border-[#fbbf24]">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="text-white font-semibold text-sm">Vendor Concentration Report</span>
+                                <span class="status-badge badge-yellow text-xs">Warning</span>
+                            </div>
+                            <div class="text-xs text-[#94A3B8]">Operations • Monthly • Est. 45 min setup</div>
+                        </div>
+                        <div class="bg-[#2A453B] p-3 border-l-2 border-[#10b981]">
+                            <div class="flex justify-between items-start mb-1">
+                                <span class="text-white font-semibold text-sm">Leadership Meeting Agenda</span>
+                                <span class="status-badge badge-green text-xs">Advisory</span>
+                            </div>
+                            <div class="text-xs text-[#94A3B8]">Leadership • Weekly • Est. 15 min setup</div>
+                        </div>
+                    </div>
+                    <button class="mt-4 w-full py-2 bg-[#A68A64] text-[#1C1F26] font-semibold text-sm">
+                        Download All Prescriptions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-white font-extrabold text-4xl mb-4">How It Works</h2>
+                <p class="text-[#94A3B8] text-lg font-light">Four steps from diagnosis to execution.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#A68A64] rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-[#1C1F26] font-extrabold text-2xl">1</span>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Take the Scan</h3>
+                    <p class="text-[#94A3B8] text-sm font-light">20 questions (Quick Scan) or 95 questions (Structural Audit).</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#A68A64] rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-[#1C1F26] font-extrabold text-2xl">2</span>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Get Your Index</h3>
+                    <p class="text-[#94A3B8] text-sm font-light">See your SBOS Index score, maturity level, and red flags.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#A68A64] rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-[#1C1F26] font-extrabold text-2xl">3</span>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">See Your Roadmap</h3>
+                    <p class="text-[#94A3B8] text-sm font-light">Sequenced by severity and phase: Stabilize → Optimize → Scale.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#A68A64] rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-[#1C1F26] font-extrabold text-2xl">4</span>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Activate Prescriptions</h3>
+                    <p class="text-[#94A3B8] text-sm font-light">Download SOPs, scorecards, and checklists tailored to your gaps.</p>
+                </div>
+            </div>
+            
+            <!-- Core Principle Callout -->
+            <div class="bg-[#2A453B] border-l-4 border-[#dc2626] p-6 max-w-3xl mx-auto">
+                <div class="flex gap-4">
+                    <i data-lucide="alert-triangle" class="text-[#dc2626] flex-shrink-0" style="width: 24px; height: 24px;"></i>
+                    <div>
+                        <div class="text-white font-bold mb-2">Core Principle</div>
+                        <div class="text-[#94A3B8] font-light">
+                            Severity overrides score. A Critical red flag blocks progression regardless of overall maturity.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiation Section -->
+    <section class="py-20 px-6 bg-[#2A453B] bg-opacity-30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-white font-extrabold text-4xl mb-4">Not Another Framework</h2>
+                <p class="text-[#94A3B8] text-lg font-light">Built for operators who need execution, not philosophy.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-[#1C1F26] border border-[#A68A64] border-opacity-30 p-6">
+                    <i data-lucide="stethoscope" class="text-[#A68A64] mb-4" style="width: 32px; height: 32px;"></i>
+                    <h3 class="text-white font-bold text-xl mb-3">Diagnosis Before Execution</h3>
+                    <p class="text-[#94A3B8] font-light">
+                        Most frameworks assume you know what's broken. SBOS starts with structural X-rays to surface what you can't see.
+                    </p>
+                </div>
+                <div class="bg-[#1C1F26] border border-[#A68A64] border-opacity-30 p-6">
+                    <i data-lucide="lock" class="text-[#A68A64] mb-4" style="width: 32px; height: 32px;"></i>
+                    <h3 class="text-white font-bold text-xl mb-3">Phase Gating</h3>
+                    <p class="text-[#94A3B8] font-light">
+                        You can't optimize what isn't stable. SBOS enforces phase logic: Stabilize → Optimize → Scale. No shortcuts.
+                    </p>
+                </div>
+                <div class="bg-[#1C1F26] border border-[#A68A64] border-opacity-30 p-6">
+                    <i data-lucide="wrench" class="text-[#A68A64] mb-4" style="width: 32px; height: 32px;"></i>
+                    <h3 class="text-white font-bold text-xl mb-3">Structural Not Cultural</h3>
+                    <p class="text-[#94A3B8] font-light">
+                        Culture follows structure. SBOS focuses on systems, documentation, and decision rights—not motivational abstractions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-white font-extrabold text-4xl mb-4">Ready to Surface What You Can't See?</h2>
+            <p class="text-[#94A3B8] text-lg font-light mb-8">
+                Start with the 20-question Quick Scan or request a comprehensive Structural Audit.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="openModal('quickScanModal')" class="btn-primary">
+                    Take the Quick Scan
+                </button>
+                <button onclick="openModal('auditModal')" class="btn-secondary">
+                    Request Structural Audit
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#A68A64] border-opacity-20 py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="20" width="40" height="15" fill="white"/>
+                        <rect x="20" y="20" width="15" height="40" fill="white"/>
+                        <rect x="40" y="65" width="40" height="15" fill="#A68A64"/>
+                        <rect x="65" y="40" width="15" height="40" fill="#A68A64"/>
+                    </svg>
+                    <div>
+                        <div class="text-white font-extrabold text-xl tracking-tight">stintwell</div>
+                        <div class="text-[#94A3B8] text-xs font-light">Precision. Discipline. Results that endure.</div>
+                    </div>
+                </div>
+                <div class="text-[#94A3B8] text-sm font-light">
+                    © 2025 Stintwell Advisory. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Scan Modal -->
+    <div id="quickScanModal" class="modal">
+        <div class="modal-content">
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h2 class="text-white font-bold text-2xl mb-2">Take the Quick Scan</h2>
+                        <p class="text-[#94A3B8] text-sm font-light">20 questions. 5 minutes. Your SBOS Index.</p>
+                    </div>
+                    <button onclick="closeModal('quickScanModal')" class="text-[#94A3B8] hover:text-white">
+                        <i data-lucide="x" style="width: 24px; height: 24px;"></i>
+                    </button>
+                </div>
+                
+                <form id="quickScanForm" action="https://formsubmit.co/steve@stintwell.com" method="POST">
+                    <input type="hidden" name="_subject" value="New SBOS Quick Scan Lead">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block mb-2">Name *</label>
+                            <input type="text" name="name" required placeholder="John Smith">
+                        </div>
+                        <div>
+                            <label class="block mb-2">Email *</label>
+                            <input type="email" name="email" required placeholder="john@company.com">
+                        </div>
+                        <div>
+                            <label class="block mb-2">Company *</label>
+                            <input type="text" name="company" required placeholder="Acme Industries">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-full mt-6">
+                        Start Quick Scan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Structural Audit Modal -->
+    <div id="auditModal" class="modal">
+        <div class="modal-content">
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h2 class="text-white font-bold text-2xl mb-2">Request Structural Audit</h2>
+                        <p class="text-[#94A3B8] text-sm font-light">The full 95-question diagnostic requires a brief intake conversation. We'll reach out within 24 hours.</p>
+                    </div>
+                    <button onclick="closeModal('auditModal')" class="text-[#94A3B8] hover:text-white">
+                        <i data-lucide="x" style="width: 24px; height: 24px;"></i>
+                    </button>
+                </div>
+                
+                <form id="auditForm" action="https://formsubmit.co/steve@stintwell.com" method="POST">
+                    <input type="hidden" name="_subject" value="New SBOS Structural Audit Request">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="#audit-submitted">
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block mb-2">Name *</label>
+                            <input type="text" name="name" required placeholder="John Smith">
+                        </div>
+                        <div>
+                            <label class="block mb-2">Email *</label>
+                            <input type="email" name="email" required placeholder="john@company.com">
+                        </div>
+                        <div>
+                            <label class="block mb-2">Company *</label>
+                            <input type="text" name="company" required placeholder="Acme Industries">
+                        </div>
+                        <div>
+                            <label class="block mb-2">Use Case *</label>
+                            <select name="use_case" required>
+                                <option value="">Select one...</option>
+                                <option value="M&A Due Diligence">M&A Due Diligence</option>
+                                <option value="Multi-Business Portfolio">Multi-Business Portfolio</option>
+                                <option value="Business Owner">Business Owner</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-2">Brief Context</label>
+                            <textarea name="context" rows="4" placeholder="Tell us about your situation..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-full mt-6">
+                        Submit Request
+                    </button>
+                </form>
+                
+                <div id="auditConfirmation" style="display: none;">
+                    <div class="text-center py-8">
+                        <i data-lucide="check-circle" class="text-[#10b981] mx-auto mb-4" style="width: 64px; height: 64px;"></i>
+                        <h3 class="text-white font-bold text-xl mb-2">Request Received</h3>
+                        <p class="text-[#94A3B8] font-light mb-6">
+                            We'll review your information and reach out within 24 hours to schedule your Structural Audit intake.
+                        </p>
+                        <button onclick="closeModal('auditModal')" class="btn-secondary">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Tab Switching
+        function switchTab(tabName) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-content').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Reinitialize icons in the newly visible content
+            lucide.createIcons();
+        }
+        
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Reset audit form if closing that modal
+            if (modalId === 'auditModal') {
+                document.getElementById('auditForm').style.display = 'block';
+                document.getElementById('auditConfirmation').style.display = 'none';
+                document.getElementById('auditForm').reset();
+            }
+        }
+        
+        // Close modal on background click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal(this.id);
+                }
+            });
+        });
+        
+        // Handle Quick Scan Form Submission
+        document.getElementById('quickScanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const company = formData.get('company');
+            
+            // Create base64 token
+            const leadData = {
+                name: name,
+                email: email,
+                company: company,
+                timestamp: new Date().toISOString()
+            };
+            const token = btoa(JSON.stringify(leadData));
+            
+            // Submit to FormSubmit (will happen in background)
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            });
+            
+            // Redirect to diagnostic
+            window.location.href = `https://sbos.stintwell.com/diagnostic/new/lite?lead=${token}`;
+        });
+        
+        // Handle Audit Form Submission
+        document.getElementById('auditForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Submit form
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            }).then(() => {
+                // Hide form, show confirmation
+                document.getElementById('auditForm').style.display = 'none';
+                document.getElementById('auditConfirmation').style.display = 'block';
+                lucide.createIcons();
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
