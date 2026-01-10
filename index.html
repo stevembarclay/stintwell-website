@@ -1,325 +1,697 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stintwell Advisory | The Operating Spine</title>
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "un3aro4y1k");
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SBOS - Stop Scaling Chaos | Business Operating System for Service Companies</title>
+  <meta name="description" content="Know exactly what's structurally broken in your business—and get a roadmap to fix it. Free assessment takes 5 minutes.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="SBOS - Stop Scaling Chaos">
+  <meta property="og:description" content="Know exactly what's structurally broken in your business—and get a roadmap to fix it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stintwell.com">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#0f1115',
+            card: '#1a1d24',
+            cardHover: '#252830',
+            border: '#3a3f4a',
+            bronze: '#a68a64',
+            bronzeHover: '#8a7354',
+            charcoal: '#1c1f26',
+            steel: '#94a3b8',
+            tactical: '#2a453b',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #0f1115;
+      color: #ffffff;
+    }
     
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F7F7F7;
-            color: #1C1F26;
-        }
-        
-        .bg-charcoal { background-color: #1C1F26; }
-        .text-charcoal { color: #1C1F26; }
-        .bg-tactical { background-color: #2A453B; } 
-        .text-tactical { color: #2A453B; }
-        .text-bronze { color: #A68A64; }
-        .bg-bronze { background-color: #A68A64; }
-        .border-bronze { border-color: #A68A64; }
-        
-        .hero-pattern {
-            background-image: radial-gradient(#A68A64 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.1;
-        }
-
-        .measure-line {
-            position: relative;
-        }
-        .measure-line::before {
-            content: '';
-            position: absolute;
-            left: -1px;
-            top: 0;
-            width: 6px;
-            height: 1px;
-            background-color: #A68A64;
-        }
-
-        /* FIX: Straightens the crooked original photo */
-        .straighten-photo {
-            transform: rotate(-1.5deg) scale(1.1);
-            transform-origin: center;
-        }
-
-        /* Mobile Menu logic */
-        #mobile-menu.active {
-            display: flex !important;
-        }
-    </style>
+    /* Smooth gradient for hero */
+    .hero-gradient {
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(166, 138, 100, 0.15), transparent);
+    }
+    
+    /* Progress bar colors */
+    .progress-financial { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .progress-operational { background: linear-gradient(90deg, #f97316, #ea580c); }
+    .progress-leadership { background: linear-gradient(90deg, #eab308, #ca8a04); }
+    .progress-commercial { background: linear-gradient(90deg, #22c55e, #16a34a); }
+    .progress-governance { background: linear-gradient(90deg, #ef4444, #dc2626); }
+  </style>
 </head>
+
 <body class="antialiased">
+  
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="6" fill="#a68a64"/>
+          <path d="M22 10H12C10.9 10 10 10.9 10 12V13C10 14.1 10.9 15 12 15H20C21.1 15 22 15.9 22 17V20C22 21.1 21.1 22 20 22H10M22 10V12M10 22V20" stroke="#1c1f26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-lg font-semibold tracking-tight text-white">stintwell</span>
+      </a>
 
-    <nav class="fixed w-full z-[100] bg-charcoal border-b border-gray-800">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <a href="/">
-                    <svg class="w-28 md:w-32 h-auto" viewBox="0 0 100 25" fill="none">
-                        <g transform="scale(0.22) translate(0, 5)">
-                            <rect x="20" y="20" width="40" height="15" fill="white"/>
-                            <rect x="20" y="20" width="15" height="40" fill="white"/>
-                            <rect x="40" y="65" width="40" height="15" fill="#A68A64"/>
-                            <rect x="65" y="40" width="15" height="40" fill="#A68A64"/>
-                        </g>
-                        <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
-                    </svg>
-                </a>
-            </div>
-            
-            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400 items-center">
-                <a href="#about" class="hover:text-white transition-colors">FIRM</a>
-                <a href="#services" class="hover:text-white transition-colors">EXPERTISE</a>
-                <a href="#approach" class="hover:text-white transition-colors">APPROACH</a>
-                <a href="https://www.stintwell.com/sbos-landing.html" class="px-5 py-2 text-white text-sm font-semibold hover:text-bronze transition-all flex items-center gap-2">
-                    <i data-lucide="layout-grid" class="w-4 h-4 text-bronze"></i>
-                    SBOS Platform
-                </a>
-                <a href="#contact" class="px-6 py-2 border border-bronze text-bronze text-sm font-medium hover:bg-bronze hover:text-white transition-all">
-                    INQUIRE
-                </a>
-            </div>
+      <!-- Desktop Navigation -->
+      <nav class="hidden items-center gap-6 md:flex">
+        <a href="#how-it-works" class="text-sm font-medium text-steel transition-colors hover:text-white">How It Works</a>
+        <a href="#pricing" class="text-sm font-medium text-steel transition-colors hover:text-white">Pricing</a>
+      </nav>
 
-            <button class="md:hidden text-white p-2" onclick="toggleMenu()" aria-label="Toggle Menu">
-                <i data-lucide="menu" id="menu-icon"></i>
-            </button>
-        </div>
+      <!-- CTA Button -->
+      <a href="https://sbos.stintwell.com/assessment/start" class="hidden sm:inline-flex items-center justify-center rounded-md bg-bronze px-4 py-2 text-sm font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
+        Take the Assessment
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="sm:hidden p-2 text-steel hover:text-white" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden border-t border-border bg-background">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#how-it-works" class="block text-sm font-medium text-steel hover:text-white">How It Works</a>
+        <a href="#pricing" class="block text-sm font-medium text-steel hover:text-white">Pricing</a>
+        <a href="https://sbos.stintwell.com/assessment/start" class="block w-full text-center rounded-md bg-bronze px-4 py-2 text-sm font-semibold text-charcoal hover:bg-bronzeHover">
+          Take the Assessment
+        </a>
+      </div>
+    </div>
+  </header>
 
-        <div id="mobile-menu" class="hidden fixed inset-0 bg-charcoal z-[90] flex-col p-8 pt-24 gap-6 text-xl font-bold text-white border-t border-gray-800">
-            <a href="#about" onclick="toggleMenu()" class="hover:text-bronze">FIRM</a>
-            <a href="#services" onclick="toggleMenu()" class="hover:text-bronze">EXPERTISE</a>
-            <a href="#approach" onclick="toggleMenu()" class="hover:text-bronze">APPROACH</a>
-            <a href="https://www.stintwell.com/sbos-landing.html" onclick="toggleMenu()" class="text-bronze flex items-center gap-2">
-                <i data-lucide="layout-grid" class="w-5 h-5"></i> SBOS Platform
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient relative pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="text-center">
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-sm text-steel mb-6">
+            <span class="w-2 h-2 rounded-full bg-bronze"></span>
+            Operational Infrastructure for Service Businesses
+          </div>
+          
+          <!-- Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            Stop Scaling <span class="text-bronze">Chaos.</span>
+          </h1>
+          
+          <!-- Subheadline -->
+          <p class="mx-auto max-w-2xl text-lg sm:text-xl text-steel mb-8">
+            Know exactly what's structurally broken in your business—and get a roadmap to fix it. The free assessment takes 5 minutes.
+          </p>
+          
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <a href="https://sbos.stintwell.com/assessment/start" class="inline-flex items-center justify-center gap-2 rounded-md bg-bronze px-6 py-3 text-base font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
+              Take the Free Assessment
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
             </a>
-            <a href="#contact" onclick="toggleMenu()" class="mt-4 bg-bronze text-white text-center py-4 uppercase tracking-widest text-sm">INQUIRE</a>
-        </div>
-    </nav>
-
-    <section class="relative min-h-screen flex items-center pt-20 bg-charcoal overflow-hidden">
-        <div class="absolute inset-0 hero-pattern"></div>
-        <div class="max-w-6xl mx-auto px-6 relative z-10 w-full">
-            <div class="max-w-3xl">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="h-px w-12 bg-bronze"></div>
-                    <span class="text-bronze text-sm font-medium tracking-[0.06em] uppercase">Operational Truth & Structural Enforcement</span>
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl font-bold text-white leading-none mb-8">
-                    Stop Scaling Chaos.<br>
-                    <span class="text-gray-500">Install an Operating Spine.</span>
-                </h1>
-                
-                <p class="text-xl font-light text-gray-300 max-w-xl leading-relaxed mb-10">
-                    Businesses attempt to scale without operational truth and pay for it in chaos, margin erosion, and burnout. SBOS stabilizes businesses before growth by enforcing governance rhythms that persist without heroics.
-                </p>
-                
-                <div class="flex flex-col md:flex-row gap-4">
-                    <a href="#services" class="px-8 py-4 bg-white text-charcoal font-semibold hover:bg-gray-200 transition-colors text-center uppercase tracking-widest text-sm">
-                        The 90-Day Installation
-                    </a>
-                    <a href="#about" class="px-8 py-4 border border-gray-700 text-white font-semibold hover:border-white transition-colors text-center uppercase tracking-widest text-sm">
-                        The Stintwell Standard
-                    </a>
-                </div>
+            <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-cardHover">
+              See How It Works
+            </a>
+          </div>
+          
+          <!-- Trust Indicators -->
+          <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-steel">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+              </svg>
+              No credit card
             </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              5 minutes
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              Instant results
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="py-24 bg-white" id="approach">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-start">
+    <!-- Stats Section -->
+    <section class="py-16 border-y border-border">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="flex justify-center mb-3">
+              <svg class="w-8 h-8 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <div class="text-2xl font-bold text-white mb-1">Assessment-Led</div>
+            <div class="text-sm text-steel">Diagnosis Before Execution</div>
+          </div>
+          <div>
+            <div class="flex justify-center mb-3">
+              <svg class="w-8 h-8 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <div class="text-2xl font-bold text-white mb-1">10-50</div>
+            <div class="text-sm text-steel">Employee Sweet Spot</div>
+          </div>
+          <div>
+            <div class="flex justify-center mb-3">
+              <svg class="w-8 h-8 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+            <div class="text-2xl font-bold text-white mb-1">$1-5M</div>
+            <div class="text-sm text-steel">Revenue Range</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">How It Works</h2>
+          <p class="text-lg text-steel">From chaos to clarity in four steps.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Step 1 -->
+          <div class="relative rounded-lg border border-border bg-card p-6">
+            <div class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-bronze text-charcoal text-sm font-bold flex items-center justify-center">1</div>
+            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Take the Assessment</h3>
+            <p class="text-sm text-steel">Answer questions across 5 operational pillars. Quick Scan (5 min) or Full Audit (15 min).</p>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="relative rounded-lg border border-border bg-card p-6">
+            <div class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-bronze text-charcoal text-sm font-bold flex items-center justify-center">2</div>
+            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Get Your Index</h3>
+            <p class="text-sm text-steel">Receive your maturity score (1-5) with critical red flags and pillar breakdown.</p>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="relative rounded-lg border border-border bg-card p-6">
+            <div class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-bronze text-charcoal text-sm font-bold flex items-center justify-center">3</div>
+            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">See Your Roadmap</h3>
+            <p class="text-sm text-steel">Understand exactly what to fix first based on severity, not just score.</p>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="relative rounded-lg border border-border bg-card p-6">
+            <div class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-bronze text-charcoal text-sm font-bold flex items-center justify-center">4</div>
+            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Activate Prescriptions</h3>
+            <p class="text-sm text-steel">One-click install SOPs, scorecards, and meeting cadences to fix gaps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SBOS Index Preview -->
+    <section class="py-20 sm:py-28 bg-card/50">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">See What You'll Get</h2>
+          <p class="text-lg text-steel max-w-2xl mx-auto">Your SBOS Index reveals exactly where your business stands—and what's blocking growth.</p>
+        </div>
+        
+        <div class="rounded-xl border border-border bg-card p-6 sm:p-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- Left: Score -->
+            <div>
+              <div class="text-sm font-medium text-steel uppercase tracking-wider mb-4">Your SBOS Index</div>
+              <div class="flex items-baseline gap-2 mb-4">
+                <span class="text-6xl font-bold text-white">2.3</span>
+                <span class="text-2xl text-steel">/5</span>
+              </div>
+              <div class="inline-flex items-center gap-2 rounded-full bg-orange-500/20 px-3 py-1 text-sm text-orange-400 mb-6">
+                Level 2: Reactive
+              </div>
+              <p class="text-steel mb-8">Your business operates reactively. Systems exist but aren't documented or consistently followed.</p>
+              
+              <div class="text-sm font-medium text-steel uppercase tracking-wider mb-4">Red Flags Identified</div>
+              <div class="flex flex-wrap gap-3">
+                <span class="inline-flex items-center gap-2 rounded-full bg-red-500/20 px-3 py-1.5 text-sm text-red-400">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                  </svg>
+                  3 Critical
+                </span>
+                <span class="inline-flex items-center gap-2 rounded-full bg-yellow-500/20 px-3 py-1.5 text-sm text-yellow-400">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  5 Moderate
+                </span>
+              </div>
+            </div>
+            
+            <!-- Right: Pillar Breakdown -->
+            <div>
+              <div class="text-sm font-medium text-steel uppercase tracking-wider mb-4">5 Pillar Breakdown</div>
+              <div class="space-y-5">
+                <!-- Financial -->
                 <div>
-                    <h2 class="text-3xl font-bold text-charcoal mb-6">Truth before optimization.<br>Control before scale.</h2>
-                    <p class="font-light text-gray-600 leading-relaxed mb-6 text-lg">
-                        SBOS exists to solve a recurring failure mode in service businesses: the attempt to grow on a foundation that cannot support it. We don't do coaching; we install structural predictability.
-                    </p>
-                    <p class="font-light text-gray-600 leading-relaxed text-lg">
-                        Stintwell takes on defined, high-impact stints to stabilize, optimize, and scale your operational backbone. We leave you with an operating machine that governs itself.
-                    </p>
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-white">Financial</span>
+                    <span class="text-steel">3.2/5</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
+                    <div class="h-full progress-financial rounded-full" style="width: 64%"></div>
+                  </div>
                 </div>
                 
-                <div class="grid grid-cols-1 gap-8 relative pl-6">
-                    <div class="absolute left-0 top-2 bottom-2 w-px bg-bronze measure-line opacity-50"></div>
-                    <div class="pl-6 relative">
-                        <div class="absolute left-0 top-3 w-3 h-px bg-bronze -ml-6"></div>
-                        <h3 class="text-lg font-bold text-charcoal mb-2 italic uppercase">01 // Stabilize</h3>
-                        <p class="text-sm font-light text-gray-500">Establishing financial truth and leadership cadence to stop fires.</p>
-                    </div>
-                    <div class="pl-6 relative">
-                        <div class="absolute left-0 top-3 w-3 h-px bg-bronze -ml-6"></div>
-                        <h3 class="text-lg font-bold text-charcoal mb-2 italic uppercase">02 // Optimize</h3>
-                        <p class="text-sm font-light text-gray-500">Codifying standard work to improve throughput and margin.</p>
-                    </div>
-                    <div class="pl-6 relative">
-                         <div class="absolute left-0 top-3 w-3 h-px bg-bronze -ml-6"></div>
-                        <h3 class="text-lg font-bold text-charcoal mb-2 italic uppercase">03 // Scale</h3>
-                        <p class="text-sm font-light text-gray-500">Expanding strategically only once the core is structurally ready.</p>
-                    </div>
+                <!-- Operational -->
+                <div>
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-white">Operational</span>
+                    <span class="text-steel">2.1/5</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
+                    <div class="h-full progress-operational rounded-full" style="width: 42%"></div>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-tactical text-white" id="about">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-12 items-center">
                 
-                <div class="md:col-span-5 order-2 md:order-1 relative">
-                    <div class="aspect-[3/4] w-full relative overflow-hidden border border-gray-600 bg-gray-800">
-                        <img src="steve.jpg" alt="Steve Barclay" class="straighten-photo absolute inset-0 w-full h-full object-cover grayscale brightness-75">
-                        <div class="absolute bottom-6 left-6 right-6 z-10">
-                            <div class="text-sm font-semibold text-bronze uppercase tracking-wider mb-1">Lead Operator</div>
-                            <div class="text-2xl font-bold text-white">Steve Barclay</div>
-                        </div>
-                    </div>
-                    <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-bronze -mt-1 -ml-1"></div>
-                    <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-bronze -mb-1 -mr-1"></div>
+                <!-- Leadership -->
+                <div>
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-white">Leadership</span>
+                    <span class="text-steel">2.8/5</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
+                    <div class="h-full progress-leadership rounded-full" style="width: 56%"></div>
+                  </div>
                 </div>
-
-                <div class="md:col-span-7 order-1 md:order-2">
-                    <h2 class="text-sm font-semibold text-bronze uppercase tracking-widest mb-4 italic">The Stintwell Standard</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold mb-8 leading-tight italic uppercase">Systems over personalities.<br>Truth over heroics.</h3>
-                    <div class="space-y-6 text-gray-300 leading-relaxed font-light text-lg">
-                        <p>Steve Barclay is an operator at heart—shaped by his Marine Corps background and refined through scaling $30M+ service organizations.</p>
-                        <p>Stintwell exists for founders who need an operational spine, not a cheerleader. We install the "controlling logic" for your company, ensuring visibility and clarity.</p>
-                        <p>Our approach is clinical: we prioritize financial truth first, operational systems second, and leadership discipline third. Strategy only follows once the spine is stabilized.</p>
-                    </div>
-                    <div class="mt-10 flex gap-4">
-                        <div class="flex items-center gap-2 text-sm font-semibold"><i data-lucide="check-circle" class="w-4 h-4 text-bronze"></i><span>Truth before Optimization</span></div>
-                        <div class="flex items-center gap-2 text-sm font-semibold"><i data-lucide="check-circle" class="w-4 h-4 text-bronze"></i><span>Systems over Memory</span></div>
-                    </div>
+                
+                <!-- Commercial -->
+                <div>
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-white">Commercial</span>
+                    <span class="text-steel">3.5/5</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
+                    <div class="h-full progress-commercial rounded-full" style="width: 70%"></div>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-32 bg-gray-50" id="services">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-20">
-                <h2 class="text-3xl font-bold text-charcoal mb-4 uppercase italic">The 90-Day Structural Cleanup</h2>
-                <p class="font-light text-gray-600 text-lg leading-relaxed">Engagement is milestone-based. Progression is gated by structural readiness.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="bg-white p-10 border border-gray-100 hover:border-bronze transition-colors flex flex-col group">
-                    <div class="w-14 h-14 bg-gray-100 flex items-center justify-center mb-8 group-hover:bg-charcoal transition-colors">
-                        <i data-lucide="shield-check" class="w-6 h-6 text-charcoal group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 uppercase italic">01 // Stabilize</h3>
-                    <p class="text-sm font-light text-gray-500 leading-relaxed mb-6">Establishing financial truth and leadership cadence to stop fires and create visibility.</p>
-                    <span class="text-[10px] font-bold text-bronze uppercase border border-bronze/30 px-3 py-1 self-start">Gate: Predictability</span>
+                
+                <!-- Governance -->
+                <div>
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-white">Governance</span>
+                    <span class="text-steel">1.9/5</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
+                    <div class="h-full progress-governance rounded-full" style="width: 38%"></div>
+                  </div>
                 </div>
-
-                <div class="bg-white p-10 border border-gray-100 hover:border-bronze transition-colors flex flex-col group">
-                    <div class="w-14 h-14 bg-gray-100 flex items-center justify-center mb-8 group-hover:bg-charcoal transition-colors">
-                        <i data-lucide="trending-up" class="w-6 h-6 text-charcoal group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 uppercase italic">02 // Optimize</h3>
-                    <p class="text-sm font-light text-gray-500 leading-relaxed mb-6">Codifying repeatable processes and eliminating rework to improve throughput and margin.</p>
-                    <span class="text-[10px] font-bold text-gray-400 uppercase border border-gray-200 px-3 py-1 self-start">Gate: Reliability</span>
-                </div>
-
-                <div class="bg-white p-10 border border-gray-100 hover:border-bronze transition-colors flex flex-col group">
-                    <div class="w-14 h-14 bg-gray-100 flex items-center justify-center mb-8 group-hover:bg-charcoal transition-colors">
-                        <i data-lucide="zap" class="w-6 h-6 text-charcoal group-hover:text-white transition-colors"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-charcoal mb-3 uppercase italic">03 // Scale</h3>
-                    <p class="text-sm font-light text-gray-500 leading-relaxed mb-6">Expanding strategically once the core is structurally ready and red flags are resolved.</p>
-                    <span class="text-[10px] font-bold text-gray-400 uppercase border border-gray-200 px-3 py-1 self-start">Gate: Capacity</span>
-                </div>
-            </div>
-            </div>
-    </section>
-
-    <section class="py-24 bg-charcoal relative" id="contact">
-        <div class="absolute inset-0 bg-tactical/20"></div>
-        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 italic uppercase tracking-tight">Ready to operate better?</h2>
-            <p class="text-gray-400 mb-10 text-lg font-light">
-                Steve takes on a limited number of structural installations each year to ensure depth and focus.
-            </p>
-            <div class="bg-white/5 backdrop-blur-md p-8 md:p-12 border border-white/10 text-left rounded-sm">
-                <form action="https://formsubmit.co/steve.m.barclay@gmail.com" method="POST" class="space-y-6">
-                    <input type="hidden" name="_next" value="https://stintwell.com">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New Structural Audit Inquiry">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold text-bronze uppercase tracking-widest mb-2">Name</label>
-                            <input type="text" name="name" required class="w-full bg-charcoal border border-gray-700 text-white px-4 py-3 focus:outline-none focus:border-bronze transition-colors" placeholder="First Last">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-bronze uppercase tracking-widest mb-2">Email</label>
-                            <input type="email" name="email" required class="w-full bg-charcoal border border-gray-700 text-white px-4 py-3 focus:outline-none focus:border-bronze transition-colors" placeholder="you@company.com">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-bronze uppercase tracking-widest mb-2">Operational Challenge</label>
-                        <textarea name="message" required class="w-full bg-charcoal border border-gray-700 text-white px-4 py-3 focus:outline-none focus:border-bronze transition-colors h-32" placeholder="Describe the structural bottleneck..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-bronze text-white font-bold py-4 hover:bg-white hover:text-charcoal transition-colors uppercase tracking-widest text-sm">
-                        Request Structural Audit
-                    </button>
-                </form>
-            </div>
-            
-            <div class="mt-12 flex flex-col items-center gap-4">
-                 <div class="opacity-50">
-                     <svg class="w-24 h-auto" viewBox="0 0 100 25" fill="none">
-                        <g transform="scale(0.22) translate(0, 5)">
-                            <rect x="20" y="20" width="40" height="15" fill="white"/>
-                            <rect x="20" y="20" width="15" height="40" fill="white"/>
-                            <rect x="40" y="65" width="40" height="15" fill="#A68A64"/>
-                            <rect x="65" y="40" width="15" height="40" fill="#A68A64"/>
-                        </g>
-                        <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
+              </div>
+              
+              <!-- Top Priority -->
+              <div class="mt-8 p-4 rounded-lg border border-border bg-cardHover">
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg class="w-4 h-4 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
+                  </div>
+                  <div>
+                    <div class="text-sm font-medium text-white mb-1">Top Priority</div>
+                    <p class="text-sm text-steel">Document your core delivery process to reduce key-employee dependency.</p>
+                  </div>
                 </div>
-                <div class="text-gray-500 text-sm text-center font-light">
-                    &copy; 2025 Stintwell Advisory. All Rights Reserved. <br>
-                    <span class="text-gray-600">Precision. Discipline. Results that endure.</span>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
+    <!-- Not Another Framework -->
+    <section class="py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <div class="text-sm font-medium text-bronze uppercase tracking-wider mb-4">The SBOS Difference</div>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Not Another Framework.</h2>
+          <p class="text-lg text-steel max-w-2xl mx-auto">EOS, Scaling Up, and OKRs work—when you're structurally ready for them. SBOS proves whether you're ready.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Diagnosis Before Execution -->
+          <div class="rounded-lg border border-border bg-card p-6">
+            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">Diagnosis Before Execution</h3>
+            <p class="text-sm text-steel">Other frameworks assume you're ready. SBOS proves (or disproves) it first. No wasted effort on the wrong priorities.</p>
+          </div>
+          
+          <!-- Phase Gating -->
+          <div class="rounded-lg border border-border bg-card p-6">
+            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">Phase Gating</h3>
+            <p class="text-sm text-steel">Stabilize → Optimize → Scale. You can't skip steps. A Ferrari with no wheels isn't 80% functional.</p>
+          </div>
+          
+          <!-- Structural, Not Cultural -->
+          <div class="rounded-lg border border-border bg-card p-6">
+            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold mb-3">Structural, Not Cultural</h3>
+            <p class="text-sm text-steel">Systems that persist regardless of individuals. No more tribal knowledge risks or key-employee dependencies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // FIX: Menu toggle function
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            menu.classList.toggle('active');
+    <!-- Built For Operators -->
+    <section class="py-20 sm:py-28 bg-card/50">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Built For Operators</h2>
+          <p class="text-lg text-steel">SBOS works for any service business ready to scale without the chaos.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Service Companies -->
+          <div class="rounded-lg border border-border bg-card p-6">
+            <div class="w-10 h-10 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">Service Companies</h3>
+            <p class="text-sm text-steel">HVAC, plumbing, electrical, property management</p>
+          </div>
+          
+          <!-- IT & MSPs -->
+          <div class="rounded-lg border border-border bg-card p-6">
+            <div class="w-10 h-10 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">IT & MSPs</h3>
+            <p class="text-sm text-steel">Managed service providers, IT consultancies</p>
+          </div>
+          
+          <!-- Franchises -->
+          <div class="rounded-lg border border-border bg-card p-6">
+            <div class="w-10 h-10 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">Franchises</h3>
+            <p class="text-sm text-steel">Multi-location operations needing consistency</p>
+          </div>
+          
+          <!-- Growing Teams -->
+          <div class="rounded-lg border border-border bg-card p-6">
+            <div class="w-10 h-10 rounded-lg bg-cardHover flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-semibold mb-2">Growing Teams</h3>
+            <p class="text-sm text-steel">10-50 employees scaling beyond founder dependency</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Free Forever. Upgrade When Ready.</h2>
+          <p class="text-lg text-steel max-w-2xl mx-auto">Start with the assessment and SOP module at no cost. Add power modules when you need them.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Free Tier -->
+          <div class="rounded-xl border border-border bg-card p-8">
+            <div class="inline-flex items-center gap-2 rounded-full bg-green-500/20 px-3 py-1 text-sm text-green-400 mb-4">
+              Free Forever
+            </div>
+            <div class="flex items-baseline gap-1 mb-4">
+              <span class="text-4xl font-bold text-white">$0</span>
+              <span class="text-steel">/month</span>
+            </div>
+            <p class="text-steel mb-6">Everything you need to assess your business and start documenting processes.</p>
             
-            const isOpened = menu.classList.contains('active');
-            icon.setAttribute('data-lucide', isOpened ? 'x' : 'menu');
-            lucide.createIcons();
-        }
-    </script>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Quick Scan (20 questions, 5 minutes)</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Full Audit (95 questions, comprehensive)</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">SBOS Index maturity score</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">5-pillar breakdown</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Red flag identification</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Unlimited SOPs with AI assistance</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Version history</span>
+              </li>
+            </ul>
+            
+            <a href="https://sbos.stintwell.com/assessment/start" class="block w-full text-center rounded-md bg-bronze px-6 py-3 text-base font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
+              Start Free Assessment
+            </a>
+          </div>
+          
+          <!-- Paid Tier -->
+          <div class="rounded-xl border border-bronze bg-card p-8 relative">
+            <div class="inline-flex items-center gap-2 rounded-full bg-bronze/20 px-3 py-1 text-sm text-bronze mb-4">
+              Full Platform
+            </div>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="text-4xl font-bold text-white">$99</span>
+              <span class="text-steel">/month</span>
+              <span class="text-sm text-steel">(Solo)</span>
+            </div>
+            <div class="text-sm text-steel mb-4">$299/mo (Team)</div>
+            <p class="text-steel mb-6">Complete operational infrastructure for serious operators.</p>
+            
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Everything in Free, plus:</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">KPI Scorecards</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Financial Dashboard</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Leadership Module (meetings, decisions, RACI)</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">People Module (roles, org chart, hiring)</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Projects Module (initiatives, blockers)</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm">
+                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-white">Priority support</span>
+              </li>
+            </ul>
+            
+            <a href="https://sbos.stintwell.com/assessment/start" class="block w-full text-center rounded-md border border-bronze px-6 py-3 text-base font-semibold text-bronze transition-colors hover:bg-bronze hover:text-charcoal">
+              Upgrade After Assessment
+            </a>
+            
+            <p class="text-xs text-steel text-center mt-4">Enterprise pricing available for unlimited users + white-label</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script type="text/javascript">
-      window._mfq = window._mfq || [];
-      (function() {
-        var mf = document.createElement("script");
-        mf.type = "text/javascript"; mf.defer = true;
-        mf.src = "//cdn.mouseflow.com/projects/3fbe6aa8-a218-4724-a901-43b7433883f0.js";
-        document.getElementsByTagName("head")[0].appendChild(mf);
-      })();
-    </script>
+    <!-- Final CTA -->
+    <section class="py-20 sm:py-28 bg-card/50">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready to See What's Really Broken?</h2>
+        <p class="text-lg text-steel mb-8">Take the free assessment. Get your SBOS Index with maturity scores, red flags, and a prioritized roadmap—in 5 minutes.</p>
+        <a href="https://sbos.stintwell.com/assessment/start" class="inline-flex items-center justify-center gap-2 rounded-md bg-bronze px-8 py-4 text-lg font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
+          Take the Free Assessment
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border py-12">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="6" fill="#a68a64"/>
+            <path d="M22 10H12C10.9 10 10 10.9 10 12V13C10 14.1 10.9 15 12 15H20C21.1 15 22 15.9 22 17V20C22 21.1 21.1 22 20 22H10M22 10V12M10 22V20" stroke="#1c1f26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="font-semibold text-white">stintwell</span>
+        </div>
+        
+        <!-- Tagline -->
+        <p class="text-sm text-steel">Precision. Discipline. Results that endure.</p>
+        
+        <!-- Links -->
+        <div class="flex items-center gap-6 text-sm">
+          <a href="https://stintwell.com" class="text-steel hover:text-white transition-colors">Stintwell Advisory</a>
+          <a href="https://sbos.stintwell.com" class="text-steel hover:text-white transition-colors">SBOS App</a>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-border text-center text-sm text-steel">
+        © 2026 Stintwell Advisory. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+
+  <!-- Analytics Placeholder -->
+  <!-- 
+  Add your tracking scripts here:
+  - Mouseflow
+  - Google Analytics 4
+  - Meta Pixel
+  -->
+
 </body>
 </html>
