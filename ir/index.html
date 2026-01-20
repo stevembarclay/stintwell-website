@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stintwell - 10-Year ARR Calculator</title>
+    <meta name="robots" content="noindex, nofollow">
+    <title>Stintwell - Goal-Driven Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
@@ -74,32 +75,63 @@
 </head>
 <body class="bg-gray-50 font-sans">
     <div class="flex h-screen overflow-hidden">
-        <!-- Left Sidebar - Goal & Inputs -->
+        <!-- Left Sidebar - Inputs -->
         <div class="w-96 bg-white border-r border-gray-200 flex flex-col sidebar-scroll overflow-y-auto">
             <div class="p-6 border-b border-gray-200 sticky top-0 bg-white z-10">
-                <h1 class="text-2xl font-bold text-gray-900">10-Year ARR</h1>
-                <p class="text-sm text-gray-500 mt-1">Goal-Driven Calculator</p>
+                <h1 class="text-2xl font-bold text-gray-900">Goal-Driven</h1>
+                <p class="text-sm text-gray-500 mt-1">Backwards Calculator</p>
             </div>
             
             <div class="p-6 space-y-6">
-                <!-- Goal Section -->
+                <!-- Hard Goals Section -->
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <h2 class="text-sm font-semibold text-blue-900 mb-3">Target Goal</h2>
+                    <h2 class="text-sm font-semibold text-blue-900 mb-3">Hard Goals (Fixed)</h2>
+                    
+                    <div class="mb-4">
+                        <div class="text-sm font-medium text-gray-700 mb-1">$1M ARR by Month 12</div>
+                        <div class="text-lg font-bold text-blue-900">Required</div>
+                        <div class="text-xs text-gray-600 mt-1">= $83,333 MRR</div>
+                    </div>
+
+                    <div>
+                        <div class="text-sm font-medium text-gray-700 mb-1">$10M ARR as Fast as Possible</div>
+                        <div class="text-lg font-bold text-blue-900">Target</div>
+                        <div class="text-xs text-gray-600 mt-1">Capped (past irrelevant)</div>
+                    </div>
+                </div>
+
+                <!-- Variable Assumptions Panel -->
+                <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                    <h2 class="text-sm font-semibold text-orange-900 mb-3">Variable Assumptions</h2>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-gray-600"><strong>Known:</strong> Goals, Investment, Burn</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-orange-600 font-bold">?</span>
+                            <span class="text-gray-600"><strong>Unknown:</strong> Churn, CPC, Conversions, Tier Mix</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment & Burn -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-3">Investment & Burn</h3>
                     
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Target ARR (10 Years)
+                            Initial Investment
                         </label>
-                        <input type="number" id="targetARR" value="10000000" min="1000000" max="100000000" step="100000"
+                        <input type="number" id="initialInvestment" value="50000" min="10000" max="500000" step="5000"
                                class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <div class="text-xs text-gray-500 mt-1" id="targetMRR">Target MRR: $833,333</div>
                     </div>
 
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Baseline Investment
+                            Monthly Burn (Ops/Dev)
                         </label>
-                        <input type="number" id="baseline" value="50000" min="10000" max="500000" step="5000"
+                        <input type="number" id="monthlyBurn" value="1000" min="500" max="50000" step="100"
                                class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
@@ -141,9 +173,9 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">
                             Monthly Churn Rate (%)
                         </label>
-                        <input type="range" id="churnRate" min="1" max="10" step="0.1" value="4.0"
+                        <input type="range" id="churnRate" min="1" max="10" step="0.1" value="8.0"
                                class="w-full mb-2">
-                        <input type="number" id="churnRateInput" value="4.0" min="1" max="10" step="0.1"
+                        <input type="number" id="churnRateInput" value="8.0" min="1" max="10" step="0.1"
                                class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
 
@@ -160,14 +192,6 @@
                             <div>Scale ($499): <span id="scaleMixDisplay">50%</span></div>
                         </div>
                     </div>
-
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Monthly Ops/Dev Cost
-                        </label>
-                        <input type="number" id="opsCost" value="1000" min="500" max="50000" step="100"
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
                 </div>
 
                 <!-- Growth Strategy -->
@@ -176,19 +200,20 @@
                     
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Initial Monthly Ad Spend (Months 1-6)
+                            Reinvestment Rate (%)
                         </label>
-                        <input type="number" id="initialAdSpend" value="9000" min="1000" max="50000" step="100"
+                        <input type="number" id="reinvestmentRate" value="50" min="0" max="100" step="5"
                                class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="text-xs text-gray-500 mt-1">% of profit reinvested in ads after break-even</div>
                     </div>
 
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Monthly Ad Spend Growth Rate (%)
+                            Ad Spend Growth Rate (%/month)
                         </label>
-                        <input type="number" id="adSpendGrowth" value="5.0" min="0" max="20" step="0.1"
+                        <input type="number" id="adSpendGrowth" value="3.0" min="0" max="20" step="0.1"
                                class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <div class="text-xs text-gray-500 mt-1">Ad spend increases monthly by this %</div>
+                        <div class="text-xs text-gray-500 mt-1">Base growth rate before reinvestment</div>
                     </div>
                 </div>
             </div>
@@ -197,40 +222,90 @@
         <!-- Main Dashboard - Outputs -->
         <div class="flex-1 flex flex-col overflow-hidden">
             <div class="p-8 overflow-y-auto">
+                <!-- Scenario Comparison Toggle -->
+                <div class="mb-6 flex justify-end">
+                    <button id="toggleComparison" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+                        Compare Scenarios
+                    </button>
+                </div>
+
+                <!-- Scenario Comparison View (Hidden by default) -->
+                <div id="scenarioComparison" class="hidden mb-6 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">Scenario Comparison</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Conservative Scenario -->
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-900 mb-3">Conservative</h3>
+                            <div id="conservativeMetrics" class="space-y-2 text-sm">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                        <!-- Optimistic Scenario -->
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-900 mb-3">Optimistic</h3>
+                            <div id="optimisticMetrics" class="space-y-2 text-sm">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Goal Status Card -->
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-lg font-semibold text-gray-900">Goal Achievement Status</h2>
                         <div id="goalStatus" class="px-4 py-2 rounded-full text-sm font-medium"></div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                         <div>
-                            <div class="text-sm text-gray-500 mb-1">Target ARR (Year 10)</div>
-                            <div class="text-2xl font-bold text-gray-900" id="targetARRDisplay">$10M</div>
+                            <div class="text-sm text-gray-500 mb-1">$1M ARR Goal (Month 12)</div>
+                            <div class="text-2xl font-bold" id="year1GoalStatus">Calculating...</div>
                         </div>
                         <div>
-                            <div class="text-sm text-gray-500 mb-1">Projected ARR (Year 10)</div>
-                            <div class="text-2xl font-bold" id="projectedARRDisplay">$0</div>
+                            <div class="text-sm text-gray-500 mb-1">$10M ARR Achievement Month</div>
+                            <div class="text-2xl font-bold text-gray-900" id="year10AchievementMonth">Calculating...</div>
                         </div>
                         <div>
-                            <div class="text-sm text-gray-500 mb-1">Gap</div>
-                            <div class="text-2xl font-bold" id="gapDisplay">$0</div>
+                            <div class="text-sm text-gray-500 mb-1">Required Monthly Visitors</div>
+                            <div class="text-2xl font-bold text-gray-900" id="requiredVisitors">Calculating...</div>
+                        </div>
+                    </div>
+                    
+                    <!-- What-If Insights -->
+                    <div id="whatIfInsights" class="border-t border-gray-200 pt-4 mt-4">
+                        <h3 class="text-sm font-semibold text-gray-900 mb-3">What-If Insights</h3>
+                        <ul id="insightsList" class="space-y-2 text-sm text-gray-700">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Required Metrics Grid -->
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-blue-900 mb-4">Required Metrics (Working Backwards from $1M Goal)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Monthly Ad Spend</div>
+                            <div class="text-2xl font-bold text-gray-900" id="requiredAdSpend">$0</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Monthly Visitors</div>
+                            <div class="text-2xl font-bold text-gray-900" id="requiredVisitorsDetail">0</div>
+                            <div class="text-xs text-gray-500 mt-1" id="dailyVisitors">= 0 /day</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Monthly Trials</div>
+                            <div class="text-2xl font-bold text-gray-900" id="requiredTrials">0</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Monthly Customers</div>
+                            <div class="text-2xl font-bold text-gray-900" id="requiredCustomers">0</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Key Metrics Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                        <div class="text-sm font-medium text-gray-500 mb-1">Year 1 ARR</div>
-                        <div class="text-3xl font-bold text-gray-900" id="year1ARR">$0</div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                        <div class="text-sm font-medium text-gray-500 mb-1">Year 5 ARR</div>
-                        <div class="text-3xl font-bold text-gray-900" id="year5ARR">$0</div>
-                    </div>
-
                     <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                         <div class="text-sm font-medium text-gray-500 mb-1">Avg CAC</div>
                         <div class="text-3xl font-bold text-gray-900" id="avgCAC">$0</div>
@@ -250,27 +325,17 @@
                         <div class="text-sm font-medium text-gray-500 mb-1">Break-even Month</div>
                         <div class="text-3xl font-bold text-gray-900" id="breakEvenMonth">0</div>
                     </div>
-
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                        <div class="text-sm font-medium text-gray-500 mb-1">Total Customers (Y10)</div>
-                        <div class="text-3xl font-bold text-gray-900" id="year10Customers">0</div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                        <div class="text-sm font-medium text-gray-500 mb-1">Cumulative Cash Flow</div>
-                        <div class="text-3xl font-bold" id="cumulativeCashFlow">$0</div>
-                    </div>
                 </div>
 
-                <!-- 10-Year ARR Chart -->
+                <!-- ARR Chart -->
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-                    <h2 class="text-lg font-semibold text-gray-900 mb-4">10-Year ARR Projection</h2>
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">ARR Projection (Capped at $10M)</h2>
                     <canvas id="arrChart" height="100"></canvas>
                 </div>
 
-                <!-- 10-Year Cash Flow Chart -->
+                <!-- Cash Flow Chart -->
                 <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 mb-4">10-Year Cumulative Cash Flow</h2>
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">Cumulative Cash Flow</h2>
                     <canvas id="cashFlowChart" height="100"></canvas>
                 </div>
             </div>
@@ -281,8 +346,10 @@
         // Constants
         const TEAM_PRICE = 299;
         const SCALE_PRICE = 499;
-        const MONTHS_IN_YEAR = 12;
-        const TOTAL_MONTHS = 120; // 10 years
+        const GOAL_YEAR1_ARR = 1000000; // $1M ARR by month 12
+        const GOAL_YEAR10_ARR = 10000000; // $10M ARR (as fast as possible)
+        const GOAL_YEAR1_MRR = GOAL_YEAR1_ARR / 12; // $83,333 MRR
+        const MAX_MONTHS = 120; // 10 years max projection
 
         // Chart instances
         let arrChart = null;
@@ -290,14 +357,11 @@
 
         // Initialize event listeners
         function init() {
-            // Target ARR
-            document.getElementById('targetARR').addEventListener('input', () => {
-                updateTargetMRR();
-                calculate();
-            });
+            // Initial Investment
+            document.getElementById('initialInvestment').addEventListener('input', calculate);
 
-            // Baseline
-            document.getElementById('baseline').addEventListener('input', calculate);
+            // Monthly Burn
+            document.getElementById('monthlyBurn').addEventListener('input', calculate);
 
             // CPC
             document.getElementById('cpc').addEventListener('input', calculate);
@@ -338,26 +402,31 @@
                 calculate();
             });
 
-            // Ops Cost
-            document.getElementById('opsCost').addEventListener('input', calculate);
-
-            // Initial Ad Spend
-            document.getElementById('initialAdSpend').addEventListener('input', calculate);
+            // Reinvestment Rate
+            document.getElementById('reinvestmentRate').addEventListener('input', calculate);
 
             // Ad Spend Growth
             document.getElementById('adSpendGrowth').addEventListener('input', calculate);
 
+            // Scenario Comparison Toggle
+            document.getElementById('toggleComparison').addEventListener('click', toggleComparisonView);
+
             // Initial calculations
-            updateTargetMRR();
             updateTierMixDisplay();
             calculate();
         }
 
-        function updateTargetMRR() {
-            const targetARR = parseFloat(document.getElementById('targetARR').value) || 0;
-            const targetMRR = targetARR / MONTHS_IN_YEAR;
-            document.getElementById('targetMRR').textContent = 
-                `Target MRR: $${targetMRR.toLocaleString(undefined, {maximumFractionDigits: 0})}`;
+        function toggleComparisonView() {
+            const comparisonView = document.getElementById('scenarioComparison');
+            const button = document.getElementById('toggleComparison');
+            if (comparisonView.classList.contains('hidden')) {
+                comparisonView.classList.remove('hidden');
+                button.textContent = 'Hide Comparison';
+                renderScenarioComparison();
+            } else {
+                comparisonView.classList.add('hidden');
+                button.textContent = 'Compare Scenarios';
+            }
         }
 
         function updateTierMixDisplay() {
@@ -369,80 +438,86 @@
 
         function calculate() {
             // Get inputs
-            const targetARR = parseFloat(document.getElementById('targetARR').value) || 0;
-            const targetMRR = targetARR / MONTHS_IN_YEAR;
-            const baseline = parseFloat(document.getElementById('baseline').value) || 0;
+            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value) || 0;
+            const monthlyBurn = parseFloat(document.getElementById('monthlyBurn').value) || 0;
             const cpc = parseFloat(document.getElementById('cpc').value) || 0;
             const visitorTrialConv = parseFloat(document.getElementById('visitorTrialConv').value) || 0;
             const trialPaidConv = parseFloat(document.getElementById('trialPaidConv').value) || 0;
             const churnRate = parseFloat(document.getElementById('churnRateInput').value) || 0;
             const scaleMix = parseInt(document.getElementById('tierMixInput').value) || 0;
             const teamMix = 100 - scaleMix;
-            const opsCost = parseFloat(document.getElementById('opsCost').value) || 0;
-            const initialAdSpend = parseFloat(document.getElementById('initialAdSpend').value) || 0;
+            const reinvestmentRate = parseFloat(document.getElementById('reinvestmentRate').value) || 0;
             const adSpendGrowth = parseFloat(document.getElementById('adSpendGrowth').value) || 0;
 
             // Calculate weighted average price
             const avgPrice = (TEAM_PRICE * (teamMix / 100)) + (SCALE_PRICE * (scaleMix / 100));
 
-            // Project 10 years
-            const projection = project10Years(
-                initialAdSpend,
-                adSpendGrowth / 100,
-                opsCost,
-                cpc,
-                visitorTrialConv / 100,
-                trialPaidConv / 100,
+            // WORK BACKWARDS FROM $1M ARR GOAL
+            // Goal: $83,333 MRR by month 12
+            // With steady monthly acquisition and churn, calculate required monthly customers
+            
+            const requiredCustomersMonth12 = GOAL_YEAR1_MRR / avgPrice;
+            
+            // Calculate what monthly acquisition rate gives us this after 12 months of churn
+            const requiredMonthlyNewCustomers = calculateRequiredMonthlyCustomers(
+                requiredCustomersMonth12,
                 churnRate / 100,
-                avgPrice
+                12
             );
 
-            // Calculate key metrics
-            const year1ARR = projection.monthlyMRR[11] * MONTHS_IN_YEAR;
-            const year5ARR = projection.monthlyMRR[59] * MONTHS_IN_YEAR;
-            const year10MRR = projection.monthlyMRR[119];
-            const year10ARR = year10MRR * MONTHS_IN_YEAR;
-            const year10Customers = projection.monthlyCustomers[119];
+            // Work backwards through funnel
+            const requiredTrialsPerMonth = requiredMonthlyNewCustomers / (trialPaidConv / 100);
+            const requiredVisitorsPerMonth = requiredTrialsPerMonth / (visitorTrialConv / 100);
+            const requiredAdSpendPerMonth = requiredVisitorsPerMonth * cpc;
 
-            // Calculate average CAC and LTV
-            const totalCustomers = projection.totalCustomersAcquired;
-            const totalCost = projection.totalCost;
-            const avgCAC = totalCustomers > 0 ? totalCost / totalCustomers : 0;
-            const avgLTV = churnRate > 0 ? avgPrice / churnRate : 0;
+            // Calculate metrics
+            const totalCostPerMonth = requiredAdSpendPerMonth + monthlyBurn;
+            const avgCAC = requiredMonthlyNewCustomers > 0 
+                ? totalCostPerMonth / requiredMonthlyNewCustomers 
+                : 0;
+            const avgLTV = churnRate > 0 ? avgPrice / (churnRate / 100) : 0;
             const ltvCacRatio = avgCAC > 0 ? avgLTV / avgCAC : 0;
 
-            // Find break-even month
-            const breakEvenMonth = findBreakEvenMonth(projection);
+            // NOW PROJECT FORWARD with growth trajectory and reinvestment
+            const projection = projectForwardWithReinvestment(
+                initialInvestment,
+                requiredAdSpendPerMonth,
+                monthlyBurn,
+                requiredMonthlyNewCustomers,
+                churnRate / 100,
+                avgPrice,
+                adSpendGrowth / 100,
+                reinvestmentRate / 100
+            );
 
-            // Cumulative cash flow at year 10
-            const cumulativeCashFlow = projection.cumulativeCashFlow[119];
+            // Find when we hit $10M ARR (if we do)
+            const month10MARR = findMonth10MARR(projection);
+
+            // Check if $1M goal is achievable
+            const year1ARR = projection.monthlyARR[11]; // Month 12 (index 11)
+            const year1GoalMet = year1ARR >= GOAL_YEAR1_ARR;
 
             // Update displays
-            document.getElementById('targetARRDisplay').textContent = 
-                '$' + (targetARR / 1000000).toFixed(1) + 'M';
+            document.getElementById('requiredAdSpend').textContent = 
+                '$' + Math.round(requiredAdSpendPerMonth).toLocaleString();
             
-            document.getElementById('projectedARRDisplay').textContent = 
-                '$' + (year10ARR / 1000000).toFixed(1) + 'M';
+            document.getElementById('requiredVisitors').textContent = 
+                Math.round(requiredVisitorsPerMonth).toLocaleString();
             
-            const gap = targetARR - year10ARR;
-            const gapElement = document.getElementById('gapDisplay');
-            gapElement.textContent = '$' + (Math.abs(gap) / 1000000).toFixed(1) + 'M';
-            gapElement.className = gap >= 0 ? 'text-2xl font-bold goal-achievable' : 'text-2xl font-bold goal-unachievable';
+            document.getElementById('requiredVisitorsDetail').textContent = 
+                Math.round(requiredVisitorsPerMonth).toLocaleString();
+            
+            // Daily visitors calculation
+            const dailyVisitors = Math.round(requiredVisitorsPerMonth / 30.44);
+            document.getElementById('dailyVisitors').textContent = 
+                `= ${dailyVisitors.toLocaleString()} /day`;
+            
+            document.getElementById('requiredTrials').textContent = 
+                Math.round(requiredTrialsPerMonth).toLocaleString();
+            
+            document.getElementById('requiredCustomers').textContent = 
+                Math.round(requiredMonthlyNewCustomers).toLocaleString();
 
-            // Goal status
-            const goalStatus = document.getElementById('goalStatus');
-            if (year10ARR >= targetARR) {
-                goalStatus.textContent = '✓ Goal Achievable';
-                goalStatus.className = 'px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800';
-            } else {
-                goalStatus.textContent = '⚠ Goal Not Achievable';
-                goalStatus.className = 'px-4 py-2 rounded-full text-sm font-medium bg-red-100 text-red-800';
-            }
-
-            document.getElementById('year1ARR').textContent = 
-                '$' + (year1ARR / 1000).toFixed(0) + 'K';
-            document.getElementById('year5ARR').textContent = 
-                '$' + (year5ARR / 1000000).toFixed(1) + 'M';
             document.getElementById('avgCAC').textContent = '$' + avgCAC.toFixed(2);
             document.getElementById('avgLTV').textContent = '$' + Math.round(avgLTV).toLocaleString();
             
@@ -456,97 +531,424 @@
                 ratioElement.className = 'text-3xl font-bold text-gray-900';
             }
 
+            const breakEvenMonth = findBreakEvenMonth(projection);
             document.getElementById('breakEvenMonth').textContent = 
                 breakEvenMonth !== null ? breakEvenMonth : '∞';
+
+            // Goal status
+            const goalStatus = document.getElementById('goalStatus');
+            const year1Status = document.getElementById('year1GoalStatus');
             
-            document.getElementById('year10Customers').textContent = 
-                Math.round(year10Customers).toLocaleString();
-            
-            const cashFlowElement = document.getElementById('cumulativeCashFlow');
-            cashFlowElement.textContent = '$' + cumulativeCashFlow.toLocaleString(undefined, {
-                maximumFractionDigits: 0
-            });
-            cashFlowElement.className = cumulativeCashFlow >= 0 
-                ? 'text-3xl font-bold goal-achievable'
-                : 'text-3xl font-bold goal-unachievable';
+            if (year1GoalMet) {
+                year1Status.textContent = '✓ Achieved';
+                year1Status.className = 'text-2xl font-bold goal-achievable';
+            } else {
+                year1Status.textContent = '✗ Not Met';
+                year1Status.className = 'text-2xl font-bold goal-unachievable';
+            }
+
+            if (month10MARR !== null) {
+                document.getElementById('year10AchievementMonth').textContent = 
+                    `Month ${month10MARR}`;
+                
+                if (year1GoalMet) {
+                    goalStatus.textContent = '✓ Both Goals Achievable';
+                    goalStatus.className = 'px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800';
+                } else {
+                    goalStatus.textContent = '⚠ $10M Achievable, but $1M Not Met';
+                    goalStatus.className = 'px-4 py-2 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800';
+                }
+            } else {
+                document.getElementById('year10AchievementMonth').textContent = 
+                    'Not in 10 years';
+                goalStatus.textContent = '✗ Goals Not Achievable';
+                goalStatus.className = 'px-4 py-2 rounded-full text-sm font-medium bg-red-100 text-red-800';
+            }
 
             // Update charts
-            updateCharts(projection, targetMRR);
+            updateCharts(projection);
+
+            // Calculate and display what-if insights
+            calculateGoalAchievability(
+                churnRate / 100,
+                cpc,
+                visitorTrialConv / 100,
+                trialPaidConv / 100,
+                requiredVisitorsPerMonth,
+                requiredAdSpendPerMonth,
+                requiredMonthlyNewCustomers
+            );
         }
 
-        function project10Years(
-            initialAdSpend,
-            adSpendGrowth,
-            opsCost,
+        function calculateGoalAchievability(
+            churnRate,
             cpc,
             visitorTrialConv,
             trialPaidConv,
+            baselineVisitors,
+            baselineAdSpend,
+            baselineCustomers
+        ) {
+            const insights = [];
+
+            // Calculate impact of improving churn from current to 6%
+            if (churnRate > 0.06) {
+                const improvedChurn = 0.06;
+                const scaleMix = parseInt(document.getElementById('tierMixInput').value) || 0;
+                const teamMix = 100 - scaleMix;
+                const avgPrice = (TEAM_PRICE * (teamMix / 100)) + (SCALE_PRICE * (scaleMix / 100));
+                
+                const requiredCustomersMonth12 = GOAL_YEAR1_MRR / avgPrice;
+                const improvedCustomers = calculateRequiredMonthlyCustomers(
+                    requiredCustomersMonth12,
+                    improvedChurn,
+                    12
+                );
+                
+                const reduction = ((baselineCustomers - improvedCustomers) / baselineCustomers) * 100;
+                if (reduction > 5) { // Only show if significant impact
+                    insights.push({
+                        text: `If churn reduces from ${(churnRate * 100).toFixed(1)}% to 6% → customers needed drop by ${reduction.toFixed(0)}%`,
+                        impact: reduction
+                    });
+                }
+            }
+
+            // Calculate impact of reducing CPC from current to 20% lower
+            const improvedCPC = cpc * 0.8;
+            if (improvedCPC > 0) {
+                const improvedAdSpend = baselineVisitors * improvedCPC;
+                const reduction = ((baselineAdSpend - improvedAdSpend) / baselineAdSpend) * 100;
+                if (reduction > 5) {
+                    insights.push({
+                        text: `If CPC reduces from $${cpc.toFixed(2)} to $${improvedCPC.toFixed(2)} → ad spend drops by ${reduction.toFixed(0)}%`,
+                        impact: reduction
+                    });
+                }
+            }
+
+            // Calculate impact of improving trial-to-paid from current to 20% higher
+            const improvedTrialPaid = Math.min(trialPaidConv * 1.2, 1.0);
+            if (improvedTrialPaid > trialPaidConv) {
+                const improvedCustomers = baselineVisitors * visitorTrialConv * improvedTrialPaid;
+                const reduction = ((baselineVisitors - (improvedCustomers / improvedTrialPaid / visitorTrialConv)) / baselineVisitors) * 100;
+                if (reduction > 5) {
+                    insights.push({
+                        text: `If trial-to-paid improves from ${(trialPaidConv * 100).toFixed(1)}% to ${(improvedTrialPaid * 100).toFixed(1)}% → visitors needed drop by ${reduction.toFixed(0)}%`,
+                        impact: reduction
+                    });
+                }
+            }
+
+            // Calculate impact of improving visitor-to-trial from current to 20% higher
+            const improvedVisitorTrial = Math.min(visitorTrialConv * 1.2, 1.0);
+            if (improvedVisitorTrial > visitorTrialConv) {
+                const reduction = ((visitorTrialConv - improvedVisitorTrial) / visitorTrialConv) * 100;
+                if (Math.abs(reduction) > 5) {
+                    insights.push({
+                        text: `If visitor-to-trial improves from ${(visitorTrialConv * 100).toFixed(1)}% to ${(improvedVisitorTrial * 100).toFixed(1)}% → visitors needed drop by ${Math.abs(reduction).toFixed(0)}%`,
+                        impact: Math.abs(reduction)
+                    });
+                }
+            }
+
+            // Sort by impact (highest first) and show top 3
+            insights.sort((a, b) => b.impact - a.impact);
+            const topInsights = insights.slice(0, 3);
+
+            // Display insights
+            const insightsList = document.getElementById('insightsList');
+            if (topInsights.length > 0) {
+                insightsList.innerHTML = topInsights.map(insight => 
+                    `<li class="flex items-start gap-2">
+                        <span class="text-blue-600 mt-0.5">•</span>
+                        <span>${insight.text}</span>
+                    </li>`
+                ).join('');
+            } else {
+                insightsList.innerHTML = '<li class="text-gray-500">Adjust assumptions below to see what-if insights</li>';
+            }
+        }
+
+        function renderScenarioComparison() {
+            // Get current inputs
+            const initialInvestment = parseFloat(document.getElementById('initialInvestment').value) || 0;
+            const monthlyBurn = parseFloat(document.getElementById('monthlyBurn').value) || 0;
+            const scaleMix = parseInt(document.getElementById('tierMixInput').value) || 0;
+            const teamMix = 100 - scaleMix;
+            const avgPrice = (TEAM_PRICE * (teamMix / 100)) + (SCALE_PRICE * (scaleMix / 100));
+            const reinvestmentRate = parseFloat(document.getElementById('reinvestmentRate').value) || 0;
+            const adSpendGrowth = parseFloat(document.getElementById('adSpendGrowth').value) || 0;
+
+            // Conservative scenario
+            const conservative = {
+                churn: 0.08,
+                cpc: 5.00,
+                visitorTrialConv: 0.05,
+                trialPaidConv: 0.15
+            };
+
+            // Optimistic scenario
+            const optimistic = {
+                churn: 0.06,
+                cpc: 4.00,
+                visitorTrialConv: 0.07,
+                trialPaidConv: 0.20
+            };
+
+            // Calculate metrics for each scenario
+            const conservativeMetrics = calculateScenarioMetrics(
+                conservative,
+                avgPrice,
+                monthlyBurn,
+                initialInvestment,
+                adSpendGrowth / 100,
+                reinvestmentRate / 100
+            );
+
+            const optimisticMetrics = calculateScenarioMetrics(
+                optimistic,
+                avgPrice,
+                monthlyBurn,
+                initialInvestment,
+                adSpendGrowth / 100,
+                reinvestmentRate / 100
+            );
+
+            // Display conservative metrics
+            const conservativeDiv = document.getElementById('conservativeMetrics');
+            conservativeDiv.innerHTML = `
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="font-medium">Monthly Visitors:</div>
+                    <div>${Math.round(conservativeMetrics.requiredVisitors).toLocaleString()}</div>
+                    <div class="font-medium">Monthly Ad Spend:</div>
+                    <div>$${Math.round(conservativeMetrics.requiredAdSpend).toLocaleString()}</div>
+                    <div class="font-medium">Monthly Customers:</div>
+                    <div>${Math.round(conservativeMetrics.requiredCustomers).toLocaleString()}</div>
+                    <div class="font-medium">CAC:</div>
+                    <div>$${conservativeMetrics.avgCAC.toFixed(2)}</div>
+                    <div class="font-medium">LTV:CAC Ratio:</div>
+                    <div>${conservativeMetrics.ltvCacRatio.toFixed(1)}:1</div>
+                    <div class="font-medium">Break-even Month:</div>
+                    <div>${conservativeMetrics.breakEvenMonth !== null ? conservativeMetrics.breakEvenMonth : '∞'}</div>
+                    <div class="font-medium">$10M ARR Month:</div>
+                    <div>${conservativeMetrics.month10MARR !== null ? `Month ${conservativeMetrics.month10MARR}` : 'Not in 10 years'}</div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-600">
+                    <div>Churn: ${(conservative.churn * 100).toFixed(0)}% | CPC: $${conservative.cpc.toFixed(2)}</div>
+                    <div>Visitor→Trial: ${(conservative.visitorTrialConv * 100).toFixed(0)}% | Trial→Paid: ${(conservative.trialPaidConv * 100).toFixed(0)}%</div>
+                </div>
+            `;
+
+            // Display optimistic metrics
+            const optimisticDiv = document.getElementById('optimisticMetrics');
+            optimisticDiv.innerHTML = `
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="font-medium">Monthly Visitors:</div>
+                    <div>${Math.round(optimisticMetrics.requiredVisitors).toLocaleString()}</div>
+                    <div class="font-medium">Monthly Ad Spend:</div>
+                    <div>$${Math.round(optimisticMetrics.requiredAdSpend).toLocaleString()}</div>
+                    <div class="font-medium">Monthly Customers:</div>
+                    <div>${Math.round(optimisticMetrics.requiredCustomers).toLocaleString()}</div>
+                    <div class="font-medium">CAC:</div>
+                    <div>$${optimisticMetrics.avgCAC.toFixed(2)}</div>
+                    <div class="font-medium">LTV:CAC Ratio:</div>
+                    <div>${optimisticMetrics.ltvCacRatio.toFixed(1)}:1</div>
+                    <div class="font-medium">Break-even Month:</div>
+                    <div>${optimisticMetrics.breakEvenMonth !== null ? optimisticMetrics.breakEvenMonth : '∞'}</div>
+                    <div class="font-medium">$10M ARR Month:</div>
+                    <div>${optimisticMetrics.month10MARR !== null ? `Month ${optimisticMetrics.month10MARR}` : 'Not in 10 years'}</div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-600">
+                    <div>Churn: ${(optimistic.churn * 100).toFixed(0)}% | CPC: $${optimistic.cpc.toFixed(2)}</div>
+                    <div>Visitor→Trial: ${(optimistic.visitorTrialConv * 100).toFixed(0)}% | Trial→Paid: ${(optimistic.trialPaidConv * 100).toFixed(0)}%</div>
+                </div>
+            `;
+        }
+
+        function calculateScenarioMetrics(
+            scenario,
+            avgPrice,
+            monthlyBurn,
+            initialInvestment,
+            adSpendGrowth,
+            reinvestmentRate
+        ) {
+            // Work backwards from $1M ARR goal
+            const requiredCustomersMonth12 = GOAL_YEAR1_MRR / avgPrice;
+            const requiredMonthlyNewCustomers = calculateRequiredMonthlyCustomers(
+                requiredCustomersMonth12,
+                scenario.churn,
+                12
+            );
+
+            // Work backwards through funnel
+            const requiredTrialsPerMonth = requiredMonthlyNewCustomers / scenario.trialPaidConv;
+            const requiredVisitorsPerMonth = requiredTrialsPerMonth / scenario.visitorTrialConv;
+            const requiredAdSpendPerMonth = requiredVisitorsPerMonth * scenario.cpc;
+
+            // Calculate metrics
+            const totalCostPerMonth = requiredAdSpendPerMonth + monthlyBurn;
+            const avgCAC = requiredMonthlyNewCustomers > 0 
+                ? totalCostPerMonth / requiredMonthlyNewCustomers 
+                : 0;
+            const avgLTV = scenario.churn > 0 ? avgPrice / scenario.churn : 0;
+            const ltvCacRatio = avgCAC > 0 ? avgLTV / avgCAC : 0;
+
+            // Project forward
+            const projection = projectForwardWithReinvestment(
+                initialInvestment,
+                requiredAdSpendPerMonth,
+                monthlyBurn,
+                requiredMonthlyNewCustomers,
+                scenario.churn,
+                avgPrice,
+                adSpendGrowth,
+                reinvestmentRate
+            );
+
+            const month10MARR = findMonth10MARR(projection);
+            const breakEvenMonth = findBreakEvenMonth(projection);
+
+            return {
+                requiredVisitors: requiredVisitorsPerMonth,
+                requiredAdSpend: requiredAdSpendPerMonth,
+                requiredCustomers: requiredMonthlyNewCustomers,
+                avgCAC,
+                ltvCacRatio,
+                breakEvenMonth,
+                month10MARR
+            };
+        }
+
+        function calculateRequiredMonthlyCustomers(targetCustomersMonth12, churnRate, months) {
+            // Binary search to find monthly acquisition rate
+            // that gives us target customers after accounting for churn
+            
+            let low = 0;
+            let high = targetCustomersMonth12 * 3; // Upper bound
+            let best = 0;
+            const precision = 0.01;
+            
+            // Binary search with iterations
+            for (let i = 0; i < 100; i++) {
+                const mid = (low + high) / 2;
+                let customers = 0;
+                
+                // Simulate months forward
+                for (let month = 0; month < months; month++) {
+                    // Apply churn first (to existing customers from previous month)
+                    if (month > 0) {
+                        customers *= (1 - churnRate);
+                    }
+                    // Add new customers
+                    customers += mid;
+                }
+                
+                if (Math.abs(customers - targetCustomersMonth12) < precision) {
+                    best = mid;
+                    break;
+                } else if (customers < targetCustomersMonth12) {
+                    low = mid;
+                } else {
+                    best = mid;
+                    high = mid;
+                }
+            }
+            
+            return best;
+        }
+
+        function projectForwardWithReinvestment(
+            initialInvestment,
+            initialMonthlyAdSpend,
+            monthlyBurn,
+            baseMonthlyNewCustomers, // This changes as ad spend scales
             churnRate,
-            avgPrice
+            avgPrice,
+            adSpendGrowthRate,
+            reinvestmentRate
         ) {
             const monthlyMRR = [];
+            const monthlyARR = [];
             const monthlyCashFlow = [];
             const cumulativeCashFlow = [];
             const monthlyCustomers = [];
             const monthlyAdSpend = [];
-            const monthlyNewCustomers = [];
 
             let currentCustomers = 0;
-            let currentAdSpend = initialAdSpend;
-            let totalCustomersAcquired = 0;
-            let totalCost = 0;
-            let runningCashFlow = 0;
+            let currentAdSpend = initialMonthlyAdSpend;
+            let runningCashFlow = -initialInvestment; // Start negative
+            let breakEvenReached = false;
 
-            for (let month = 0; month < TOTAL_MONTHS; month++) {
-                // Calculate new customers this month
-                const clicks = currentAdSpend / cpc;
-                const trials = clicks * visitorTrialConv;
-                const newCustomers = trials * trialPaidConv;
+            for (let month = 0; month < MAX_MONTHS; month++) {
+                // Calculate new customers based on current ad spend
+                // Recalculate from ad spend: Visitors = AdSpend / CPC, etc.
+                // For now, scale linearly with ad spend relative to initial
+                const customerAcquisitionScale = currentAdSpend / initialMonthlyAdSpend;
+                const monthlyNewCustomers = baseMonthlyNewCustomers * customerAcquisitionScale;
 
-                // Apply churn to existing customers (before adding new)
+                // Apply churn to existing customers
                 if (month > 0) {
                     const churned = currentCustomers * churnRate;
                     currentCustomers -= churned;
                 }
 
                 // Add new customers
-                currentCustomers += newCustomers;
-                totalCustomersAcquired += newCustomers;
+                currentCustomers += monthlyNewCustomers;
 
-                // Calculate revenue and costs
+                // Calculate revenue
                 const monthlyRevenue = currentCustomers * avgPrice;
-                const monthlyCost = currentAdSpend + opsCost;
-                totalCost += monthlyCost;
+                monthlyMRR.push(monthlyRevenue);
+                monthlyARR.push(Math.min(monthlyRevenue * 12, GOAL_YEAR10_ARR)); // Cap at $10M
 
+                // Calculate costs
+                const monthlyCost = currentAdSpend + monthlyBurn;
                 const cashFlow = monthlyRevenue - monthlyCost;
                 runningCashFlow += cashFlow;
 
-                // Store data
-                monthlyMRR.push(monthlyRevenue);
                 monthlyCashFlow.push(cashFlow);
                 cumulativeCashFlow.push(runningCashFlow);
                 monthlyCustomers.push(currentCustomers);
                 monthlyAdSpend.push(currentAdSpend);
-                monthlyNewCustomers.push(newCustomers);
 
-                // Grow ad spend for next month
-                currentAdSpend *= (1 + adSpendGrowth);
+                // Check if we've broken even
+                if (!breakEvenReached && runningCashFlow >= 0) {
+                    breakEvenReached = true;
+                }
+
+                // Update ad spend for next month
+                // Base growth rate
+                currentAdSpend *= (1 + adSpendGrowthRate);
+
+                // After break-even, add reinvestment
+                if (breakEvenReached && cashFlow > 0 && reinvestmentRate > 0) {
+                    const reinvestment = cashFlow * reinvestmentRate;
+                    currentAdSpend += reinvestment;
+                }
             }
 
             return {
                 monthlyMRR,
+                monthlyARR,
                 monthlyCashFlow,
                 cumulativeCashFlow,
                 monthlyCustomers,
-                monthlyAdSpend,
-                monthlyNewCustomers,
-                totalCustomersAcquired,
-                totalCost
+                monthlyAdSpend
             };
         }
 
+        function findMonth10MARR(projection) {
+            for (let i = 0; i < MAX_MONTHS; i++) {
+                if (projection.monthlyARR[i] >= GOAL_YEAR10_ARR) {
+                    return i + 1;
+                }
+            }
+            return null;
+        }
+
         function findBreakEvenMonth(projection) {
-            for (let i = 0; i < TOTAL_MONTHS; i++) {
+            for (let i = 0; i < MAX_MONTHS; i++) {
                 if (projection.cumulativeCashFlow[i] >= 0) {
                     return i + 1;
                 }
@@ -554,20 +956,25 @@
             return null;
         }
 
-        function updateCharts(projection, targetMRR) {
-            // Create labels for 10 years (by year, not month)
+        function updateCharts(projection) {
+            // ARR Chart - show up to $10M or when we hit it
+            const month10M = findMonth10MARR(projection);
+            const maxMonths = month10M !== null ? Math.min(month10M, MAX_MONTHS) : MAX_MONTHS;
+            
             const labels = [];
             const arrData = [];
-            const targetARRData = [];
+            const goal1MData = [];
+            const goal10MData = [];
             
-            for (let year = 1; year <= 10; year++) {
-                labels.push(`Year ${year}`);
-                const monthIndex = (year * MONTHS_IN_YEAR) - 1;
-                arrData.push(projection.monthlyMRR[monthIndex] * MONTHS_IN_YEAR);
-                targetARRData.push(targetMRR * MONTHS_IN_YEAR);
+            for (let month = 1; month <= maxMonths; month++) {
+                const monthIndex = month - 1;
+                labels.push(`Month ${month}`);
+                // Cap ARR at $10M (anything past is irrelevant)
+                arrData.push(Math.min(projection.monthlyARR[monthIndex], GOAL_YEAR10_ARR));
+                goal1MData.push(GOAL_YEAR1_ARR);
+                goal10MData.push(GOAL_YEAR10_ARR);
             }
 
-            // ARR Chart
             const arrCtx = document.getElementById('arrChart').getContext('2d');
             if (arrChart) {
                 arrChart.destroy();
@@ -578,19 +985,27 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'Projected ARR',
+                        label: 'Projected ARR (Capped at $10M)',
                         data: arrData,
                         borderColor: '#3b82f6',
                         backgroundColor: 'rgba(59, 130, 246, 0.1)',
                         borderWidth: 3,
                         fill: true,
                         tension: 0.4,
-                        pointRadius: 5,
-                        pointHoverRadius: 7
+                        pointRadius: 3,
+                        pointHoverRadius: 5
                     }, {
-                        label: 'Target ARR',
-                        data: targetARRData,
-                        borderColor: '#ef4444',
+                        label: '$1M ARR Goal',
+                        data: goal1MData,
+                        borderColor: '#f59e0b',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        fill: false,
+                        pointRadius: 0
+                    }, {
+                        label: '$10M ARR Goal',
+                        data: goal10MData,
+                        borderColor: '#10b981',
                         borderWidth: 2,
                         borderDash: [5, 5],
                         fill: false,
@@ -617,7 +1032,7 @@
                                     const value = context.parsed.y;
                                     if (value >= 1000000) {
                                         label += '$' + (value / 1000000).toFixed(2) + 'M';
-                                    } else {
+                                    } else if (value >= 1000) {
                                         label += '$' + (value / 1000).toFixed(0) + 'K';
                                     }
                                     return label;
@@ -628,6 +1043,7 @@
                     scales: {
                         y: {
                             beginAtZero: true,
+                            max: GOAL_YEAR10_ARR * 1.1, // Cap at $10M + 10%
                             ticks: {
                                 callback: function(value) {
                                     if (value >= 1000000) {
@@ -651,14 +1067,13 @@
                 }
             });
 
-            // Cash Flow Chart (by year)
+            // Cash Flow Chart
             const cashFlowLabels = [];
             const cashFlowData = [];
             
-            for (let year = 1; year <= 10; year++) {
-                cashFlowLabels.push(`Year ${year}`);
-                const monthIndex = (year * MONTHS_IN_YEAR) - 1;
-                cashFlowData.push(projection.cumulativeCashFlow[monthIndex]);
+            for (let month = 1; month <= maxMonths; month++) {
+                cashFlowLabels.push(`Month ${month}`);
+                cashFlowData.push(projection.cumulativeCashFlow[month - 1]);
             }
 
             const cashFlowCtx = document.getElementById('cashFlowChart').getContext('2d');
@@ -678,11 +1093,11 @@
                         borderWidth: 3,
                         fill: true,
                         tension: 0.4,
-                        pointRadius: 5,
-                        pointHoverRadius: 7
+                        pointRadius: 3,
+                        pointHoverRadius: 5
                     }, {
                         label: 'Break-even (0)',
-                        data: Array(10).fill(0),
+                        data: Array(cashFlowLabels.length).fill(0),
                         borderColor: '#9ca3af',
                         borderWidth: 1,
                         borderDash: [5, 5],
