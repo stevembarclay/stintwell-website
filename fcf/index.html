@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBOS Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* 1. THE SETUP - STINTWELL BRANDING */
+:root {
+    --gunmetal: #1C1F26;
+    --tactical: #2A453B;
+    --bronze: #A68A64;
+    --steel: #94A3B8;
+    --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0b0d11;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  min-height: 100vh;
+  padding: 40px 0;
+  place-items: center;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, padding 0.3s;
+}
+
+/* PRINT STYLES FOR PDF EXPORT */
+@media print {
+    @page {
+        size: 1280px 720px; /* Force aspect ratio */
+        margin: 0;
+    }
+    body {
+        background: var(--gunmetal);
+        padding: 0;
+        display: block;
+    }
+    .slide-container {
+        width: 100%;
+        height: 100vh;
+        break-after: always;
+        page-break-after: always;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        transform: none !important; /* Reset any JS scaling */
+    }
+}
+
+.slide-container {
+  background-color: var(--gunmetal);
+  border: 1px solid #2d333f;
+  border-radius: 0;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  height: 720px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px;
+  position: relative;
+  width: 1280px;
+  color: var(--white);
+  transition: transform 0.3s ease;
+}
+
+/* VISUAL GUIDELINES: Corner Accents */
+.slide-container::before,
+.slide-container::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--bronze);
+    border-style: solid;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.slide-container::before {
+    top: 20px;
+    left: 20px;
+    border-width: 2px 0 0 2px;
+}
+
+.slide-container::after {
+    bottom: 20px;
+    right: 20px;
+    border-width: 0 2px 2px 0;
+}
+
+/* 2. TYPOGRAPHY */
+h1, h2, h3, strong {
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 96px;
+  line-height: 1;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+h2.slide-title {
+  font-size: 42px;
+  margin-bottom: 50px;
+  border-left: 2px solid var(--bronze);
+  padding-left: 24px;
+  width: 100%;
+  font-weight: 700;
+  color: var(--white);
+}
+
+p, li, div, span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: #e2e8f0;
+  line-height: 1.5;
+  font-size: 20px;
+}
+
+.subtitle-large {
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.subtitle-small {
+    font-size: 24px;
+    color: var(--steel);
+    font-weight: 300;
+}
+
+/* 3. LAYOUTS */
+.content-area {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  height: 100%;
+  align-items: stretch;
+}
+
+/* Box Styling */
+.box-container {
+  background-color: rgba(42, 69, 59, 0.15);
+  border: 1px solid #333;
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.box-header i {
+  font-size: 28px;
+  color: var(--bronze);
+}
+
+.box-header h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.box-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.box-content li {
+  margin-bottom: 24px;
+  padding-left: 0;
+  position: relative;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.box-content li::before {
+  content: '→';
+  color: var(--bronze);
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+/* Slide 2: Timeline Nodes */
+.process-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.process-node {
+    width: 280px;
+    height: 280px;
+    border: 2px solid var(--bronze);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(28, 31, 38, 0.5);
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.process-node h3 {
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.process-node p {
+    font-size: 18px;
+    color: var(--steel);
+    line-height: 1.4;
+}
+
+.process-arrow {
+    font-size: 32px;
+    color: var(--tactical);
+}
+
+/* Slide 3: Friction vs Solution Grid */
+.friction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    height: 100%;
+}
+
+.friction-item {
+    margin-bottom: 30px;
+    border-left: 2px solid #333;
+    padding-left: 20px;
+}
+.friction-item strong {
+    color: var(--bronze);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.friction-item p {
+    font-size: 24px;
+    color: var(--white);
+    line-height: 1.3;
+}
+
+/* Slide 5: Core Features Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    height: 100%;
+    align-items: stretch;
+}
+
+.feature-box {
+    background-color: rgba(42, 69, 59, 0.1);
+    border: 1px solid #333;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-box i {
+    font-size: 48px;
+    color: var(--bronze);
+    margin-bottom: 25px;
+}
+
+.feature-box h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.feature-box p {
+    font-size: 18px;
+    color: var(--steel);
+    line-height: 1.4;
+}
+
+/* Callout Text at bottom */
+.bottom-callout {
+    margin-top: auto;
+    text-align: center;
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 300;
+    padding: 20px;
+    border-top: 1px solid #333;
+}
+
+.callout-quote {
+    font-size: 28px; 
+    font-style: italic; 
+    color: var(--steel);
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Dashboard List styling for Slide 6 & 7 */
+.dashboard-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #2d333f;
+    margin-bottom: 15px;
+    background: rgba(28, 31, 38, 0.5);
+}
+
+.dashboard-item .icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--bronze);
+    font-size: 24px;
+}
+
+.dashboard-item strong {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: var(--white);
+}
+
+.dashboard-item span {
+    font-size: 18px;
+    color: var(--steel);
+}
+
+.highlight-text {
+    color: var(--bronze);
+    font-weight: 600;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title Slide -->
+<div class="slide-container" id="slide1">
+    <div style="display: flex; flex-direction: column; height: 100%; justify-content: center; align-items: center; text-align: center;">
+        <h1>SBOS</h1>
+        <div class="subtitle-large">Coaching & Referrals Modules</div>
+        <div class="subtitle-small">Built for First Call Friday</div>
+    </div>
+    
+    <!-- Decorative vertical measure line -->
+    <div style="position: absolute; left: 50%; height: 60px; width: 1px; background: var(--bronze); transform: translateX(-50%); bottom: 60px;"></div>
+</div>
+
+<!-- SLIDE 2: Timeline / Context -->
+<div class="slide-container" id="slide2">
+    <h2 class="slide-title">Where We Left Off</h2>
+    <div class="content-area">
+        <div class="process-container">
+            <div class="process-node">
+                <h3>Conversation</h3>
+                <p>We identified the key operational gaps in your current coaching delivery.</p>
+            </div>
+            
+            <i class="fa-solid fa-arrow-right process-arrow"></i>
+            
+            <div class="process-node">
+                <h3>Build</h3>
+                <p>I built a working demo based specifically on our discussion.</p>
+            </div>
+            
+             <i class="fa-solid fa-arrow-right process-arrow"></i>
+             
+            <div class="process-node" style="border-color: var(--white); background-color: rgba(42, 69, 59, 0.2);">
+                <h3>Today</h3>
+                <p>Review use cases & discuss the larger market opportunity.</p>
+            </div>
+        </div>
+        
+        <div class="bottom-callout">
+            "This isn't just slideware. I'm going to demo the engine for you."
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 3: The Discovery (Anti-Overhead) -->
+<div class="slide-container" id="slide3">
+    <h2 class="slide-title">What I've Discovered: The "Overhead" Trap</h2>
+    <div class="content-area">
+        <div class="friction-grid">
+            <!-- Left Side: Problem -->
+            <div>
+                <h3 style="margin-bottom: 30px; color: var(--steel);">The Reality</h3>
+                <div class="friction-item">
+                    <strong>THE BLOCKER</strong>
+                    <p>It's not a lack of willpower.</p>
+                </div>
+                <div class="friction-item">
+                    <strong>THE ENEMY</strong>
+                    <p>It's the sheer overhead required just to <em>get in position</em> to execute.</p>
+                </div>
+                <div class="friction-item">
+                    <strong>THE RESULT</strong>
+                    <p>High-achievers drowning in admin instead of driving revenue.</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Solution -->
+            <div style="background: rgba(42, 69, 59, 0.15); padding: 40px; border: 1px solid var(--bronze);">
+                <h3 style="margin-bottom: 20px; color: var(--white);">The "Anti-Overhead" Engine</h3>
+                <p style="font-size: 24px; margin-bottom: 30px;">
+                    I didn't just build a dashboard. I built a system designed to strip away the friction so the only thing left for your students is <span class="highlight-text">the work itself</span>.
+                </p>
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <i class="fa-solid fa-check" style="color: var(--bronze);"></i>
+                    <span style="font-size: 18px; color: var(--steel);">Zero Prep. Zero Excuses.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 4: Core Architecture -->
+<div class="slide-container" id="slide4">
+    <h2 class="slide-title">Two Sides of the Same Coin</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <!-- Left Box -->
+            <div class="box-container">
+                <div class="box-header">
+                    <i class="fa-solid fa-users-viewfinder"></i>
+                    <h3>Student Area</h3>
+                </div>
+                <div class="box-content">
+                    <ul>
+                        <li><strong>The Execution Layer:</strong> Where the work happens.</li>
+                        <li><strong>Zero-Friction:</strong> Data pre-populated from their CRM.</li>
+                        <li><strong>Guided Action:</strong> Tells them exactly who to call and when.</li>
+                        <li><strong>Extension:</strong> A direct plug-in to their CRM / case management software.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Box -->
+            <div class="box-container">
+                <div class="box-header">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <h3>Coach's Area</h3>
+                </div>
+                <div class="box-content">
+                    <ul>
+                        <li><strong>The Governance Layer:</strong> Where you architect the outcome.</li>
+                        <li><strong>Scalable Oversight:</strong> Manage 50 students as easily as 5.</li>
+                        <li><strong>Data-Driven:</strong> Move from "asking" to "knowing."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-callout" style="border: none;">
+             "You govern the strategy. They execute the tactics. The system handles the rest."
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 5: The Foundation (Table Stakes) -->
+<div class="slide-container" id="slide5">
+    <h2 class="slide-title">The Foundation: Core Capabilities</h2>
+    <div class="content-area">
+        <div style="margin-bottom: 30px; font-size: 20px; color: var(--steel);">
+            Before we get to the secret sauce, we've solved the table stakes.
+        </div>
+        <div class="feature-grid">
+            <div class="feature-box">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h3>Seamless Scheduling</h3>
+                <p>Integrates with Cal.com & Zoom. Sessions are booked, links are sent, and recordings are synced automatically. No email tag.</p>
+            </div>
+            
+            <div class="feature-box">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>Content Library</h3>
+                <p>A centralized hub for your recordings, frameworks, and resources. Students can revisit 1:1s and access training materials instantly.</p>
+            </div>
+            
+            <div class="feature-box">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>Ease of Use</h3>
+                <p>Designed for non-technical users. Clean, minimal, and requires zero training to get started. It just works.</p>
+            </div>
+        </div>
+        <div class="bottom-callout" style="border-top: none;">
+             "A complete ecosystem that handles the basics so you don't have to."
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 6: Student Deep Dive (Vision) -->
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">The "Anti-Excuse" Engine: Student View</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <div class="dashboard-item">
+                    <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                    <div>
+                        <strong>No Data Entry</strong>
+                        <span>Integrates with CRM. No exporting CSVs or finding numbers.</span>
+                    </div>
+                </div>
+                <div class="dashboard-item">
+                    <div class="icon-box"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <strong>No Decision Fatigue</strong>
+                        <span>Priority Algorithm weighs <em>Case Value</em> vs. <em>Time Decay</em>.</span>
+                    </div>
+                </div>
+                 <div class="dashboard-item" style="border-color: var(--bronze);">
+                    <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+                    <div>
+                        <strong>"Power Hour" Focus Mode</strong>
+                        <span>Distraction-free prioritized list. Call. Log. Next.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; justify-content: center; padding: 20px;">
+                <p class="callout-quote">
+                    "They don't have to wonder who to call. The work is just staring at them."
+                </p>
+                <div style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; text-align: center;">
+                     <span class="small-text" style="color: var(--steel); font-size: 14px; letter-spacing: 2px; text-transform: uppercase;">Key Differentiator: The Algorithm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 7: Coach Deep Dive (Vision) -->
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">The Architect's View: Coach Governance</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <div class="dashboard-item">
+                    <div class="icon-box"><i class="fa-solid fa-hourglass-half"></i></div>
+                    <div>
+                        <strong>"Use It or Lose It"</strong>
+                        <span>Session units expire. Friction of losing value > Friction of booking.</span>
+                    </div>
+                </div>
+                <div class="dashboard-item">
+                    <div class="icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div>
+                        <strong>The Truth Serum</strong>
+                        <span>Health Widget shows who is working (Green) and who is hiding (Red).</span>
+                    </div>
+                </div>
+                <div class="dashboard-item">
+                    <div class="icon-box"><i class="fa-solid fa-list-check"></i></div>
+                    <div>
+                        <strong>Scalable Accountability</strong>
+                        <span>Actions linked to sessions. No ambiguity on what was promised.</span>
+                    </div>
+                </div>
+                 <div class="dashboard-item">
+                    <div class="icon-box"><i class="fa-solid fa-link"></i></div>
+                    <div>
+                        <strong>Contextual Intelligence</strong>
+                        <span>Zoom recordings and agendas linked automatically. Never ask "what did we cover?"</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; justify-content: center; padding: 20px;">
+                <p class="callout-quote">
+                    "Stop being an admin. Start being the Architect."
+                </p>
+                <div style="margin-top: 40px; padding: 20px; border: 1px solid var(--bronze); text-align: center; cursor: pointer;">
+                   <p style="color: var(--bronze); margin: 0; font-weight: 600; font-size: 18px;">TRANSITION TO LIVE DEMO</p>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
