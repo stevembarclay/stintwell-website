@@ -1,0 +1,6 @@
+# robots.txt for stintwell.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://stintwell.com/sitemap.xml
