@@ -40,6 +40,15 @@
     })();
     </script>
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7YHYYWXDL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X7YHYYWXDL');
+    </script>
+
     <script>
     tailwind.config = {
     theme: {
@@ -1313,6 +1322,41 @@
         }
       });
     });
+
+    // GA4 Event Tracking
+    if (typeof gtag !== 'undefined') {
+      // Track CTA clicks to signup form
+      document.querySelectorAll('a[href*="founding-cohort-signup.html"]').forEach(link => {
+        link.addEventListener('click', function() {
+          const buttonText = this.textContent.trim();
+          const section = this.closest('section')?.id || 'unknown';
+          gtag('event', 'cta_click', {
+            'event_category': 'engagement',
+            'event_label': buttonText,
+            'cta_location': section,
+            'page': 'property-management',
+            'destination': 'founding-cohort-signup'
+          });
+        });
+      });
+
+      // Track scroll depth
+      let scrollDepths = [25, 50, 75, 90];
+      let trackedDepths = [];
+      window.addEventListener('scroll', function() {
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        scrollDepths.forEach(depth => {
+          if (scrollPercent >= depth && !trackedDepths.includes(depth)) {
+            trackedDepths.push(depth);
+            gtag('event', 'scroll', {
+              'event_category': 'engagement',
+              'event_label': depth + '%',
+              'page': 'property-management'
+            });
+          }
+        });
+      });
+    }
     </script>
 
 </body>

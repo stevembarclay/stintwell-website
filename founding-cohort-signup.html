@@ -40,6 +40,15 @@
     })();
     </script>
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7YHYYWXDL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X7YHYYWXDL');
+    </script>
+
     <script>
     tailwind.config = {
     theme: {
@@ -287,6 +296,19 @@
     // Form submission handling
     const form = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
+    let formStartTracked = false;
+
+    // Track form start (first interaction)
+    form.addEventListener('input', function() {
+      if (!formStartTracked && typeof gtag !== 'undefined') {
+        formStartTracked = true;
+        gtag('event', 'form_start', {
+          'event_category': 'forms',
+          'event_label': 'founding-cohort-signup',
+          'page': 'founding-cohort-signup'
+        });
+      }
+    }, { once: true });
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -294,6 +316,15 @@
       const formData = new FormData(form);
       const submitButton = form.querySelector('button[type="submit"]');
       const originalText = submitButton.textContent;
+
+      // Track form submission attempt
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit_attempt', {
+          'event_category': 'forms',
+          'event_label': 'founding-cohort-signup',
+          'page': 'founding-cohort-signup'
+        });
+      }
 
       // Show loading state
       submitButton.textContent = 'Submitting...';
@@ -306,6 +337,16 @@
         });
 
         if (response.ok) {
+          // Track successful submission (HIGH VALUE conversion)
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit_success', {
+              'event_category': 'conversions',
+              'event_label': 'founding-cohort-signup',
+              'page': 'founding-cohort-signup',
+              'value': 10  // Higher value for PM cohort leads
+            });
+          }
+
           form.classList.add('hidden');
           successMessage.classList.remove('hidden');
           successMessage.classList.add('fade-in');
@@ -314,6 +355,15 @@
           throw new Error('Submission failed');
         }
       } catch (error) {
+        // Track form error
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit_error', {
+            'event_category': 'errors',
+            'event_label': 'founding-cohort-signup',
+            'page': 'founding-cohort-signup'
+          });
+        }
+
         alert('There was an error submitting your application. Please try again or email us directly.');
         submitButton.textContent = originalText;
         submitButton.disabled = false;

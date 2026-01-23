@@ -40,6 +40,15 @@
     })();
     </script>
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7YHYYWXDL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X7YHYYWXDL');
+    </script>
+
     <script>
     tailwind.config = {
     theme: {
@@ -815,9 +824,56 @@
     function showTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
-      
+
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
       document.getElementById(`tab-${tabId}`).classList.add('active');
+    }
+
+    // GA4 Event Tracking
+    if (typeof gtag !== 'undefined') {
+      // Track CTA clicks to signup form
+      document.querySelectorAll('a[href*="sbos-signup.html"]').forEach(link => {
+        link.addEventListener('click', function() {
+          const buttonText = this.textContent.trim();
+          const section = this.closest('section')?.id || 'unknown';
+          gtag('event', 'cta_click', {
+            'event_category': 'engagement',
+            'event_label': buttonText,
+            'cta_location': section,
+            'page': 'sbos-landing',
+            'destination': 'sbos-signup'
+          });
+        });
+      });
+
+      // Track tab clicks
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tabName = this.getAttribute('data-tab');
+          gtag('event', 'tab_click', {
+            'event_category': 'engagement',
+            'event_label': tabName,
+            'page': 'sbos-landing'
+          });
+        });
+      });
+
+      // Track scroll depth
+      let scrollDepths = [25, 50, 75, 90];
+      let trackedDepths = [];
+      window.addEventListener('scroll', function() {
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        scrollDepths.forEach(depth => {
+          if (scrollPercent >= depth && !trackedDepths.includes(depth)) {
+            trackedDepths.push(depth);
+            gtag('event', 'scroll', {
+              'event_category': 'engagement',
+              'event_label': depth + '%',
+              'page': 'sbos-landing'
+            });
+          }
+        });
+      });
     }
     </script>
 
