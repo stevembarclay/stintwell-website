@@ -1,1057 +1,880 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBOS - The Operating System for High-Performance Businesses | Stintwell</title>
+    <meta name="description" content="Assess structural weakness, surface hidden risk, and install the systems to fix it. SBOS is the operating system for service businesses ready to stop scaling chaos.">
+    <link rel="canonical" href="https://stintwell.com/">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SBOS - Your Business Has a Score | Operational Maturity for Service Companies</title>
-  <meta name="description" content="See your operational maturity score in 15 minutes. Find out what's broken—ranked by severity—and get prescriptions that install with one click.">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stintwell.com/">
+    <meta property="og:title" content="SBOS - The Operating System for High-Performance Businesses">
+    <meta property="og:description" content="Assess structural weakness, surface hidden risk, and install the systems to fix it. The operating system for service businesses ready to stop scaling chaos.">
+    <meta property="og:image" content="https://stintwell.com/images/og-sbos-platform.jpg">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SBOS - Your Business Has a Score">
-  <meta property="og:description" content="See your operational maturity score. Find out what's broken and get prescriptions that install with one click.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://stintwell.com">
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            background: '#0f1115',
-            card: '#1a1d24',
-            cardHover: '#252830',
-            border: '#3a3f4a',
-            bronze: '#a68a64',
-            bronzeHover: '#8a7354',
-            charcoal: '#1c1f26',
-            steel: '#94a3b8',
-            tactical: '#2a453b',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-  
-  <!-- Inter Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background-color: #0f1115;
-      color: #ffffff;
-    }
-    
-    /* Smooth gradient for hero */
-    .hero-gradient {
-      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(166, 138, 100, 0.15), transparent);
-    }
-    
-    /* Progress bar colors */
-    .progress-financial { background: linear-gradient(90deg, #22c55e, #16a34a); }
-    .progress-operational { background: linear-gradient(90deg, #f97316, #ea580c); }
-    .progress-leadership { background: linear-gradient(90deg, #eab308, #ca8a04); }
-    .progress-commercial { background: linear-gradient(90deg, #22c55e, #16a34a); }
-    .progress-governance { background: linear-gradient(90deg, #ef4444, #dc2626); }
-  </style>
-</head>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://stintwell.com/">
+    <meta property="twitter:title" content="SBOS - The Operating System for High-Performance Businesses">
+    <meta property="twitter:description" content="Assess structural weakness, surface hidden risk, and install the systems to fix it. The operating system for service businesses ready to stop scaling chaos.">
+    <meta property="twitter:image" content="https://stintwell.com/images/og-sbos-platform.jpg">
 
-<body class="antialiased">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-md">
-    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Top-left L-shape (charcoal) -->
-          <rect x="4" y="4" width="12" height="3" fill="#232931"/>
-          <rect x="4" y="4" width="3" height="12" fill="#232931"/>
-          <!-- Bottom-right L-shape (brownish-gold) -->
-          <rect x="16" y="25" width="12" height="3" fill="#A68B5B"/>
-          <rect x="25" y="16" width="3" height="12" fill="#A68B5B"/>
-        </svg>
-        <span class="text-lg font-semibold tracking-tight text-white">stintwell</span>
-      </a>
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden items-center gap-6 md:flex">
-        <a href="#how-it-works" class="text-sm font-medium text-steel transition-colors hover:text-white">How It Works</a>
-        <a href="#pricing" class="text-sm font-medium text-steel transition-colors hover:text-white">Pricing</a>
-        <a href="https://sbos.stintwell.com/auth/login" class="text-sm font-medium text-steel transition-colors hover:text-white">Sign In</a>
-      </nav>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-      <!-- CTA Button -->
-      <a href="https://sbos.stintwell.com/auth/signup" class="hidden sm:inline-flex items-center justify-center rounded-md bg-bronze px-4 py-2 text-sm font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
-        Start Free
-      </a>
-      
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="sm:hidden p-2 text-steel hover:text-white" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden sm:hidden border-t border-border bg-background">
-      <div class="px-4 py-4 space-y-3">
-        <a href="#how-it-works" class="block text-sm font-medium text-steel hover:text-white">How It Works</a>
-        <a href="#pricing" class="block text-sm font-medium text-steel hover:text-white">Pricing</a>
-        <a href="https://sbos.stintwell.com/auth/login" class="block text-sm font-medium text-steel hover:text-white">Sign In</a>
-        <a href="https://sbos.stintwell.com/auth/signup" class="block w-full text-center rounded-md bg-bronze px-4 py-2 text-sm font-semibold text-charcoal hover:bg-bronzeHover">
-          Start Free
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    
-    <!-- Hero Section -->
-    <section class="hero-gradient relative pt-32 pb-20 sm:pt-40 sm:pb-28">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="text-center">
-          <!-- Eyebrow -->
-          <div class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-sm text-steel mb-6">
-            <span class="w-2 h-2 rounded-full bg-bronze"></span>
-            AI-Native Operations Platform for Service Businesses
-          </div>
-
-          <!-- Headline -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            Your Business Has a <span class="text-bronze">Score.</span>
-          </h1>
-
-          <!-- Subheadline -->
-          <p class="mx-auto max-w-2xl text-lg sm:text-xl text-steel mb-8">
-            See your operational maturity score in 15 minutes. Find out what's broken—ranked by severity—and get prescriptions that install with one click.
-          </p>
-          
-          <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <a href="https://sbos.stintwell.com" class="inline-flex items-center justify-center gap-2 rounded-md bg-bronze px-6 py-3 text-base font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
-              Take the Free Assessment
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-            <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-cardHover">
-              See How It Works
-            </a>
-          </div>
-          
-          <!-- Trust Indicators -->
-          <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-steel">
-            <div class="flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
-              </svg>
-              No credit card
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              5-30 min assessment
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-              Instant score & roadmap
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-16 border-y border-border">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          <div>
-            <div class="flex justify-center mb-3">
-              <svg class="w-8 h-8 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-              </svg>
-            </div>
-            <div class="text-2xl font-bold text-white mb-1">Assessment-Led</div>
-            <div class="text-sm text-steel">Assessment Before Execution</div>
-          </div>
-          <div>
-            <div class="flex justify-center mb-3">
-              <svg class="w-8 h-8 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-              </svg>
-            </div>
-            <div class="text-2xl font-bold text-white mb-1">15-150</div>
-            <div class="text-sm text-steel">Employee Sweet Spot</div>
-          </div>
-          <div>
-            <div class="flex justify-center mb-3">
-              <svg class="w-8 h-8 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-              </svg>
-            </div>
-            <div class="text-2xl font-bold text-white mb-1">$3-50M</div>
-            <div class="text-sm text-steel">Revenue Range</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- The Problem: Market Stats & Pain Points -->
-    <section class="py-20 sm:py-28">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">53% of Founders Burned Out in 2024.</h2>
-          <p class="text-lg text-steel max-w-2xl mx-auto">Growth creates chaos when systems are trapped in people's heads. Two out of three businesses abandon EOS because they weren't structurally ready for it.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="text-3xl font-bold text-bronze mb-2">The Knowledge Trap</div>
-            <p class="text-base text-steel">Everything's in people's heads. One key employee quits and business continuity evaporates. Unsellable. Unscalable.</p>
-          </div>
-
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="text-3xl font-bold text-bronze mb-2">Six-Tab Prison</div>
-            <p class="text-base text-steel">Spreadsheets for KPIs. Google Docs for SOPs. Asana for projects. Slack for decisions. Death by context-switching.</p>
-          </div>
-
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="text-3xl font-bold text-bronze mb-2">Framework Fatigue</div>
-            <p class="text-base text-steel">EOS, Scaling Up, OKRs—they work when you're ready. Most businesses aren't. No assessment = wasted effort.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- The Solution: Assess → Prescribe → Install -->
-    <section class="py-20 sm:py-28 bg-card/50">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <div class="text-sm font-medium text-bronze uppercase tracking-wider mb-4">The SBOS Mechanism</div>
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Other Platforms Give You an Empty Box.<br/>We Give You Assessment, Prescription, and Installation.</h2>
-          <p class="text-lg text-steel max-w-3xl mx-auto">SBOS doesn't make you build everything from scratch. It measures what's broken, prescribes the fix, and installs the infrastructure with one click.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <!-- Part 1: Assess -->
-          <div class="rounded-lg border border-bronze bg-card p-8">
-            <div class="inline-flex items-center gap-2 rounded-full bg-bronze/20 px-3 py-1 text-sm text-bronze mb-4">
-              Part 1
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Assess</h3>
-            <p class="text-steel mb-6">A 90-question assessment that scores your operational maturity across 5 pillars. Not gut feelings. Not consultant opinions. Data.</p>
-            <div class="p-4 rounded-lg bg-cardHover">
-              <div class="text-base text-steel mb-2">Your SBOS Index</div>
-              <div class="text-3xl font-bold text-white">2.3<span class="text-xl text-steel">/5</span></div>
-              <div class="text-base text-orange-400 mt-1">Level 2: Reactive</div>
-            </div>
-          </div>
-
-          <!-- Part 2: Prescribe -->
-          <div class="rounded-lg border border-bronze bg-card p-8">
-            <div class="inline-flex items-center gap-2 rounded-full bg-bronze/20 px-3 py-1 text-sm text-bronze mb-4">
-              Part 2
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Prescribe</h3>
-            <p class="text-steel mb-6">Based on your red flags, SBOS prescribes specific fixes. Not generic advice. Actual SOPs, KPIs, and meeting templates calibrated to YOUR problems.</p>
-            <div class="space-y-2">
-              <div class="flex items-center gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
-                <svg class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                </svg>
-                <span class="text-base text-steel">No monthly financial close</span>
-              </div>
-              <div class="flex items-center gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
-                <svg class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                </svg>
-                <span class="text-base text-steel">Core process undocumented</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Part 3: Install -->
-          <div class="rounded-lg border border-bronze bg-card p-8">
-            <div class="inline-flex items-center gap-2 rounded-full bg-bronze/20 px-3 py-1 text-sm text-bronze mb-4">
-              Part 3
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Install</h3>
-            <p class="text-steel mb-6">Click "Install Fix." Watch the infrastructure appear. The SOP is created. The scorecard is built. The meeting template is ready. Zero friction.</p>
-            <div class="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-sm font-medium text-white">Monthly Close SOP installed</span>
-              </div>
-              <div class="text-xs text-steel">Ready to execute. AI-assisted. Version controlled.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Competitive Differentiation (Subtle Embed) -->
-        <div class="max-w-3xl mx-auto p-6 rounded-lg border border-border bg-background">
-          <div class="text-base text-steel leading-relaxed">
-            <span class="font-semibold text-white">Ninety.io</span> charges $16/user ($320/mo for 20 people) and gives you empty templates. <span class="font-semibold text-white">Process Street</span> breaks your templates when you update them. <span class="font-semibold text-white">Trainual</span> is training-only, not operations. <span class="font-semibold text-white">SBOS</span> assesses what's broken and installs the fix. <span class="text-bronze font-semibold">$299/month. Up to 25 users. No per-seat pricing.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-20 sm:py-28">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Assess. Prescribe. Install.</h2>
-          <p class="text-lg text-steel">Quick Scan in 5 minutes. Deep Dive in 30. Your choice.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Step 1: Assess -->
-          <div class="relative rounded-lg border border-border bg-card p-8">
-            <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-bronze text-charcoal text-lg font-bold flex items-center justify-center">1</div>
-            <div class="w-14 h-14 rounded-lg bg-cardHover flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Assess</h3>
-            <p class="text-steel mb-4">Take the Assessment—Quick Scan (~20 questions, 5 min) or Deep Dive (~90 questions, 20-30 min with your ops team).</p>
-            <p class="text-sm text-steel">Get your SBOS Index score (0-5.0) across 5 pillars with red flags ranked by severity. Know exactly where you stand.</p>
-          </div>
-
-          <!-- Step 2: Prescribe -->
-          <div class="relative rounded-lg border border-border bg-card p-8">
-            <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-bronze text-charcoal text-lg font-bold flex items-center justify-center">2</div>
-            <div class="w-14 h-14 rounded-lg bg-cardHover flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Prescribe</h3>
-            <p class="text-steel mb-4">SBOS prescribes specific fixes for your red flags based on your phase (Stabilize → Optimize → Scale).</p>
-            <p class="text-sm text-steel">Not generic advice—actual SOPs, KPI scorecards, meeting templates, and systems tailored to your maturity level.</p>
-          </div>
-
-          <!-- Step 3: Install -->
-          <div class="relative rounded-lg border border-border bg-card p-8">
-            <div class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-bronze text-charcoal text-lg font-bold flex items-center justify-center">3</div>
-            <div class="w-14 h-14 rounded-lg bg-cardHover flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Install</h3>
-            <p class="text-steel mb-4">One click. The SOP appears. The scorecard is built. The meeting template is ready.</p>
-            <p class="text-sm text-steel">Infrastructure without friction. Phase gating ensures you can't skip ahead before you're structurally ready.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SBOS Index Preview -->
-    <section class="py-20 sm:py-28 bg-card/50">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">See What You'll Get</h2>
-          <p class="text-lg text-steel max-w-2xl mx-auto">Your SBOS Index reveals exactly where your business stands—and what's blocking growth.</p>
-        </div>
-        
-        <div class="rounded-xl border border-border bg-card p-6 sm:p-10">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <!-- Left: Score -->
-            <div>
-              <div class="text-sm font-medium text-steel uppercase tracking-wider mb-4">Your SBOS Index</div>
-              <div class="flex items-baseline gap-2 mb-4">
-                <span class="text-6xl font-bold text-white">2.3</span>
-                <span class="text-2xl text-steel">/5</span>
-              </div>
-              <div class="inline-flex items-center gap-2 rounded-full bg-orange-500/20 px-3 py-1 text-sm text-orange-400 mb-6">
-                Level 2: Reactive
-              </div>
-              <p class="text-steel mb-8">Your business operates reactively. Systems exist but aren't documented or consistently followed.</p>
-              
-              <div class="text-sm font-medium text-steel uppercase tracking-wider mb-4">Red Flags Identified</div>
-              <div class="flex flex-wrap gap-3">
-                <span class="inline-flex items-center gap-2 rounded-full bg-red-500/20 px-3 py-1.5 text-sm text-red-400">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                  </svg>
-                  3 Critical
-                </span>
-                <span class="inline-flex items-center gap-2 rounded-full bg-yellow-500/20 px-3 py-1.5 text-sm text-yellow-400">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                  5 Moderate
-                </span>
-              </div>
-            </div>
-            
-            <!-- Right: Pillar Breakdown -->
-            <div>
-              <div class="text-sm font-medium text-steel uppercase tracking-wider mb-4">5 Pillar Breakdown</div>
-              <div class="space-y-5">
-                <!-- Financial -->
-                <div>
-                  <div class="flex justify-between text-sm mb-2">
-                    <span class="text-white">Financial</span>
-                    <span class="text-steel">3.2/5</span>
-                  </div>
-                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
-                    <div class="h-full progress-financial rounded-full" style="width: 64%"></div>
-                  </div>
-                </div>
-                
-                <!-- Operational -->
-                <div>
-                  <div class="flex justify-between text-sm mb-2">
-                    <span class="text-white">Operational</span>
-                    <span class="text-steel">2.1/5</span>
-                  </div>
-                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
-                    <div class="h-full progress-operational rounded-full" style="width: 42%"></div>
-                  </div>
-                </div>
-                
-                <!-- Leadership -->
-                <div>
-                  <div class="flex justify-between text-sm mb-2">
-                    <span class="text-white">Leadership</span>
-                    <span class="text-steel">2.8/5</span>
-                  </div>
-                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
-                    <div class="h-full progress-leadership rounded-full" style="width: 56%"></div>
-                  </div>
-                </div>
-                
-                <!-- Commercial -->
-                <div>
-                  <div class="flex justify-between text-sm mb-2">
-                    <span class="text-white">Commercial</span>
-                    <span class="text-steel">3.5/5</span>
-                  </div>
-                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
-                    <div class="h-full progress-commercial rounded-full" style="width: 70%"></div>
-                  </div>
-                </div>
-                
-                <!-- Governance -->
-                <div>
-                  <div class="flex justify-between text-sm mb-2">
-                    <span class="text-white">Governance</span>
-                    <span class="text-steel">1.9/5</span>
-                  </div>
-                  <div class="h-2 rounded-full bg-cardHover overflow-hidden">
-                    <div class="h-full progress-governance rounded-full" style="width: 38%"></div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Top Priority -->
-              <div class="mt-8 p-4 rounded-lg border border-border bg-cardHover">
-                <div class="flex items-start gap-3">
-                  <div class="w-6 h-6 rounded-full bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg class="w-4 h-4 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="text-sm font-medium text-white mb-1">Top Priority</div>
-                    <p class="text-sm text-steel">Document your core delivery process to reduce key-employee dependency.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Not Another Framework -->
-    <section class="py-20 sm:py-28">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <div class="text-sm font-medium text-bronze uppercase tracking-wider mb-4">The SBOS Difference</div>
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Not Another Framework.</h2>
-          <p class="text-lg text-steel max-w-2xl mx-auto">EOS, Scaling Up, and OKRs work—when you're structurally ready for them. SBOS proves whether you're ready.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Assessment Before Execution -->
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold mb-3">Assessment Before Execution</h3>
-            <p class="text-base text-steel">Other frameworks assume you're ready. SBOS proves (or disproves) it first. No wasted effort on the wrong priorities.</p>
-          </div>
-
-          <!-- Phase Gating -->
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold mb-3">Phase Gating</h3>
-            <p class="text-base text-steel">Stabilize → Optimize → Scale. You can't skip steps. A Ferrari with no wheels isn't 80% functional.</p>
-          </div>
-
-          <!-- Structural, Not Cultural -->
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="w-12 h-12 rounded-lg bg-cardHover flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold mb-3">Structural, Not Cultural</h3>
-            <p class="text-base text-steel">Systems that persist regardless of individuals. No more tribal knowledge risks or key-employee dependencies.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Built For Operators -->
-    <section class="py-20 sm:py-28 bg-card/50">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Built For Operators</h2>
-          <p class="text-lg text-steel">Property management, MSPs, service companies, and professional services firms ready to scale without chaos.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Property Management -->
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="w-10 h-10 rounded-lg bg-cardHover flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-              </svg>
-            </div>
-            <h3 class="font-semibold mb-2">Property Management</h3>
-            <p class="text-sm sm:text-base text-steel">Multi-location operations, tenant retention, maintenance workflows</p>
-          </div>
-
-          <!-- MSPs -->
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="w-10 h-10 rounded-lg bg-cardHover flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
-              </svg>
-            </div>
-            <h3 class="font-semibold mb-2">MSPs & IT Services</h3>
-            <p class="text-sm sm:text-base text-steel">Managed service providers, IT consultancies, technical support teams</p>
-          </div>
-
-          <!-- Service Companies -->
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="w-10 h-10 rounded-lg bg-cardHover flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-            </div>
-            <h3 class="font-semibold mb-2">Service Companies</h3>
-            <p class="text-sm sm:text-base text-steel">HVAC, plumbing, electrical, home services, field operations</p>
-          </div>
-
-          <!-- Professional Services -->
-          <div class="rounded-lg border border-border bg-card p-6">
-            <div class="w-10 h-10 rounded-lg bg-cardHover flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <h3 class="font-semibold mb-2">Professional Services</h3>
-            <p class="text-sm sm:text-base text-steel">Consulting, agencies, accounting firms, legal practices</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="py-20 sm:py-28">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-4">Simple Pricing. 60-Day Guarantee.</h2>
-          <p class="text-lg text-steel max-w-2xl mx-auto">Start free. Upgrade when you're ready. No per-seat pricing. If you don't find value in 60 days, full refund.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <!-- Free Tier -->
-          <div class="rounded-xl border border-border bg-card p-8">
-            <div class="inline-flex items-center gap-2 rounded-full bg-green-500/20 px-3 py-1 text-sm text-green-400 mb-4">
-              Free Forever
-            </div>
-            <div class="flex items-baseline gap-1 mb-4">
-              <span class="text-4xl font-bold text-white">$0</span>
-              <span class="text-steel">/month</span>
-            </div>
-            <p class="text-steel mb-6">Assess your business and document your first processes.</p>
-
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">1 user</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Quick Scan or Deep Dive assessment</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">SBOS Index score & red flags</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Dashboard module</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">SOP module (up to 15 SOPs)</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">AI assistance (GPT-4o mini)</span>
-              </li>
-            </ul>
-
-            <a href="https://sbos.stintwell.com" class="block w-full text-center rounded-md bg-bronze px-6 py-3 text-base font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
-              Start Free
-            </a>
-          </div>
-
-          <!-- Team Tier -->
-          <div class="rounded-xl border-2 border-bronze bg-card p-8 relative">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full bg-bronze px-4 py-1 text-sm text-charcoal font-semibold">
-              Most Popular
-            </div>
-            <div class="inline-flex items-center gap-2 rounded-full bg-bronze/20 px-3 py-1 text-sm text-bronze mb-4">
-              Team
-            </div>
-            <div class="flex items-baseline gap-2 mb-4">
-              <span class="text-4xl font-bold text-white">$299</span>
-              <span class="text-steel">/month</span>
-            </div>
-            <p class="text-steel mb-6">Full platform. Up to 25 users. Unlimited employees.</p>
-
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Everything in Free, plus:</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">25 users, unlimited employees</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Unlimited usage across all modules</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">All 10 core modules</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">SOPs, KPI Scorecards, Leadership, People, Projects, Financial</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Customer Experience & Retention, Systems & Technology</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Premium AI (Claude Sonnet)</span>
-              </li>
-            </ul>
-
-            <a href="https://sbos.stintwell.com" class="block w-full text-center rounded-md bg-bronze px-6 py-3 text-base font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
-              Start 60-Day Trial
-            </a>
-          </div>
-
-          <!-- Scale Tier -->
-          <div class="rounded-xl border border-border bg-card p-8">
-            <div class="inline-flex items-center gap-2 rounded-full bg-purple-500/20 px-3 py-1 text-sm text-purple-400 mb-4">
-              Scale
-            </div>
-            <div class="flex items-baseline gap-2 mb-4">
-              <span class="text-4xl font-bold text-white">$499</span>
-              <span class="text-steel">/month</span>
-            </div>
-            <p class="text-steel mb-6">For larger teams. 100 users. Unlimited employees.</p>
-
-            <ul class="space-y-3 mb-8">
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Everything in Team, plus:</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">100 users, unlimited employees</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Best AI models (Claude Opus 4.5)</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Personalized onboarding</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Priority support</span>
-              </li>
-              <li class="flex items-center gap-3 text-base">
-                <svg class="w-5 h-5 text-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-white">Advanced reporting & analytics</span>
-              </li>
-            </ul>
-
-            <a href="https://sbos.stintwell.com" class="block w-full text-center rounded-md border border-border px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-cardHover">
-              Contact Sales
-            </a>
-          </div>
-        </div>
-
-        <!-- Enterprise & Portfolio Callout -->
-        <div class="mt-12 max-w-4xl mx-auto px-4 sm:px-0">
-          <div class="rounded-xl border-2 border-purple-500/30 bg-gradient-to-br from-purple-500/5 to-purple-500/10 p-6 sm:p-8">
-            <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-              <div class="w-14 h-14 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <h4 class="text-lg sm:text-xl font-semibold text-white mb-2">Enterprise & Portfolio Solutions</h4>
-                <p class="text-sm sm:text-base text-steel mb-4">Custom pricing for unlimited users, white-label deployment, and multi-tenant infrastructure built for portfolio operators and M&A use cases.</p>
-                <div class="flex flex-wrap gap-2 sm:gap-3 mb-4">
-                  <span class="inline-flex items-center gap-2 rounded-full bg-background/50 px-3 py-1 text-xs text-steel">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                    Multi-tenant architecture
-                  </span>
-                  <span class="inline-flex items-center gap-2 rounded-full bg-background/50 px-3 py-1 text-xs text-steel">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                    White-label deployment
-                  </span>
-                  <span class="inline-flex items-center gap-2 rounded-full bg-background/50 px-3 py-1 text-xs text-steel">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                    Portfolio roll-up reporting
-                  </span>
-                  <span class="inline-flex items-center gap-2 rounded-full bg-background/50 px-3 py-1 text-xs text-steel">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                    M&A integration workflows
-                  </span>
-                </div>
-                <a href="mailto:steve@stintwell.com" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors text-sm font-medium">
-                  Contact us for enterprise pricing
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- AI Model Comparison -->
-        <div class="mt-12 max-w-4xl mx-auto">
-          <div class="rounded-xl border border-border bg-card p-8">
-            <h4 class="text-lg font-semibold text-white mb-6">AI Model Comparison</h4>
-
-            <!-- Desktop Table -->
-            <div class="hidden md:block overflow-x-auto">
-              <table class="w-full text-sm">
-                <thead>
-                  <tr class="border-b border-border">
-                    <th class="text-left py-3 px-4 font-medium text-steel">Capability</th>
-                    <th class="text-left py-3 px-4 font-medium text-steel">
-                      <span class="block">Free</span>
-                      <span class="block text-xs font-normal">(GPT-4o mini)</span>
-                    </th>
-                    <th class="text-left py-3 px-4 font-medium text-bronze">
-                      <span class="block">Team</span>
-                      <span class="block text-xs font-normal">(Claude Sonnet)</span>
-                    </th>
-                    <th class="text-left py-3 px-4 font-medium text-purple-400">
-                      <span class="block">Scale</span>
-                      <span class="block text-xs font-normal">(Claude Opus 4.5)</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="border-b border-border/50">
-                    <td class="py-3 px-4 text-white">SOP Generation</td>
-                    <td class="py-3 px-4 text-steel">Good</td>
-                    <td class="py-3 px-4 text-white">Excellent</td>
-                    <td class="py-3 px-4 text-white">Best-in-class</td>
-                  </tr>
-                  <tr class="border-b border-border/50">
-                    <td class="py-3 px-4 text-white">Complex Reasoning</td>
-                    <td class="py-3 px-4 text-steel">Standard</td>
-                    <td class="py-3 px-4 text-white">Advanced</td>
-                    <td class="py-3 px-4 text-white">Expert-level</td>
-                  </tr>
-                  <tr class="border-b border-border/50">
-                    <td class="py-3 px-4 text-white">Assessment Analysis</td>
-                    <td class="py-3 px-4 text-steel">Standard depth</td>
-                    <td class="py-3 px-4 text-white">Deep insights</td>
-                    <td class="py-3 px-4 text-white">Strategic recommendations</td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-4 text-white">Prescription Quality</td>
-                    <td class="py-3 px-4 text-steel">Solid</td>
-                    <td class="py-3 px-4 text-white">Highly accurate</td>
-                    <td class="py-3 px-4 text-white">Exceptional precision</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Mobile Cards -->
-            <div class="md:hidden space-y-4">
-              <div class="rounded-lg border border-border p-4">
-                <div class="font-medium text-steel mb-3">
-                  <span class="block">Free</span>
-                  <span class="block text-xs">(GPT-4o mini)</span>
-                </div>
-                <div class="space-y-2 text-sm">
-                  <div class="flex justify-between"><span class="text-steel">SOP Generation:</span> <span class="text-white">Good</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Reasoning:</span> <span class="text-white">Standard</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Analysis:</span> <span class="text-white">Standard depth</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Prescriptions:</span> <span class="text-white">Solid</span></div>
-                </div>
-              </div>
-
-              <div class="rounded-lg border-2 border-bronze bg-bronze/5 p-4">
-                <div class="font-medium text-bronze mb-3">
-                  <span class="block">Team</span>
-                  <span class="block text-xs">(Claude Sonnet)</span>
-                </div>
-                <div class="space-y-2 text-sm">
-                  <div class="flex justify-between"><span class="text-steel">SOP Generation:</span> <span class="text-white">Excellent</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Reasoning:</span> <span class="text-white">Advanced</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Analysis:</span> <span class="text-white">Deep insights</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Prescriptions:</span> <span class="text-white">Highly accurate</span></div>
-                </div>
-              </div>
-
-              <div class="rounded-lg border-2 border-purple-500/30 bg-purple-500/5 p-4">
-                <div class="font-medium text-purple-400 mb-3">
-                  <span class="block">Scale</span>
-                  <span class="block text-xs">(Claude Opus 4.5)</span>
-                </div>
-                <div class="space-y-2 text-sm">
-                  <div class="flex justify-between"><span class="text-steel">SOP Generation:</span> <span class="text-white">Best-in-class</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Reasoning:</span> <span class="text-white">Expert-level</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Analysis:</span> <span class="text-white">Strategic recommendations</span></div>
-                  <div class="flex justify-between"><span class="text-steel">Prescriptions:</span> <span class="text-white">Exceptional precision</span></div>
-                </div>
-              </div>
-            </div>
-
-            <p class="text-xs text-steel mt-4 italic">All models are continuously updated. Quality comparisons are based on capability differences between model classes.</p>
-          </div>
-        </div>
-
-        <!-- 60-Day Guarantee Callout -->
-        <div class="mt-12 max-w-3xl mx-auto p-6 rounded-lg border border-bronze/30 bg-bronze/5">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-full bg-bronze/20 flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-white mb-2">60-Day Value Guarantee</h4>
-              <p class="text-sm text-steel">If SBOS doesn't deliver value in your first 60 days, we'll refund every dollar. No questions asked.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-20 sm:py-28 bg-card/50">
-      <div class="mx-auto max-w-3xl px-4 sm:px-6 text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Know Your Score.</h2>
-        <p class="text-lg text-steel mb-8">Take the free assessment. See your operational maturity index. Get prescriptions that install with one click.</p>
-        <a href="https://sbos.stintwell.com" class="inline-flex items-center justify-center gap-2 rounded-md bg-bronze px-8 py-4 text-lg font-semibold text-charcoal transition-colors hover:bg-bronzeHover">
-          Get Your SBOS Index
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-border py-12">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-        <!-- Logo -->
-        <div class="flex items-center gap-2">
-          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Top-left L-shape (charcoal) -->
-            <rect x="4" y="4" width="12" height="3" fill="#232931"/>
-            <rect x="4" y="4" width="3" height="12" fill="#232931"/>
-            <!-- Bottom-right L-shape (brownish-gold) -->
-            <rect x="16" y="25" width="12" height="3" fill="#A68B5B"/>
-            <rect x="25" y="16" width="3" height="12" fill="#A68B5B"/>
-          </svg>
-          <span class="font-semibold text-white">stintwell</span>
-        </div>
-        
-        <!-- Tagline -->
-        <p class="text-sm text-steel">Precision. Discipline. Results that endure.</p>
-        
-        <!-- Links -->
-        <div class="flex items-center gap-6 text-sm">
-          <a href="https://stintwell.com" class="text-steel hover:text-white transition-colors">Stintwell Advisory</a>
-          <a href="https://sbos.stintwell.com" class="text-steel hover:text-white transition-colors">SBOS App</a>
-          <a href="/privacy.html" class="text-steel hover:text-white transition-colors">Privacy Policy</a>
-          <a href="/terms.html" class="text-steel hover:text-white transition-colors">Terms of Service</a>
-        </div>
-      </div>
-      
-      <div class="mt-8 pt-8 border-t border-border text-center text-sm text-steel">
-        © 2026 Stintwell Advisory. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <!-- Mobile Menu Script -->
-  <script>
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // Close menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-  </script>
-
-  <!-- Analytics Placeholder -->
-  <!-- 
-  Add your tracking scripts here:
-  - Mouseflow
-  - Google Analytics 4
-  - Meta Pixel
-  -->
-<script type="text/javascript">
-  window._mfq = window._mfq || [];
-  (function() {
+    <!-- Mouseflow -->
+    <script type="text/javascript">
+    window._mfq = window._mfq || [];
+    (function() {
     var mf = document.createElement("script");
     mf.type = "text/javascript"; mf.defer = true;
     mf.src = "//cdn.mouseflow.com/projects/3fbe6aa8-a218-4724-a901-43b7433883f0.js";
     document.getElementsByTagName("head")[0].appendChild(mf);
-  })();
-</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-  <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'YOUR_PIXEL_ID');
-fbq('track', 'PageView');
-</script>
-  <script>
-// Pass UTMs to assessment link
-document.querySelectorAll('a[href*="sbos.stintwell.com"]').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const utmParams = window.location.search;
-    if (utmParams) {
-      e.preventDefault();
-      window.location.href = link.href + utmParams;
+    })();
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7YHYYWXDL"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X7YHYYWXDL');
+    </script>
+
+    <script>
+    tailwind.config = {
+    theme: {
+    extend: {
+    colors: {
+    charcoal: '#1C1F26',
+    bronze: '#A68A64',
+    tactical: '#2A453B',
+    steel: '#94A3B8'
+    },
+    fontFamily: {
+    sans: ['Inter', 'sans-serif'],
     }
-  });
-});
-</script>
+    }
+    }
+    }
+    </script>
+
+    <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+
+    .hero-pattern {
+    background-image: radial-gradient(#A68A64 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.05;
+    }
+
+    /* Tab styling */
+    .tab-btn { transition: all 0.2s ease; }
+    .tab-btn.active { 
+      border-color: #A68A64; 
+      color: #A68A64;
+      background: rgba(166, 138, 100, 0.1);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
+
+    /* Flow diagram styling */
+    .flow-step {
+      position: relative;
+    }
+    .flow-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 12px solid #A68A64;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+    }
+    </style>
+
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SBOS",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "299",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-12-31"
+      },
+      "description": "SBOS (Service Business Operating System) - The operating system for high-performance service businesses",
+      "featureList": [
+        "SOP Library",
+        "Financial Pulse",
+        "Business Health Assessment",
+        "KPI Scorecards",
+        "Roles & People",
+        "Leadership OS",
+        "Project Execution",
+        "Customer Retention",
+        "Tech Stack Integration"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Stintwell Advisory",
+      "url": "https://stintwell.com",
+      "description": "Operational infrastructure for high-performance service businesses"
+    }
+    </script>
+</head>
+
+<body class="bg-charcoal min-h-screen text-white">
+
+    <!-- Navigation -->
+    <nav class="absolute w-full z-50 p-6">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="/" class="flex items-center gap-3 group">
+        <svg class="w-24 h-auto" viewBox="0 0 100 25" fill="none" role="img" aria-label="Stintwell logo">
+          <g transform="scale(0.22) translate(0, 5)">
+            <!-- Top-left L-shape (charcoal) -->
+            <rect x="20" y="20" width="40" height="15" fill="#232931"/>
+            <rect x="20" y="20" width="15" height="40" fill="#232931"/>
+            <!-- Bottom-right L-shape (brownish-gold) -->
+            <rect x="40" y="65" width="40" height="15" fill="#A68B5B"/>
+            <rect x="65" y="40" width="15" height="40" fill="#A68B5B"/>
+          </g>
+          <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
+        </svg>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="#use-cases" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">Use Cases</a>
+        <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">How It Works</a>
+      </div>
+    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+    <div class="absolute inset-0 hero-pattern"></div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 fade-in">
+        <div class="mb-6 flex justify-center">
+          <span class="text-bronze font-bold text-xs uppercase tracking-[0.2em] border-b border-bronze pb-1">Operational Infrastructure</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
+          The Operating System for<br>
+          <span class="text-bronze">High-Performance Businesses</span>
+        </h1>
+        
+        <p class="text-xl text-gray-400 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+          Most businesses scale chaos because they don't know what's structurally broken.
+        </p>
+        <p class="text-lg text-gray-500 mb-10 max-w-2xl mx-auto font-light">
+          SBOS assesses your operational weak points, surfaces hidden risk, and installs the systems to fix it—automatically.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/sbos-signup.html" class="bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-8 py-4 text-sm uppercase tracking-widest transition-all shadow-lg text-center">
+            Take the Quick Scan
+          </a>
+          <a href="/sbos-signup.html" class="px-8 py-4 border border-gray-700 hover:border-bronze text-white font-semibold text-sm uppercase tracking-widest transition-all text-center">
+            Request Structural Audit
+          </a>
+        </div>
+        
+        <p class="text-xs text-gray-600 mt-6 uppercase tracking-wider">Quick Scan: 5 minutes, 20 questions • Structural Audit: By request only</p>
+      </div>
+
+      <!-- The SBOS Index Preview -->
+      <div class="relative mx-auto max-w-4xl fade-in" style="animation-delay: 0.2s">
+        <div class="bg-gray-900 rounded-lg p-1 shadow-2xl border border-gray-800">
+          <div class="bg-charcoal rounded border border-gray-800 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <span class="text-xs text-gray-600 font-mono">sbos.stintwell.com/results</span>
+            </div>
+            
+            <div class="grid grid-cols-12 gap-6">
+              <!-- Score Card -->
+              <div class="col-span-4 bg-gray-900 rounded p-6 border border-gray-800">
+                <p class="text-xs text-gray-500 uppercase tracking-wider mb-2">SBOS Index</p>
+                <p class="text-5xl font-bold text-bronze mb-1">2.3</p>
+                <p class="text-sm text-gray-500">Level 2: Reactive</p>
+                <div class="mt-4 pt-4 border-t border-gray-800">
+                  <p class="text-xs text-red-400 font-semibold">3 Critical Red Flags</p>
+                  <p class="text-xs text-yellow-400">5 Moderate Flags</p>
+                </div>
+              </div>
+              
+              <!-- Pillars -->
+              <div class="col-span-8 space-y-3">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-gray-500 w-24">Financial</span>
+                  <div class="flex-1 bg-gray-800 rounded-full h-2">
+                    <div class="bg-red-500 h-2 rounded-full" style="width: 35%"></div>
+                  </div>
+                  <span class="text-xs text-gray-400 w-8">1.8</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-gray-500 w-24">Operational</span>
+                  <div class="flex-1 bg-gray-800 rounded-full h-2">
+                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 50%"></div>
+                  </div>
+                  <span class="text-xs text-gray-400 w-8">2.5</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-gray-500 w-24">Leadership</span>
+                  <div class="flex-1 bg-gray-800 rounded-full h-2">
+                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 55%"></div>
+                  </div>
+                  <span class="text-xs text-gray-400 w-8">2.8</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-gray-500 w-24">Commercial</span>
+                  <div class="flex-1 bg-gray-800 rounded-full h-2">
+                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 45%"></div>
+                  </div>
+                  <span class="text-xs text-gray-400 w-8">2.3</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-gray-500 w-24">Governance</span>
+                  <div class="flex-1 bg-gray-800 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full" style="width: 65%"></div>
+                  </div>
+                  <span class="text-xs text-gray-400 w-8">3.2</span>
+                </div>
+                
+                <div class="mt-4 pt-4 border-t border-gray-800 flex items-center justify-between">
+                  <span class="text-xs text-gray-500">Current Phase:</span>
+                  <span class="text-xs font-bold text-red-400 bg-red-400/10 px-3 py-1 rounded">STABILIZE REQUIRED</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-xs text-gray-600 mt-4">Sample SBOS Index output — your results will reflect your actual business structure</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- Three Use Cases Section -->
+    <section id="use-cases" class="bg-gray-950 py-24 border-t border-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">Built for Three Archetypes</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Who Uses SBOS?</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">Different entry points, same structural truth.</p>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="flex justify-center gap-2 mb-12 flex-wrap">
+        <button onclick="showTab('ma')" class="tab-btn active px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider transition-all" data-tab="ma">
+          M&A Due Diligence
+        </button>
+        <button onclick="showTab('operator')" class="tab-btn px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider transition-all" data-tab="operator">
+          Multi-Business Operators
+        </button>
+        <button onclick="showTab('owner')" class="tab-btn px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider transition-all" data-tab="owner">
+          Business Owners
+        </button>
+      </div>
+
+      <!-- Tab Content: M&A -->
+      <div id="tab-ma" class="tab-content active">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-bronze text-xs font-bold uppercase tracking-wider mb-3">For Acquirers & Brokers</p>
+            <h3 class="text-2xl font-bold mb-4">Know What You're Buying — Before You Buy It</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              The seller says it's turnkey. The broker says it's well-run. But who's measuring structural health? Financials tell you what happened. SBOS tells you what will happen when you take over.
+            </p>
+            
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Hidden Risk Exposure</p>
+                  <p class="text-gray-500 text-sm">Surface owner dependency, revenue concentration, and operational fragility before LOI.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="calculator" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Stabilization Estimate</p>
+                  <p class="text-gray-500 text-sm">Know the days and dollars required to reach operational stability post-close.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="thumbs-up" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Deal Recommendation</p>
+                  <p class="text-gray-500 text-sm">Clear guidance: Proceed, Proceed with Caution, High Risk, or Walk Away.</p>
+                </div>
+              </div>
+            </div>
+            
+            <a href="/sbos-signup.html" class="inline-block bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-6 py-3 text-sm uppercase tracking-widest transition-all">
+              Start M&A Assessment
+            </a>
+          </div>
+          
+          <div class="bg-charcoal border border-gray-800 rounded p-6">
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-4">M&A Diligence Output</p>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                <span class="text-gray-400 text-sm">Maturity Score</span>
+                <span class="font-bold text-yellow-400">2.4 / 5.0</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                <span class="text-gray-400 text-sm">Owner Involvement</span>
+                <span class="font-bold text-red-400">45%</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                <span class="text-gray-400 text-sm">Revenue Concentration</span>
+                <span class="font-bold text-yellow-400">Top 3 = 52%</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                <span class="text-gray-400 text-sm">Critical Red Flags</span>
+                <span class="font-bold text-red-400">2</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-800">
+                <span class="text-gray-400 text-sm">Stabilization Estimate</span>
+                <span class="font-bold text-white">90-120 days</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-gray-400 text-sm">Deal Recommendation</span>
+                <span class="font-bold text-yellow-400 bg-yellow-400/10 px-3 py-1 rounded text-xs">PROCEED WITH CAUTION</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Multi-Business Operator -->
+      <div id="tab-operator" class="tab-content">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-bronze text-xs font-bold uppercase tracking-wider mb-3">For Consultants, Coaches & Portfolio Operators</p>
+            <h3 class="text-2xl font-bold mb-4">Your Entire Client Portfolio — One Dashboard</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              You manage multiple businesses. Each client is a different conversation. When one catches fire, the others slip. SBOS gives you visibility across all of them.
+            </p>
+            
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Portfolio Dashboard</p>
+                  <p class="text-gray-500 text-sm">See all client businesses ranked by maturity score, red flags, and phase.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="bell-ring" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Proactive Alerts</p>
+                  <p class="text-gray-500 text-sm">Know which client needs attention before they call you in crisis.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Progress Tracking</p>
+                  <p class="text-gray-500 text-sm">Monitor client progression (or regression) over time with historical data.</p>
+                </div>
+              </div>
+            </div>
+            
+            <a href="/sbos-signup.html" class="inline-block bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-6 py-3 text-sm uppercase tracking-widest transition-all">
+              Request Portfolio Access
+            </a>
+          </div>
+          
+          <div class="bg-charcoal border border-gray-800 rounded p-6">
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-4">Portfolio View</p>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 bg-gray-900 rounded border-l-4 border-green-500">
+                <div>
+                  <p class="font-semibold text-sm">Clearwater Property Mgmt</p>
+                  <p class="text-xs text-gray-500">Score: 3.4 • Optimize Phase</p>
+                </div>
+                <span class="text-xs text-green-400">0 Critical</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-gray-900 rounded border-l-4 border-yellow-500">
+                <div>
+                  <p class="font-semibold text-sm">Nexus IT Solutions</p>
+                  <p class="text-xs text-gray-500">Score: 2.8 • Stabilize Phase</p>
+                </div>
+                <span class="text-xs text-yellow-400">1 Critical</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-gray-900 rounded border-l-4 border-red-500">
+                <div>
+                  <p class="font-semibold text-sm">Quick Fix Plumbing</p>
+                  <p class="text-xs text-gray-500">Score: 1.9 • Blocked</p>
+                </div>
+                <span class="text-xs text-red-400">3 Critical</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-600 mt-4 text-center">Click any client to drill into full assessment</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Business Owner -->
+      <div id="tab-owner" class="tab-content">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-bronze text-xs font-bold uppercase tracking-wider mb-3">For Founders & Operators</p>
+            <h3 class="text-2xl font-bold mb-4">From Diagnosis to Systems — In Minutes</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              You built something valuable. But the business still depends on you. Growth feels dangerous because chaos scales faster than revenue. SBOS shows you exactly what's broken and installs the fix.
+            </p>
+            
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="search" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Blind Spot Detection</p>
+                  <p class="text-gray-500 text-sm">Surface the structural issues you can't see from inside the business.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="route" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Sequenced Roadmap</p>
+                  <p class="text-gray-500 text-sm">Know exactly what to fix first. No more random improvement projects.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded bg-bronze/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i data-lucide="wand-2" class="w-3.5 h-3.5 text-bronze"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-sm">Prescription Activation</p>
+                  <p class="text-gray-500 text-sm">SOPs, scorecards, and meeting cadences installed automatically based on your assessment.</p>
+                </div>
+              </div>
+            </div>
+            
+            <a href="/sbos-signup.html" class="inline-block bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-6 py-3 text-sm uppercase tracking-widest transition-all">
+              Take the Quick Scan
+            </a>
+          </div>
+          
+          <div class="bg-charcoal border border-gray-800 rounded p-6">
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-4">Prescription Activation</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-3 bg-gray-900 rounded">
+                <div class="w-8 h-8 rounded bg-bronze/20 flex items-center justify-center">
+                  <i data-lucide="file-text" class="w-4 h-4 text-bronze"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm">Monthly Financial Close Protocol</p>
+                  <p class="text-xs text-gray-500">Triggered by: no-monthly-close flag</p>
+                </div>
+                <span class="text-xs text-green-400">Installed</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-gray-900 rounded">
+                <div class="w-8 h-8 rounded bg-bronze/20 flex items-center justify-center">
+                  <i data-lucide="users" class="w-4 h-4 text-bronze"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm">Weekly Sync & Solve Agenda</p>
+                  <p class="text-xs text-gray-500">Triggered by: no-l10-agenda flag</p>
+                </div>
+                <span class="text-xs text-green-400">Installed</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-gray-900 rounded">
+                <div class="w-8 h-8 rounded bg-bronze/20 flex items-center justify-center">
+                  <i data-lucide="bar-chart-3" class="w-4 h-4 text-bronze"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm">Financial Health Scorecard</p>
+                  <p class="text-xs text-gray-500">Triggered by: Financial pillar < 3.0</p>
+                </div>
+                <span class="text-xs text-green-400">Installed</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-600 mt-4 text-center">Your blind spots are now systems</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 border-t border-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">The SBOS Process</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">Assessment → Results → Prescriptions. From structural truth to installed systems.</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="flow-step text-center">
+          <div class="w-16 h-16 rounded-full bg-bronze/20 flex items-center justify-center mx-auto mb-4">
+            <span class="text-bronze font-bold text-xl">1</span>
+          </div>
+          <h3 class="font-bold mb-2">Take the Scan</h3>
+          <p class="text-gray-500 text-sm">Answer questions across 5 pillars: Financial, Operational, Leadership, Commercial, Governance.</p>
+        </div>
+        
+        <div class="flow-step text-center">
+          <div class="w-16 h-16 rounded-full bg-bronze/20 flex items-center justify-center mx-auto mb-4">
+            <span class="text-bronze font-bold text-xl">2</span>
+          </div>
+          <h3 class="font-bold mb-2">Get Your Index</h3>
+          <p class="text-gray-500 text-sm">Receive your SBOS Index: maturity score (1-5), red flags by severity, and phase assignment.</p>
+        </div>
+        
+        <div class="flow-step text-center">
+          <div class="w-16 h-16 rounded-full bg-bronze/20 flex items-center justify-center mx-auto mb-4">
+            <span class="text-bronze font-bold text-xl">3</span>
+          </div>
+          <h3 class="font-bold mb-2">See Your Roadmap</h3>
+          <p class="text-gray-500 text-sm">Understand exactly what to fix first based on severity and sequence logic.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-bronze/20 flex items-center justify-center mx-auto mb-4">
+            <span class="text-bronze font-bold text-xl">4</span>
+          </div>
+          <h3 class="font-bold mb-2">Activate Prescriptions</h3>
+          <p class="text-gray-500 text-sm">One click installs SOPs, scorecards, and meeting cadences based on your specific flags.</p>
+        </div>
+      </div>
+
+      <!-- Core Principle Callout -->
+      <div class="mt-16 bg-gray-900 border border-gray-800 rounded p-8 max-w-3xl mx-auto">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded bg-red-500/20 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="alert-triangle" class="w-6 h-6 text-red-400"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-2">The SBOS Principle: Severity Overrides Score</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              A business can score Level 4 across multiple pillars but still be structurally blocked if a Critical red flag exists. A Ferrari with no wheels isn't 80% functional—it's undriveable. SBOS prevents false confidence from balanced-looking scores.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- 9 Core Modules Section -->
+    <section class="bg-gray-950 py-24 border-t border-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">The SBOS Platform</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">9 Integrated Modules</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">Each module auto-installs based on your assessment results. No generic templates—prescriptions matched to your specific red flags.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Module 1: SOP Library -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="file-text" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">SOP Library</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            Stop running your business from memory. Document every critical process with step-by-step templates.
+          </p>
+          <p class="text-gray-500 text-xs">Process builder, version control, role-based access</p>
+        </div>
+
+        <!-- Module 2: Financial Pulse -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="dollar-sign" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Financial Pulse</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            Real-time cash flow visibility. Track revenue, expenses, and financial health without switching tools.
+          </p>
+          <p class="text-gray-500 text-xs">Cash flow tracking, revenue monitoring, financial alerts</p>
+        </div>
+
+        <!-- Module 3: Business Health Assessment -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="activity" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Business Health Assessment</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            15-minute assessment across 5 pillars. Identifies structural gaps and generates your roadmap.
+          </p>
+          <p class="text-gray-500 text-xs">Maturity scoring, red flag detection, sequenced recommendations</p>
+        </div>
+
+        <!-- Module 4: KPI Scorecards -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="bar-chart-3" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">KPI Scorecards</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            Track the 5-10 metrics that actually matter. Leading and lagging indicators in one view.
+          </p>
+          <p class="text-gray-500 text-xs">Custom dashboards, goal tracking, automated alerts</p>
+        </div>
+
+        <!-- Module 5: Roles & People -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="users" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Roles & People</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            Make org structure visible. Define roles, responsibilities, and eliminate confusion about who owns what.
+          </p>
+          <p class="text-gray-500 text-xs">Org chart builder, role definitions, succession planning</p>
+        </div>
+
+        <!-- Module 6: Leadership OS -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="clipboard-list" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Leadership OS</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            Turn meetings into decision machines. Structured agendas, delegation framework, and accountability tracking.
+          </p>
+          <p class="text-gray-500 text-xs">Meeting templates, delegation tracker, decision rights mapping</p>
+        </div>
+
+        <!-- Module 7: Project Execution -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="target" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Project Execution</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            Track strategic initiatives from idea to completion. Milestone management and progress visibility.
+          </p>
+          <p class="text-gray-500 text-xs">Initiative tracking, milestone management, project dashboards</p>
+        </div>
+
+        <!-- Module 8: Customer Retention -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="heart-handshake" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Customer Retention</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            Proactive customer experience management. Identify at-risk accounts before they churn.
+          </p>
+          <p class="text-gray-500 text-xs">Satisfaction tracking, churn prevention, engagement monitoring</p>
+        </div>
+
+        <!-- Module 9: Tech Stack -->
+        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="plug" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Tech Stack</h3>
+          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+            Connect your existing tools. Native integrations and Zapier workflows eliminate context-switching.
+          </p>
+          <p class="text-gray-500 text-xs">Native integrations, Zapier workflows, API access</p>
+        </div>
+      </div>
+
+      <!-- Callout -->
+      <div class="mt-12 bg-charcoal border border-gray-800 rounded p-6 max-w-3xl mx-auto text-center">
+        <p class="text-gray-400 text-sm leading-relaxed">
+          <span class="text-bronze font-bold">Prescription-Driven Installation:</span> Modules activate based on your red flags. If you score low in Financial pillar, Financial Pulse auto-installs. If meetings are flagged, Leadership OS deploys meeting protocols. No guesswork.
+        </p>
+      </div>
+    </div>
+    </section>
+
+    <!-- Differentiation Section -->
+    <section class="bg-gray-950 py-24 border-t border-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">Why SBOS</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Not Another Framework</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">EOS, Scaling Up, and OKRs work—when you're structurally ready for them. SBOS proves whether you're ready.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-charcoal border border-gray-800 rounded p-6">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="scan" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Diagnosis Before Execution</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Other frameworks assume you're ready to execute. SBOS proves (or disproves) readiness before you start building.</p>
+        </div>
+        
+        <div class="bg-charcoal border border-gray-800 rounded p-6">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="shield-x" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Phase Gating</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Stabilize → Optimize → Scale. You can't skip steps. SBOS enforces sequence so you don't build on a broken foundation.</p>
+        </div>
+        
+        <div class="bg-charcoal border border-gray-800 rounded p-6">
+          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
+            <i data-lucide="settings-2" class="w-5 h-5 text-bronze"></i>
+          </div>
+          <h3 class="font-bold mb-2">Structural, Not Cultural</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Most frameworks rely on behavior change. SBOS installs systems that persist regardless of individuals. Accountability is architectural.</p>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 border-t border-gray-900">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to See Your Structural Truth?</h2>
+      <p class="text-gray-400 mb-8 text-lg">The Quick Scan takes 5 minutes. The results might change how you run your business.</p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+        <a href="/sbos-signup.html" class="bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-8 py-4 text-sm uppercase tracking-widest transition-all shadow-lg text-center">
+          Take the Quick Scan
+        </a>
+        <a href="/sbos-signup.html" class="px-8 py-4 border border-gray-700 hover:border-bronze text-white font-semibold text-sm uppercase tracking-widest transition-all text-center">
+          Request Structural Audit
+        </a>
+      </div>
+      
+      <p class="text-xs text-gray-600">
+        Quick Scan: Free, 20 questions, instant results<br>
+        Structural Audit: 95 questions, by request only, includes consultation
+      </p>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal border-t border-gray-800 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <svg class="w-20 h-auto opacity-50" viewBox="0 0 100 25" fill="none" role="img" aria-label="Stintwell logo">
+          <g transform="scale(0.22) translate(0, 5)">
+            <!-- Top-left L-shape (charcoal) -->
+            <rect x="20" y="20" width="40" height="15" fill="#232931"/>
+            <rect x="20" y="20" width="15" height="40" fill="#232931"/>
+            <!-- Bottom-right L-shape (brownish-gold) -->
+            <rect x="40" y="65" width="40" height="15" fill="#A68B5B"/>
+            <rect x="65" y="40" width="15" height="40" fill="#A68B5B"/>
+          </g>
+          <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
+        </svg>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <p class="text-gray-600 text-sm">© 2026 Stintwell Advisory. All rights reserved.</p>
+        <a href="/privacy.html" class="text-gray-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+      </div>
+      <p class="text-gray-700 text-xs">Precision. Discipline. Results that endure.</p>
+    </div>
+    </footer>
+
+    <script>
+    lucide.createIcons();
+
+    // Tab functionality
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.getElementById(`tab-${tabId}`).classList.add('active');
+    }
+
+    // GA4 Event Tracking
+    if (typeof gtag !== 'undefined') {
+      // Track CTA clicks to signup form
+      document.querySelectorAll('a[href*="sbos-signup.html"]').forEach(link => {
+        link.addEventListener('click', function() {
+          const buttonText = this.textContent.trim();
+          const section = this.closest('section')?.id || 'unknown';
+          gtag('event', 'cta_click', {
+            'event_category': 'engagement',
+            'event_label': buttonText,
+            'cta_location': section,
+            'page': 'homepage',
+            'destination': 'sbos-signup'
+          });
+        });
+      });
+
+      // Track tab clicks
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tabName = this.getAttribute('data-tab');
+          gtag('event', 'tab_click', {
+            'event_category': 'engagement',
+            'event_label': tabName,
+            'page': 'homepage'
+          });
+        });
+      });
+
+      // Track scroll depth
+      let scrollDepths = [25, 50, 75, 90];
+      let trackedDepths = [];
+      window.addEventListener('scroll', function() {
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        scrollDepths.forEach(depth => {
+          if (scrollPercent >= depth && !trackedDepths.includes(depth)) {
+            trackedDepths.push(depth);
+            gtag('event', 'scroll', {
+              'event_category': 'engagement',
+              'event_label': depth + '%',
+              'page': 'homepage'
+            });
+          }
+        });
+      });
+    }
+    </script>
+
 </body>
 </html>

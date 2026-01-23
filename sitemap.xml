@@ -8,12 +8,12 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Main SBOS Landing Page -->
+  <!-- Main SBOS Landing Page (same content as homepage, kept for campaign tracking) -->
   <url>
     <loc>https://stintwell.com/sbos-landing.html</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.5</priority>
   </url>
 
   <!-- Property Management Landing Page -->
