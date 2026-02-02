@@ -277,6 +277,8 @@
     </div>
     </nav>
 
+    <main>
+
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 overflow-hidden">
     <div class="absolute inset-0 hero-pattern"></div>
@@ -414,20 +416,20 @@
       </div>
 
       <!-- Tab Navigation -->
-      <div class="flex justify-center gap-2 mb-12 flex-wrap">
-        <button onclick="showTab('ma')" class="tab-btn active px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider transition-all" data-tab="ma">
+      <div class="flex justify-center gap-2 mb-12 flex-wrap" role="tablist" aria-label="Use case categories">
+        <button onclick="showTab('ma')" class="tab-btn active px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider" data-tab="ma" role="tab" aria-selected="true" aria-controls="tab-ma" id="btn-ma">
           M&A Due Diligence
         </button>
-        <button onclick="showTab('operator')" class="tab-btn px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider transition-all" data-tab="operator">
+        <button onclick="showTab('operator')" class="tab-btn px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider" data-tab="operator" role="tab" aria-selected="false" aria-controls="tab-operator" id="btn-operator">
           Multi-Business Operators
         </button>
-        <button onclick="showTab('owner')" class="tab-btn px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider transition-all" data-tab="owner">
+        <button onclick="showTab('owner')" class="tab-btn px-6 py-3 border border-gray-700 text-sm font-semibold uppercase tracking-wider" data-tab="owner" role="tab" aria-selected="false" aria-controls="tab-owner" id="btn-owner">
           Business Owners
         </button>
       </div>
 
       <!-- Tab Content: M&A -->
-      <div id="tab-ma" class="tab-content active">
+      <div id="tab-ma" class="tab-content active" role="tabpanel" aria-labelledby="btn-ma">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p class="text-bronze text-xs font-bold uppercase tracking-wider mb-3">For Acquirers & Brokers</p>
@@ -504,7 +506,7 @@
       </div>
 
       <!-- Tab Content: Multi-Business Operator -->
-      <div id="tab-operator" class="tab-content">
+      <div id="tab-operator" class="tab-content" role="tabpanel" aria-labelledby="btn-operator">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p class="text-bronze text-xs font-bold uppercase tracking-wider mb-3">For Consultants, Coaches & Portfolio Operators</p>
@@ -579,7 +581,7 @@
       </div>
 
       <!-- Tab Content: Business Owner -->
-      <div id="tab-owner" class="tab-content">
+      <div id="tab-owner" class="tab-content" role="tabpanel" aria-labelledby="btn-owner">
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <p class="text-bronze text-xs font-bold uppercase tracking-wider mb-3">For Founders & Operators</p>
@@ -911,6 +913,8 @@
     </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="bg-charcoal border-t border-gray-800 py-8">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -940,8 +944,13 @@
 
     // Tab functionality
     function showTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
+      activeBtn.classList.add('active');
+      activeBtn.setAttribute('aria-selected', 'true');
 
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
       document.getElementById(`tab-${tabId}`).classList.add('active');
