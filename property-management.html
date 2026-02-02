@@ -26,6 +26,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Theme tokens (must load before Tailwind) -->
+    <link rel="stylesheet" href="/css/theme.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -51,94 +54,52 @@
 
     <script>
     tailwind.config = {
-    theme: {
-    extend: {
-    colors: {
-    charcoal: '#1C1F26',
-    bronze: '#A68A64',
-    tactical: '#2A453B',
-    steel: '#94A3B8'
-    },
-    fontFamily: {
-    sans: ['Inter', 'sans-serif'],
-    }
-    }
-    }
+      theme: {
+        extend: {
+          colors: {
+            'surface-primary': 'var(--surface-primary)',
+            'surface-secondary': 'var(--surface-secondary)',
+            'surface-elevated': 'var(--surface-elevated)',
+            'surface-border': 'var(--surface-border)',
+            'text-primary': 'var(--text-primary)',
+            'text-secondary': 'var(--text-secondary)',
+            'text-tertiary': 'var(--text-tertiary)',
+            'text-disabled': 'var(--text-disabled)',
+            'text-inverse': 'var(--text-inverse)',
+            'accent': 'var(--accent-primary)',
+            'accent-hover': 'var(--accent-primary-hover)',
+            'accent-text': 'var(--accent-primary-text)',
+            'accent-secondary': 'var(--accent-secondary)',
+            'state-error': 'var(--state-error)',
+            'state-success': 'var(--state-success)',
+            'charcoal': 'var(--color-charcoal)',
+            'charcoal-light': 'var(--color-charcoal-light)',
+            'bronze': 'var(--color-bronze)',
+            'tactical': 'var(--color-tactical)',
+            'steel': 'var(--color-steel)',
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+          },
+          borderRadius: {
+            'sm': 'var(--radius-sm)',
+            'md': 'var(--radius-md)',
+            'lg': 'var(--radius-lg)',
+            'full': 'var(--radius-full)',
+          },
+          boxShadow: {
+            'sm': 'var(--shadow-sm)',
+            'md': 'var(--shadow-md)',
+            'lg': 'var(--shadow-lg)',
+            'xl': 'var(--shadow-xl)',
+          },
+        }
+      }
     }
     </script>
 
-    <style>
-    body { font-family: 'Inter', sans-serif; }
-
-    @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in { animation: fadeIn 0.6s ease-out forwards; }
-
-    .hero-pattern {
-    background-image: radial-gradient(#A68A64 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.05;
-    }
-
-    /* Accordion styling */
-    .accordion-item { border-bottom: 1px solid #374151; }
-    .accordion-btn { transition: all 0.2s ease; }
-    .accordion-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-    .accordion-content.active {
-        max-height: 500px;
-    }
-
-    /* Timeline styling */
-    .timeline-item {
-        position: relative;
-        padding-left: 60px;
-    }
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: 20px;
-        top: 40px;
-        bottom: -40px;
-        width: 2px;
-        background: linear-gradient(to bottom, #A68A64 0%, rgba(166, 138, 100, 0.3) 100%);
-    }
-    .timeline-item:last-child::before {
-        display: none;
-    }
-    .timeline-number {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #A68A64 0%, #8a7254 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        box-shadow: 0 4px 12px rgba(166, 138, 100, 0.3);
-    }
-
-    /* Progress bar animation */
-    @keyframes fillProgress {
-        from { width: 0; }
-        to { width: 48%; }
-    }
-    .progress-fill {
-        animation: fillProgress 1.5s ease-out forwards;
-        animation-delay: 0.5s;
-    }
-
-    /* Smooth scroll */
-    html { scroll-behavior: smooth; }
-    </style>
+    <!-- Shared component styles (must load after Tailwind) -->
+    <link rel="stylesheet" href="/css/shared.css">
 
     <!-- Structured Data / Schema Markup -->
     <script type="application/ld+json">
@@ -175,7 +136,7 @@
     </script>
 </head>
 
-<body class="bg-charcoal min-h-screen text-white">
+<body class="dark-section min-h-screen" style="font-family: var(--font-family);">
 
     <!-- Navigation -->
     <nav class="absolute w-full z-50 p-6">
@@ -183,20 +144,20 @@
       <a href="/" class="flex items-center gap-3 group">
         <svg class="w-24 h-auto" viewBox="0 0 100 25" fill="none" role="img" aria-label="Stintwell logo">
           <g transform="scale(0.22) translate(0, 5)">
-            <!-- Top-left L-shape (charcoal) -->
-            <rect x="20" y="20" width="40" height="15" fill="#232931"/>
-            <rect x="20" y="20" width="15" height="40" fill="#232931"/>
-            <!-- Bottom-right L-shape (brownish-gold) -->
-            <rect x="40" y="65" width="40" height="15" fill="#A68B5B"/>
-            <rect x="65" y="40" width="15" height="40" fill="#A68B5B"/>
+            <!-- Top-left L-shape -->
+            <rect x="20" y="20" width="40" height="15" class="logo-block-1"/>
+            <rect x="20" y="20" width="15" height="40" class="logo-block-1"/>
+            <!-- Bottom-right L-shape -->
+            <rect x="40" y="65" width="40" height="15" class="logo-block-2"/>
+            <rect x="65" y="40" width="15" height="40" class="logo-block-2"/>
           </g>
           <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
         </svg>
       </a>
       <div class="flex items-center gap-6">
-        <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">How It Works</a>
-        <a href="#pricing" class="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">Pricing</a>
-        <a href="https://sbos.stintwell.com/auth/login?redirect=%2F&mode=signin" class="text-sm text-gray-400 hover:text-white transition-colors">SBOS Platform</a>
+        <a href="#how-it-works" class="text-sm text-text-secondary hover:text-text-primary transition-colors hidden sm:block">How It Works</a>
+        <a href="#pricing" class="text-sm text-text-secondary hover:text-text-primary transition-colors hidden sm:block">Pricing</a>
+        <a href="https://sbos.stintwell.com/auth/login?redirect=%2F&mode=signin" class="text-sm text-text-secondary hover:text-text-primary transition-colors">SBOS Platform</a>
       </div>
     </div>
     </nav>
@@ -205,36 +166,36 @@
     <section class="relative pt-32 pb-20 overflow-hidden">
     <div class="absolute inset-0 hero-pattern"></div>
     <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-16 fade-in">
+      <div class="text-center mb-16" style="animation: fadeIn 0.6s ease-out forwards;">
         <div class="mb-6 flex justify-center">
-          <span class="text-bronze font-bold text-xs uppercase tracking-[0.2em] border-b border-bronze pb-1">Property Management</span>
+          <span class="subhead border-b border-accent pb-1">Property Management</span>
         </div>
 
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
+        <h1 class="heading-display text-4xl md:text-6xl mb-6 tracking-tight leading-tight">
           Install a Founder-Free<br>
-          <span class="text-bronze">Operating System in 90 Days</span>
+          <span class="text-accent">Operating System in 90 Days</span>
         </h1>
 
-        <p class="text-xl text-gray-400 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
+        <p class="body-lead text-xl mb-4 max-w-3xl mx-auto font-light leading-relaxed">
           For $3M–$50M property management companies trapped in operational chaos.
         </p>
-        <p class="text-lg text-gray-500 mb-8 max-w-2xl mx-auto font-light">
+        <p class="text-lg text-text-tertiary mb-8 max-w-2xl mx-auto font-light">
           Your business has an Operational Maturity Score. Most founders don't know what theirs is—or how much it's costing them.
         </p>
-        <p class="text-base text-gray-400 mb-10 max-w-2xl mx-auto">
+        <p class="text-base text-text-secondary mb-10 max-w-2xl mx-auto">
           Take the 15-minute assessment. See exactly what's broken. Get a custom prescription to fix it.
         </p>
 
-        <div class="bg-bronze/10 border border-bronze/30 rounded-lg p-4 mb-10 max-w-2xl mx-auto">
-          <p class="text-bronze font-bold text-sm mb-1">Founding Cohort (First 25 Only)</p>
-          <p class="text-gray-300 text-sm">Lifetime founder rate + done-with-you implementation ($2,250 value)</p>
+        <div class="rounded-lg p-4 mb-10 max-w-2xl mx-auto" style="background: rgba(166, 138, 100, 0.1); border: 1px solid rgba(166, 138, 100, 0.3);">
+          <p class="text-accent font-bold text-sm mb-1">Founding Cohort (First 25 Only)</p>
+          <p class="text-text-primary text-sm">Lifetime founder rate + done-with-you implementation ($2,250 value)</p>
         </div>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="/founding-cohort-signup.html" class="bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-8 py-4 text-sm uppercase tracking-widest transition-all shadow-lg text-center">
+          <a href="/founding-cohort-signup.html" class="btn-primary btn-shimmer px-8 py-4 text-sm uppercase tracking-widest shadow-lg text-center">
             Get Your Score (Free Assessment)
           </a>
-          <a href="#how-it-works" class="px-8 py-4 border border-gray-700 hover:border-bronze text-white font-semibold text-sm uppercase tracking-widest transition-all text-center">
+          <a href="#how-it-works" class="btn-secondary px-8 py-4 text-sm uppercase tracking-widest text-center">
             See How It Works
           </a>
         </div>
@@ -243,21 +204,21 @@
     </section>
 
     <!-- Social Proof Bar -->
-    <section class="bg-gray-950 py-12 border-y border-gray-900">
+    <section class="bg-surface-secondary py-12 border-y border-surface-border">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-4">
-        <p class="text-bronze font-bold text-sm mb-3">Founding Cohort in Progress</p>
-        <div class="bg-gray-800 rounded-full h-3 mb-4 overflow-hidden">
-          <div class="progress-fill bg-gradient-to-r from-bronze to-yellow-600 h-3 rounded-full" style="width: 0;"></div>
+        <p class="text-accent font-bold text-sm mb-3">Founding Cohort in Progress</p>
+        <div class="progress-bar rounded-full h-3 mb-4 overflow-hidden">
+          <div class="progress-bar-fill rounded-full" style="width: 0; animation: fillProgress 1.5s ease-out forwards; animation-delay: 0.5s;"></div>
         </div>
-        <p class="text-gray-400 text-sm mb-6">12 of 25 spots filled</p>
+        <p class="text-text-secondary text-sm mb-6">12 of 25 spots filled</p>
       </div>
 
-      <div class="bg-charcoal border border-gray-800 rounded-lg p-6 max-w-2xl mx-auto">
-        <p class="text-gray-300 text-base italic mb-3 leading-relaxed">
+      <div class="card p-6 max-w-2xl mx-auto">
+        <p class="text-text-primary text-base italic mb-3 leading-relaxed">
           "We went from 6 tabs to 1 dashboard. 15 SOPs live in 30 days."
         </p>
-        <p class="text-gray-500 text-sm">
+        <p class="text-text-tertiary text-sm">
           — Marcus Chen, Founder, Oakwood Property Management ($4.5M)
         </p>
       </div>
@@ -265,22 +226,22 @@
     </section>
 
     <!-- Problem Section -->
-    <section class="py-24 border-b border-gray-900">
+    <section class="py-24 border-b border-surface-border">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">The Problem</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Growth Created Chaos, Not Capacity</h2>
-        <p class="text-gray-500 max-w-2xl mx-auto">Why most PM companies feel like they're constantly putting out fires.</p>
+        <p class="subhead mb-4">The Problem</p>
+        <h2 class="heading-section text-3xl md:text-4xl mb-4">Growth Created Chaos, Not Capacity</h2>
+        <p class="text-text-tertiary max-w-2xl mx-auto">Why most PM companies feel like they're constantly putting out fires.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Column 1: Tribal Knowledge -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-8">
+        <div class="card p-8">
           <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center mb-6">
             <i data-lucide="brain" class="w-6 h-6 text-red-400"></i>
           </div>
           <h3 class="text-xl font-bold mb-4">Everything's in People's Heads</h3>
-          <ul class="space-y-3 mb-6 text-gray-400">
+          <ul class="space-y-3 mb-6 text-text-secondary">
             <li class="flex items-start gap-2">
               <span class="text-red-400 mt-1">•</span>
               <span>Key employee quits → tribal knowledge walks out the door</span>
@@ -294,21 +255,21 @@
               <span>You can't sell your business because it's unsystematic</span>
             </li>
           </ul>
-          <div class="bg-gray-900 border-l-4 border-red-500 p-4 rounded">
-            <p class="text-gray-300 text-sm italic mb-2">
+          <div class="bg-surface-secondary border-l-4 border-red-500 p-4 rounded">
+            <p class="text-text-primary text-sm italic mb-2">
               "We had 15 years of operational knowledge locked in my COO's head. When she gave notice, I panicked."
             </p>
-            <p class="text-gray-500 text-xs">— Sarah Torres, PM Founder</p>
+            <p class="text-text-tertiary text-xs">— Sarah Torres, PM Founder</p>
           </div>
         </div>
 
         <!-- Column 2: 6+ Tabs -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-8">
+        <div class="card p-8">
           <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-6">
             <i data-lucide="layout-grid" class="w-6 h-6 text-yellow-400"></i>
           </div>
           <h3 class="text-xl font-bold mb-4">Running the Business from 6+ Tabs</h3>
-          <ul class="space-y-3 mb-6 text-gray-400">
+          <ul class="space-y-3 mb-6 text-text-secondary">
             <li class="flex items-start gap-2">
               <span class="text-yellow-400 mt-1">•</span>
               <span>Switching between Buildium, Rent Manager, Excel, QuickBooks, Slack, email</span>
@@ -322,21 +283,21 @@
               <span>No single source of truth</span>
             </li>
           </ul>
-          <div class="bg-gray-900 border-l-4 border-yellow-500 p-4 rounded">
-            <p class="text-gray-300 text-sm italic mb-2">
+          <div class="bg-surface-secondary border-l-4 border-yellow-500 p-4 rounded">
+            <p class="text-text-primary text-sm italic mb-2">
               "I spent half my day just finding information. Where did we document that process? Which spreadsheet has the latest numbers?"
             </p>
-            <p class="text-gray-500 text-xs">— Michael Rivera, PM COO</p>
+            <p class="text-text-tertiary text-xs">— Michael Rivera, PM COO</p>
           </div>
         </div>
 
         <!-- Column 3: Status Meetings -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-8">
+        <div class="card p-8">
           <div class="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center mb-6">
             <i data-lucide="calendar" class="w-6 h-6 text-orange-400"></i>
           </div>
           <h3 class="text-xl font-bold mb-4">Meetings Are Just Status Updates</h3>
-          <ul class="space-y-3 mb-6 text-gray-400">
+          <ul class="space-y-3 mb-6 text-text-secondary">
             <li class="flex items-start gap-2">
               <span class="text-orange-400 mt-1">•</span>
               <span>Weekly leadership meetings feel like glorified check-ins</span>
@@ -350,11 +311,11 @@
               <span>Same problems surface week after week</span>
             </li>
           </ul>
-          <div class="bg-gray-900 border-l-4 border-orange-500 p-4 rounded">
-            <p class="text-gray-300 text-sm italic mb-2">
+          <div class="bg-surface-secondary border-l-4 border-orange-500 p-4 rounded">
+            <p class="text-text-primary text-sm italic mb-2">
               "Our Monday meetings were just everyone reporting what they were busy with. Nothing got resolved."
             </p>
-            <p class="text-gray-500 text-xs">— David Park, PM Founder</p>
+            <p class="text-text-tertiary text-xs">— David Park, PM Founder</p>
           </div>
         </div>
       </div>
@@ -362,31 +323,31 @@
     </section>
 
     <!-- Solution Section -->
-    <section id="how-it-works" class="bg-gray-950 py-24 border-b border-gray-900">
+    <section id="how-it-works" class="bg-surface-secondary py-24 border-b border-surface-border">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">The Solution</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">The Only Platform That Assesses, Prescribes, and Auto-Installs</h2>
-        <p class="text-gray-400 max-w-3xl mx-auto mb-4">Not templates. Not training. Not another tool you won't use.</p>
-        <p class="text-gray-500 max-w-2xl mx-auto">A system that shows you exactly what's broken—and fixes it in one click.</p>
+        <p class="subhead mb-4">The Solution</p>
+        <h2 class="heading-section text-3xl md:text-4xl mb-4">The Only Platform That Assesses, Prescribes, and Auto-Installs</h2>
+        <p class="text-text-secondary max-w-3xl mx-auto mb-4">Not templates. Not training. Not another tool you won't use.</p>
+        <p class="text-text-tertiary max-w-2xl mx-auto">A system that shows you exactly what's broken—and fixes it in one click.</p>
       </div>
 
       <!-- 3-Step Process -->
       <div class="grid md:grid-cols-3 gap-12 mb-16">
         <!-- Step 1: Assess -->
         <div class="text-center">
-          <div class="w-20 h-20 rounded-full bg-bronze/20 flex items-center justify-center mx-auto mb-6">
-            <i data-lucide="clipboard-list" class="w-10 h-10 text-bronze"></i>
+          <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="clipboard-list" class="w-10 h-10 text-accent"></i>
           </div>
-          <div class="bg-bronze/10 rounded-full px-4 py-1 inline-block mb-4">
-            <span class="text-bronze font-bold text-xs uppercase tracking-wider">Step 1: Assess</span>
+          <div class="rounded-full px-4 py-1 inline-block mb-4" style="background: rgba(166, 138, 100, 0.1);">
+            <span class="text-accent font-bold text-xs uppercase tracking-wider">Step 1: Assess</span>
           </div>
           <h3 class="text-xl font-bold mb-4">15-Minute Assessment</h3>
-          <p class="text-gray-400 mb-4 leading-relaxed">
+          <p class="text-text-secondary mb-4 leading-relaxed">
             Take our Operational Maturity Assessment. Get your score out of 100.
           </p>
-          <p class="text-gray-500 text-sm mb-4">See your 3 biggest red flags:</p>
-          <ul class="text-gray-400 text-sm space-y-2">
+          <p class="text-text-tertiary text-sm mb-4">See your 3 biggest red flags:</p>
+          <ul class="text-text-secondary text-sm space-y-2">
             <li>• Where tribal knowledge is trapped</li>
             <li>• Where processes are breaking</li>
             <li>• Where visibility is blind</li>
@@ -395,34 +356,34 @@
 
         <!-- Step 2: Prescribe -->
         <div class="text-center">
-          <div class="w-20 h-20 rounded-full bg-bronze/20 flex items-center justify-center mx-auto mb-6">
-            <i data-lucide="file-check" class="w-10 h-10 text-bronze"></i>
+          <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="file-check" class="w-10 h-10 text-accent"></i>
           </div>
-          <div class="bg-bronze/10 rounded-full px-4 py-1 inline-block mb-4">
-            <span class="text-bronze font-bold text-xs uppercase tracking-wider">Step 2: Prescribe</span>
+          <div class="rounded-full px-4 py-1 inline-block mb-4" style="background: rgba(166, 138, 100, 0.1);">
+            <span class="text-accent font-bold text-xs uppercase tracking-wider">Step 2: Prescribe</span>
           </div>
           <h3 class="text-xl font-bold mb-4">Custom Prescriptions</h3>
-          <p class="text-gray-400 mb-4 leading-relaxed">
+          <p class="text-text-secondary mb-4 leading-relaxed">
             Based on your score, we prescribe exactly what to fix first.
           </p>
-          <p class="text-gray-500 text-sm mb-4">
+          <p class="text-text-tertiary text-sm mb-4">
             Not generic advice. Not "best practices" that don't fit your business. Custom recommendations: "Install this SOP," "Track this KPI," "Run this meeting."
           </p>
         </div>
 
         <!-- Step 3: Auto-Install -->
         <div class="text-center">
-          <div class="w-20 h-20 rounded-full bg-bronze/20 flex items-center justify-center mx-auto mb-6">
-            <i data-lucide="zap" class="w-10 h-10 text-bronze"></i>
+          <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="zap" class="w-10 h-10 text-accent"></i>
           </div>
-          <div class="bg-bronze/10 rounded-full px-4 py-1 inline-block mb-4">
-            <span class="text-bronze font-bold text-xs uppercase tracking-wider">Step 3: Auto-Install</span>
+          <div class="rounded-full px-4 py-1 inline-block mb-4" style="background: rgba(166, 138, 100, 0.1);">
+            <span class="text-accent font-bold text-xs uppercase tracking-wider">Step 3: Auto-Install</span>
           </div>
           <h3 class="text-xl font-bold mb-4">One-Click Infrastructure</h3>
-          <p class="text-gray-400 mb-4 leading-relaxed">
+          <p class="text-text-secondary mb-4 leading-relaxed">
             Click "Install" and we build it for you:
           </p>
-          <ul class="text-gray-400 text-sm space-y-2">
+          <ul class="text-text-secondary text-sm space-y-2">
             <li>• SOPs (templates pre-filled for PM companies)</li>
             <li>• KPIs (dashboards with your metrics)</li>
             <li>• Meetings (agendas that run themselves)</li>
@@ -434,212 +395,212 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-24 border-b border-gray-900">
+    <section class="py-24 border-b border-surface-border">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">9 Integrated Modules</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Everything You Need to Run a Systematic, Delegatable Business</h2>
+        <p class="subhead mb-4">9 Integrated Modules</p>
+        <h2 class="heading-section text-3xl md:text-4xl mb-4">Everything You Need to Run a Systematic, Delegatable Business</h2>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Module 1: SOP Library -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="file-text" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="file-text" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">SOP Library</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             Stop running your business from memory. Document every critical process in minutes, not months.
           </p>
-          <p class="text-gray-500 text-xs">PM-specific templates, step-by-step builder, version control</p>
+          <p class="text-text-tertiary text-xs">PM-specific templates, step-by-step builder, version control</p>
         </div>
 
         <!-- Module 2: Financial Pulse -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="dollar-sign" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="dollar-sign" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">Financial Pulse</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             Real-time cash flow visibility. Track revenue, expenses, and financial health without logging into QuickBooks.
           </p>
-          <p class="text-gray-500 text-xs">Cash flow tracking, revenue monitoring, financial alerts</p>
+          <p class="text-text-tertiary text-xs">Cash flow tracking, revenue monitoring, financial alerts</p>
         </div>
 
         <!-- Module 3: Business Health Assessment -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="activity" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="activity" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">Business Health Assessment</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             15-minute diagnostic across 5 pillars. Get your Operational Maturity Score and identify red flags.
           </p>
-          <p class="text-gray-500 text-xs">5-pillar assessment, maturity scoring, gap analysis</p>
+          <p class="text-text-tertiary text-xs">5-pillar assessment, maturity scoring, gap analysis</p>
         </div>
 
         <!-- Module 4: KPI Scorecards -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="bar-chart-3" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="bar-chart-3" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">KPI Scorecards</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             Track the 5-10 metrics that matter. Leading and lagging indicators on one dashboard.
           </p>
-          <p class="text-gray-500 text-xs">Custom dashboards, goal tracking, automated alerts</p>
+          <p class="text-text-tertiary text-xs">Custom dashboards, goal tracking, automated alerts</p>
         </div>
 
         <!-- Module 5: Roles & People -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="users" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="users" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">Roles & People</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             Make org structure visible. Define roles, map responsibilities, eliminate confusion about who owns what.
           </p>
-          <p class="text-gray-500 text-xs">Org chart builder, role definitions, succession planning</p>
+          <p class="text-text-tertiary text-xs">Org chart builder, role definitions, succession planning</p>
         </div>
 
         <!-- Module 6: Leadership OS -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="compass" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="compass" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">Leadership OS</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             Turn meetings into decision machines. Define decision rights, delegate with clarity, build accountability.
           </p>
-          <p class="text-gray-500 text-xs">Meeting agendas, delegation framework, decision rights mapping</p>
+          <p class="text-text-tertiary text-xs">Meeting agendas, delegation framework, decision rights mapping</p>
         </div>
 
         <!-- Module 7: Project Execution -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="target" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="target" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">Project Execution</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             Track strategic initiatives from idea to completion. No more "what happened to that project?"
           </p>
-          <p class="text-gray-500 text-xs">Initiative tracking, milestone management, project dashboards</p>
+          <p class="text-text-tertiary text-xs">Initiative tracking, milestone management, project dashboards</p>
         </div>
 
         <!-- Module 8: Customer Retention -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="heart-handshake" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="heart-handshake" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">Customer Retention</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             Proactive CX management. Track tenant satisfaction, reduce churn, identify at-risk accounts before they leave.
           </p>
-          <p class="text-gray-500 text-xs">Satisfaction tracking, churn prevention, engagement monitoring</p>
+          <p class="text-text-tertiary text-xs">Satisfaction tracking, churn prevention, engagement monitoring</p>
         </div>
 
         <!-- Module 9: Tech Stack -->
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6 hover:border-bronze transition-all">
-          <div class="w-10 h-10 rounded bg-bronze/20 flex items-center justify-center mb-4">
-            <i data-lucide="puzzle" class="w-5 h-5 text-bronze"></i>
+        <div class="card p-6">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-4" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="puzzle" class="w-5 h-5 text-accent"></i>
           </div>
           <h3 class="font-bold mb-2">Tech Stack</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+          <p class="text-text-secondary text-sm mb-4 leading-relaxed">
             Connect Buildium, Rent Manager, QuickBooks, Slack. Eliminate double entry and context-switching.
           </p>
-          <p class="text-gray-500 text-xs">Native integrations, Zapier workflows, API access</p>
+          <p class="text-text-tertiary text-xs">Native integrations, Zapier workflows, API access</p>
         </div>
       </div>
     </div>
     </section>
 
     <!-- Founding Cohort Offer Section -->
-    <section class="bg-gray-950 py-24 border-b border-gray-900">
+    <section class="bg-surface-secondary py-24 border-b border-surface-border">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
-        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">Limited Opportunity</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Founding Cohort: First 25 Property Management Companies Only</h2>
-        <p class="text-gray-400 max-w-3xl mx-auto">Lifetime founder rate + done-with-you implementation. You get structure in 90 days. We get proof it works.</p>
+        <p class="subhead mb-4">Limited Opportunity</p>
+        <h2 class="heading-section text-3xl md:text-4xl mb-4">Founding Cohort: First 25 Property Management Companies Only</h2>
+        <p class="text-text-secondary max-w-3xl mx-auto">Lifetime founder rate + done-with-you implementation. You get structure in 90 days. We get proof it works.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 mb-12">
         <!-- Column 1: Lifetime Pricing Lock -->
-        <div class="bg-charcoal border-2 border-bronze/30 rounded-lg p-8">
-          <div class="w-12 h-12 rounded-full bg-bronze/20 flex items-center justify-center mb-6">
-            <i data-lucide="lock" class="w-6 h-6 text-bronze"></i>
+        <div class="bg-surface-primary border-2 rounded-lg p-8" style="border-color: rgba(166, 138, 100, 0.3);">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="lock" class="w-6 h-6 text-accent"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4 text-bronze">Lifetime Pricing Lock</h3>
+          <h3 class="text-xl font-bold mb-4 text-accent">Lifetime Pricing Lock</h3>
 
           <div class="space-y-4 mb-6">
             <div>
               <p class="font-bold text-lg mb-1">Team Plan: $199/month</p>
-              <p class="text-gray-400 text-sm">(normally $299)</p>
-              <p class="text-gray-500 text-sm">Up to 20 users, flat rate (no per-seat tax)</p>
+              <p class="text-text-secondary text-sm">(normally $299)</p>
+              <p class="text-text-tertiary text-sm">Up to 20 users, flat rate (no per-seat tax)</p>
             </div>
 
-            <div class="pt-4 border-t border-gray-800">
+            <div class="pt-4 border-t border-surface-border">
               <p class="font-bold text-lg mb-1">Scale Plan: $399/month</p>
-              <p class="text-gray-400 text-sm">(normally $499)</p>
-              <p class="text-gray-500 text-sm">Up to 50 users, flat rate</p>
+              <p class="text-text-secondary text-sm">(normally $499)</p>
+              <p class="text-text-tertiary text-sm">Up to 50 users, flat rate</p>
             </div>
           </div>
 
-          <div class="bg-bronze/10 border border-bronze/30 rounded p-4">
-            <p class="text-bronze font-bold text-sm mb-2">Lock in forever.</p>
-            <p class="text-gray-400 text-sm">When we raise prices for the next cohort, your rate never changes.</p>
+          <div class="rounded p-4" style="background: rgba(166, 138, 100, 0.1); border: 1px solid rgba(166, 138, 100, 0.3);">
+            <p class="text-accent font-bold text-sm mb-2">Lock in forever.</p>
+            <p class="text-text-secondary text-sm">When we raise prices for the next cohort, your rate never changes.</p>
           </div>
         </div>
 
         <!-- Column 2: Done-With-You Implementation -->
-        <div class="bg-charcoal border-2 border-bronze/30 rounded-lg p-8">
-          <div class="w-12 h-12 rounded-full bg-bronze/20 flex items-center justify-center mb-6">
-            <i data-lucide="users" class="w-6 h-6 text-bronze"></i>
+        <div class="bg-surface-primary border-2 rounded-lg p-8" style="border-color: rgba(166, 138, 100, 0.3);">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="users" class="w-6 h-6 text-accent"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4 text-bronze">Done-With-You Implementation</h3>
-          <p class="text-gray-400 text-sm mb-6">$2,250 Value</p>
+          <h3 class="text-xl font-bold mb-4 text-accent">Done-With-You Implementation</h3>
+          <p class="text-text-secondary text-sm mb-6">$2,250 Value</p>
 
           <div class="space-y-4">
-            <div class="bg-gray-900 rounded p-4">
+            <div class="bg-surface-secondary rounded p-4">
               <p class="font-semibold mb-2">1:1 Implementation Call</p>
-              <p class="text-gray-400 text-sm mb-1">($1,000 value)</p>
-              <p class="text-gray-500 text-sm">We co-build your first 10 SOPs, org chart, and weekly operating rhythm. Not a demo—we actually build it with you.</p>
+              <p class="text-text-secondary text-sm mb-1">($1,000 value)</p>
+              <p class="text-text-tertiary text-sm">We co-build your first 10 SOPs, org chart, and weekly operating rhythm. Not a demo—we actually build it with you.</p>
             </div>
 
-            <div class="bg-gray-900 rounded p-4">
+            <div class="bg-surface-secondary rounded p-4">
               <p class="font-semibold mb-2">90-Day Founder-Free Ops Plan</p>
-              <p class="text-gray-400 text-sm mb-1">($500 value)</p>
-              <p class="text-gray-500 text-sm">Custom written rollout plan by role & week. Delivered as a doc + inside the tool.</p>
+              <p class="text-text-secondary text-sm mb-1">($500 value)</p>
+              <p class="text-text-tertiary text-sm">Custom written rollout plan by role & week. Delivered as a doc + inside the tool.</p>
             </div>
 
-            <div class="bg-gray-900 rounded p-4">
+            <div class="bg-surface-secondary rounded p-4">
               <p class="font-semibold mb-2">Quarterly Ops Review</p>
-              <p class="text-gray-400 text-sm mb-1">($750 value, Scale plan only)</p>
-              <p class="text-gray-500 text-sm">1 call per quarter to review KPIs, bottlenecks, and adjust the system.</p>
+              <p class="text-text-secondary text-sm mb-1">($750 value, Scale plan only)</p>
+              <p class="text-text-tertiary text-sm">1 call per quarter to review KPIs, bottlenecks, and adjust the system.</p>
             </div>
           </div>
 
-          <div class="mt-6 pt-6 border-t border-gray-800">
-            <p class="text-bronze font-bold text-sm text-center">You're not buying software. You're buying a systematic business in 90 days.</p>
+          <div class="mt-6 pt-6 border-t border-surface-border">
+            <p class="text-accent font-bold text-sm text-center">You're not buying software. You're buying a systematic business in 90 days.</p>
           </div>
         </div>
 
         <!-- Column 3: Unconditional 30-Day Guarantee -->
-        <div class="bg-charcoal border-2 border-bronze/30 rounded-lg p-8">
-          <div class="w-12 h-12 rounded-full bg-bronze/20 flex items-center justify-center mb-6">
-            <i data-lucide="shield-check" class="w-6 h-6 text-bronze"></i>
+        <div class="bg-surface-primary border-2 rounded-lg p-8" style="border-color: rgba(166, 138, 100, 0.3);">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-6" style="background: rgba(166, 138, 100, 0.2);">
+            <i data-lucide="shield-check" class="w-6 h-6 text-accent"></i>
           </div>
-          <h3 class="text-xl font-bold mb-4 text-bronze">Unconditional 30-Day Guarantee</h3>
+          <h3 class="text-xl font-bold mb-4 text-accent">Unconditional 30-Day Guarantee</h3>
 
           <div class="mb-6">
             <p class="font-semibold mb-3">The Guarantee:</p>
-            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            <p class="text-text-secondary text-sm leading-relaxed mb-4">
               Try Founder-Free Ops System for 30 days. If you don't feel it's worth at least 10x the subscription, email us and get a full refund. No conditions.
             </p>
           </div>
 
-          <div class="bg-gray-900 rounded p-4">
+          <div class="bg-surface-secondary rounded p-4">
             <p class="font-semibold mb-3">Why we can offer this:</p>
-            <p class="text-gray-400 text-sm leading-relaxed">
+            <p class="text-text-secondary text-sm leading-relaxed">
               Because activated customers (assessment + 5 SOPs + 3 KPIs by Day 14) have a 95%+ retention rate. If you do the work, it works.
             </p>
           </div>
@@ -647,13 +608,13 @@
       </div>
 
       <!-- Scarcity Bar -->
-      <div class="bg-charcoal border-2 border-bronze rounded-lg p-6 mb-8">
+      <div class="bg-surface-primary border-2 border-accent rounded-lg p-6 mb-8">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div class="flex-1">
-            <p class="text-bronze font-bold mb-2">12 of 25 spots filled.</p>
-            <p class="text-gray-400 text-sm">Once the founding cohort is full, pricing increases and implementation support becomes limited.</p>
+            <p class="text-accent font-bold mb-2">12 of 25 spots filled.</p>
+            <p class="text-text-secondary text-sm">Once the founding cohort is full, pricing increases and implementation support becomes limited.</p>
           </div>
-          <a href="/founding-cohort-signup.html" class="bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-8 py-4 text-sm uppercase tracking-widest transition-all shadow-lg whitespace-nowrap">
+          <a href="/founding-cohort-signup.html" class="btn-primary btn-shimmer px-8 py-4 text-sm uppercase tracking-widest shadow-lg whitespace-nowrap">
             Get Your Score → Book Call
           </a>
         </div>
@@ -662,12 +623,12 @@
     </section>
 
     <!-- Day 14 Success Timeline -->
-    <section class="py-24 border-b border-gray-900">
+    <section class="py-24 border-b border-surface-border">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16">
-        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">Your Journey</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">By Day 14, You'll Have Structure. By Day 90, You'll Have a Systematic Business.</h2>
-        <p class="text-gray-500 max-w-2xl mx-auto">What activated customers achieve at each milestone.</p>
+        <p class="subhead mb-4">Your Journey</p>
+        <h2 class="heading-section text-3xl md:text-4xl mb-4">By Day 14, You'll Have Structure. By Day 90, You'll Have a Systematic Business.</h2>
+        <p class="text-text-tertiary max-w-2xl mx-auto">What activated customers achieve at each milestone.</p>
       </div>
 
       <div class="max-w-4xl mx-auto space-y-12">
@@ -676,21 +637,21 @@
           <div class="timeline-number">
             <span class="text-sm">0-7</span>
           </div>
-          <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+          <div class="card p-6">
             <h3 class="text-xl font-bold mb-4">Day 0-7: Foundation</h3>
 
             <div class="mb-4">
-              <p class="font-semibold text-bronze mb-2">Implementation Call 1 (90 min):</p>
-              <ul class="text-gray-400 text-sm space-y-2">
+              <p class="font-semibold text-accent mb-2">Implementation Call 1 (90 min):</p>
+              <ul class="text-text-secondary text-sm space-y-2">
                 <li>• Review your assessment score</li>
                 <li>• Design your weekly operating rhythm</li>
                 <li>• Build your first leadership meeting in the tool</li>
               </ul>
             </div>
 
-            <div class="bg-gray-900 rounded p-4">
+            <div class="bg-surface-secondary rounded p-4">
               <p class="font-semibold mb-2">You Leave With:</p>
-              <ul class="text-gray-400 text-sm space-y-1">
+              <ul class="text-text-secondary text-sm space-y-1">
                 <li>• Weekly meeting agenda (that runs itself)</li>
                 <li>• 3 red flags identified</li>
                 <li>• Clear 90-day roadmap</li>
@@ -704,21 +665,21 @@
           <div class="timeline-number">
             <span class="text-sm">7-14</span>
           </div>
-          <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+          <div class="card p-6">
             <h3 class="text-xl font-bold mb-4">Day 7-14: Infrastructure</h3>
 
             <div class="mb-4">
-              <p class="font-semibold text-bronze mb-2">Implementation Call 2 (90 min):</p>
-              <ul class="text-gray-400 text-sm space-y-2">
+              <p class="font-semibold text-accent mb-2">Implementation Call 2 (90 min):</p>
+              <ul class="text-text-secondary text-sm space-y-2">
                 <li>• Co-build 5 critical SOPs</li>
                 <li>• Set up 3 core KPIs + dashboard</li>
                 <li>• Clean up org chart (roles + responsibilities visible)</li>
               </ul>
             </div>
 
-            <div class="bg-gray-900 rounded p-4">
+            <div class="bg-surface-secondary rounded p-4">
               <p class="font-semibold mb-2">You Leave With:</p>
-              <ul class="text-gray-400 text-sm space-y-1">
+              <ul class="text-text-secondary text-sm space-y-1">
                 <li>• 5 SOPs live (not drafts, LIVE)</li>
                 <li>• 3 KPIs tracked automatically</li>
                 <li>• Org chart your team can see</li>
@@ -732,21 +693,21 @@
           <div class="timeline-number">
             <span class="text-sm">14-30</span>
           </div>
-          <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+          <div class="card p-6">
             <h3 class="text-xl font-bold mb-4">Day 14-30: Activation</h3>
 
             <div class="mb-4">
-              <p class="font-semibold text-bronze mb-2">First 2 weeks of using the system:</p>
-              <ul class="text-gray-400 text-sm space-y-2">
+              <p class="font-semibold text-accent mb-2">First 2 weeks of using the system:</p>
+              <ul class="text-text-secondary text-sm space-y-2">
                 <li>• Weekly leadership meeting #2 and #3 happen</li>
                 <li>• Team starts referencing SOPs (not asking you questions)</li>
                 <li>• KPIs update automatically (no more manual spreadsheets)</li>
               </ul>
             </div>
 
-            <div class="bg-gray-900 rounded p-4">
+            <div class="bg-surface-secondary rounded p-4">
               <p class="font-semibold mb-2">Result:</p>
-              <ul class="text-gray-400 text-sm space-y-1">
+              <ul class="text-text-secondary text-sm space-y-1">
                 <li>• Context-switching drops (6 tabs → 1 dashboard)</li>
                 <li>• Tribal knowledge documented (key processes in system)</li>
                 <li>• You can take a day off without your phone ringing</li>
@@ -760,21 +721,21 @@
           <div class="timeline-number">
             <span class="text-sm">30-90</span>
           </div>
-          <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+          <div class="card p-6">
             <h3 class="text-xl font-bold mb-4">Day 30-90: Systematization</h3>
 
             <div class="mb-4">
-              <p class="font-semibold text-bronze mb-2">Expand and delegate:</p>
-              <ul class="text-gray-400 text-sm space-y-2">
+              <p class="font-semibold text-accent mb-2">Expand and delegate:</p>
+              <ul class="text-text-secondary text-sm space-y-2">
                 <li>• SOPs grow from 5 → 15</li>
                 <li>• KPIs grow from 3 → 8</li>
                 <li>• COO/manager starts running the weekly meeting (you observe)</li>
               </ul>
             </div>
 
-            <div class="bg-gray-900 rounded p-4">
+            <div class="bg-surface-secondary rounded p-4">
               <p class="font-semibold mb-2">Result:</p>
-              <ul class="text-gray-400 text-sm space-y-1">
+              <ul class="text-text-secondary text-sm space-y-1">
                 <li>• Systematic, delegatable business</li>
                 <li>• Founder-free operations (you work ON the business, not IN it)</li>
                 <li>• Sellable infrastructure (tribal knowledge is now system knowledge)</li>
@@ -785,14 +746,14 @@
       </div>
 
       <!-- Testimonial -->
-      <div class="mt-16 max-w-3xl mx-auto bg-charcoal border border-bronze/30 rounded-lg p-8">
+      <div class="mt-16 max-w-3xl mx-auto bg-surface-primary rounded-lg p-8" style="border: 1px solid rgba(166, 138, 100, 0.3);">
         <div class="flex items-start gap-4">
-          <i data-lucide="quote" class="w-8 h-8 text-bronze flex-shrink-0"></i>
+          <i data-lucide="quote" class="w-8 h-8 text-accent flex-shrink-0"></i>
           <div>
-            <p class="text-gray-300 text-lg italic mb-4 leading-relaxed">
+            <p class="text-text-primary text-lg italic mb-4 leading-relaxed">
               "We went from 6 tabs to 1 dashboard. We have 15 SOPs live. Our weekly meeting runs itself. I took my first week-long vacation in 3 years—and nothing broke."
             </p>
-            <p class="text-gray-500">
+            <p class="text-text-tertiary">
               — Marcus Chen, Founder, Oakwood PM ($4.5M)
             </p>
           </div>
@@ -802,30 +763,30 @@
     </section>
 
     <!-- Objection Handling Section -->
-    <section class="bg-gray-950 py-24 border-b border-gray-900">
+    <section class="bg-surface-secondary py-24 border-b border-surface-border">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
-        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">Common Questions</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Why This Isn't Another Tool You Won't Use</h2>
-        <p class="text-gray-500">We've heard every objection. Here's why this is different.</p>
+        <p class="subhead mb-4">Common Questions</p>
+        <h2 class="heading-section text-3xl md:text-4xl mb-4">Why This Isn't Another Tool You Won't Use</h2>
+        <p class="text-text-tertiary">We've heard every objection. Here's why this is different.</p>
       </div>
 
       <div class="space-y-4">
         <!-- Q1: EOS/Scaling Up -->
-        <div class="accordion-item">
-          <button onclick="toggleAccordion('acc1')" class="accordion-btn w-full flex items-center justify-between p-6 bg-charcoal hover:bg-gray-900 transition-all text-left">
+        <div class="accordion-item" id="acc1">
+          <button onclick="toggleAccordion('acc1')" class="accordion-trigger">
             <span class="font-bold text-lg pr-4">"We tried EOS/Scaling Up. It didn't stick."</span>
-            <i data-lucide="chevron-down" class="w-6 h-6 text-bronze flex-shrink-0 transition-transform" id="icon-acc1"></i>
+            <i data-lucide="chevron-down" class="w-6 h-6 text-accent accordion-icon"></i>
           </button>
-          <div id="acc1" class="accordion-content bg-charcoal">
-            <div class="p-6 pt-0">
-              <p class="text-gray-400 mb-4 leading-relaxed">
+          <div class="accordion-content">
+            <div class="p-6 pt-2">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 That's because frameworks need software to enforce them. Willpower fails. Systems don't.
               </p>
-              <p class="text-gray-400 mb-4 leading-relaxed">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 EOS gives you the "what" (weekly meetings, scorecards, org charts). We give you the "how"—software that makes it impossible NOT to follow through.
               </p>
-              <p class="text-gray-400 leading-relaxed">
+              <p class="text-text-secondary leading-relaxed">
                 2 out of 3 businesses abandon EOS because it's too manual. We automate the enforcement layer.
               </p>
             </div>
@@ -833,20 +794,20 @@
         </div>
 
         <!-- Q2: Team Won't Adopt -->
-        <div class="accordion-item">
-          <button onclick="toggleAccordion('acc2')" class="accordion-btn w-full flex items-center justify-between p-6 bg-charcoal hover:bg-gray-900 transition-all text-left">
+        <div class="accordion-item" id="acc2">
+          <button onclick="toggleAccordion('acc2')" class="accordion-trigger">
             <span class="font-bold text-lg pr-4">"My team won't adopt another tool."</span>
-            <i data-lucide="chevron-down" class="w-6 h-6 text-bronze flex-shrink-0 transition-transform" id="icon-acc2"></i>
+            <i data-lucide="chevron-down" class="w-6 h-6 text-accent accordion-icon"></i>
           </button>
-          <div id="acc2" class="accordion-content bg-charcoal">
-            <div class="p-6 pt-0">
-              <p class="text-gray-400 mb-4 leading-relaxed">
+          <div class="accordion-content">
+            <div class="p-6 pt-2">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 That's why we do implementation WITH you, not for you.
               </p>
-              <p class="text-gray-400 mb-4 leading-relaxed">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 On Call 1, we build your weekly meeting in the tool—live. On Call 2, we draft your first 5 SOPs together. By Day 14, your team is already using it because it's THEIR system, not ours.
               </p>
-              <p class="text-gray-400 leading-relaxed">
+              <p class="text-text-secondary leading-relaxed">
                 We're not dropping a tool in your lap. We're installing infrastructure in your business.
               </p>
             </div>
@@ -854,26 +815,26 @@
         </div>
 
         <!-- Q3: Not Ready for Structure -->
-        <div class="accordion-item">
-          <button onclick="toggleAccordion('acc3')" class="accordion-btn w-full flex items-center justify-between p-6 bg-charcoal hover:bg-gray-900 transition-all text-left">
+        <div class="accordion-item" id="acc3">
+          <button onclick="toggleAccordion('acc3')" class="accordion-trigger">
             <span class="font-bold text-lg pr-4">"We're not ready for this level of structure."</span>
-            <i data-lucide="chevron-down" class="w-6 h-6 text-bronze flex-shrink-0 transition-transform" id="icon-acc3"></i>
+            <i data-lucide="chevron-down" class="w-6 h-6 text-accent accordion-icon"></i>
           </button>
-          <div id="acc3" class="accordion-content bg-charcoal">
-            <div class="p-6 pt-0">
-              <p class="text-gray-400 mb-4 leading-relaxed">
+          <div class="accordion-content">
+            <div class="p-6 pt-2">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 Good. We're not for everyone.
               </p>
-              <p class="text-gray-400 mb-4 leading-relaxed">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 If your team resists basic discipline (showing up to meetings, following documented processes, tracking metrics), this won't work. We filter out chaotic founders at the assessment stage.
               </p>
-              <p class="text-gray-400 mb-3 font-semibold">We only work with companies that have:</p>
-              <ul class="text-gray-400 space-y-2 mb-4">
+              <p class="text-text-secondary mb-3 font-semibold">We only work with companies that have:</p>
+              <ul class="text-text-secondary space-y-2 mb-4">
                 <li>• $3M+ revenue (you're past scrappy startup phase)</li>
                 <li>• An ops hire (COO, integrator, operations manager)</li>
                 <li>• A trigger event (key employee quit, preparing for sale, growth outpacing capacity)</li>
               </ul>
-              <p class="text-gray-400 leading-relaxed">
+              <p class="text-text-secondary leading-relaxed">
                 If that's not you, don't waste your time.
               </p>
             </div>
@@ -881,31 +842,31 @@
         </div>
 
         <!-- Q4: Notion/ClickUp -->
-        <div class="accordion-item">
-          <button onclick="toggleAccordion('acc4')" class="accordion-btn w-full flex items-center justify-between p-6 bg-charcoal hover:bg-gray-900 transition-all text-left">
+        <div class="accordion-item" id="acc4">
+          <button onclick="toggleAccordion('acc4')" class="accordion-trigger">
             <span class="font-bold text-lg pr-4">"Can't I just use Notion/ClickUp/Process Street?"</span>
-            <i data-lucide="chevron-down" class="w-6 h-6 text-bronze flex-shrink-0 transition-transform" id="icon-acc4"></i>
+            <i data-lucide="chevron-down" class="w-6 h-6 text-accent accordion-icon"></i>
           </button>
-          <div id="acc4" class="accordion-content bg-charcoal">
-            <div class="p-6 pt-0">
-              <p class="text-gray-400 mb-4 leading-relaxed">
+          <div class="accordion-content">
+            <div class="p-6 pt-2">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 Sure. They'll give you templates. We give you prescriptions.
               </p>
-              <p class="text-gray-400 mb-4 leading-relaxed">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 Generic tools make you figure out what to build. We assess your business, tell you exactly what's broken, and auto-install the fixes.
               </p>
               <div class="space-y-3">
-                <div class="bg-gray-900 rounded p-3">
+                <div class="bg-surface-secondary rounded p-3">
                   <p class="font-semibold mb-1">Notion:</p>
-                  <p class="text-gray-400 text-sm">Blank canvas, endless configuration</p>
+                  <p class="text-text-secondary text-sm">Blank canvas, endless configuration</p>
                 </div>
-                <div class="bg-gray-900 rounded p-3">
+                <div class="bg-surface-secondary rounded p-3">
                   <p class="font-semibold mb-1">Process Street:</p>
-                  <p class="text-gray-400 text-sm">Templates that break, per-seat pricing traps</p>
+                  <p class="text-text-secondary text-sm">Templates that break, per-seat pricing traps</p>
                 </div>
-                <div class="bg-gray-900 rounded p-3 border border-bronze/30">
-                  <p class="font-semibold mb-1 text-bronze">Founder-Free Ops System:</p>
-                  <p class="text-gray-400 text-sm">Assessment → Prescription → Auto-install. Done in 90 days.</p>
+                <div class="bg-surface-secondary rounded p-3" style="border: 1px solid rgba(166, 138, 100, 0.3);">
+                  <p class="font-semibold mb-1 text-accent">Founder-Free Ops System:</p>
+                  <p class="text-text-secondary text-sm">Assessment → Prescription → Auto-install. Done in 90 days.</p>
                 </div>
               </div>
             </div>
@@ -913,25 +874,25 @@
         </div>
 
         <!-- Q5: Not in PM -->
-        <div class="accordion-item">
-          <button onclick="toggleAccordion('acc5')" class="accordion-btn w-full flex items-center justify-between p-6 bg-charcoal hover:bg-gray-900 transition-all text-left">
+        <div class="accordion-item" id="acc5">
+          <button onclick="toggleAccordion('acc5')" class="accordion-trigger">
             <span class="font-bold text-lg pr-4">"What if I'm not in property management?"</span>
-            <i data-lucide="chevron-down" class="w-6 h-6 text-bronze flex-shrink-0 transition-transform" id="icon-acc5"></i>
+            <i data-lucide="chevron-down" class="w-6 h-6 text-accent accordion-icon"></i>
           </button>
-          <div id="acc5" class="accordion-content bg-charcoal">
-            <div class="p-6 pt-0">
-              <p class="text-gray-400 mb-4 leading-relaxed">
+          <div class="accordion-content">
+            <div class="p-6 pt-2">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 The founding cohort is PM-only (for now).
               </p>
-              <p class="text-gray-400 mb-4 leading-relaxed">
+              <p class="text-text-secondary mb-4 leading-relaxed">
                 We're validating the model with property management companies first because:
               </p>
-              <ol class="text-gray-400 space-y-2 mb-4">
+              <ol class="text-text-secondary space-y-2 mb-4">
                 <li>1. PM has the highest operational complexity (maintenance, leasing, accounting, compliance)</li>
                 <li>2. Comparable case studies (easier to show proof)</li>
                 <li>3. Tight-knit industry (referrals spread fast)</li>
               </ol>
-              <p class="text-gray-400 leading-relaxed">
+              <p class="text-text-secondary leading-relaxed">
                 <span class="font-semibold">If you're in a different service business</span> (agency, law firm, med spa), join the waitlist. Once we prove it works for PM, we'll expand.
               </p>
             </div>
@@ -942,51 +903,51 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-24 border-b border-gray-900">
+    <section id="pricing" class="py-24 border-b border-surface-border">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12">
-        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">Transparent Pricing</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Flat-Rate Pricing (No Per-Seat Trap)</h2>
-        <p class="text-gray-500 max-w-2xl mx-auto">Grow your team without growing your software bill. One price, unlimited users.</p>
+        <p class="subhead mb-4">Transparent Pricing</p>
+        <h2 class="heading-section text-3xl md:text-4xl mb-4">Flat-Rate Pricing (No Per-Seat Trap)</h2>
+        <p class="text-text-tertiary max-w-2xl mx-auto">Grow your team without growing your software bill. One price, unlimited users.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
         <!-- Team Plan -->
-        <div class="bg-charcoal border-2 border-gray-800 rounded-lg p-8 hover:border-bronze transition-all">
+        <div class="bg-surface-primary border-2 border-surface-border rounded-lg p-8 hover:border-accent transition-all">
           <div class="mb-6">
             <h3 class="text-2xl font-bold mb-2">Team Plan</h3>
             <div class="flex items-baseline gap-2 mb-2">
-              <span class="text-4xl font-bold text-bronze">$199</span>
-              <span class="text-gray-400">/month</span>
+              <span class="text-4xl font-bold text-accent">$199</span>
+              <span class="text-text-secondary">/month</span>
             </div>
             <p class="text-green-400 text-sm font-semibold">Founding Cohort Rate (normally $299)</p>
           </div>
 
-          <div class="mb-6 pb-6 border-b border-gray-800">
+          <div class="mb-6 pb-6 border-b border-surface-border">
             <p class="font-semibold mb-3">Includes:</p>
-            <ul class="space-y-2 text-gray-400 text-sm">
+            <ul class="space-y-2 text-text-secondary text-sm">
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>Up to 20 users</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>All 9 modules (SOP Library, Financial Pulse, Assessment, KPI Scorecards, Roles & People, Leadership OS, Project Execution, Customer Retention, Tech Stack)</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>1:1 Implementation Call ($1,000 value)</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>90-Day Rollout Plan ($500 value)</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>Unlimited support</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>Lifetime pricing lock</span>
               </li>
             </ul>
@@ -994,62 +955,62 @@
 
           <div class="mb-6">
             <p class="font-semibold mb-2">Best For:</p>
-            <ul class="space-y-1 text-gray-400 text-sm">
+            <ul class="space-y-1 text-text-secondary text-sm">
               <li>• $3M-$10M revenue</li>
               <li>• 15-30 employees</li>
               <li>• Founder + COO + leadership team</li>
             </ul>
           </div>
 
-          <a href="/founding-cohort-signup.html" class="block w-full bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-6 py-4 text-sm uppercase tracking-widest transition-all text-center">
+          <a href="/founding-cohort-signup.html" class="btn-primary btn-shimmer block w-full px-6 py-4 text-sm uppercase tracking-widest text-center">
             Get Your Score
           </a>
         </div>
 
         <!-- Scale Plan -->
-        <div class="bg-charcoal border-2 border-bronze rounded-lg p-8 relative">
-          <div class="absolute -top-3 right-6 bg-bronze px-4 py-1 rounded-full">
-            <span class="text-charcoal font-bold text-xs uppercase">Most Popular</span>
+        <div class="bg-surface-primary border-2 border-accent rounded-lg p-8 relative">
+          <div class="absolute -top-3 right-6 bg-accent px-4 py-1 rounded-full">
+            <span class="text-text-inverse font-bold text-xs uppercase">Most Popular</span>
           </div>
 
           <div class="mb-6">
             <h3 class="text-2xl font-bold mb-2">Scale Plan</h3>
             <div class="flex items-baseline gap-2 mb-2">
-              <span class="text-4xl font-bold text-bronze">$399</span>
-              <span class="text-gray-400">/month</span>
+              <span class="text-4xl font-bold text-accent">$399</span>
+              <span class="text-text-secondary">/month</span>
             </div>
             <p class="text-green-400 text-sm font-semibold">Founding Cohort Rate (normally $499)</p>
           </div>
 
-          <div class="mb-6 pb-6 border-b border-gray-800">
+          <div class="mb-6 pb-6 border-b border-surface-border">
             <p class="font-semibold mb-3">Includes:</p>
-            <ul class="space-y-2 text-gray-400 text-sm">
+            <ul class="space-y-2 text-text-secondary text-sm">
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>Up to 50 users</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>All 9 modules</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>1:1 Implementation Call ($1,000 value)</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>90-Day Rollout Plan ($500 value)</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
-                <span class="font-semibold text-white">Quarterly Ops Review ($750 value)</span>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
+                <span class="font-semibold text-text-primary">Quarterly Ops Review ($750 value)</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>Priority support</span>
               </li>
               <li class="flex items-start gap-2">
-                <i data-lucide="check" class="w-5 h-5 text-bronze flex-shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent flex-shrink-0"></i>
                 <span>Lifetime pricing lock</span>
               </li>
             </ul>
@@ -1057,14 +1018,14 @@
 
           <div class="mb-6">
             <p class="font-semibold mb-2">Best For:</p>
-            <ul class="space-y-1 text-gray-400 text-sm">
+            <ul class="space-y-1 text-text-secondary text-sm">
               <li>• $10M-$50M revenue</li>
               <li>• 30-100 employees</li>
               <li>• Founder + COO + multiple department heads</li>
             </ul>
           </div>
 
-          <a href="/founding-cohort-signup.html" class="block w-full bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-6 py-4 text-sm uppercase tracking-widest transition-all text-center">
+          <a href="/founding-cohort-signup.html" class="btn-primary btn-shimmer block w-full px-6 py-4 text-sm uppercase tracking-widest text-center">
             Get Your Score
           </a>
         </div>
@@ -1072,58 +1033,58 @@
 
       <!-- Pricing Comparison Table -->
       <div class="max-w-5xl mx-auto overflow-x-auto">
-        <table class="w-full text-sm border border-gray-800">
-          <thead class="bg-gray-900">
+        <table class="w-full text-sm border border-surface-border">
+          <thead class="bg-surface-secondary">
             <tr>
-              <th class="text-left p-4 font-semibold border-b border-gray-800"></th>
-              <th class="text-center p-4 font-semibold border-b border-l border-gray-800 text-bronze">Founder-Free Ops System</th>
-              <th class="text-center p-4 font-semibold border-b border-l border-gray-800 text-gray-400">Ninety.io</th>
-              <th class="text-center p-4 font-semibold border-b border-l border-gray-800 text-gray-400">Process Street</th>
-              <th class="text-center p-4 font-semibold border-b border-l border-gray-800 text-gray-400">Trainual</th>
+              <th class="text-left p-4 font-semibold border-b border-surface-border"></th>
+              <th class="text-center p-4 font-semibold border-b border-l border-surface-border text-accent">Founder-Free Ops System</th>
+              <th class="text-center p-4 font-semibold border-b border-l border-surface-border text-text-secondary">Ninety.io</th>
+              <th class="text-center p-4 font-semibold border-b border-l border-surface-border text-text-secondary">Process Street</th>
+              <th class="text-center p-4 font-semibold border-b border-l border-surface-border text-text-secondary">Trainual</th>
             </tr>
           </thead>
-          <tbody class="bg-charcoal">
+          <tbody class="bg-surface-primary">
             <tr>
-              <td class="p-4 font-semibold border-b border-gray-800">Pricing</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-bronze">$199-$399 flat</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-gray-400">$16/user ($320 for 20)</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-gray-400">$100 min ($300+ for 20)</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-gray-400">$250+ for 20</td>
+              <td class="p-4 font-semibold border-b border-surface-border">Pricing</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-accent">$199-$399 flat</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-text-secondary">$16/user ($320 for 20)</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-text-secondary">$100 min ($300+ for 20)</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-text-secondary">$250+ for 20</td>
             </tr>
             <tr>
-              <td class="p-4 font-semibold border-b border-gray-800">Assessment</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-green-400">✓ Built-in</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ None</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ None</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ None</td>
+              <td class="p-4 font-semibold border-b border-surface-border">Assessment</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-green-400">✓ Built-in</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ None</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ None</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ None</td>
             </tr>
             <tr>
-              <td class="p-4 font-semibold border-b border-gray-800">Prescriptions</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-green-400">✓ Custom</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Generic</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Generic</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Generic</td>
+              <td class="p-4 font-semibold border-b border-surface-border">Prescriptions</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-green-400">✓ Custom</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Generic</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Generic</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Generic</td>
             </tr>
             <tr>
-              <td class="p-4 font-semibold border-b border-gray-800">Auto-Install</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-green-400">✓ One-click</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Manual</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Manual</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Manual</td>
+              <td class="p-4 font-semibold border-b border-surface-border">Auto-Install</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-green-400">✓ One-click</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Manual</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Manual</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Manual</td>
             </tr>
             <tr>
-              <td class="p-4 font-semibold border-b border-gray-800">Implementation</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-green-400">✓ Done-with-you</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Self-serve</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Self-serve</td>
-              <td class="p-4 text-center border-b border-l border-gray-800 text-red-400">✗ Self-serve</td>
+              <td class="p-4 font-semibold border-b border-surface-border">Implementation</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-green-400">✓ Done-with-you</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Self-serve</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Self-serve</td>
+              <td class="p-4 text-center border-b border-l border-surface-border text-red-400">✗ Self-serve</td>
             </tr>
             <tr>
-              <td class="p-4 font-semibold border-gray-800">PM-Specific</td>
-              <td class="p-4 text-center border-l border-gray-800 text-green-400">✓ Yes</td>
-              <td class="p-4 text-center border-l border-gray-800 text-red-400">✗ Generic</td>
-              <td class="p-4 text-center border-l border-gray-800 text-red-400">✗ Generic</td>
-              <td class="p-4 text-center border-l border-gray-800 text-red-400">✗ Generic</td>
+              <td class="p-4 font-semibold border-surface-border">PM-Specific</td>
+              <td class="p-4 text-center border-l border-surface-border text-green-400">✓ Yes</td>
+              <td class="p-4 text-center border-l border-surface-border text-red-400">✗ Generic</td>
+              <td class="p-4 text-center border-l border-surface-border text-red-400">✗ Generic</td>
+              <td class="p-4 text-center border-l border-surface-border text-red-400">✗ Generic</td>
             </tr>
           </tbody>
         </table>
@@ -1132,87 +1093,87 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="bg-gray-950 py-24 border-b border-gray-900">
+    <section class="bg-surface-secondary py-24 border-b border-surface-border">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
-        <p class="text-bronze font-bold text-xs uppercase tracking-[0.2em] mb-4">FAQs</p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+        <p class="subhead mb-4">FAQs</p>
+        <h2 class="heading-section text-3xl md:text-4xl mb-4">Frequently Asked Questions</h2>
       </div>
 
       <div class="space-y-6">
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">What's the assessment?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             15-minute online questionnaire covering 8 operational areas (SOPs, KPIs, meetings, structure, delegation, visibility, documentation, systems). You get a score out of 100 and see your 3 biggest red flags.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">What happens after I take the assessment?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             You'll see your score immediately. Then you can book a demo call to review results and learn about the founding cohort. No pressure, no hard sell.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">Is this a contract?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             No. Month-to-month. Cancel anytime. 30-day unconditional money-back guarantee.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">Can I see a demo first?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             Yes. After you take the assessment, book a call and we'll walk through your specific results + show you the platform.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">What if I'm not in property management?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             Join the waitlist. Founding cohort is PM-only, but we'll expand to other service businesses (agencies, law firms, med spas) in Phase 2.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">Do you integrate with Buildium/Rent Manager/QuickBooks?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             Yes. Native integrations with major PM software + Zapier for custom workflows.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">What if my team doesn't use it?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             That's why we do implementation WITH you. By Day 14, your team is already using it because we built it together. If it's not working by Day 30, we'll refund you—no questions asked.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">How long does implementation take?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             Foundation is built in the first 14 days (two 90-minute implementation calls). Full systematization happens over 90 days as you expand from 5 SOPs to 15+, and your team takes ownership of the operating rhythm.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">What's included in the "done-with-you" implementation?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             Two 90-minute implementation calls where we co-build your first 10 SOPs, org chart, weekly meeting agenda, and 3 core KPIs. Plus a custom 90-day rollout plan delivered as a document and inside the tool. Scale plan also includes quarterly ops reviews.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">Why "founding cohort" pricing?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             The first 25 customers get lifetime pricing and extra implementation support in exchange for participating in case studies and providing feedback. Once the cohort fills, prices increase and implementation becomes more limited.
           </p>
         </div>
 
-        <div class="bg-charcoal border border-gray-800 rounded-lg p-6">
+        <div class="card p-6">
           <h3 class="font-bold mb-2">What does "lifetime pricing lock" mean?</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-text-secondary text-sm leading-relaxed">
             Your monthly rate never changes. If we raise prices for future customers, you keep your founding cohort rate forever (as long as your subscription remains active).
           </p>
         </div>
@@ -1223,20 +1184,20 @@
     <!-- Final CTA Section -->
     <section class="py-24">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Business Has a Score. Do You Know What It Is?</h2>
-      <p class="text-xl text-gray-400 mb-4">Take the 15-minute assessment. See exactly what's broken. Get a custom prescription to fix it.</p>
+      <h2 class="heading-section text-3xl md:text-4xl mb-4">Your Business Has a Score. Do You Know What It Is?</h2>
+      <p class="body-lead text-xl mb-4">Take the 15-minute assessment. See exactly what's broken. Get a custom prescription to fix it.</p>
 
-      <div class="bg-bronze/10 border border-bronze/30 rounded-lg p-6 mb-10 max-w-2xl mx-auto">
-        <p class="text-bronze font-bold mb-2">Founding Cohort (First 25 Only)</p>
-        <p class="text-gray-300 mb-3">Lifetime founder rate + done-with-you implementation</p>
-        <p class="text-gray-400 text-lg font-bold">12 of 25 spots filled.</p>
+      <div class="rounded-lg p-6 mb-10 max-w-2xl mx-auto" style="background: rgba(166, 138, 100, 0.1); border: 1px solid rgba(166, 138, 100, 0.3);">
+        <p class="text-accent font-bold mb-2">Founding Cohort (First 25 Only)</p>
+        <p class="text-text-primary mb-3">Lifetime founder rate + done-with-you implementation</p>
+        <p class="text-text-secondary text-lg font-bold">12 of 25 spots filled.</p>
       </div>
 
-      <a href="/founding-cohort-signup.html" class="inline-block bg-bronze hover:bg-white hover:text-charcoal text-white font-semibold px-12 py-5 text-base uppercase tracking-widest transition-all shadow-lg mb-10">
+      <a href="/founding-cohort-signup.html" class="btn-primary btn-shimmer inline-block px-12 py-5 text-base uppercase tracking-widest shadow-lg mb-10">
         Get Your Score (Free Assessment)
       </a>
 
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-6 text-sm text-gray-500">
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-6 text-sm text-text-tertiary">
         <div class="flex items-center gap-2">
           <i data-lucide="shield" class="w-4 h-4"></i>
           <span>Enterprise-Grade Security</span>
@@ -1250,40 +1211,40 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-charcoal border-t border-gray-800 py-8">
+    <footer class="bg-surface-primary border-t border-surface-border py-8">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
         <div class="flex items-center gap-3">
           <svg class="w-20 h-auto opacity-50" viewBox="0 0 100 25" fill="none" role="img" aria-label="Stintwell logo">
             <g transform="scale(0.22) translate(0, 5)">
-              <!-- Top-left L-shape (charcoal) -->
-              <rect x="20" y="20" width="40" height="15" fill="#232931"/>
-              <rect x="20" y="20" width="15" height="40" fill="#232931"/>
-              <!-- Bottom-right L-shape (brownish-gold) -->
-              <rect x="40" y="65" width="40" height="15" fill="#A68B5B"/>
-              <rect x="65" y="40" width="15" height="40" fill="#A68B5B"/>
+              <!-- Top-left L-shape -->
+              <rect x="20" y="20" width="40" height="15" class="logo-block-1"/>
+              <rect x="20" y="20" width="15" height="40" class="logo-block-1"/>
+              <!-- Bottom-right L-shape -->
+              <rect x="40" y="65" width="40" height="15" class="logo-block-2"/>
+              <rect x="65" y="40" width="15" height="40" class="logo-block-2"/>
             </g>
             <text x="26" y="17.5" font-family="Inter, sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="-0.5">stintwell</text>
           </svg>
         </div>
 
         <div class="text-center">
-          <p class="text-bronze font-bold text-sm mb-2">Founder-Free Ops System</p>
-          <p class="text-gray-500 text-xs mb-3">Built for $3M-$50M property management companies</p>
+          <p class="text-accent font-bold text-sm mb-2">Founder-Free Ops System</p>
+          <p class="text-text-tertiary text-xs mb-3">Built for $3M-$50M property management companies</p>
         </div>
 
         <div class="text-center md:text-right">
-          <p class="text-gray-600 text-sm mb-2">Not ready yet?</p>
-          <a href="/founding-cohort-signup.html" class="text-bronze hover:text-white text-sm transition-colors">Sign up for early access</a>
+          <p class="text-text-disabled text-sm mb-2">Not ready yet?</p>
+          <a href="/founding-cohort-signup.html" class="text-accent hover:text-text-primary text-sm transition-colors">Sign up for early access</a>
         </div>
       </div>
 
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-gray-800">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-surface-border">
         <div class="flex flex-col items-center gap-2">
-          <p class="text-gray-600 text-sm">© 2026 Stintwell Advisory. All rights reserved.</p>
-          <a href="/privacy.html" class="text-gray-500 hover:text-white text-xs transition-colors">Privacy Policy</a>
+          <p class="text-text-disabled text-sm">&copy; 2026 Stintwell Advisory. All rights reserved.</p>
+          <a href="/privacy.html" class="text-text-tertiary hover:text-text-primary text-xs transition-colors">Privacy Policy</a>
         </div>
-        <p class="text-gray-700 text-xs">Precision. Discipline. Results that endure.</p>
+        <p class="text-text-disabled text-xs">Precision. Discipline. Results that endure.</p>
       </div>
     </div>
     </footer>
@@ -1293,22 +1254,17 @@
 
     // Accordion functionality
     function toggleAccordion(id) {
-      const content = document.getElementById(id);
-      const icon = document.getElementById('icon-' + id);
-      const isActive = content.classList.contains('active');
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('open');
 
-      // Close all accordions
-      document.querySelectorAll('.accordion-content').forEach(acc => {
-        acc.classList.remove('active');
-      });
-      document.querySelectorAll('[id^="icon-"]').forEach(icn => {
-        icn.style.transform = 'rotate(0deg)';
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach(acc => {
+        acc.classList.remove('open');
       });
 
-      // Open clicked accordion if it wasn't active
-      if (!isActive) {
-        content.classList.add('active');
-        icon.style.transform = 'rotate(180deg)';
+      // Open clicked if wasn't open
+      if (!isOpen) {
+        item.classList.add('open');
       }
     }
 
