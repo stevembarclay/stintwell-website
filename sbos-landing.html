@@ -82,8 +82,8 @@
     to { opacity: 1; }
   }
   @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
   }
   .fade-in { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
   .fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
@@ -178,7 +178,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent 0%, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%, transparent 100%);
+    background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
   }
   .cta-primary:hover {
@@ -189,8 +190,9 @@
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .cta-secondary:hover {
-    border-color: #94a3b8;
-    background: rgba(241, 245, 249, 0.5);
+    border-color: #64748b;
+    background: rgba(241, 245, 249, 0.6);
+    transform: translateY(-1px);
   }
 
   /* Tabular nums for data */
@@ -200,7 +202,7 @@
 
   /* Section variation */
   .section-elevated {
-    background: linear-gradient(180deg, #fefcf9 0%, #ffffff 50%, #fefcf9 100%);
+    background: linear-gradient(180deg, #fdf8f0 0%, #fefcf9 50%, #fdf8f0 100%);
   }
 
   /* Flow connectors (desktop only) */
@@ -348,7 +350,7 @@
           Answer 20 questions. Get your structural health score.<br class="hidden sm:block">
           Activate the systems to fix what's broken.
         </p>
-        <p class="text-base text-slate-400 mb-10 max-w-xl mx-auto">
+        <p class="text-base text-slate-500 mb-10 max-w-xl mx-auto">
           SBOS surfaces hidden operational risk and installs prescriptions automatically — SOPs, scorecards, and meeting cadences matched to your specific weak points.
         </p>
 
@@ -356,12 +358,12 @@
           <a href="/sbos-signup.html" class="cta-primary bg-gradient-to-r from-teal-600 to-cyan-600 text-white font-semibold px-8 py-4 text-sm uppercase tracking-widest shadow-lg text-center rounded-full">
             Take the Quick Scan
           </a>
-          <a href="/sbos-signup.html" class="cta-secondary px-8 py-4 border border-slate-200 text-slate-900 font-semibold text-sm uppercase tracking-widest text-center rounded-full">
+          <a href="/sbos-signup.html" class="cta-secondary px-8 py-4 border border-slate-300 text-slate-900 font-semibold text-sm uppercase tracking-widest text-center rounded-full">
             Request Structural Audit
           </a>
         </div>
 
-        <p class="text-xs text-slate-400 mt-6 uppercase tracking-wider">Free • 5 minutes • 20 questions</p>
+        <p class="text-xs text-slate-500 mt-6 uppercase tracking-wider">Free • 5 minutes • 20 questions</p>
       </div>
 
       <!-- The SBOS Index Preview -->
@@ -374,13 +376,13 @@
                 <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
                 <div class="w-3 h-3 rounded-full bg-green-400"></div>
               </div>
-              <span class="text-xs text-slate-400 font-mono">sbos.stintwell.com/results</span>
+              <span class="text-xs text-slate-500 font-mono">sbos.stintwell.com/results</span>
             </div>
 
-            <div class="grid grid-cols-12 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
               <!-- Score Card -->
-              <div class="col-span-4 bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
-                <p class="text-xs text-slate-400 uppercase tracking-wider mb-2">SBOS Index</p>
+              <div class="md:col-span-4 bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">SBOS Index</p>
                 <p class="text-5xl font-bold gradient-text mb-1 data-value">2.3</p>
                 <p class="text-sm text-slate-500">Level 2: Reactive</p>
                 <div class="mt-4 pt-4 border-t border-slate-200">
@@ -390,37 +392,37 @@
               </div>
 
               <!-- Pillars -->
-              <div class="col-span-8 space-y-3">
+              <div class="md:col-span-8 space-y-3">
                 <div class="flex items-center gap-3">
-                  <span class="text-xs text-slate-400 w-24">Financial</span>
+                  <span class="text-xs text-slate-500 w-24">Financial</span>
                   <div class="flex-1 bg-slate-200 rounded-full h-2">
                     <div class="bg-red-500 h-2 rounded-full" style="width: 35%"></div>
                   </div>
                   <span class="text-xs text-slate-500 w-8 data-value">1.8</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-xs text-slate-400 w-24">Operational</span>
+                  <span class="text-xs text-slate-500 w-24">Operational</span>
                   <div class="flex-1 bg-slate-200 rounded-full h-2">
                     <div class="bg-yellow-500 h-2 rounded-full" style="width: 50%"></div>
                   </div>
                   <span class="text-xs text-slate-500 w-8 data-value">2.5</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-xs text-slate-400 w-24">Leadership</span>
+                  <span class="text-xs text-slate-500 w-24">Leadership</span>
                   <div class="flex-1 bg-slate-200 rounded-full h-2">
                     <div class="bg-yellow-500 h-2 rounded-full" style="width: 55%"></div>
                   </div>
                   <span class="text-xs text-slate-500 w-8 data-value">2.8</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-xs text-slate-400 w-24">Commercial</span>
+                  <span class="text-xs text-slate-500 w-24">Commercial</span>
                   <div class="flex-1 bg-slate-200 rounded-full h-2">
                     <div class="bg-yellow-500 h-2 rounded-full" style="width: 45%"></div>
                   </div>
                   <span class="text-xs text-slate-500 w-8 data-value">2.3</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="text-xs text-slate-400 w-24">Governance</span>
+                  <span class="text-xs text-slate-500 w-24">Governance</span>
                   <div class="flex-1 bg-slate-200 rounded-full h-2">
                     <div class="bg-green-500 h-2 rounded-full" style="width: 65%"></div>
                   </div>
@@ -428,14 +430,14 @@
                 </div>
 
                 <div class="mt-4 pt-4 border-t border-slate-200 flex items-center justify-between">
-                  <span class="text-xs text-slate-400">Current Phase:</span>
+                  <span class="text-xs text-slate-500">Current Phase:</span>
                   <span class="text-xs font-bold text-red-600 bg-red-50 px-3 py-1 rounded">STABILIZE REQUIRED</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <p class="text-center text-xs text-slate-400 mt-4">Sample SBOS Index output — your results will reflect your actual business structure</p>
+        <p class="text-center text-xs text-slate-500 mt-4">Sample SBOS Index output — your results will reflect your actual business structure</p>
       </div>
     </div>
     </section>
@@ -445,7 +447,7 @@
       <div class="gradient-divider"></div>
       <div class="max-w-4xl mx-auto px-6 pt-8">
         <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-center">
-          <p class="text-xs text-slate-400 uppercase tracking-wider">Built for operators who take structure seriously</p>
+          <p class="text-xs text-slate-500 uppercase tracking-wider">Built for operators who take structure seriously</p>
           <div class="flex items-center gap-4 sm:gap-6">
             <span class="text-slate-600 text-sm font-medium data-value">$299<span class="text-slate-400">/mo</span></span>
             <span class="w-px h-4 bg-slate-200"></span>
@@ -458,7 +460,7 @@
     </section>
 
     <!-- Three Use Cases Section -->
-    <section id="use-cases" class="py-24" style="background: linear-gradient(180deg, #fefcf9 0%, #fdf8f0 50%, #fefcf9 100%)">
+    <section id="use-cases" class="py-24" style="background: linear-gradient(180deg, #faf5ed 0%, #f5eedf 50%, #faf5ed 100%)">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12 reveal">
         <p class="label-dot text-teal-600 font-bold text-xs uppercase tracking-[0.2em] mb-4">Built for Three Archetypes</p>
@@ -525,7 +527,7 @@
           </div>
 
           <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-lg">
-            <p class="text-xs text-slate-400 uppercase tracking-wider mb-4">M&A Diligence Output</p>
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-4">M&A Diligence Output</p>
             <div class="space-y-4">
               <div class="flex justify-between items-center py-2 border-b border-slate-100">
                 <span class="text-slate-500 text-sm">Maturity Score</span>
@@ -602,31 +604,31 @@
           </div>
 
           <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-lg">
-            <p class="text-xs text-slate-400 uppercase tracking-wider mb-4">Portfolio View</p>
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-4">Portfolio View</p>
             <div class="space-y-3">
               <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg border-l-4 border-green-500">
                 <div>
                   <p class="font-semibold text-sm">Clearwater Property Mgmt</p>
-                  <p class="text-xs text-slate-400 data-value">Score: 3.4 • Optimize Phase</p>
+                  <p class="text-xs text-slate-500 data-value">Score: 3.4 • Optimize Phase</p>
                 </div>
                 <span class="text-xs text-green-600 data-value">0 Critical</span>
               </div>
               <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg border-l-4 border-yellow-500">
                 <div>
                   <p class="font-semibold text-sm">Nexus IT Solutions</p>
-                  <p class="text-xs text-slate-400 data-value">Score: 2.8 • Stabilize Phase</p>
+                  <p class="text-xs text-slate-500 data-value">Score: 2.8 • Stabilize Phase</p>
                 </div>
                 <span class="text-xs text-yellow-600 data-value">1 Critical</span>
               </div>
               <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg border-l-4 border-red-500">
                 <div>
                   <p class="font-semibold text-sm">Quick Fix Plumbing</p>
-                  <p class="text-xs text-slate-400 data-value">Score: 1.9 • Blocked</p>
+                  <p class="text-xs text-slate-500 data-value">Score: 1.9 • Blocked</p>
                 </div>
                 <span class="text-xs text-red-600 data-value">3 Critical</span>
               </div>
             </div>
-            <p class="text-xs text-slate-400 mt-4 text-center">Click any client to drill into full assessment</p>
+            <p class="text-xs text-slate-500 mt-4 text-center">Click any client to drill into full assessment</p>
           </div>
         </div>
       </div>
@@ -677,7 +679,7 @@
           </div>
 
           <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-lg">
-            <p class="text-xs text-slate-400 uppercase tracking-wider mb-4">Prescription Activation</p>
+            <p class="text-xs text-slate-500 uppercase tracking-wider mb-4">Prescription Activation</p>
             <div class="space-y-3">
               <div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
                 <div class="icon-container w-8 h-8 rounded flex items-center justify-center">
@@ -685,7 +687,7 @@
                 </div>
                 <div class="flex-1">
                   <p class="font-semibold text-sm">Monthly Financial Close Protocol</p>
-                  <p class="text-xs text-slate-400">Triggered by: no-monthly-close flag</p>
+                  <p class="text-xs text-slate-500">Triggered by: no-monthly-close flag</p>
                 </div>
                 <span class="text-xs text-green-600">Installed</span>
               </div>
@@ -695,7 +697,7 @@
                 </div>
                 <div class="flex-1">
                   <p class="font-semibold text-sm">Weekly Sync & Solve Agenda</p>
-                  <p class="text-xs text-slate-400">Triggered by: no-l10-agenda flag</p>
+                  <p class="text-xs text-slate-500">Triggered by: no-l10-agenda flag</p>
                 </div>
                 <span class="text-xs text-green-600">Installed</span>
               </div>
@@ -705,12 +707,12 @@
                 </div>
                 <div class="flex-1">
                   <p class="font-semibold text-sm">Financial Health Scorecard</p>
-                  <p class="text-xs text-slate-400">Triggered by: Financial pillar < 3.0</p>
+                  <p class="text-xs text-slate-500">Triggered by: Financial pillar < 3.0</p>
                 </div>
                 <span class="text-xs text-green-600">Installed</span>
               </div>
             </div>
-            <p class="text-xs text-slate-400 mt-4 text-center">Your blind spots are now systems</p>
+            <p class="text-xs text-slate-500 mt-4 text-center">Your blind spots are now systems</p>
           </div>
         </div>
       </div>
@@ -718,7 +720,7 @@
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-24 section-elevated">
+    <section id="how-it-works" class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16 reveal">
         <p class="label-dot text-teal-600 font-bold text-xs uppercase tracking-[0.2em] mb-4">The SBOS Process</p>
@@ -796,7 +798,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             Stop running your business from memory. Document every critical process with step-by-step templates.
           </p>
-          <p class="text-slate-400 text-xs">Process builder, version control, role-based access</p>
+          <p class="text-slate-500 text-xs">Process builder, version control, role-based access</p>
         </div>
 
         <!-- Module 2: Financial Pulse -->
@@ -808,7 +810,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             Real-time cash flow visibility. Track revenue, expenses, and financial health without switching tools.
           </p>
-          <p class="text-slate-400 text-xs">Cash flow tracking, revenue monitoring, financial alerts</p>
+          <p class="text-slate-500 text-xs">Cash flow tracking, revenue monitoring, financial alerts</p>
         </div>
 
         <!-- Module 3: Business Health Assessment -->
@@ -820,7 +822,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             15-minute assessment across 5 pillars. Identifies structural gaps and generates your roadmap.
           </p>
-          <p class="text-slate-400 text-xs">Maturity scoring, red flag detection, sequenced recommendations</p>
+          <p class="text-slate-500 text-xs">Maturity scoring, red flag detection, sequenced recommendations</p>
         </div>
 
         <!-- Module 4: KPI Scorecards -->
@@ -832,7 +834,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             Track the 5-10 metrics that actually matter. Leading and lagging indicators in one view.
           </p>
-          <p class="text-slate-400 text-xs">Custom dashboards, goal tracking, automated alerts</p>
+          <p class="text-slate-500 text-xs">Custom dashboards, goal tracking, automated alerts</p>
         </div>
 
         <!-- Module 5: Roles & People -->
@@ -844,7 +846,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             Make org structure visible. Define roles, responsibilities, and eliminate confusion about who owns what.
           </p>
-          <p class="text-slate-400 text-xs">Org chart builder, role definitions, succession planning</p>
+          <p class="text-slate-500 text-xs">Org chart builder, role definitions, succession planning</p>
         </div>
 
         <!-- Module 6: Leadership OS -->
@@ -856,7 +858,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             Turn meetings into decision machines. Structured agendas, delegation framework, and accountability tracking.
           </p>
-          <p class="text-slate-400 text-xs">Meeting templates, delegation tracker, decision rights mapping</p>
+          <p class="text-slate-500 text-xs">Meeting templates, delegation tracker, decision rights mapping</p>
         </div>
 
         <!-- Module 7: Project Execution -->
@@ -868,7 +870,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             Track strategic initiatives from idea to completion. Milestone management and progress visibility.
           </p>
-          <p class="text-slate-400 text-xs">Initiative tracking, milestone management, project dashboards</p>
+          <p class="text-slate-500 text-xs">Initiative tracking, milestone management, project dashboards</p>
         </div>
 
         <!-- Module 8: Customer Retention -->
@@ -880,7 +882,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             Proactive customer experience management. Identify at-risk accounts before they churn.
           </p>
-          <p class="text-slate-400 text-xs">Satisfaction tracking, churn prevention, engagement monitoring</p>
+          <p class="text-slate-500 text-xs">Satisfaction tracking, churn prevention, engagement monitoring</p>
         </div>
 
         <!-- Module 9: Tech Stack -->
@@ -892,7 +894,7 @@
           <p class="text-slate-500 text-sm mb-4 leading-relaxed">
             Connect your existing tools. Native integrations and Zapier workflows eliminate context-switching.
           </p>
-          <p class="text-slate-400 text-xs">Native integrations, Zapier workflows, API access</p>
+          <p class="text-slate-500 text-xs">Native integrations, Zapier workflows, API access</p>
         </div>
       </div>
 
@@ -906,7 +908,7 @@
     </section>
 
     <!-- Differentiation Section -->
-    <section class="py-24" style="background: linear-gradient(180deg, #fefcf9 0%, #fdf8f0 50%, #fefcf9 100%)">
+    <section class="py-24" style="background: linear-gradient(180deg, #faf5ed 0%, #f5eedf 50%, #faf5ed 100%)">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-12 reveal">
         <p class="label-dot text-teal-600 font-bold text-xs uppercase tracking-[0.2em] mb-4">Why SBOS</p>
@@ -943,7 +945,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 section-elevated">
+    <section class="py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center reveal">
       <h2 class="heading-serif text-3xl md:text-4xl font-semibold mb-4">Ready to See Your <span class="gradient-text">Structural Truth</span>?</h2>
       <p class="text-slate-500 mb-8 text-lg">The Quick Scan takes 5 minutes. The results might change how you run your business.</p>
@@ -952,17 +954,17 @@
         <a href="/sbos-signup.html" class="cta-primary bg-gradient-to-r from-teal-600 to-cyan-600 text-white font-semibold px-8 py-4 text-sm uppercase tracking-widest shadow-lg text-center rounded-full">
           Take the Quick Scan
         </a>
-        <a href="/sbos-signup.html" class="cta-secondary px-8 py-4 border border-slate-200 text-slate-900 font-semibold text-sm uppercase tracking-widest text-center rounded-full">
+        <a href="/sbos-signup.html" class="cta-secondary px-8 py-4 border border-slate-300 text-slate-900 font-semibold text-sm uppercase tracking-widest text-center rounded-full">
           Request Structural Audit
         </a>
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-slate-400">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-slate-500">
         <span>Quick Scan: Free, 20 questions, instant results</span>
         <span class="hidden sm:inline w-px h-3 bg-slate-200"></span>
         <span>Structural Audit: 95 questions, by request, includes consultation</span>
       </div>
-      <p class="text-xs text-slate-400 mt-4">Full platform: <span class="text-teal-600 font-medium data-value">$299/mo</span> — activated after assessment</p>
+      <p class="text-xs text-slate-500 mt-4">Full platform: <span class="text-teal-600 font-medium data-value">$299/mo</span> — activated after assessment</p>
     </div>
     </section>
 
@@ -985,10 +987,10 @@
         </svg>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <p class="text-slate-400 text-sm">© 2026 Stintwell Advisory. All rights reserved.</p>
-        <a href="/privacy.html" class="text-slate-400 hover:text-slate-900 text-xs transition-colors">Privacy Policy</a>
+        <p class="text-slate-500 text-sm">© 2026 Stintwell Advisory. All rights reserved.</p>
+        <a href="/privacy.html" class="text-slate-500 hover:text-slate-900 text-xs transition-colors">Privacy Policy</a>
       </div>
-      <p class="text-slate-400 text-xs">Precision. Discipline. Results that endure.</p>
+      <p class="text-slate-500 text-xs">Precision. Discipline. Results that endure.</p>
     </div>
     </footer>
 
