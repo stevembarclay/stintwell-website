@@ -14,7 +14,7 @@ export default function CapabilityPillars({ pillars }: CapabilityPillarsProps) {
   return (
     <div className="grid gap-6 md:grid-cols-3">
       {pillars.map((pillar, index) => (
-        <ScrollReveal key={pillar.title}>
+        <ScrollReveal key={pillar.title} delay={index * 150}>
           <div
             className={cx(
               "card card-hover p-6",

@@ -34,23 +34,30 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <section className="anchor-section pt-24 pb-24">
+      {/* Hero — gradient bottom edge blending into bg */}
+      <section
+        className="pt-24 pb-32 text-white"
+        style={{
+          background:
+            "linear-gradient(180deg, #111111 0%, #111111 80%, var(--bg) 100%)",
+        }}
+      >
         <div className="container-tight text-center">
           <ScrollReveal>
             <p className="text-label text-white/60 mb-4">Product Studio</p>
           </ScrollReveal>
-          <ScrollReveal>
+          <ScrollReveal delay={100}>
             <h1 className="text-display mb-6">
               Structure, shipped.
             </h1>
           </ScrollReveal>
-          <ScrollReveal>
+          <ScrollReveal delay={200}>
             <p className="text-body text-white/70 max-w-2xl mx-auto mb-10">
               Stintwell builds software tools that bring structure, compliance, and
               operational discipline to underserved industries.
             </p>
           </ScrollReveal>
-          <ScrollReveal>
+          <ScrollReveal delay={300}>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button
                 href="/sbos"
@@ -75,7 +82,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Section className="bg-bg">
+      {/* Philosophy — warm gradient into capabilities */}
+      <Section className="section-gradient-warm">
         <div className="container-tight">
           <SectionHeader
             eyebrow="Philosophy"
@@ -85,6 +93,10 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Gold rule divider */}
+      <div className="gold-rule container-wide" />
+
+      {/* Capabilities */}
       <Section className="bg-bg-alt">
         <div className="container-wide space-y-12">
           <SectionHeader
@@ -96,7 +108,8 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section className="bg-bg">
+      {/* Featured product — reverse gradient back to bg */}
+      <Section className="section-gradient-warm-reverse">
         <div className="container-wide">
           <FeaturedProduct />
         </div>

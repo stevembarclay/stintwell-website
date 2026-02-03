@@ -27,25 +27,32 @@ export const metadata: Metadata = {
 export default function SBOSPage() {
   return (
     <>
-      <section className="anchor-section pt-24 pb-24">
+      {/* Hero — gradient bottom edge */}
+      <section
+        className="pt-24 pb-32 text-white"
+        style={{
+          background:
+            "linear-gradient(180deg, #111111 0%, #111111 80%, var(--bg) 100%)",
+        }}
+      >
         <div className="container-tight text-center">
           <ScrollReveal>
             <p className="text-label text-white/60 mb-4">{sbosHero.eyebrow}</p>
           </ScrollReveal>
-          <ScrollReveal>
+          <ScrollReveal delay={100}>
             <h1 className="text-display mb-6">{sbosHero.title}</h1>
           </ScrollReveal>
-          <ScrollReveal>
+          <ScrollReveal delay={200}>
             <p className="text-body text-white/70 max-w-3xl mx-auto mb-6">
               {sbosHero.description}
             </p>
           </ScrollReveal>
-          <ScrollReveal>
+          <ScrollReveal delay={250}>
             <p className="text-body text-white/60 max-w-2xl mx-auto mb-10">
               {sbosHero.subcopy}
             </p>
           </ScrollReveal>
-          <ScrollReveal>
+          <ScrollReveal delay={300}>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button
                 href="#signup"
@@ -73,7 +80,8 @@ export default function SBOSPage() {
         </div>
       </section>
 
-      <Section className="bg-bg">
+      {/* System Capabilities — gradient warm */}
+      <Section className="section-gradient-warm">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="System Capabilities"
@@ -84,6 +92,10 @@ export default function SBOSPage() {
         </div>
       </Section>
 
+      {/* Gold rule divider */}
+      <div className="gold-rule container-wide" />
+
+      {/* Use Cases */}
       <Section className="bg-bg-alt" id="use-cases">
         <div className="container-wide space-y-12">
           <SectionHeader
@@ -95,7 +107,8 @@ export default function SBOSPage() {
         </div>
       </Section>
 
-      <Section className="bg-bg" id="how-it-works">
+      {/* How It Works — reverse gradient */}
+      <Section className="section-gradient-warm-reverse" id="how-it-works">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="The SBOS Process"
@@ -103,16 +116,22 @@ export default function SBOSPage() {
             description="Assessment to roadmap to installed systems."
           />
           <MethodologySteps steps={sbosMethodology} />
-          <div className="card p-6 bg-bg-alt">
-            <h3 className="text-h3 mb-3">Severity overrides score.</h3>
-            <p className="text-body text-text-muted">
-              A business can score high across multiple pillars but still be blocked by a critical red flag. SBOS
-              prevents false confidence by forcing sequence and stabilizing the foundation first.
-            </p>
-          </div>
+          <ScrollReveal delay={400}>
+            <div className="premium-card p-6">
+              <h3 className="text-h3 mb-3">Severity overrides score.</h3>
+              <p className="text-body text-text-muted">
+                A business can score high across multiple pillars but still be blocked by a critical red flag. SBOS
+                prevents false confidence by forcing sequence and stabilizing the foundation first.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </Section>
 
+      {/* Gold rule divider */}
+      <div className="gold-rule container-wide" />
+
+      {/* 9 Modules */}
       <Section className="bg-bg-alt">
         <div className="container-wide space-y-12">
           <SectionHeader
@@ -124,7 +143,8 @@ export default function SBOSPage() {
         </div>
       </Section>
 
-      <Section className="bg-bg">
+      {/* Why SBOS — gradient warm */}
+      <Section className="section-gradient-warm">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="Why SBOS"
@@ -140,6 +160,10 @@ export default function SBOSPage() {
         </div>
       </Section>
 
+      {/* Gold rule divider */}
+      <div className="gold-rule container-wide" />
+
+      {/* Signup */}
       <Section className="bg-bg-alt" id="signup">
         <div className="container-tight space-y-8">
           <SectionHeader

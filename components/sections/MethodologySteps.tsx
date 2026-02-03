@@ -13,7 +13,7 @@ export default function MethodologySteps({ steps }: MethodologyStepsProps) {
   return (
     <div className="grid gap-6 md:grid-cols-4">
       {steps.map((step, index) => (
-        <ScrollReveal key={step.title}>
+        <ScrollReveal key={step.title} delay={index * 100}>
           <div className="card card-hover p-6 bg-bg">
             <p className="text-label text-text-muted mb-4">Step 0{index + 1}</p>
             <h3 className="text-h3 mb-3">{step.title}</h3>

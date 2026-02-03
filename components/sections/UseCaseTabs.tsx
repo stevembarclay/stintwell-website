@@ -32,10 +32,10 @@ export default function UseCaseTabs({ cases }: UseCaseTabsProps) {
               onClick={() => setActive(item.id)}
               data-tab={item.id}
               className={cx(
-                "rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition",
+                "rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 ease-smooth focus-ring",
                 isActive
-                  ? "border border-accent text-accent bg-accent/10"
-                  : "border border-black/10 text-text-muted hover:text-text"
+                  ? "border border-accent text-accent bg-accent/10 shadow-gold"
+                  : "border border-black/10 text-text-muted hover:text-text hover:border-black/30"
               )}
             >
               {item.label}
@@ -45,7 +45,11 @@ export default function UseCaseTabs({ cases }: UseCaseTabsProps) {
       </div>
 
       {activeCase && (
-        <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-center">
+        <div
+          key={activeCase.id}
+          className="mt-10 grid gap-10 md:grid-cols-2 md:items-center animate-fade-in-up"
+          style={{ animationDelay: "0ms" }}
+        >
           <div>
             <p className="text-label text-text-muted mb-3">
               {activeCase.eyebrow}
@@ -66,7 +70,7 @@ export default function UseCaseTabs({ cases }: UseCaseTabsProps) {
             </div>
             <a
               href={activeCase.cta.href}
-              className="inline-flex items-center rounded-full border border-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent"
+              className="inline-flex items-center rounded-full border border-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent transition-all duration-300 ease-smooth hover:shadow-gold hover:border-accent-hover focus-ring"
               data-cta={activeCase.cta.label}
               data-cta-location="sbos-use-cases"
               data-cta-destination={activeCase.cta.href.replace("#", "")}

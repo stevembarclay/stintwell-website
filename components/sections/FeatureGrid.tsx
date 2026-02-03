@@ -13,8 +13,8 @@ type FeatureGridProps = {
 export default function FeatureGrid({ features }: FeatureGridProps) {
   return (
     <div className="grid gap-6 md:grid-cols-3">
-      {features.map((feature) => (
-        <ScrollReveal key={feature.title}>
+      {features.map((feature, index) => (
+        <ScrollReveal key={feature.title} delay={index * 100}>
           <div className="card card-hover p-6 bg-bg">
             <h3 className="text-h3 mb-3">{feature.title}</h3>
             <p className="text-body text-text-muted mb-4">
