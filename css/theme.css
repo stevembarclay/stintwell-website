@@ -52,7 +52,7 @@
      ═══════════════════════════════════════════════════════════════════════════ */
 
   /* Surfaces */
-  --surface-primary: var(--color-white);
+  --surface-primary: #FEFEFE;
   --surface-secondary: var(--color-gray-100);   /* Bumped from gray-50 for visibility */
   --surface-elevated: var(--color-white);
   --surface-border: var(--color-gray-200);
