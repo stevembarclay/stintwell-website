@@ -104,10 +104,10 @@
     <link rel="stylesheet" href="/css/shared.css">
 </head>
 
-<body class="dark-section min-h-screen" style="font-family: var(--font-family);">
+<body class="min-h-screen" style="font-family: var(--font-family);">
 
     <!-- Navigation -->
-    <nav class="absolute w-full z-50 p-6">
+    <nav class="dark-section absolute w-full z-50 p-6">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       <a href="/" class="flex items-center gap-3 group">
         <svg class="w-24 h-auto" viewBox="0 0 100 25" fill="none" role="img" aria-label="Stintwell logo">
@@ -126,8 +126,8 @@
     </div>
     </nav>
 
-    <!-- Form Section -->
-    <section class="relative pt-32 pb-20 overflow-hidden min-h-screen">
+    <!-- Hero Section -->
+    <section class="dark-section relative pt-32 pb-16 overflow-hidden">
     <div class="absolute inset-0 hero-pattern"></div>
     <div class="max-w-3xl mx-auto px-6 relative z-10">
       <div class="text-center mb-12" style="animation: fadeIn 0.6s ease-out forwards;">
@@ -148,8 +148,12 @@
           <p class="text-text-secondary text-sm">Limited availability - first come, first served</p>
         </div>
       </div>
+    </div>
+    </section>
 
-      <!-- Contact Form -->
+    <!-- Form Section -->
+    <section class="section-primary py-16">
+    <div class="max-w-3xl mx-auto px-6">
       <div class="bg-surface-secondary border border-surface-border rounded-lg p-8 md:p-12" style="animation: fadeIn 0.6s ease-out forwards; animation-delay: 0.2s; opacity: 0;">
         <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
           <input type="hidden" name="access_key" value="cf7d76d6-7647-4f17-a588-626a167f0343">
@@ -276,7 +280,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-surface-border py-8">
+    <footer class="dark-section border-t border-surface-border py-8">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex flex-col items-center gap-2">
