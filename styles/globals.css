@@ -360,6 +360,18 @@ img {
     transparent 100%
   );
   opacity: 0.3;
+  position: relative;
+}
+
+.gold-rule::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: -8px;
+  bottom: -8px;
+  background: radial-gradient(ellipse at center, rgba(168, 136, 47, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 /* Focus states — double ring pattern */
