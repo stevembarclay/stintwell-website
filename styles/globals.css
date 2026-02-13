@@ -399,6 +399,24 @@ img {
   opacity: 0;
 }
 
+/* ─── Diagonal section divider ─── */
+
+.section-divider-diagonal {
+  position: relative;
+}
+
+.section-divider-diagonal::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(3deg, var(--bg) 50%, transparent 50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* Motion preference respect */
 @media (prefers-reduced-motion: reduce) {
   *,

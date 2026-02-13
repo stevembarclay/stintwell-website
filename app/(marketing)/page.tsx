@@ -37,7 +37,7 @@ export default function HomePage() {
     <>
       {/* Hero — gradient bottom edge blending into bg */}
       <section
-        className="pt-24 pb-32 text-white"
+        className="pt-24 pb-32 text-white section-divider-diagonal"
         style={{
           background:
             "linear-gradient(180deg, #111111 0%, #111111 80%, var(--bg) 100%)",
