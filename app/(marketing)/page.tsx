@@ -5,7 +5,7 @@ import CapabilityPillars from "@/components/sections/CapabilityPillars";
 import FeaturedProduct from "@/components/sections/FeaturedProduct";
 import CTASection from "@/components/sections/CTASection";
 import Button from "@/components/primitives/Button";
-import ScrollReveal from "@/components/interactions/ScrollReveal";
+import MotionReveal from "@/components/interactions/MotionReveal";
 
 const pillars = [
   {
@@ -43,21 +43,21 @@ export default function HomePage() {
         }}
       >
         <div className="container-tight text-center">
-          <ScrollReveal>
+          <MotionReveal>
             <p className="text-label text-white/60 mb-4">Product Studio</p>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
+          </MotionReveal>
+          <MotionReveal delay={100}>
             <h1 className="text-display mb-6">
               Structure, shipped.
             </h1>
-          </ScrollReveal>
-          <ScrollReveal delay={200}>
+          </MotionReveal>
+          <MotionReveal delay={200}>
             <p className="text-body-large text-white/70 max-w-2xl mx-auto mb-10">
               Stintwell builds software tools that bring structure, compliance, and
               operational discipline to underserved industries.
             </p>
-          </ScrollReveal>
-          <ScrollReveal delay={300}>
+          </MotionReveal>
+          <MotionReveal delay={300}>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button
                 href="/sbos"
@@ -78,7 +78,7 @@ export default function HomePage() {
                 View Product
               </Button>
             </div>
-          </ScrollReveal>
+          </MotionReveal>
         </div>
       </section>
 
