@@ -52,7 +52,7 @@ export default function HomePage() {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="text-body text-white/70 max-w-2xl mx-auto mb-10">
+            <p className="text-body-large text-white/70 max-w-2xl mx-auto mb-10">
               Stintwell builds software tools that bring structure, compliance, and
               operational discipline to underserved industries.
             </p>

@@ -43,7 +43,7 @@ export default function SBOSPage() {
             <h1 className="text-display mb-6">{sbosHero.title}</h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="text-body text-white/70 max-w-3xl mx-auto mb-6">
+            <p className="text-body-large text-white/70 max-w-3xl mx-auto mb-6">
               {sbosHero.description}
             </p>
           </ScrollReveal>
