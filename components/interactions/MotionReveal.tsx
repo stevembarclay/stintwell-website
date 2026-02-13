@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useReducedMotion, type Variant } from "framer-motion";
 
 type AnimationVariant = "fadeUp" | "fadeIn" | "scaleIn" | "slideLeft" | "slideRight";
@@ -49,7 +48,9 @@ export default function MotionReveal({
   const v = variants[variant];
 
   if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
+    // Explicit style overrides stale inline styles from SSR hydration mismatch
+    // (server renders motion.div with initial="hidden" → opacity:0 inline style)
+    return <div className={className} style={{ opacity: 1, transform: "none" }}>{children}</div>;
   }
 
   return (

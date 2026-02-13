@@ -11,7 +11,7 @@ export default function MotionItem({ children, className }: MotionItemProps) {
   const prefersReducedMotion = useReducedMotion();
 
   if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
+    return <div className={className} style={{ opacity: 1, transform: "none" }}>{children}</div>;
   }
 
   return (
