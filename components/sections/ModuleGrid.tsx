@@ -13,7 +13,7 @@ type ModuleGridProps = {
 
 export default function ModuleGrid({ modules }: ModuleGridProps) {
   return (
-    <MotionStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+    <MotionStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.05}>
       {modules.map((module) => (
         <MotionItem key={module.title}>
           <div className="card card-hover card-glow p-6 bg-bg">
@@ -21,7 +21,7 @@ export default function ModuleGrid({ modules }: ModuleGridProps) {
             <p className="text-body text-text-muted mb-4">
               {module.description}
             </p>
-            <p className="text-xs uppercase tracking-[0.2em] text-text-muted">
+            <p className="text-label">
               {module.detail}
             </p>
           </div>

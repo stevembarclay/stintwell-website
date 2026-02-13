@@ -22,7 +22,7 @@ export default function CapabilityPillars({ pillars }: CapabilityPillarsProps) {
               index === 1 ? "bg-bg-alt" : "bg-muted"
             )}
           >
-            <p className="text-label text-text-muted mb-3 font-data">0{index + 1}</p>
+            <p className="text-label mb-3 font-data">0{index + 1}</p>
             <h3 className="text-h3 mb-3">{pillar.title}</h3>
             <p className="text-body text-text-muted">{pillar.description}</p>
           </div>

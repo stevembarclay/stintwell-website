@@ -79,11 +79,12 @@ img {
   line-height: 1.75;
 }
 
-.text-label {
+:where(.text-label) {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.75rem;
   font-weight: 600;
+  color: var(--text-muted);
 }
 
 .font-data {
@@ -105,9 +106,22 @@ img {
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.005);
   box-shadow: var(--shadow-lift);
   border-color: rgba(168, 136, 47, 0.15);
+}
+
+.card-hover:active {
+  transform: translateY(-2px) scale(1.002);
+  transition-duration: 100ms;
+}
+
+.card-hover:focus-visible {
+  outline: none;
+  box-shadow:
+    var(--shadow-lift),
+    0 0 0 2px var(--bg),
+    0 0 0 4px var(--accent);
 }
 
 .card-glow {
