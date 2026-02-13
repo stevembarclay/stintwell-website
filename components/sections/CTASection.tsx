@@ -1,5 +1,5 @@
 import Button from "@/components/primitives/Button";
-import ScrollReveal from "@/components/interactions/ScrollReveal";
+import MotionReveal from "@/components/interactions/MotionReveal";
 
 export default function CTASection({
   title,
@@ -15,13 +15,13 @@ export default function CTASection({
   return (
     <section className="section-padding section-gradient-anchor inset-highlight">
       <div className="container-tight text-center">
-        <ScrollReveal>
+        <MotionReveal>
           <h2 className="text-h2 text-white mb-4">{title}</h2>
-        </ScrollReveal>
-        <ScrollReveal delay={100}>
+        </MotionReveal>
+        <MotionReveal delay={100}>
           <p className="text-body text-white/70 mb-10">{description}</p>
-        </ScrollReveal>
-        <ScrollReveal delay={200}>
+        </MotionReveal>
+        <MotionReveal delay={200}>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button
               href={primary.href}
@@ -44,7 +44,7 @@ export default function CTASection({
               </Button>
             )}
           </div>
-        </ScrollReveal>
+        </MotionReveal>
       </div>
     </section>
   );
