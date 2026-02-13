@@ -18,7 +18,7 @@ export default function CapabilityPillars({ pillars }: CapabilityPillarsProps) {
         <MotionItem key={pillar.title}>
           <div
             className={cx(
-              "card card-hover p-6",
+              "card card-hover card-glow p-6",
               index === 1 ? "bg-bg-alt" : "bg-muted"
             )}
           >

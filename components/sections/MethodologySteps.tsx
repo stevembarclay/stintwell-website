@@ -15,7 +15,7 @@ export default function MethodologySteps({ steps }: MethodologyStepsProps) {
     <MotionStagger className="grid gap-6 md:grid-cols-4" staggerDelay={0.1}>
       {steps.map((step, index) => (
         <MotionItem key={step.title}>
-          <div className="card card-hover p-6 bg-bg">
+          <div className="card card-hover card-glow p-6 bg-bg">
             <p className="text-label text-text-muted mb-4 font-data">Step 0{index + 1}</p>
             <h3 className="text-h3 mb-3">{step.title}</h3>
             <p className="text-body text-text-muted">{step.description}</p>
