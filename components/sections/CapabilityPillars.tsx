@@ -1,4 +1,5 @@
-import ScrollReveal from "@/components/interactions/ScrollReveal";
+import MotionStagger from "@/components/interactions/MotionStagger";
+import MotionItem from "@/components/interactions/MotionItem";
 import { cx } from "@/lib/classnames";
 
 type Pillar = {
@@ -12,9 +13,9 @@ type CapabilityPillarsProps = {
 
 export default function CapabilityPillars({ pillars }: CapabilityPillarsProps) {
   return (
-    <div className="grid gap-6 md:grid-cols-3">
+    <MotionStagger className="grid gap-6 md:grid-cols-3" staggerDelay={0.15}>
       {pillars.map((pillar, index) => (
-        <ScrollReveal key={pillar.title} delay={index * 150}>
+        <MotionItem key={pillar.title}>
           <div
             className={cx(
               "card card-hover p-6",
@@ -25,8 +26,8 @@ export default function CapabilityPillars({ pillars }: CapabilityPillarsProps) {
             <h3 className="text-h3 mb-3">{pillar.title}</h3>
             <p className="text-body text-text-muted">{pillar.description}</p>
           </div>
-        </ScrollReveal>
+        </MotionItem>
       ))}
-    </div>
+    </MotionStagger>
   );
 }
