@@ -146,26 +146,6 @@ img {
   transform: translateX(100%);
 }
 
-/* ─── Scroll reveal ─── */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ─── Stagger delays for scroll reveal ─── */
-
-.reveal-delay-100 { transition-delay: 100ms; }
-.reveal-delay-200 { transition-delay: 200ms; }
-.reveal-delay-300 { transition-delay: 300ms; }
-.reveal-delay-400 { transition-delay: 400ms; }
-
 /* ═══════════════════════════════════════════════
    PREMIUM UTILITIES
    ═══════════════════════════════════════════════ */
