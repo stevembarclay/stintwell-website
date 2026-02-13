@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import Input from "@/components/primitives/Input";
+import Select from "@/components/primitives/Select";
 
 const ACCESS_KEY = "cf7d76d6-7647-4f17-a588-626a167f0343";
 
@@ -89,68 +91,54 @@ export default function SignupForm() {
     >
       <input type="hidden" name="access_key" value={ACCESS_KEY} />
       <div className="grid gap-4 md:grid-cols-2">
-        <div>
-          <label className="text-xs uppercase tracking-[0.2em] text-text-muted">
-            Name
-          </label>
-          <input
-            required
-            name="name"
-            type="text"
-            className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm"
-            placeholder="First Last"
-          />
-        </div>
-        <div>
-          <label className="text-xs uppercase tracking-[0.2em] text-text-muted">
-            Work Email
-          </label>
-          <input
-            required
-            name="email"
-            type="email"
-            className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm"
-            placeholder="you@company.com"
-          />
-        </div>
-        <div>
-          <label className="text-xs uppercase tracking-[0.2em] text-text-muted">
-            Company
-          </label>
-          <input
-            required
-            name="company"
-            type="text"
-            className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm"
-            placeholder="Company name"
-          />
-        </div>
-        <div>
-          <label className="text-xs uppercase tracking-[0.2em] text-text-muted">
-            Company Size
-          </label>
-          <select
-            required
-            name="size"
-            className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm"
-          >
+        <Input
+          id="signup-name"
+          required
+          name="name"
+          type="text"
+          label="Name"
+          className="bg-white"
+          placeholder="First Last"
+        />
+        <Input
+          id="signup-email"
+          required
+          name="email"
+          type="email"
+          label="Work Email"
+          className="bg-white"
+          placeholder="you@company.com"
+        />
+        <Input
+          id="signup-company"
+          required
+          name="company"
+          type="text"
+          label="Company"
+          className="bg-white"
+          placeholder="Company name"
+        />
+        <Select
+          id="signup-size"
+          required
+          name="size"
+          label="Company Size"
+          className="bg-white"
+        >
             <option value="">Select size...</option>
             <option value="1-10 employees">1-10 employees</option>
             <option value="11-25 employees">11-25 employees</option>
             <option value="26-50 employees">26-50 employees</option>
             <option value="51-100 employees">51-100 employees</option>
             <option value="100+ employees">100+ employees</option>
-          </select>
-        </div>
-        <div>
-          <label className="text-xs uppercase tracking-[0.2em] text-text-muted">
-            Annual Revenue
-          </label>
-          <select
-            required
-            name="revenue"
-            className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm"
-          >
+        </Select>
+        <Select
+          id="signup-revenue"
+          required
+          name="revenue"
+          label="Annual Revenue"
+          className="bg-white"
+        >
             <option value="">Select range...</option>
             <option value="Under $1M">Under $1M</option>
             <option value="$1M-$3M">$1M-$3M</option>
@@ -159,17 +147,14 @@ export default function SignupForm() {
             <option value="$10M-$25M">$10M-$25M</option>
             <option value="$25M-$50M">$25M-$50M</option>
             <option value="$50M+">$50M+</option>
-          </select>
-        </div>
-        <div>
-          <label className="text-xs uppercase tracking-[0.2em] text-text-muted">
-            Primary Use Case
-          </label>
-          <select
-            required
-            name="usecase"
-            className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm"
-          >
+        </Select>
+        <Select
+          id="signup-usecase"
+          required
+          name="usecase"
+          label="Primary Use Case"
+          className="bg-white"
+        >
             <option value="">Select use case...</option>
             <option value="Business Owner - Install Systems">
               Business Owner - Install Systems
@@ -179,17 +164,17 @@ export default function SignupForm() {
               Multi-Business Operator/Coach
             </option>
             <option value="Other">Other</option>
-          </select>
-        </div>
+        </Select>
         <div className="md:col-span-2">
-          <label className="text-xs uppercase tracking-[0.2em] text-text-muted">
+          <label htmlFor="signup-challenge" className="text-label">
             Biggest Challenge
           </label>
           <textarea
+            id="signup-challenge"
             required
             name="challenge"
             rows={4}
-            className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm"
+            className="mt-2 w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-sm font-medium transition-all duration-300 ease-smooth focus:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:ring-offset-2 focus:shadow-gold"
             placeholder="Too much owner dependency, no documented processes, ineffective meetings..."
           />
         </div>
@@ -198,7 +183,7 @@ export default function SignupForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="button-primary w-full rounded-full bg-accent px-6 py-4 text-xs font-semibold uppercase tracking-[0.3em] text-anchor-text"
+          className="button-primary focus-ring w-full rounded-full bg-accent px-6 py-4 text-xs font-semibold uppercase tracking-[0.3em] text-anchor-text"
           data-cta="Request Access"
           data-cta-location="sbos-form"
         >

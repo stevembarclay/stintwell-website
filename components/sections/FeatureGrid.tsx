@@ -13,7 +13,7 @@ type FeatureGridProps = {
 
 export default function FeatureGrid({ features }: FeatureGridProps) {
   return (
-    <MotionStagger className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
+    <MotionStagger className="grid gap-6 md:grid-cols-3" staggerDelay={0.06}>
       {features.map((feature) => (
         <MotionItem key={feature.title}>
           <div className="card card-hover card-glow p-6 bg-bg">
@@ -22,7 +22,7 @@ export default function FeatureGrid({ features }: FeatureGridProps) {
               {feature.description}
             </p>
             {feature.meta && (
-              <p className="text-xs uppercase tracking-[0.2em] text-text-muted">
+              <p className="text-label">
                 {feature.meta}
               </p>
             )}
