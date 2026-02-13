@@ -83,7 +83,7 @@ export default function HomePage() {
       </section>
 
       {/* Philosophy — warm gradient into capabilities */}
-      <Section className="section-gradient-warm">
+      <Section className="marketing-bg">
         <div className="container-tight">
           <SectionHeader
             eyebrow="Philosophy"
@@ -97,7 +97,7 @@ export default function HomePage() {
       <div className="gold-rule container-wide" />
 
       {/* Capabilities */}
-      <Section className="bg-bg-alt">
+      <Section className="marketing-bg-alt">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="Capabilities"
@@ -109,7 +109,7 @@ export default function HomePage() {
       </Section>
 
       {/* Featured product — reverse gradient back to bg */}
-      <Section className="section-gradient-warm-reverse">
+      <Section className="marketing-bg">
         <div className="container-wide">
           <FeaturedProduct />
         </div>

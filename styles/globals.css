@@ -276,6 +276,22 @@ img {
   background-size: 256px 256px;
 }
 
+/* ─── Ambient radial gradient backgrounds ─── */
+
+.marketing-bg {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(168, 136, 47, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(168, 136, 47, 0.015) 0%, transparent 40%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+}
+
+.marketing-bg-alt {
+  background:
+    radial-gradient(circle at 80% 15%, rgba(168, 136, 47, 0.015) 0%, transparent 40%),
+    radial-gradient(circle at 20% 85%, rgba(168, 136, 47, 0.02) 0%, transparent 40%),
+    var(--bg-alt);
+}
+
 /* Gradient section transitions */
 .section-gradient-warm {
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);

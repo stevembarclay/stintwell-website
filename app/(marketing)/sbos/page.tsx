@@ -81,7 +81,7 @@ export default function SBOSPage() {
       </section>
 
       {/* System Capabilities — gradient warm */}
-      <Section className="section-gradient-warm">
+      <Section className="marketing-bg">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="System Capabilities"
@@ -96,7 +96,7 @@ export default function SBOSPage() {
       <div className="gold-rule container-wide" />
 
       {/* Use Cases */}
-      <Section className="bg-bg-alt" id="use-cases">
+      <Section className="marketing-bg-alt" id="use-cases">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="Built for Three Archetypes"
@@ -108,7 +108,7 @@ export default function SBOSPage() {
       </Section>
 
       {/* How It Works — reverse gradient */}
-      <Section className="section-gradient-warm-reverse" id="how-it-works">
+      <Section className="marketing-bg" id="how-it-works">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="The SBOS Process"
@@ -132,7 +132,7 @@ export default function SBOSPage() {
       <div className="gold-rule container-wide" />
 
       {/* 9 Modules */}
-      <Section className="bg-bg-alt">
+      <Section className="marketing-bg-alt">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="The SBOS Platform"
@@ -144,7 +144,7 @@ export default function SBOSPage() {
       </Section>
 
       {/* Why SBOS — gradient warm */}
-      <Section className="section-gradient-warm">
+      <Section className="marketing-bg">
         <div className="container-wide space-y-12">
           <SectionHeader
             eyebrow="Why SBOS"
@@ -164,7 +164,7 @@ export default function SBOSPage() {
       <div className="gold-rule container-wide" />
 
       {/* Signup */}
-      <Section className="bg-bg-alt" id="signup">
+      <Section className="marketing-bg-alt" id="signup">
         <div className="container-tight space-y-8">
           <SectionHeader
             eyebrow="Request Access"
