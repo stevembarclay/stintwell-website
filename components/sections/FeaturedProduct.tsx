@@ -1,9 +1,9 @@
 import Link from "next/link";
-import ScrollReveal from "@/components/interactions/ScrollReveal";
+import MotionReveal from "@/components/interactions/MotionReveal";
 
 export default function FeaturedProduct() {
   return (
-    <ScrollReveal>
+    <MotionReveal variant="scaleIn">
       <div className="premium-card p-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
@@ -25,6 +25,6 @@ export default function FeaturedProduct() {
           </Link>
         </div>
       </div>
-    </ScrollReveal>
+    </MotionReveal>
   );
 }
