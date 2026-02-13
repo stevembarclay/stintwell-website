@@ -15,7 +15,7 @@ export default function MethodologySteps({ steps }: MethodologyStepsProps) {
       {steps.map((step, index) => (
         <ScrollReveal key={step.title} delay={index * 100}>
           <div className="card card-hover p-6 bg-bg">
-            <p className="text-label text-text-muted mb-4">Step 0{index + 1}</p>
+            <p className="text-label text-text-muted mb-4 font-data">Step 0{index + 1}</p>
             <h3 className="text-h3 mb-3">{step.title}</h3>
             <p className="text-body text-text-muted">{step.description}</p>
           </div>

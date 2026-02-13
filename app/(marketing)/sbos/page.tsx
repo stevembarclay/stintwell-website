@@ -74,7 +74,7 @@ export default function SBOSPage() {
               </Button>
             </div>
           </ScrollReveal>
-          <p className="text-xs text-white/60 mt-6 uppercase tracking-[0.2em]">
+          <p className="text-xs text-white/60 mt-6 uppercase tracking-[0.2em] font-data">
             Free - 5 minutes - 20 questions
           </p>
         </div>

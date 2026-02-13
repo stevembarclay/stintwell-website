@@ -86,6 +86,11 @@ img {
   font-weight: 600;
 }
 
+.font-data {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ─── Card system with institutional shadows ─── */
 
 .card {
