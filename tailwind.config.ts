@@ -30,6 +30,7 @@ const config: Config = {
         soft: "var(--shadow-soft)",
         lift: "var(--shadow-lift)",
         gold: "var(--shadow-gold)",
+        glow: "var(--shadow-glow)",
       },
       backgroundImage: {
         "cta-shimmer":
