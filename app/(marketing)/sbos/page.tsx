@@ -7,7 +7,7 @@ import ModuleGrid from "@/components/sections/ModuleGrid";
 import UseCaseTabs from "@/components/sections/UseCaseTabs";
 import CTASection from "@/components/sections/CTASection";
 import SignupForm from "@/components/sections/SignupForm";
-import ScrollReveal from "@/components/interactions/ScrollReveal";
+import MotionReveal from "@/components/interactions/MotionReveal";
 import {
   sbosFeatures,
   sbosHero,
@@ -36,23 +36,23 @@ export default function SBOSPage() {
         }}
       >
         <div className="container-tight text-center">
-          <ScrollReveal>
+          <MotionReveal>
             <p className="text-label text-white/60 mb-4">{sbosHero.eyebrow}</p>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
+          </MotionReveal>
+          <MotionReveal delay={100}>
             <h1 className="text-display mb-6">{sbosHero.title}</h1>
-          </ScrollReveal>
-          <ScrollReveal delay={200}>
+          </MotionReveal>
+          <MotionReveal delay={200}>
             <p className="text-body-large text-white/70 max-w-3xl mx-auto mb-6">
               {sbosHero.description}
             </p>
-          </ScrollReveal>
-          <ScrollReveal delay={250}>
+          </MotionReveal>
+          <MotionReveal delay={250}>
             <p className="text-body text-white/60 max-w-2xl mx-auto mb-10">
               {sbosHero.subcopy}
             </p>
-          </ScrollReveal>
-          <ScrollReveal delay={300}>
+          </MotionReveal>
+          <MotionReveal delay={300}>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button
                 href="#signup"
@@ -73,7 +73,7 @@ export default function SBOSPage() {
                 Request Structural Audit
               </Button>
             </div>
-          </ScrollReveal>
+          </MotionReveal>
           <p className="text-xs text-white/60 mt-6 uppercase tracking-[0.2em] font-data">
             Free - 5 minutes - 20 questions
           </p>
@@ -116,7 +116,7 @@ export default function SBOSPage() {
             description="Assessment to roadmap to installed systems."
           />
           <MethodologySteps steps={sbosMethodology} />
-          <ScrollReveal delay={400}>
+          <MotionReveal delay={400}>
             <div className="premium-card p-6">
               <h3 className="text-h3 mb-3">Severity overrides score.</h3>
               <p className="text-body text-text-muted">
@@ -124,7 +124,7 @@ export default function SBOSPage() {
                 prevents false confidence by forcing sequence and stabilizing the foundation first.
               </p>
             </div>
-          </ScrollReveal>
+          </MotionReveal>
         </div>
       </Section>
 
