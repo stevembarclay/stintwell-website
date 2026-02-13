@@ -1,4 +1,5 @@
-import ScrollReveal from "@/components/interactions/ScrollReveal";
+import MotionStagger from "@/components/interactions/MotionStagger";
+import MotionItem from "@/components/interactions/MotionItem";
 
 export type Feature = {
   title: string;
@@ -12,9 +13,9 @@ type FeatureGridProps = {
 
 export default function FeatureGrid({ features }: FeatureGridProps) {
   return (
-    <div className="grid gap-6 md:grid-cols-3">
-      {features.map((feature, index) => (
-        <ScrollReveal key={feature.title} delay={index * 100}>
+    <MotionStagger className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
+      {features.map((feature) => (
+        <MotionItem key={feature.title}>
           <div className="card card-hover p-6 bg-bg">
             <h3 className="text-h3 mb-3">{feature.title}</h3>
             <p className="text-body text-text-muted mb-4">
@@ -26,8 +27,8 @@ export default function FeatureGrid({ features }: FeatureGridProps) {
               </p>
             )}
           </div>
-        </ScrollReveal>
+        </MotionItem>
       ))}
-    </div>
+    </MotionStagger>
   );
 }
