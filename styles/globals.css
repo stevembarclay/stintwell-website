@@ -417,6 +417,23 @@ img {
   z-index: 2;
 }
 
+/* ─── Fade-out section bottom ─── */
+
+.section-fadeout-bottom {
+  position: relative;
+}
+
+.section-fadeout-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--anchor));
+  pointer-events: none;
+}
+
 /* Motion preference respect */
 @media (prefers-reduced-motion: reduce) {
   *,
