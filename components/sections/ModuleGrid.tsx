@@ -1,4 +1,5 @@
-import ScrollReveal from "@/components/interactions/ScrollReveal";
+import MotionStagger from "@/components/interactions/MotionStagger";
+import MotionItem from "@/components/interactions/MotionItem";
 
 export type ModuleItem = {
   title: string;
@@ -12,9 +13,9 @@ type ModuleGridProps = {
 
 export default function ModuleGrid({ modules }: ModuleGridProps) {
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {modules.map((module, index) => (
-        <ScrollReveal key={module.title} delay={index * 80}>
+    <MotionStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+      {modules.map((module) => (
+        <MotionItem key={module.title}>
           <div className="card card-hover p-6 bg-bg">
             <h3 className="text-h3 mb-3">{module.title}</h3>
             <p className="text-body text-text-muted mb-4">
@@ -24,8 +25,8 @@ export default function ModuleGrid({ modules }: ModuleGridProps) {
               {module.detail}
             </p>
           </div>
-        </ScrollReveal>
+        </MotionItem>
       ))}
-    </div>
+    </MotionStagger>
   );
 }
