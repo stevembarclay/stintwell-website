@@ -6,6 +6,7 @@ import FeaturedProduct from "@/components/sections/FeaturedProduct";
 import CTASection from "@/components/sections/CTASection";
 import Button from "@/components/primitives/Button";
 import MotionReveal from "@/components/interactions/MotionReveal";
+import HeroVisual3D from "@/components/sections/HeroVisual3D";
 
 const pillars = [
   {
@@ -42,43 +43,53 @@ export default function HomePage() {
             "linear-gradient(180deg, #111111 0%, #111111 80%, var(--bg) 100%)",
         }}
       >
-        <div className="container-tight text-center">
-          <MotionReveal>
-            <p className="text-label text-white/60 mb-4">Product Studio</p>
-          </MotionReveal>
-          <MotionReveal delay={100}>
-            <h1 className="text-display mb-6">
-              Structure, shipped.
-            </h1>
-          </MotionReveal>
-          <MotionReveal delay={200}>
-            <p className="text-body-large text-white/70 max-w-2xl mx-auto mb-10">
-              Stintwell builds software tools that bring structure, compliance, and
-              operational discipline to underserved industries.
-            </p>
-          </MotionReveal>
-          <MotionReveal delay={300}>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Button
-                href="/sbos"
-                data-cta="Explore SBOS"
-                data-cta-location="homepage-hero"
-                data-cta-destination="sbos"
-              >
-                Explore SBOS
-              </Button>
-              <Button
-                href="/sbos"
-                variant="secondary"
-                className="border-white/40 text-white hover:border-white"
-                data-cta="View Product"
-                data-cta-location="homepage-hero"
-                data-cta-destination="sbos"
-              >
-                View Product
-              </Button>
+        <div className="container-wide">
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            {/* Text column */}
+            <div className="text-center md:text-left">
+              <MotionReveal>
+                <p className="text-label text-white/60 mb-4">Product Studio</p>
+              </MotionReveal>
+              <MotionReveal delay={100}>
+                <h1 className="text-display mb-6">
+                  Structure, shipped.
+                </h1>
+              </MotionReveal>
+              <MotionReveal delay={200}>
+                <p className="text-body-large text-white/70 max-w-lg mb-10">
+                  Stintwell builds software tools that bring structure, compliance, and
+                  operational discipline to underserved industries.
+                </p>
+              </MotionReveal>
+              <MotionReveal delay={300}>
+                <div className="flex flex-col gap-4 sm:flex-row md:justify-start justify-center">
+                  <Button
+                    href="/sbos"
+                    data-cta="Explore SBOS"
+                    data-cta-location="homepage-hero"
+                    data-cta-destination="sbos"
+                  >
+                    Explore SBOS
+                  </Button>
+                  <Button
+                    href="/sbos"
+                    variant="secondary"
+                    className="border-white/40 text-white hover:border-white"
+                    data-cta="View Product"
+                    data-cta-location="homepage-hero"
+                    data-cta-destination="sbos"
+                  >
+                    View Product
+                  </Button>
+                </div>
+              </MotionReveal>
             </div>
-          </MotionReveal>
+
+            {/* 3D Visual column */}
+            <MotionReveal delay={200} variant="fadeIn" className="hidden md:block">
+              <HeroVisual3D />
+            </MotionReveal>
+          </div>
         </div>
       </section>
 
