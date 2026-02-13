@@ -33,10 +33,11 @@ export default function AboutPage() {
           </p>
 
           <p className="text-body">
-            Founded by Steven Barclay, a former Marine Infantryman and career
+            Founded by Steve Barclay, a former Marine Infantryman and career
             operator, Stintwell was born from a rejection of the traditional
-            consulting model. After years of running operations for high-volume
-            law firms and virtual services, Barclay recognized that consulting
+            consulting model. After years of running operations for high-growth
+            and high-volume management consulting firms—telecommunications, call
+            centers, and property management—Barclay recognized that consulting
             often only rents intelligence to solve recurring problems. True
             stability requires doctrine, not just documentation. By combining
             the discipline of military command structures with the scalability
@@ -45,8 +46,7 @@ export default function AboutPage() {
           </p>
 
           <p className="text-body">
-            Our portfolio—anchored by the Founder-Free Ops System and compliance
-            engines like Substantia—treats operations as a product, not a
+            Our portfolio—anchored by SBOS—treats operations as a product, not a
             department. We design for the operator who is tired of being the
             glue holding the enterprise together. Whether stabilizing a chaotic
             compliance environment or preparing a firm for acquisition, Stintwell
