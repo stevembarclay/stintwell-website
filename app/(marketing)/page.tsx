@@ -92,7 +92,7 @@ export default function HomePage() {
                   src="/images/platform-screenshot.png"
                   alt="SBOS platform — SOP Library"
                   width={950}
-                  height={1100}
+                  height={1365}
                   className="w-full h-auto"
                   priority
                 />
