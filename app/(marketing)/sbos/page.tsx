@@ -6,7 +6,6 @@ import MethodologySteps from "@/components/sections/MethodologySteps";
 import ModuleGrid from "@/components/sections/ModuleGrid";
 import UseCaseTabs from "@/components/sections/UseCaseTabs";
 import CTASection from "@/components/sections/CTASection";
-import SignupForm from "@/components/sections/SignupForm";
 import MotionReveal from "@/components/interactions/MotionReveal";
 import {
   sbosFeatures,
@@ -55,27 +54,27 @@ export default function SBOSPage() {
           <MotionReveal delay={300}>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button
-                href="#signup"
-                data-cta="Take the Quick Scan"
+                href="https://sbos.stintwell.com"
+                data-cta="Get Started Free"
                 data-cta-location="sbos-hero"
-                data-cta-destination="signup"
+                data-cta-destination="platform"
               >
-                Take the Quick Scan
+                Get Started Free
               </Button>
               <Button
-                href="#signup"
+                href="#how-it-works"
                 variant="secondary"
                 className="border-white/40 text-white hover:border-white"
-                data-cta="Request Structural Audit"
+                data-cta="See How It Works"
                 data-cta-location="sbos-hero"
-                data-cta-destination="signup"
+                data-cta-destination="how-it-works"
               >
-                Request Structural Audit
+                See How It Works
               </Button>
             </div>
           </MotionReveal>
           <p className="text-xs text-white/60 mt-6 uppercase tracking-[0.2em] font-data">
-            Free - 5 minutes - 20 questions
+            Free to start — no scan required
           </p>
         </div>
       </section>
@@ -113,7 +112,7 @@ export default function SBOSPage() {
           <SectionHeader
             eyebrow="The SBOS Process"
             title="How it works"
-            description="Assessment to roadmap to installed systems."
+            description="Start documenting. Get assessed. Install the systems."
           />
           <MethodologySteps steps={sbosMethodology} />
           <MotionReveal delay={400}>
@@ -137,7 +136,7 @@ export default function SBOSPage() {
           <SectionHeader
             eyebrow="The SBOS Platform"
             title="9 integrated modules"
-            description="Modules activate based on your assessment results. Prescriptions match your red flags."
+            description="Start with the SOP Library. Unlock more as your business grows."
           />
           <ModuleGrid modules={sbosModules} />
         </div>
@@ -163,23 +162,10 @@ export default function SBOSPage() {
       {/* Gold rule divider */}
       <div className="gold-rule container-wide" />
 
-      {/* Signup */}
-      <Section className="marketing-bg-alt" id="signup">
-        <div className="container-tight space-y-8">
-          <SectionHeader
-            eyebrow="Request Access"
-            title="See the system in action"
-            description="Tell us about your business. We'll respond within 24 hours."
-          />
-          <SignupForm />
-        </div>
-      </Section>
-
       <CTASection
-        title="Ready to see your structural truth?"
-        description="The quick scan takes five minutes. The results might change how you run your business."
-        primary={{ label: "Take the Quick Scan", href: "#signup" }}
-        secondary={{ label: "Request Structural Audit", href: "#signup" }}
+        title="Start documenting. Start operating."
+        description="Free to use. No scan required. Build your first SOP in minutes."
+        primary={{ label: "Get Started Free", href: "https://sbos.stintwell.com" }}
       />
     </>
   );

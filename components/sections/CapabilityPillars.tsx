@@ -13,12 +13,12 @@ type CapabilityPillarsProps = {
 
 export default function CapabilityPillars({ pillars }: CapabilityPillarsProps) {
   return (
-    <MotionStagger className="grid gap-6 md:grid-cols-3" staggerDelay={0.15}>
+    <MotionStagger className="grid gap-6 md:grid-cols-3 md:items-stretch" staggerDelay={0.15}>
       {pillars.map((pillar, index) => (
-        <MotionItem key={pillar.title}>
+        <MotionItem key={pillar.title} className="h-full">
           <div
             className={cx(
-              "card card-hover card-glow p-6",
+              "card card-hover card-glow p-6 h-full",
               index === 1 ? "bg-bg-alt" : "bg-muted"
             )}
           >

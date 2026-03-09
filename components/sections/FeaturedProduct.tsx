@@ -10,7 +10,7 @@ export default function FeaturedProduct() {
             <p className="text-label text-text-muted mb-3">Featured Product</p>
             <h3 className="text-h2 mb-3">SBOS</h3>
             <p className="text-body text-text-muted max-w-xl">
-              The Service Business Operating System. Diagnose structural risk, install proven systems, and build a
+              The Stintwell Business Operating System. Document your operations, surface structural gaps, and build a
               business that runs without heroics.
             </p>
           </div>

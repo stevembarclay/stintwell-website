@@ -10,6 +10,12 @@ export default function Footer() {
           <p>&copy; 2026 Stintwell. All rights reserved.</p>
           <div className="flex gap-4">
             <Link
+              href="/about"
+              className="hover:text-white transition-colors duration-200"
+            >
+              About
+            </Link>
+            <Link
               href="/privacy"
               className="hover:text-white transition-colors duration-200"
             >

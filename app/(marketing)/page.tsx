@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Section from "@/components/primitives/Section";
 import SectionHeader from "@/components/primitives/SectionHeader";
 import CapabilityPillars from "@/components/sections/CapabilityPillars";
@@ -6,7 +7,6 @@ import FeaturedProduct from "@/components/sections/FeaturedProduct";
 import CTASection from "@/components/sections/CTASection";
 import Button from "@/components/primitives/Button";
 import MotionReveal from "@/components/interactions/MotionReveal";
-import HeroVisual3D from "@/components/sections/HeroVisual3D";
 
 const pillars = [
   {
@@ -64,30 +64,46 @@ export default function HomePage() {
               <MotionReveal delay={300}>
                 <div className="flex flex-col gap-4 sm:flex-row md:justify-start justify-center">
                   <Button
+                    href="https://sbos.stintwell.com"
+                    data-cta="Get Started Free"
+                    data-cta-location="homepage-hero"
+                    data-cta-destination="platform"
+                  >
+                    Get Started Free
+                  </Button>
+                  <Button
                     href="/sbos"
+                    variant="secondary"
+                    className="border-white/40 text-white hover:border-white"
                     data-cta="Explore SBOS"
                     data-cta-location="homepage-hero"
                     data-cta-destination="sbos"
                   >
                     Explore SBOS
                   </Button>
-                  <Button
-                    href="/sbos"
-                    variant="secondary"
-                    className="border-white/40 text-white hover:border-white"
-                    data-cta="View Product"
-                    data-cta-location="homepage-hero"
-                    data-cta-destination="sbos"
-                  >
-                    View Product
-                  </Button>
                 </div>
               </MotionReveal>
             </div>
 
-            {/* 3D Visual column */}
+            {/* Platform screenshot */}
             <MotionReveal delay={200} variant="fadeIn" className="hidden md:block">
-              <HeroVisual3D />
+              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                <Image
+                  src="/images/platform-screenshot.png"
+                  alt="SBOS platform — SOP Library"
+                  width={950}
+                  height={1100}
+                  className="w-full h-auto"
+                  priority
+                />
+                {/* Fade out bottom so it blends into the hero background */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(to bottom, transparent, #111111)",
+                  }}
+                />
+              </div>
             </MotionReveal>
           </div>
         </div>
@@ -128,9 +144,9 @@ export default function HomePage() {
 
       <CTASection
         title="Build your operating system."
-        description="Explore SBOS to see how we diagnose operational risk and install the infrastructure that fixes it."
-        primary={{ label: "Explore SBOS", href: "/sbos" }}
-        secondary={{ label: "Start Assessment", href: "/sbos" }}
+        description="Start with your SOP library. Free to use, no scan required."
+        primary={{ label: "Get Started Free", href: "https://sbos.stintwell.com" }}
+        secondary={{ label: "Explore SBOS", href: "/sbos" }}
       />
     </>
   );

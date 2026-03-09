@@ -18,13 +18,7 @@ export default function Navbar() {
             href="/sbos"
             className="hover:text-text transition-colors duration-200"
           >
-            Products
-          </Link>
-          <Link
-            href="/about"
-            className="hover:text-text transition-colors duration-200"
-          >
-            About
+            SBOS
           </Link>
         </nav>
         <div className="flex items-center gap-3">
@@ -54,14 +48,7 @@ export default function Navbar() {
               className="hover:text-text transition-colors duration-200"
               onClick={() => setOpen(false)}
             >
-              Products
-            </Link>
-            <Link
-              href="/about"
-              className="hover:text-text transition-colors duration-200"
-              onClick={() => setOpen(false)}
-            >
-              About
+              SBOS
             </Link>
           </div>
         </div>

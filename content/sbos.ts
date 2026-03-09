@@ -7,9 +7,9 @@ export const sbosHero = {
   eyebrow: "Operational Infrastructure",
   title: "The Operating System for High-Performance Businesses",
   description:
-    "Answer 20 questions. Get your structural health score. Activate the systems to fix what's broken.",
+    "Start with your SOP library. Document your operations, align your team, and build a business that runs without you.",
   subcopy:
-    "SBOS surfaces hidden operational risk and installs prescriptions automatically -- SOPs, scorecards, and meeting cadences matched to your specific weak points.",
+    "As you document, SBOS surfaces structural gaps and guides you through a health assessment that prescribes exactly what to fix — SOPs, scorecards, and meeting cadences matched to your specific weak points.",
 };
 
 export const sbosFeatures: Feature[] = [
@@ -58,7 +58,7 @@ export const sbosUseCases: UseCase[] = [
           "Clear guidance: Proceed, Proceed with Caution, High Risk, or Walk Away.",
       },
     ],
-    cta: { label: "Start M&A Assessment", href: "#signup" },
+    cta: { label: "Get Started Free", href: "https://sbos.stintwell.com" },
   },
   {
     id: "operator",
@@ -84,7 +84,7 @@ export const sbosUseCases: UseCase[] = [
           "Monitor progression (or regression) over time with historical data.",
       },
     ],
-    cta: { label: "Request Portfolio Access", href: "#signup" },
+    cta: { label: "Get Started Free", href: "https://sbos.stintwell.com" },
   },
   {
     id: "owner",
@@ -108,30 +108,30 @@ export const sbosUseCases: UseCase[] = [
           "SOPs, scorecards, and meeting cadences installed automatically based on your assessment.",
       },
     ],
-    cta: { label: "Take the Quick Scan", href: "#signup" },
+    cta: { label: "Get Started Free", href: "https://sbos.stintwell.com" },
   },
 ];
 
 export const sbosMethodology: MethodStep[] = [
   {
-    title: "Take the Scan",
+    title: "Start Free",
     description:
-      "Answer questions across 5 pillars: Financial, Operational, Leadership, Commercial, Governance.",
+      "Sign up and build your first SOP immediately. No waitlist, no scan required — just start documenting.",
   },
   {
-    title: "Get Your Index",
+    title: "Document Your Operations",
     description:
-      "Receive your SBOS Index: maturity score (1-5), red flags by severity, and phase assignment.",
+      "Use AI-assisted creation to capture critical processes fast. Add team members and expand your library on the paid tier.",
   },
   {
-    title: "See Your Roadmap",
+    title: "Take the Assessment",
     description:
-      "Understand exactly what to fix first based on severity and sequence logic.",
+      "Once you're documenting, SBOS guides you through a business health check that surfaces structural gaps across 5 pillars.",
   },
   {
-    title: "Activate Prescriptions",
+    title: "Activate the System",
     description:
-      "One click installs SOPs, scorecards, and meeting cadences based on your specific flags.",
+      "Assessment results prescribe exactly what to fix. Upgrade to Pro to unlock all 9 modules and the full operating system.",
   },
 ];
 
@@ -139,7 +139,7 @@ export const sbosModules: ModuleItem[] = [
   {
     title: "SOP Library",
     description:
-      "Stop running your business from memory. Document every critical process with step-by-step templates.",
+      "Rework is not operational inefficiency — it is a structural failure signal. SOPs are not created after a problem. They are created before one.",
     detail: "Process builder, version control, role-based access",
   },
   {
@@ -151,13 +151,13 @@ export const sbosModules: ModuleItem[] = [
   {
     title: "Business Health Assessment",
     description:
-      "15-minute assessment across 5 pillars. Identifies structural gaps and generates your roadmap.",
+      "SBOS does not ask what is broken. It asks what must be true for the business to function without chaos.",
     detail: "Maturity scoring, red flag detection, sequenced recommendations",
   },
   {
     title: "KPI Scorecards",
     description:
-      "Track the 5-10 metrics that actually matter. Leading and lagging indicators in one view.",
+      "A KPI without an owner is a number. A KPI without a target is a wish. A KPI without weekly discipline is decoration.",
     detail: "Custom dashboards, goal tracking, automated alerts",
   },
   {
@@ -169,7 +169,7 @@ export const sbosModules: ModuleItem[] = [
   {
     title: "Leadership OS",
     description:
-      "Turn meetings into decision machines. Structured agendas, delegation framework, accountability tracking.",
+      "A business that depends on the founder's memory for accountability has a single point of failure with a title.",
     detail: "Meeting templates, delegation tracker, decision rights mapping",
   },
   {
