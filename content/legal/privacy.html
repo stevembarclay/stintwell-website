@@ -67,7 +67,7 @@
             <h2>3. How We Use Information</h2>
             <ul>
               <li><strong>Deliver the platform.</strong> Provide access to SBOS modules and return results and recommendations based on your data.</li>
-              <li><strong>Power AI features.</strong> Send relevant context to Anthropic's API to generate coaching responses and AI-assisted content. See Section 4.</li>
+              <li><strong>Power AI features.</strong> Send relevant context to either OpenAI's API or Anthropic's API — depending on your tier — to generate coaching responses and AI-assisted content. The free tier uses OpenAI; all paid tiers use Anthropic. See Section 4.</li>
               <li><strong>Process payments.</strong> Pass billing details to Stripe to manage your subscription.</li>
               <li><strong>Support you.</strong> Respond to support requests, diagnose issues, and communicate about your account.</li>
               <li><strong>Improve the platform.</strong> Analyze aggregated, anonymized usage patterns to make the product better. We do not use identifiable business data for product improvement.</li>
@@ -83,16 +83,16 @@
               The platform includes AI-powered features: diagnostic assessment analysis, an AI coaching assistant, and AI tools for drafting SOPs and operational content.
             </p>
             <p>
-              <strong>What gets sent to Anthropic.</strong> When you use AI features, your inputs and system prompting are sent to Anthropic's API — the provider of the Claude AI models that power these features. Anthropic does not train its models on data submitted via the API.
+              <strong>What gets sent to AI providers.</strong> When you use AI features, we send only the specific, limited information needed to perform that particular task — such as the content you're drafting or a single assessment response. We do not send information that identifies your business or your customers to any AI provider. For example, the text of an SOP is sent for AI-assisted editing, but it is not linked to your account, your business name, or any other identifying details. We do our best to anonymize information before it leaves the system. The free tier uses OpenAI's API; all paid tiers use Anthropic's API (Claude). Neither provider trains their models on data submitted via the API.
             </p>
             <p>
-              <strong>What Anthropic receives.</strong> Anthropic processes your inputs only to generate responses on your behalf. They do not use your business data for any other purpose.
+              <strong>What AI providers receive.</strong> The AI provider processes your inputs only to generate the requested response. They do not use your data for any other purpose.
             </p>
             <p>
               <strong>What not to submit.</strong> Do not enter sensitive personal data — employee Social Security numbers, private medical information, or detailed financial account numbers — into AI features. AI tools are designed for business operational context.
             </p>
             <p>
-              <strong>AI output limitations.</strong> AI-generated content is a starting point. Review it before acting on it.
+              <strong>AI output limitations.</strong> AI-generated content is a starting point, not a final work product. It may be incomplete, imprecise, or wrong in context-specific ways. Review all AI-generated content before using it — especially in regulated or sensitive domains.
             </p>
           </section>
 
@@ -119,8 +119,13 @@
                   <td>Request logs, IP addresses</td>
                 </tr>
                 <tr>
+                  <td><strong>OpenAI</strong></td>
+                  <td>AI coaching and content generation (free tier)</td>
+                  <td>User inputs and system prompting</td>
+                </tr>
+                <tr>
                   <td><strong>Anthropic</strong></td>
-                  <td>AI coaching and content generation</td>
+                  <td>AI coaching and content generation (paid tiers)</td>
                   <td>User inputs and system prompting</td>
                 </tr>
                 <tr>

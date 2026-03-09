@@ -271,12 +271,12 @@ img {
   transition-duration: 100ms;
 }
 
-/* Glassmorphism navbar */
+/* Dark navbar — matches hero, bleeds into content */
 .glass-nav {
   backdrop-filter: blur(12px);
-  background: rgba(250, 250, 248, 0.85);
-  border-bottom: 1px solid rgba(17, 17, 17, 0.06);
-  box-shadow: 0 1px 3px rgba(17, 17, 17, 0.03);
+  background: rgba(17, 17, 17, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Glassmorphism footer (dark) */

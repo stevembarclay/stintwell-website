@@ -42,13 +42,8 @@ export default function SBOSPage() {
             <h1 className="text-display mb-6">{sbosHero.title}</h1>
           </MotionReveal>
           <MotionReveal delay={200}>
-            <p className="text-body-large text-white/70 max-w-3xl mx-auto mb-6">
+            <p className="text-body-large text-white/70 max-w-3xl mx-auto mb-10">
               {sbosHero.description}
-            </p>
-          </MotionReveal>
-          <MotionReveal delay={250}>
-            <p className="text-body text-white/60 max-w-2xl mx-auto mb-10">
-              {sbosHero.subcopy}
             </p>
           </MotionReveal>
           <MotionReveal delay={300}>

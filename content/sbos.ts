@@ -183,12 +183,14 @@ export const sbosModules: ModuleItem[] = [
     description:
       "Proactive customer experience management. Identify at-risk accounts before they churn.",
     detail: "Satisfaction tracking, churn prevention, engagement monitoring",
+    comingSoon: true,
   },
   {
     title: "Tech Stack",
     description:
       "Connect your existing tools. Native integrations and Zapier workflows eliminate context-switching.",
     detail: "Native integrations, Zapier workflows, API access",
+    comingSoon: true,
   },
 ];
 
