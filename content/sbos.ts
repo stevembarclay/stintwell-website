@@ -16,20 +16,20 @@ export const sbosFeatures: Feature[] = [
   {
     title: "AI-Assisted Creation",
     description:
-      "Describe your process in plain English, get a structured SOP draft in seconds. No templates needed.",
-    meta: "SOP creation",
+      "Describe your process in plain English, upload an existing document, or start from 135+ industry templates. Structured SOP in seconds.",
+    meta: "AI creation + bulk import",
   },
   {
     title: "Lifecycle Management",
     description:
-      "Track SOPs from draft to published. Know what needs review. Never let critical processes go stale.",
-    meta: "Ownership + reviews",
+      "Track SOPs from draft through approval to published. Know what needs review. Never let a critical process go stale.",
+    meta: "Approvals + version control",
   },
   {
-    title: "Team Collaboration",
+    title: "Team Accountability",
     description:
-      "Assign owners, set approvers, manage departments and roles. Everyone knows who does what.",
-    meta: "Roles + accountability",
+      "Assign owners, set approvers, manage departments and roles. Every process has a name on it.",
+    meta: "Roles + ownership",
   },
 ];
 
@@ -116,22 +116,22 @@ export const sbosMethodology: MethodStep[] = [
   {
     title: "Start Free",
     description:
-      "Sign up and build your first SOP immediately. No waitlist, no scan required — just start documenting.",
+      "Sign up and build your first SOP immediately. No waitlist — just start documenting.",
   },
   {
     title: "Document Your Operations",
     description:
-      "Use AI-assisted creation to capture critical processes fast. Add team members and expand your library on the paid tier.",
+      "Use AI-assisted creation, bulk import, or 135+ templates to capture critical processes fast. Add team members on a paid plan.",
   },
   {
     title: "Take the Assessment",
     description:
-      "Once you're documenting, SBOS guides you through a business health check that surfaces structural gaps across 5 pillars.",
+      "SBOS guides you through a business health check across 5 pillars — scoring maturity, surfacing red flags, and sequencing exactly what to fix.",
   },
   {
     title: "Activate the System",
     description:
-      "Assessment results prescribe exactly what to fix. Upgrade to Pro to unlock all 9 modules and the full operating system.",
+      "Assessment results prescribe exactly what to fix and auto-install your first SOPs, scorecards, and meeting cadences. Upgrade to unlock the full operating system.",
   },
 ];
 
@@ -140,43 +140,43 @@ export const sbosModules: ModuleItem[] = [
     title: "SOP Library",
     description:
       "Rework is not operational inefficiency — it is a structural failure signal. SOPs are not created after a problem. They are created before one.",
-    detail: "Process builder, version control, role-based access",
-  },
-  {
-    title: "Financial Pulse",
-    description:
-      "Real-time cash flow visibility. Track revenue, expenses, and financial health without switching tools.",
-    detail: "Cash flow tracking, revenue monitoring, financial alerts",
+    detail: "AI creation, bulk import, 135+ templates, approval workflows, version control",
   },
   {
     title: "Business Health Assessment",
     description:
       "SBOS does not ask what is broken. It asks what must be true for the business to function without chaos.",
-    detail: "Maturity scoring, red flag detection, sequenced recommendations",
+    detail: "Maturity scoring, red flag detection, auto-installed prescriptions",
+  },
+  {
+    title: "Financial Pulse",
+    description:
+      "Most operators find out they have a cash flow problem after it becomes a crisis. Financial Pulse makes the problem visible while there's still time to act.",
+    detail: "13-week cash flow forecast, AR aging, unit economics, monthly P&L",
   },
   {
     title: "KPI Scorecards",
     description:
       "A KPI without an owner is a number. A KPI without a target is a wish. A KPI without weekly discipline is decoration.",
-    detail: "Custom dashboards, goal tracking, automated alerts",
+    detail: "KPI Tree, weekly green/yellow/red tracking, quarterly priorities, trend analysis",
   },
   {
     title: "Roles & People",
     description:
-      "Make org structure visible. Define roles, responsibilities, and eliminate confusion about who owns what.",
-    detail: "Org chart builder, role definitions, succession planning",
+      "Make org structure visible. Define roles, responsibilities, and eliminate the confusion that comes when everyone thinks someone else owns it.",
+    detail: "AI-generated job descriptions, org chart, hiring scorecards, seat-to-role mapping",
   },
   {
     title: "Leadership OS",
     description:
       "A business that depends on the founder's memory for accountability has a single point of failure with a title.",
-    detail: "Meeting templates, delegation tracker, decision rights mapping",
+    detail: "Weekly sync agendas, RACI matrix, delegation tracker, compliance monitoring",
   },
   {
     title: "Project Execution",
     description:
-      "Track strategic initiatives from idea to completion. Milestone management and progress visibility.",
-    detail: "Initiative tracking, milestone management, project dashboards",
+      "Strategic initiatives die in email threads and spreadsheets. Project Execution surfaces blockers before they become failures.",
+    detail: "Milestone tracking, risk flags, owner accountability, leadership snapshots",
   },
   {
     title: "Customer Retention",
@@ -290,4 +290,4 @@ export const sbosPricingTiers: PricingTier[] = [
 ];
 
 export const sbosPricingNote =
-  "The Business Health Assessment is included on every plan. It surfaces structural gaps across your entire operation — financials, leadership, team, and more. Pro gives you the modules to act on what it finds.";
+  "The Business Health Assessment is included on every plan. It scores your business across 5 pillars, surfaces red flags, and auto-installs your first prescriptions. Pro gives you every module to act on what it finds.";
