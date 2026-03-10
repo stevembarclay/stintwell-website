@@ -26,11 +26,12 @@ function BillingToggle({
   return (
     <MotionReveal delay={100}>
       <div className="flex justify-center">
-        <div className="relative inline-flex rounded-full border border-black/10 bg-bg p-1 shadow-soft">
+        {/* inline-grid forces both columns to equal width so the sliding pill lands correctly */}
+        <div className="relative inline-grid grid-cols-2 rounded-full border border-black/10 bg-bg p-1 shadow-soft">
           <div
             aria-hidden="true"
             className={cx(
-              "absolute top-1 bottom-1 w-[calc(50%-0.25rem)] rounded-full bg-accent transition-transform duration-300 ease-smooth",
+              "pointer-events-none absolute left-1 top-1 bottom-1 w-[calc(50%-0.25rem)] rounded-full bg-accent transition-transform duration-300 ease-smooth",
               mode === "annual" ? "translate-x-full" : "translate-x-0"
             )}
           />
@@ -38,7 +39,7 @@ function BillingToggle({
             type="button"
             onClick={() => onChange("monthly")}
             className={cx(
-              "relative z-10 min-w-[9rem] rounded-full px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition-colors duration-300 ease-smooth focus-ring",
+              "relative z-10 rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition-colors duration-300 ease-smooth focus-ring",
               mode === "monthly" ? "text-white" : "text-text-muted hover:text-text"
             )}
             aria-pressed={mode === "monthly"}
@@ -49,12 +50,12 @@ function BillingToggle({
             type="button"
             onClick={() => onChange("annual")}
             className={cx(
-              "relative z-10 min-w-[9rem] rounded-full px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition-colors duration-300 ease-smooth focus-ring",
+              "relative z-10 rounded-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] transition-colors duration-300 ease-smooth focus-ring",
               mode === "annual" ? "text-white" : "text-text-muted hover:text-text"
             )}
             aria-pressed={mode === "annual"}
           >
-            Annual - 15% off
+            Annual — 15% off
           </button>
         </div>
       </div>
@@ -70,32 +71,23 @@ function PricingCard({
   isAnnual: boolean;
 }) {
   const price = tier.isFree
-    ? { main: "$0", sub: "forever" }
+    ? { main: "$0", sub: "free forever" }
     : isAnnual
-      ? { main: `$${tier.price.annualMonthly}/mo`, sub: `billed $${tier.price.annualTotal.toLocaleString()}/yr` }
-      : { main: `$${tier.price.monthly}/mo`, sub: null };
-
-  const featureItems = [
-    tier.limits.users,
-    tier.limits.sops,
-    tier.limits.aiCalls,
-    tier.limits.aiModel,
-    ...tier.modules,
-  ];
-
-  const cardClass = cx(
-    "card p-8 bg-bg h-full flex flex-col",
-    tier.featured
-      ? "border-2 border-accent shadow-gold"
-      : tier.key === "pro"
-        ? "card-hover shadow-lift"
-        : "card-hover"
-  );
+      ? { main: `$${tier.price.annualMonthly}`, sub: `per month, billed $${tier.price.annualTotal.toLocaleString()}/yr` }
+      : { main: `$${tier.price.monthly}`, sub: "per month" };
 
   return (
-    <div className={cardClass}>
+    <div
+      className={cx(
+        "card p-8 bg-bg h-full flex flex-col",
+        tier.featured
+          ? "border-2 border-accent shadow-gold"
+          : "card-hover"
+      )}
+    >
+      {/* Header */}
       <div className="mb-6">
-        <div className="mb-4 flex min-h-[3rem] items-start justify-between gap-3">
+        <div className="flex items-start justify-between gap-3 mb-3">
           <h3 className="text-h3">{tier.name}</h3>
           {tier.badge && (
             <span className="shrink-0 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-white">
@@ -103,29 +95,35 @@ function PricingCard({
             </span>
           )}
         </div>
-        <div className="mb-4 min-h-[4.5rem]">
-          <p className="text-display text-text leading-none">{price.main}</p>
-          <p className="mt-2 text-body text-text-muted">{price.sub ?? "\u00A0"}</p>
-        </div>
         <p className="text-body text-text-muted">{tier.tagline}</p>
       </div>
 
-      <hr className="my-6 border-muted" />
+      {/* Price */}
+      <div className="mb-6">
+        <p className="text-[2.75rem] font-bold leading-none tracking-tight text-text">
+          {price.main}
+          {!tier.isFree && (
+            <span className="text-xl font-normal text-text-muted">/mo</span>
+          )}
+        </p>
+        <p className="mt-1.5 text-sm text-text-muted">{price.sub}</p>
+      </div>
 
-      <div className="mb-8 flex-1 space-y-3">
-        {featureItems.map((item) => (
-          <div key={item} className="flex items-center gap-2">
-            <span className="text-sm text-accent" aria-hidden="true">
-              ✓
-            </span>
-            <span className="text-body text-text-muted">{item}</span>
+      <hr className="mb-6 border-muted" />
+
+      {/* Features */}
+      <div className="flex-1 space-y-2.5 mb-8">
+        {tier.features.map((item) => (
+          <div key={item} className="flex items-start gap-2.5">
+            <span className="mt-0.5 shrink-0 text-sm text-accent" aria-hidden="true">✓</span>
+            <span className="text-sm text-text-muted">{item}</span>
           </div>
         ))}
       </div>
 
       <Button
         href={tier.cta.href}
-        className="mt-auto w-full"
+        className="w-full"
         data-cta={tier.cta.label}
         data-cta-location="pricing-section"
         data-cta-destination="platform"
@@ -144,7 +142,7 @@ export default function PricingSection({ tiers, note }: PricingSectionProps) {
     <div className="space-y-12">
       <MotionReveal>
         <SectionHeader
-          eyebrow="PRICING"
+          eyebrow="Pricing"
           title="Start free. Scale when you're ready."
         />
       </MotionReveal>
@@ -160,7 +158,7 @@ export default function PricingSection({ tiers, note }: PricingSectionProps) {
       </MotionStagger>
 
       <MotionReveal delay={400}>
-        <p className="mx-auto mt-10 max-w-2xl text-center text-body text-text-muted">
+        <p className="mx-auto max-w-2xl text-center text-body text-text-muted">
           {note}
         </p>
       </MotionReveal>

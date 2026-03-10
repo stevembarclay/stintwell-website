@@ -224,13 +224,7 @@ export type PricingTier = {
   isFree?: boolean;
   featured?: boolean;
   badge?: string;
-  limits: {
-    users: string;
-    sops: string;
-    aiCalls: string;
-    aiModel: string;
-  };
-  modules: string[];
+  features: string[];
   cta: {
     label: string;
     href: string;
@@ -244,13 +238,15 @@ export const sbosPricingTiers: PricingTier[] = [
     tagline: "Get the work out of your head and into a system.",
     isFree: true,
     price: { monthly: 0, annualMonthly: 0, annualTotal: 0 },
-    limits: {
-      users: "1 user",
-      sops: "Up to 15 SOPs",
-      aiCalls: "50 AI calls/mo",
-      aiModel: "GPT-4o mini",
-    },
-    modules: ["SOP Library", "Business Health Assessment"],
+    features: [
+      "1 user",
+      "Up to 15 SOPs",
+      "50 AI calls/month (GPT-4o mini)",
+      "SOP Library — process builder & version control",
+      "Business Health Assessment — maturity scoring & red flag detection",
+      "Sequenced fix recommendations",
+      "Email support",
+    ],
     cta: { label: "Start Free", href: "https://sbos.stintwell.com" },
   },
   {
@@ -260,13 +256,18 @@ export const sbosPricingTiers: PricingTier[] = [
     featured: true,
     badge: "Most Popular",
     price: { monthly: 199, annualMonthly: 166, annualTotal: 1990 },
-    limits: {
-      users: "Up to 5 users",
-      sops: "Unlimited SOPs",
-      aiCalls: "Unlimited AI",
-      aiModel: "Claude Sonnet",
-    },
-    modules: ["SOP Library", "Business Health Assessment"],
+    features: [
+      "Up to 5 users",
+      "Unlimited SOPs",
+      "Unlimited AI (Claude Sonnet)",
+      "SOP Library — full lifecycle, role-based access & approvals",
+      "Business Health Assessment — full scoring across all 5 pillars",
+      "Financial Pulse — cash flow tracking & revenue monitoring",
+      "KPI Scorecards — custom dashboards, goals & automated alerts",
+      "Roles & People — org chart, role definitions & succession planning",
+      "Leadership OS — meeting templates, delegation & decision rights",
+      "Priority email support",
+    ],
     cta: { label: "Start Free", href: "https://sbos.stintwell.com" },
   },
   {
@@ -274,13 +275,23 @@ export const sbosPricingTiers: PricingTier[] = [
     name: "Pro",
     tagline: "Run the full operating system.",
     price: { monthly: 399, annualMonthly: 332, annualTotal: 3990 },
-    limits: {
-      users: "Unlimited users",
-      sops: "Unlimited SOPs",
-      aiCalls: "Unlimited AI",
-      aiModel: "Claude Sonnet",
-    },
-    modules: ["All 9 modules", "Full platform"],
+    features: [
+      "Unlimited users",
+      "Unlimited SOPs",
+      "Unlimited AI (Claude Sonnet)",
+      "All 9 SBOS modules",
+      "SOP Library — full lifecycle, role-based access & approvals",
+      "Business Health Assessment — full scoring across all 5 pillars",
+      "Financial Pulse — cash flow tracking & revenue monitoring",
+      "KPI Scorecards — custom dashboards, goals & automated alerts",
+      "Roles & People — org chart, role definitions & succession planning",
+      "Leadership OS — meeting templates, delegation & decision rights",
+      "Project Execution — initiative tracking & milestone management",
+      "Customer Retention — satisfaction tracking & churn prevention",
+      "Tech Stack — native integrations, Zapier & API access",
+      "Portfolio Dashboard — all clients ranked by maturity & risk",
+      "Dedicated support",
+    ],
     cta: { label: "Get Started", href: "https://sbos.stintwell.com" },
   },
 ];
