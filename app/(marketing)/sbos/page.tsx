@@ -6,12 +6,15 @@ import MethodologySteps from "@/components/sections/MethodologySteps";
 import ModuleGrid from "@/components/sections/ModuleGrid";
 import UseCaseTabs from "@/components/sections/UseCaseTabs";
 import CTASection from "@/components/sections/CTASection";
+import PricingSection from "@/components/sections/PricingSection";
 import MotionReveal from "@/components/interactions/MotionReveal";
 import {
   sbosFeatures,
   sbosHero,
   sbosMethodology,
   sbosModules,
+  sbosPricingNote,
+  sbosPricingTiers,
   sbosPrinciples,
   sbosUseCases,
 } from "@/content/sbos";
@@ -151,6 +154,16 @@ export default function SBOSPage() {
               description: item.description,
             }))}
           />
+        </div>
+      </Section>
+
+      {/* Gold rule divider */}
+      <div className="gold-rule container-wide" />
+
+      {/* Pricing */}
+      <Section className="marketing-bg-alt" id="pricing">
+        <div className="container-wide space-y-12">
+          <PricingSection tiers={sbosPricingTiers} note={sbosPricingNote} />
         </div>
       </Section>
 

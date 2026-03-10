@@ -211,3 +211,79 @@ export const sbosPrinciples = [
       "Most frameworks rely on behavior change. SBOS installs systems that persist regardless of individuals.",
   },
 ];
+
+export type PricingTier = {
+  key: "free" | "starter" | "pro";
+  name: string;
+  tagline: string;
+  price: {
+    monthly: number;
+    annualMonthly: number;
+    annualTotal: number;
+  };
+  isFree?: boolean;
+  featured?: boolean;
+  badge?: string;
+  limits: {
+    users: string;
+    sops: string;
+    aiCalls: string;
+    aiModel: string;
+  };
+  modules: string[];
+  cta: {
+    label: string;
+    href: string;
+  };
+};
+
+export const sbosPricingTiers: PricingTier[] = [
+  {
+    key: "free",
+    name: "Free",
+    tagline: "Get the work out of your head and into a system.",
+    isFree: true,
+    price: { monthly: 0, annualMonthly: 0, annualTotal: 0 },
+    limits: {
+      users: "1 user",
+      sops: "Up to 15 SOPs",
+      aiCalls: "50 AI calls/mo",
+      aiModel: "GPT-4o mini",
+    },
+    modules: ["SOP Library", "Business Health Assessment"],
+    cta: { label: "Start Free", href: "https://sbos.stintwell.com" },
+  },
+  {
+    key: "starter",
+    name: "Starter",
+    tagline: "Scale the team. Document everything.",
+    featured: true,
+    badge: "Most Popular",
+    price: { monthly: 199, annualMonthly: 166, annualTotal: 1990 },
+    limits: {
+      users: "Up to 5 users",
+      sops: "Unlimited SOPs",
+      aiCalls: "Unlimited AI",
+      aiModel: "Claude Sonnet",
+    },
+    modules: ["SOP Library", "Business Health Assessment"],
+    cta: { label: "Start Free", href: "https://sbos.stintwell.com" },
+  },
+  {
+    key: "pro",
+    name: "Pro",
+    tagline: "Run the full operating system.",
+    price: { monthly: 399, annualMonthly: 332, annualTotal: 3990 },
+    limits: {
+      users: "Unlimited users",
+      sops: "Unlimited SOPs",
+      aiCalls: "Unlimited AI",
+      aiModel: "Claude Sonnet",
+    },
+    modules: ["All 9 modules", "Full platform"],
+    cta: { label: "Get Started", href: "https://sbos.stintwell.com" },
+  },
+];
+
+export const sbosPricingNote =
+  "The Business Health Assessment is included on every plan. It surfaces structural gaps across your entire operation — financials, leadership, team, and more. Pro gives you the modules to act on what it finds.";
