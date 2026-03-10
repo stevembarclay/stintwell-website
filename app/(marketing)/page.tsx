@@ -87,13 +87,12 @@ export default function HomePage() {
 
             {/* Platform screenshot */}
             <MotionReveal delay={200} variant="fadeIn" className="hidden md:block">
-              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl" style={{ aspectRatio: "950 / 1160" }}>
                 <Image
                   src="/images/platform-screenshot.png"
                   alt="SBOS platform — SOP Library"
-                  width={950}
-                  height={1365}
-                  className="w-full h-auto"
+                  fill
+                  className="object-cover object-top"
                   priority
                 />
                 {/* Fade out bottom so it blends into the hero background */}
