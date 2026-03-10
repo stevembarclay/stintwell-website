@@ -37,7 +37,7 @@ export default function AboutPage() {
             operator, Stintwell was born from a rejection of the traditional
             consulting model. After years of running operations for high-growth
             and high-volume management consulting firms—telecommunications, call
-            centers, and property management—Barclay recognized that consulting
+            centers, and property management—Steve recognized that consulting
             often only rents intelligence to solve recurring problems. True
             stability requires doctrine, not just documentation. By combining
             the discipline of military command structures with the scalability
