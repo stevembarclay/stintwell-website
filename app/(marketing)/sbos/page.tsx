@@ -69,7 +69,7 @@ export default function SBOSPage() {
             </div>
           </MotionReveal>
           <p className="text-xs text-white/60 mt-6 uppercase tracking-[0.2em] font-data">
-            Free to start — no scan required
+            Free to start
           </p>
         </div>
       </section>
@@ -159,7 +159,7 @@ export default function SBOSPage() {
 
       <CTASection
         title="Start documenting. Start operating."
-        description="Free to use. No scan required. Build your first SOP in minutes."
+        description="Free to use. Build your first SOP in minutes."
         primary={{ label: "Get Started Free", href: "https://sbos.stintwell.com" }}
       />
     </>

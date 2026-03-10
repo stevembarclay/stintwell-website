@@ -35,6 +35,30 @@ export const sbosFeatures: Feature[] = [
 
 export const sbosUseCases: UseCase[] = [
   {
+    id: "owner",
+    label: "Business Owners",
+    eyebrow: "For Founders & Operators",
+    title: "From Diagnosis to Systems -- In Minutes",
+    description:
+      "SBOS shows you exactly what's broken and installs the fix.",
+    bullets: [
+      {
+        title: "Blind Spot Detection",
+        description: "Surface the structural issues you can't see from inside the business.",
+      },
+      {
+        title: "Sequenced Roadmap",
+        description: "Know exactly what to fix first. No more random projects.",
+      },
+      {
+        title: "Prescription Activation",
+        description:
+          "SOPs, scorecards, and meeting cadences installed automatically based on your assessment.",
+      },
+    ],
+    cta: { label: "Get Started Free", href: "https://sbos.stintwell.com" },
+  },
+  {
     id: "ma",
     label: "M&A Due Diligence",
     eyebrow: "For Acquirers & Brokers",
@@ -82,30 +106,6 @@ export const sbosUseCases: UseCase[] = [
         title: "Progress Tracking",
         description:
           "Monitor progression (or regression) over time with historical data.",
-      },
-    ],
-    cta: { label: "Get Started Free", href: "https://sbos.stintwell.com" },
-  },
-  {
-    id: "owner",
-    label: "Business Owners",
-    eyebrow: "For Founders & Operators",
-    title: "From Diagnosis to Systems -- In Minutes",
-    description:
-      "SBOS shows you exactly what's broken and installs the fix.",
-    bullets: [
-      {
-        title: "Blind Spot Detection",
-        description: "Surface the structural issues you can't see from inside the business.",
-      },
-      {
-        title: "Sequenced Roadmap",
-        description: "Know exactly what to fix first. No more random projects.",
-      },
-      {
-        title: "Prescription Activation",
-        description:
-          "SOPs, scorecards, and meeting cadences installed automatically based on your assessment.",
       },
     ],
     cta: { label: "Get Started Free", href: "https://sbos.stintwell.com" },

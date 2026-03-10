@@ -144,7 +144,7 @@ export default function HomePage() {
 
       <CTASection
         title="Build your operating system."
-        description="Start with your SOP library. Free to use, no scan required."
+        description="Start with your SOP library. Free to use."
         primary={{ label: "Get Started Free", href: "https://sbos.stintwell.com" }}
         secondary={{ label: "Explore SBOS", href: "/sbos" }}
       />

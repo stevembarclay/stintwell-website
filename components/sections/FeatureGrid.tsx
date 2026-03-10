@@ -16,7 +16,7 @@ export default function FeatureGrid({ features }: FeatureGridProps) {
     <MotionStagger className="grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
       {features.map((feature) => (
         <MotionItem key={feature.title}>
-          <div className="card card-hover card-glow p-6 bg-bg">
+          <div className="card card-hover card-glow p-6 bg-bg h-full">
             <h3 className="text-h3 mb-3">{feature.title}</h3>
             <p className="text-body text-text-muted mb-4">
               {feature.description}
